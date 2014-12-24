@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MALESHIN</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    html { 
+
+  background: url(images/dsea1.jpg) no-repeat center center fixed; 
+   background-size: cover;  
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  min-width:768px;
+}
+    @font-face {
+      font-family:br;
+      src:url('fonts/bebasneue_regular.ttf');
+     }
+    @font-face {
+      font-family:attentica;
+      src:url('fonts/Attentica.ttf');
+     }
+     @font-face {
+      font-family:roboto-thin;
+      src:url('fonts/Roboto-Thin.ttf');
+     }
+     body {
+      background-color:transparent;
+
+     }
+     h1 {
+      font-family:attentica;
+      font-size:20vw;
+      color:white;
+      margin:0px;
+     }
+     h2 {
+      color:white;
+      font-family:roboto-thin;
+      font-size:2vw;
+      margin-top:1vh;
+      margin-bottom:1vh;
+      margin-right:1vw;
+      margin-left:1vw;
+     }
+     h3 {
+      font-family:arial;
+      font-size:2vw;
+     }
+     h4 {
+      font-weight:bold;
+      font-family:br;
+      font-size:4vw;
+     }
+     h5 {
+      font-family:roboto-thin;
+      color:#c35;
+      font-size:2vw;
+      font-weight:bold;
+     }
+     h6 {
+      font-family:roboto-thin;
+      font-size:8vw;
+      color:#03406a;
+      opacity:0.5;
+     }
+     .container {
+      margin:0px;
+      padding:0px;
+      
+      width:100%;
+     }
+     img {
+      position:fixed;
+      height:100vh;
+      width:100vw;
+      z-index:0;
+      -webkit-filter:brightness(50%);
+     }
+     .btn-default {
+     background-color:transparent;
+     }
+     .btn:hover {
+     background-color:white;
+     opacity:0.5;
+     }
+     .btn-default:focus {
+       
+       background-color:#e6e6e6;
+       
+     }
+     .btn-default:focus h2 {
+      color:black;
+     }
+     .btn:hover h2 {
+      color:black;
+     }
+     .btn-group {
+      
+     }
+     #menu {
+      text-align:center;
+      margin-top:5vh;
+
+     }
+     #header {
+      height:100vh;
+      -webkit-transition:height 1.5s;
+      -webkit-transition-timing-function:ease-out;
+      
+     }
+     
+     #main {
+      margin-left:0px;
+      margin-right:0px;
+     }
+     #title {
+      height:70vh;
+      text-align:center;
+      padding-left:9vw;
+      padding-right:9vw;
+     }
+     .white {
+      
+      background-color:white;
+     }
+     .chevron  {
+      height:10vh;
+      text-align:center;
+      opacity:0.5;
+      margin-bottom:3vh;
+     }
+     .active h2 {
+      color:black;
+     }
+     .fff {
+      background-color:#fff;
+      
+     }
+     .text {
+      padding-top:3vh;
+      padding-bottom:5vh;
+      padding-left:10vw;
+      padding-right:10vw;
+      background-color:#fff;
+     }
+     #countriesblock{
+      
+      display:none;
+     }
+     #routesblock{
+      
+      display:none;
+     }
+     #blogblock{
+      
+     }
+     #gallblock{
+      
+      display:none;
+     }
+     #booksblock{
+      
+      display:none;
+     }
+     #aboutblock{
+      
+      display:none;
+     }
+     #contactsblock{
+      
+      display:none;
+     }
+     .illustration {
+      height:40vh;
+     }
+     #firstil {
+      background: url(images/travelone.jpg) no-repeat center center fixed; 
+      background-size: cover;  
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     min-width:768px;
+      }
+      #secondil {
+      background: url(images/traveltwo.jpg) no-repeat center center fixed; 
+      background-size: cover;  
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     min-width:768px;
+      }
+      #thirdil {
+      background: url(images/travelthree.jpg) no-repeat center center fixed; 
+      background-size: cover;  
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     min-width:768px;
+      }
+      #fourthil {
+      background: url(images/travefour.jpg) no-repeat center center fixed; 
+      background-size: cover;  
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     min-width:768px;
+      }
+     #olderposts {
+      text-align:center;
+     }
+     .separator {
+      margin-left:7vw;
+      margin-right:7vw;
+      height:5vh;
+      background-color:#ddd;
+     }
+     .smth {
+      
+     }
+     #previous {
+      padding:4vh;
+      opacity:0.6;
+     }
+     .btmcrcl {
+      height:4vw;
+      width:4vw;
+      border-radius:50%;
+      border:3px solid #03406a;
+      text-align:center;
+      background-color:white;
+     }
+    </style>
+  </head>
+  <body>
+    <!--<img src='images/sea1.jpg' >-->
+    <!--.col-xs-10 {
+      width:75%;
+      }
+      .col-xs-offset-1 {
+        margin-left:12.5%;
+
+
+        
+      }-->
+    <div class='container'>
+
+     <div class='row' id='header'>
+      <div class='col-xs-12'>
+     
+
+     <div class='row' id='menu'>
+      <div class='col-xs-12' style='padding:0px;'>
+     <div class="btn-group">
+       <a href='/countries'><button type="button" style='border-top-left-radius:0.5vw;border-bottom-left-radius:0.5vw;' class="btn btn-default" id='countries'><h2>СТРАНЫ</h2></button></a>
+       <a href='/routes'><button type="button" class="btn btn-default" id='routes'><h2>МАРШРУТЫ</h2></button></a>
+       <a href='/gallery'><button type="button" class="btn btn-default" id='gall'><h2>ГАЛЕРЕЯ</h2></button></a>
+       <a href='/blog'><button type="button" class="btn btn-default active" id='blog'><h2>БЛОГ</h2></button></a>
+       <a href='/books'><button type="button" class="btn btn-default" id='books'><h2>КНИГИ</h2></button></a>
+       <a href='/about'><button type="button" class="btn btn-default" id='about'><h2>О ПРОЕКТЕ</h2></button></a>
+       <a href='/contacts'><button type="button" style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;' class="btn btn-default" id='contacts'><h2>КОНТАКТЫ</h2></button></a>
+     </div>
+     </div>
+     </div>
+
+
+
+     <div class='row' id='title'>
+       <div class='col-xs-12' style='padding:0px;'>
+         <h1 id='titletext'>Trip to south America </h1>
+       </div>
+     </div>
+
+     <script>
+      console.log($('#titletext').text().length);
+       if($('#titletext').text().length >= 22) {
+         if($('#titletext').text().length >= 46) {
+          if($('#titletext').text().length < 66) {
+             $("h1").css({"line-height":"35vh","font-size":"10vw"});
+            } // 66
+           else {  
+          $("h1").css({"line-height":"23vh","font-size":"10vw"});
+           }
+         } //46
+         else {
+          if ($('#titletext').text().length = 22){
+          $("h1").css({"line-height":"70vh","font-size":"15vw"});
+          }
+          else {
+            $("h1").css({"line-height":"35vh","font-size":"15vw"});
+          }
+         }
+     } //23
+      else {
+        $("h1").css({"line-height":"70vh","font-size":"20vw"});
+      }
+     </script>
+
+       <div class='row chevron' id='chevron'>
+         <div class='col-xs-2 col-xs-offset-5'>
+          <h2><span style='font-size:5vw;'class='glyphicon glyphicon-chevron-down'></span></h2>
+         </div>
+       </div>
+      
+      </div>
+     </div>
+
+     <!--<div class='row' id='main'>
+       <div class='col-xs-10 col-xs-offset-1' style='height:78vh;border:1px solid #ddd;border-top:0px;'>
+       </div>
+     </div>-->
+      <div class='row fff' id='routesblock'>
+        <div class='col-xs-12' style='height:100vh'>
+        </div>
+      </div>
+
+
+      <div class='row fff' id='countriesblock'>
+        <div class='col-xs-12' style='height:100vh;'>
+        </div>
+      </div>
+
+
+      <div class='row fff' id='gallblock'>
+        <div class='col-xs-12' style='height:100vh;'>
+        </div>
+      </div>
+      
+
+     <div class='row fff' id='blogblock'>
+      <div class='col-xs-12 ' style='height:100vh'>
+        <div class='row text' >
+        <div class='col-xs-12'>
+         <h4> Maleshin is going to south America</h4>
+         <h5>12.10.2014</h5>
+         <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
+       </h3>
+
+       </div>
+       </div>
+
+        <div class='row illustration' id='firstil'>
+         <div class='col-xs-12'>
+          <div class='smth' id='firstilpic' style='height:4vw;width:4vw;border-radius:50%;border:3px solid white;right:9vw;top:10vh;position:absolute;text-align:center;'>
+            <a href='#'><h2 style='display:block;margin:0px;'><span style='line-height:3.5vw;' class='glyphicon glyphicon-chevron-right'></span></h2></a>
+            </div>
+          </div>
+        </div>
+
+        <div class='row text'>
+        <div class='col-xs-12' >
+
+        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan.</h3>
+
+        </div>
+        </div>
+        
+        <div class='row illustration' id='secondil'>
+          <div class='col-xs-12'>
+          <div class='smth' id='firstilpic' style='height:4vw;width:4vw;border-radius:50%;border:3px solid white;right:9vw;top:10vh;position:absolute;text-align:center;'>
+            <a href='#'><h2 style='display:block;margin:0px;'><span style='line-height:3.5vw;' class='glyphicon glyphicon-chevron-right'></span></h2></a>
+            </div>
+          </div>
+        </div>
+
+        <div class='row text'>
+        <div class='col-xs-12' >
+
+        <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan.</h3>
+
+        </div>
+        </div>
+
+       <!-- <div class='row illustration' id='thirdil'>
+          <div class='col-xs-12'>
+          <div class='smth' id='firstilpic' style='height:4vw;width:4vw;border-radius:50%;border:3px solid white;right:9vw;top:10vh;position:absolute;text-align:center;'>
+            <a href='#'><h2 style='display:block;margin:0px;'><span style='line-height:3.5vw;' class='glyphicon glyphicon-chevron-right'></span></h2></a>
+            </div>
+          </div>
+        </div>-->
+
+        <div class='row text'>
+          <div class=' separator'>
+          </div>
+        </div>
+
+        <!--<div class='row text' id='olderposts'>
+           <div class='col-xs-12'>
+             <h6> OLDER POSTS </h6>
+           </div>
+        </div>-->
+
+        <div class='row text' style='background-color:#548db4;' id='previous'>
+                
+         
+         <div class='col-xs-1' style='text-align:center;'>
+           <div class='btmcrcl' >
+            <a href='#'><h2 style='display:block;margin:0px;'><span style='color:#03406a;line-height:3.5vw;' class='glyphicon glyphicon-chevron-left'></span></h2></a>
+            </div>
+         </div>
+
+        </div>
+
+
+
+        
+       </div>
+       <!--<div class='row' id='footer'>
+         <div class='col-xs-12'>
+          <div id="vmap" style="width: 90vw; height: 100vh;"></div>
+        </div>
+         </div>
+      </div>
+
+      
+      <div class='row fff' id='booksblock'>
+        <div class='col-xs-12' style='height:100vh;'>
+        </div>
+      </div>
+
+
+      <div class='row fff' id='aboutblock'>
+        <div class='col-xs-12' style='height:100vh;'>
+        </div>
+      </div>
+
+
+      <div class='row fff' id='contactsblock'>
+        <div class='col-xs-12' style='height:100vh;'>
+        </div>
+      </div>-->
+
+
+     </div>
+
+    </div>
+
+
+    
+     <!--
+
+     var count = 0;
+     var gallcount = 0;
+     var countriescount = 0;
+     var routescount = 0;
+     var bookscount = 0;
+     var aboutcount = 0;
+     var contactscount = 0;
+      $('#gall').click(function(){
+        if (count === 0){
+        $('#blog').removeClass('active');
+           $('#gallblock').slideToggle();
+           $('#blogblock').slideToggle();
+           $('#header').css({"height":"15vh"});
+           $('#title').css({"display":"none"});
+           $('#chevron').css({"display":"none"});
+           count++;
+           gallcount++;
+
+      }
+       else 
+       { if (gallcount%2 === 0) {
+         var a = $('#routesblock').css("display");
+         var b = $('#countriesblock').css("display");
+         var d = $('#blogblock').css("display");
+         var e = $('#bookblock').css("display");
+         var f = $('#aboutblock').css("display");
+         var g = $('#contactsblock').css("display");
+         
+         switch ("block") {
+          
+         case $('#routesblock').css("display") :
+              $('#routesblock').css({"display":"none"});
+              routescount++;
+              break
+           case b :
+              $('#countriesblock').css({"display":"none"});
+               countriescount++;
+              break
+           case d :
+              $('#blogblock').css({"display":"none"});
+              $('#header').css({"height":"15vh"});
+              $('#title').css({"display":"none"});
+              $('#chevron').css({"display":"none"});
+              count++;
+              break
+           case e :
+              $('#booksblock').css({"display":"none"});
+              bookscount++;
+              break
+           case f :
+              $('#aboutblock').css({"display":"none"});
+              aboutcount++;
+              break
+           case g :
+              $('#contactsblock').css({"display":"none"});
+              contacts++;
+              break       
+              }       
+        $('#gallblock').slideToggle();
+        gallcount++;
+        }
+        else{}
+       }
+       
+      });
+      $('#countries').click(function(){
+        if(count===0)
+          {$('#blog').removeClass('active');
+           $('#countriesblock').slideToggle();
+           $('#blogblock').slideToggle();
+           $('#header').css({"height":"15vh"});
+           $('#title').css({"display":"none"});
+           $('#chevron').css({"display":"none"});
+           count++;
+           countriescount++;
+
+          }
+        else {
+          if (countriescount%2===0){
+          switch ("block") {
+             case $('#routesblock').css("display") :
+              $('#routesblock').css({"display":"none"});
+              routescount++;
+              break
+           case $('#gallblock').css("display") :
+              $('#gallblock').css({"display":"none"});
+              gallcount++;
+              break
+           case $('#blogblock').css("display") :
+              $('#blogblock').css({"display":"none"});
+              $('#header').css({"height":"15vh"});
+              $('#title').css({"display":"none"});
+              $('#chevron').css({"display":"none"});
+              count++;
+              break
+           case $('#booksblock').css("display") :
+              $('#booksblock').css({"display":"none"});
+              bookscount++;
+              break
+           case $('#aboutblock').css("display") :
+              $('#aboutblock').css({"display":"none"});
+              about++;
+              break
+           case $('#contactsblock').css("display") :
+              $('#contactsblock').css({"display":"none"});
+              contacts++;
+              break       }       
+          $('#countriesblock').slideToggle();
+          countriescount++;
+           }
+           else {}
+        }
+      });
+      $('#routes').click(function(){
+        if(count===0)
+          {$('#blog').removeClass('active');
+           $('#routesblock').slideToggle();
+           $('#blogblock').slideToggle();
+           $('#header').css({"height":"15vh"});
+           $('#title').css({"display":"none"});
+           $('#chevron').css({"display":"none"});
+           count++;
+           routescount++;
+
+          }
+        else {
+          if (routescount%2===0) {
+          switch ("block") {
+           case $('#countriesblock').css("display") :
+              $('#countriesblock').css({"display":"none"});
+              countriescount++;
+              break
+           case $('#gallblock').css("display") :
+              $('#gallblock').css({"display":"none"});
+              gallcount++;
+              break
+           case $('#blogblock').css("display") :
+              $('#blogblock').css({"display":"none"});
+              $('#header').css({"height":"15vh"});
+              $('#title').css({"display":"none"});
+              $('#chevron').css({"display":"none"});
+              count++;
+              break
+           case $('#booksblock').css("display") :
+              $('#booksblock').css({"display":"none"});
+              bookscount++;
+              break
+           case $('#aboutblock').css("display") :
+              $('#aboutblock').css({"display":"none"});
+              aboutcount++;
+              break
+           case $('#contactsblock').css("display") :
+              $('#contactsblock').css({"display":"none"});
+              contactscount++;
+              break             } 
+          $('#routesblock').slideToggle();
+          routescount++;
+          }
+          else{}
+        }
+      });
+      $('#blog').click(function(){
+        if(count===0)
+          {
+          }
+        else {
+          if(count%2 != 0) {
+              $('#title').css({"display":"block"});
+              $('#chevron').css({"display":"block"});
+              $('#header').css({"height":"100vh"});
+          switch ("block") {
+              case $('#routesblock').css("display") :
+              $('#routesblock').css({"display":"none"});
+              routescount++;
+              break
+           case $('#countriesblock').css("display") :
+              $('#countriesblock').css({"display":"none"});
+              countriescount++;
+              break
+           case $('#gallblock').css("display") :
+              $('#gallblock').css({"display":"none"});
+              gallcount++;
+              break
+           case $('#booksblock').css("display") :
+              $('#booksblock').css({"display":"none"});
+              bookscount++;
+              break
+           case $('#aboutblock').css("display") :
+              $('#aboutblock').css({"display":"none"});
+              aboutcount++;
+              break
+           case $('#contactsblock').css("display") :
+              $('#contactsblock').css({"display":"none"});
+              contactscount++;
+              break          }   
+              $('#blogblock').slideToggle(); 
+              count++;
+            }
+            else{}
+        }
+      });
+      $('#books').click(function(){
+        if(count===0)
+          {$('#blog').removeClass('active');
+           $('#booksblock').slideToggle();
+           $('#blogblock').slideToggle();
+           $('#header').css({"height":"15vh"});
+           $('#title').css({"display":"none"});
+           $('#chevron').css({"display":"none"});
+           count++;
+           bookscount++;
+          }
+        else {
+          if (bookscount%2===0) {
+           switch ("block") {
+           case $('#routesblock').css("display") :
+              $('#routesblock').css({"display":"none"});
+              routescount++;
+              break
+           case $('#countriesblock').css("display") :
+              $('#countriesblock').css({"display":"none"});
+              countriescount++;
+              break
+           case $('#gallblock').css("display") :
+              $('#gallblock').css({"display":"none"});
+              gallcount++;
+              break
+           case $('#blogblock').css("display") :
+              $('#blogblock').css({"display":"none"});
+              $('#header').css({"height":"15vh"});
+              $('#title').css({"display":"none"});
+              $('#chevron').css({"display":"none"});
+              count++;
+              break
+           case $('#aboutblock').css("display") :
+              $('#aboutblock').css({"display":"none"});
+              aboutcount++;
+              break
+           case $('#contactsblock').css("display") :
+              $('#contactsblock').css({"display":"none"});
+              contactscount++;
+              break       }       
+
+          $('#booksblock').slideToggle();
+          bookscount++;
+          }
+          else{}
+        }
+      });
+      $('#about').click(function(){
+        if(count===0)
+          {$('#blog').removeClass('active');
+           $('#aboutblock').slideToggle();
+           $('#blogblock').slideToggle();
+           $('#header').css({"height":"15vh"});
+           $('#title').css({"display":"none"});
+           $('#chevron').css({"display":"none"});
+           count++;
+           aboutcount++;
+          }
+        else {
+          if (aboutcount%2===0){
+          switch ("block") {
+          case $('#routesblock').css("display") :
+              $('#routesblock').css({"display":"none"});
+              routescount++;
+              break
+           case $('#countriesblock').css("display") :
+              $('#countriesblock').css({"display":"none"});
+              countriescount++;
+              break
+           case $('#gallblock').css("display") :
+              $('#gallblock').css({"display":"none"});
+              gallcount++;
+              break
+           case $('#blogblock').css("display") :
+              $('#blogblock').css({"display":"none"});
+              $('#header').css({"height":"15vh"});
+              $('#title').css({"display":"none"});
+              $('#chevron').css({"display":"none"});
+              count++;
+              break
+           case $('#booksblock').css("display") :
+              $('#booksblock').css({"display":"none"});
+              bookscount++;
+              break
+           case $('#contactsblock').css("display") :
+              $('#contactsblock').css({"display":"none"});
+              contactscount++;
+              break         }     
+
+          $('#aboutblock').slideToggle();
+          aboutcount++;
+         }
+         else{}
+        }
+      });
+      $('#contacts').click(function(){
+        if(count===0)
+          {$('#blog').removeClass('active');
+           $('#contactsblock').slideToggle();
+           $('#blogblock').slideToggle();
+           $('#header').css({"height":"15vh"});
+           $('#title').css({"display":"none"});
+           $('#chevron').css({"display":"none"});
+           count++;
+          contactscount++;
+          }
+        else {
+          if (contactscount%2 === 0) {
+          switch ("block") {
+           case $('#routesblock').css("display") :
+              $('#routesblock').css({"display":"none"});
+              routescount++;
+              break
+           case $('#countriesblock').css("display") :
+              $('#countriesblock').css({"display":"none"});
+              countriescount++;
+              break
+           case $('#gallblock').css("display") :
+              $('#gallblock').css({"display":"none"});
+              gallcount++;
+              break
+           case $('#blogblock').css("display") :
+              $('#blogblock').css({"display":"none"});
+              $('#header').css({"height":"15vh"});
+              $('#title').css({"display":"none"});
+              $('#chevron').css({"display":"none"});
+              count++;
+              break
+           case $('#booksblock').css("display") :
+              $('#booksblock').css({"display":"none"});
+              bookscount++;
+              break
+           case $('#aboutblock').css("display") :
+              $('#aboutblock').css({"display":"none"});
+              aboutcount++;
+              break
+           case $('#contactsblock').css("display") :
+              $('#contactsblock').css({"display":"none"});
+              contactscount++;
+              break            }  
+          $('#contactsblock').slideToggle();
+          contactscount++;
+          }
+          else {}
+        }
+      });
+
+     </script>-->
+    <!--<script src="js/jquery.vmap.js"></script>
+    <script src="js/jquery.vmap.world.js"></script>
+    <script src="js/jquery.vmap.sampledata.js"></script>
+ 
+<script>
+jQuery('#vmap').vectorMap({
+    map: 'world_en',
+    backgroundColor: null,
+    color: '#ffffff',
+    hoverOpacity: 0.7,
+    selectedColor: '#666666',
+    enableZoom: true,
+    showTooltip: true,
+    values: sample_data,
+    scaleColors: ['#C8EEFF', '#006491'],
+    normalizeFunction: 'polynomial'
+});
+</script>-->
+
+    
+  </body>
+</html>
