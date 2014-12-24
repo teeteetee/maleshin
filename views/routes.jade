@@ -1,0 +1,243 @@
+doctype html(lang='en')
+head
+    meta(charset='utf-8')
+    |     
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |     
+    title MALESHIN
+    // Bootstrap
+    link(href='bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='js/bootstrap.min.js')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      |       
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+    |     
+    style.
+      html {
+      background-size: cover;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      min-width:768px;
+      }
+      @font-face {
+      font-family:br;
+      src:url('/bootstrap/fonts/bebasneue_regular.ttf');
+      }
+      @font-face {
+      font-family:attentica;
+      src:url('/bootstrap/fonts/Attentica.ttf');
+      }
+      @font-face {
+      font-family:roboto-thin;
+      src:url('/bootstrap/fonts/Roboto-Thin.ttf');
+      }
+      body {
+      background-color:transparent;
+      }
+      h1 {
+      font-family:attentica;
+      font-size:20vw;
+      color:white;
+      margin:0px;
+      }
+      h2 {
+      color:black;
+      font-family:roboto-thin;
+      font-size:2vw;
+      margin-top:1vh;
+      margin-bottom:1vh;
+      margin-right:1vw;
+      margin-left:1vw;
+      }
+      h3 {
+      font-family:arial;
+      font-size:2vw;
+      }
+      h4 {
+      font-weight:bold;
+      font-family:br;
+      font-size:4vw;
+      }
+      h5 {
+      font-family:roboto-thin;
+      color:#c35;
+      font-size:2vw;
+      font-weight:bold;
+      }
+      h6 {
+      font-family:roboto-thin;
+      font-size:8vw;
+      color:#03406a;
+      opacity:0.5;
+      }
+      .container {
+      margin:0px;
+      padding:0px;
+      width:100%;
+      }
+      img {
+      position:fixed;
+      height:100vh;
+      width:100vw;
+      z-index:0;
+      -webkit-filter:brightness(50%);
+      }
+      .btn-default {
+      background-color:transparent;
+      }
+      .btn:hover {
+      background-color:white;
+      opacity:0.5;
+      }
+      .btn-default:focus {
+      background-color:#e6e6e6;
+      }
+      .btn-default:focus h2 {
+      color:black;
+      }
+      .btn:hover h2 {
+      color:black;
+      }
+      .btn-group {
+      }
+      #menu {
+      text-align:center;
+      margin-top:5vh;
+      }
+      #header {
+      height:100vh;
+      -webkit-transition:height 1.5s;
+      -webkit-transition-timing-function:ease-out;
+      }
+      #main {
+      margin-left:0px;
+      margin-right:0px;
+      }
+      #title {
+      height:70vh;
+      text-align:center;
+      padding-left:9vw;
+      padding-right:9vw;
+      }
+      .white {
+      background-color:white;
+      }
+      .chevron  {
+      height:10vh;
+      text-align:center;
+      opacity:0.5;
+      margin-bottom:3vh;
+      }
+      .active h2 {
+      color:black;
+      }
+      .fff {
+      background-color:#fff;
+      }
+      .text {
+      padding-top:3vh;
+      padding-bottom:5vh;
+      padding-left:10vw;
+      padding-right:10vw;
+      background-color:#fff;
+      }
+      .illustration {
+      height:40vh;
+      }
+      .separator {
+      margin-left:7vw;
+      margin-right:7vw;
+      height:5vh;
+      background-color:#ddd;
+      }
+      .smth {
+      }
+      #previous {
+      padding:4vh;
+      opacity:0.6;
+      }
+      .btmcrcl {
+      height:4vw;
+      width:4vw;
+      border-radius:50%;
+      border:3px solid #03406a;
+      text-align:center;
+      background-color:white;
+      }  
+      .btn-default {
+      border-color:#333;
+      }
+  body
+    .container
+      #header.row
+        .col-xs-12
+          #menu.row
+            .col-xs-12(style='padding:0px;')
+              .btn-group
+                button#countries.btn.btn-default(type='button', style='border-top-left-radius:0.5vw;border-bottom-left-radius:0.5vw;')
+                  h2 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;
+                button#routes.btn.btn-default.active(type='button')
+                  h2 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
+                button#gall.btn.btn-default(type='button')
+                  h2 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;
+                button#blog.btn.btn-default(type='button')
+                  h2 &Bcy;&Lcy;&Ocy;&Gcy;
+                button#books.btn.btn-default(type='button')
+                  h2 &Kcy;&Ncy;&Icy;&Gcy;&Icy;
+                button#about.btn.btn-default(type='button')
+                  h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
+                button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
+                  h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;
+          |      
+          #title.row
+            .col-xs-12(style='padding:0px;')
+              h3#titletext Trip to south America 
+              #vmap(style='height:500px')
+     
+             
+          script.
+            $('#blog').click(function(){
+              window.location='http://aa44.cc/';
+            }); 
+            $('#countries').click(function(){
+              window.location='http://aa44.cc/countries';
+            }); 
+            $('#books').click(function(){
+              window.location='http://aa44.cc/books';
+            }); 
+            $('#gall').click(function(){
+              window.location='http://aa44.cc/gall';
+            }); 
+            $('#contacts').click(function(){
+              window.location='http://aa44.cc/contacts';
+            }); 
+            $('#about').click(function(){
+              window.location='http://aa44.cc/about';
+            });      
+    script.   
+      <script src="js/jquery.vmap.js"></script>
+      <script src="js/jquery.vmap.world.js"></script>
+      <script src="js/jquery.vmap.sampledata.js"></script>
+      <script>
+      jQuery('#vmap').vectorMap({
+      map: 'world_en',
+      backgroundColor: null,
+      color: '#ffffff',
+      hoverOpacity: 0.7,
+      selectedColor: '#666666',
+      enableZoom: true,
+      showTooltip: true,
+      values: sample_data,
+      scaleColors: ['#C8EEFF', '#006491'],
+      normalizeFunction: 'polynomial'
+      });
+      </script>
