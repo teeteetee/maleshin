@@ -20,7 +20,7 @@ app.set('view engine', 'jade');
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-//app.use(require('connect').bodyParser());
+app.use(require('connect').bodyParser());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
