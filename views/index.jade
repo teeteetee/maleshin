@@ -244,33 +244,20 @@ head
           #menu.row
             .col-xs-12(style='padding:0px;')
               .btn-group
-                a(href='/countries')
-                  button#countries.btn.btn-default(type='button', style='border-top-left-radius:0.5vw;border-bottom-left-radius:0.5vw;')
-                    h2 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;
-                |        
-                a(href='/routes')
-                  button#routes.btn.btn-default(type='button')
-                    h2 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
-                |        
-                a(href='/gallery')
-                  button#gall.btn.btn-default(type='button')
-                    h2 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;
-                |        
-                a(href='/blog')
-                  button#blog.btn.btn-default.active(type='button')
-                    h2 &Bcy;&Lcy;&Ocy;&Gcy;
-                |        
-                a(href='/books')
-                  button#books.btn.btn-default(type='button')
-                    h2 &Kcy;&Ncy;&Icy;&Gcy;&Icy;
-                |        
-                a(href='/about')
-                  button#about.btn.btn-default(type='button')
-                    h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
-                |        
-                a(href='/contacts')
-                  button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
-                    h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;
+                button#countries.btn.btn-default(type='button', style='border-top-left-radius:0.5vw;border-bottom-left-radius:0.5vw;')
+                  h2 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;
+                button#routes.btn.btn-default(type='button')
+                  h2 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
+                button#gall.btn.btn-default(type='button')
+                  h2 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;
+                button#blog.btn.btn-default.active(type='button')
+                  h2 &Bcy;&Lcy;&Ocy;&Gcy;
+                button#books.btn.btn-default(type='button')
+                  h2 &Kcy;&Ncy;&Icy;&Gcy;&Icy;
+                button#about.btn.btn-default(type='button')
+                  h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
+                button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
+                  h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;
           |      
           #title.row
             .col-xs-12(style='padding:0px;')
@@ -355,6 +342,25 @@ head
               h3
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan.
                 | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem. Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan.
+          script.
+            $('#countries').click(function(){
+              window.location='http://aa44.cc/countries';
+            }); 
+            $('#books').click(function(){
+              window.location='http://aa44.cc/books';
+            }); 
+            $('#routes').click(function(){
+              window.location='http://aa44.cc/routes';
+            }); 
+            $('#gallery').click(function(){
+              window.location='http://aa44.cc/gallery';
+            }); 
+            $('#contacts').click(function(){
+              window.location='http://aa44.cc/contacts';
+            }); 
+            $('#about').click(function(){
+              window.location='http://aa44.cc/about';
+            });      
           //
             <div class='row illustration' id='thirdil'>
             <div class='col-xs-12'>
