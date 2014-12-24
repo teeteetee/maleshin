@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/',function(req,res){
-	res.redner('index');
+	res.render('index');
 });
 
 app.get('/redact',function(req,res){
