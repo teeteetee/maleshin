@@ -77,6 +77,7 @@ head
       text-align:center;
       margin-top:5vh;
       margin-bottom:5vh;
+      backgroun-color:#ddd;
       }
       #header {
       background-color:#ddd;
@@ -125,6 +126,10 @@ head
       margin:0px;
       }  
   body
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='/bootstrap/js/bootstrap.min.js')
     .container
       #header.row
         h1 &Rcy;&IEcy;&Dcy;&Acy;&Kcy;&Tcy;&Ocy;&Rcy;
@@ -287,7 +292,4 @@ head
             $('#about').click(function(){
               href='#aboutblock';
             });         
-    // jQuery (necessary for Bootstrap's JavaScript plugins)
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
-    // Include all compiled plugins (below), or include individual files as needed
-    script(src='js/bootstrap.min.js')
+    
