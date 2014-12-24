@@ -31,7 +31,21 @@ app.get('/',function(req,res){
 });
 
 app.get('/redact',function(req,res){
-	res.render('admin');
+	res.render('login');
+});
+
+app.post('/redact',function(req,res){
+  var pass= 'testtest';
+  var log= 'testtest';
+  var vp = req.body.p;
+  var vl = req.body.l;
+  if(pass === vp && log === vl)
+  {
+     res.render('admin')
+  }
+  else {
+     res.send('wrong pass/user');
+  }
 });
 
 app.get('/countries',function(req,res){
