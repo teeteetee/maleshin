@@ -17,6 +17,9 @@ head
       script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
     |     
     style.
+      html{
+      min-width:768px;
+      }
       @font-face {
       font-family:br;
       src:url('/bootstrap/fonts/bebasneue_regular.ttf');
@@ -72,35 +75,12 @@ head
       }
       #menu {
       text-align:center;
-      padding-top:5vh;
-      padding-bottom:5vh;
-      margin:0px;
-      background-color:#ddd;
+      margin-top:5vh;
+      margin-bottom:5vh;
       }
       #header {
       background-color:#ddd;
       text-align:center;
-      }
-      #countriesblock{
-      height:70vh;
-      }
-      #routesblock{
-      height:70vh;
-      }
-      #blogblock{
-      height:70vh;
-      }
-      #gallblock{
-      height:70vh;
-      }
-      #booksblock{
-      height:70vh;
-      }
-      #aboutblock{
-      height:70vh;
-      }
-      #contactsblock{
-      height:70vh;
       }
       .title {
       padding-left:6vw;
@@ -288,6 +268,25 @@ head
         .row.title
           .col-xs-12
             h4 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
+    script.
+            $('#countries').click(function(){
+              href='#countriesblock';
+            }); 
+            $('#books').click(function(){
+              href='#booksblock';
+            }); 
+            $('#routes').click(function(){
+              href='#routesblock';
+            }); 
+            $('#gall').click(function(){
+              href='#gallblock';
+            }); 
+            $('#contacts').click(function(){
+              href='#contactsblock';
+            }); 
+            $('#about').click(function(){
+              href='#aboutblock';
+            });         
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     // Include all compiled plugins (below), or include individual files as needed
