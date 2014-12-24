@@ -1,0 +1,295 @@
+doctype html(lang='en')
+head
+    meta(charset='utf-8')
+    |     
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    |     
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    |     
+    title ADMIN
+    // Bootstrap
+    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      |       
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+    |     
+    style.
+      @font-face {
+      font-family:br;
+      src:url('/bootstrap/fonts/bebasneue_regular.ttf');
+      }
+      @font-face {
+      font-family:attentica;
+      src:url('/bootstrap/fonts/Attentica.ttf');
+      }
+      @font-face {
+      font-family:roboto-thin;
+      src:url('/bootstrap/fonts/Roboto-Thin.ttf');
+      }
+      h1 {
+      font-family:attentica;
+      font-size:20vw;
+      color:#333;
+      }
+      h2 {
+      color:black;
+      font-family:roboto-thin;
+      font-size:2vw;
+      margin-top:1vh;
+      margin-bottom:1vh;
+      margin-right:1vw;
+      margin-left:1vw;
+      font-weight:bold;
+      }
+      h4 {
+      font-weight:bold;
+      font-family:br;
+      font-size:4vw;
+      }
+      .container {
+      margin:0px;
+      padding:0px;
+      width:100%;
+      }
+      .btn-default {
+      background-color:white;
+      }
+      .btn:hover {
+      background-color:white;
+      opacity:0.5;
+      }
+      .btn-default:focus {
+      background-color:white;
+      }
+      .btn-default:focus h2 {
+      color:black;
+      }
+      .btn:hover h2 {
+      color:black;
+      }
+      #menu {
+      text-align:center;
+      padding-top:5vh;
+      padding-bottom:5vh;
+      margin:0px;
+      background-color:#ddd;
+      }
+      #header {
+      background-color:#ddd;
+      text-align:center;
+      }
+      #countriesblock{
+      height:70vh;
+      }
+      #routesblock{
+      height:70vh;
+      }
+      #blogblock{
+      height:70vh;
+      }
+      #gallblock{
+      height:70vh;
+      }
+      #booksblock{
+      height:70vh;
+      }
+      #aboutblock{
+      height:70vh;
+      }
+      #contactsblock{
+      height:70vh;
+      }
+      .title {
+      padding-left:6vw;
+      }
+      a:hover {
+      outline:none;
+      text-decoration:none;
+      }
+      .section {
+      border-bottom:1px solid black;
+      }
+      .addsmth{
+      padding-left:7vw;
+      margin-bottom:1vh;
+      }
+      .col-xs-6 {
+      margin:0px;
+      padding:0px;
+      }
+      .stats {
+      background-color:#ddd;
+      padding-left:3vw;
+      padding-right:3vw;
+      padding-top:3vh;
+      padding-bottom:3vh;
+      height:100%;
+      }
+      .up {
+      width:3vw;
+      height:3vw;
+      margin-top:2vh;
+      margin-left:2vw;
+      text-align:center;
+      line-height:4vw;
+      background-color:#ddd;
+      border-radius:50%;
+      z-index:2000;
+      display:fixed;
+      }
+      .up h2 {
+      display:inline;
+      margin:0px;
+      }
+  |   
+  body
+    .container
+      #header.row
+        h1 &Rcy;&IEcy;&Dcy;&Acy;&Kcy;&Tcy;&Ocy;&Rcy;
+      |      
+      #menu.row
+        .col-xs-12(style='padding:0px;')
+          .btn-group
+            button#countries.btn.btn-default(type='button', style='border-top-left-radius:0.5vw;border-bottom-left-radius:0.5vw;')
+              a(href='#countriesblock')
+                h2 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;
+            |        
+            button#routes.btn.btn-default(type='button')
+              a(href='#routesblock')
+                h2 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
+            |        
+            button#gall.btn.btn-default(type='button')
+              a(href='#gallblock')
+                h2 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;
+            |        
+            button#blog.btn.btn-default(type='button')
+              a(href='#blogblock')
+                h2 &Bcy;&Lcy;&Ocy;&Gcy;
+            |        
+            button#books.btn.btn-default(type='button')
+              a(href='#booksblock')
+                h2 &Kcy;&Ncy;&Icy;&Gcy;&Icy;
+            |        
+            button#about.btn.btn-default(type='button')
+              a(href='#aboutblock')
+                h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
+            |        
+            button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
+              a(href='#contactsblock')
+                h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;
+      |      
+      #countriesblock.row.section
+        .col-xs-12
+          .row.title
+            .col-xs-12
+              h4 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;
+      |      
+      #routesblock.row.section
+        // 
+        .col-xs-12
+          .row.title
+            .col-xs-12
+              h4 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
+          |        
+          #addroute.row.addsmth
+            .col-xs-1(style='background-color:#00ab6f;text-align:center;')
+              h2(style='line height:5vh;color:white')
+                span.glyphicon.glyphicon-plus
+            |          
+            .col-xs-11
+              h2  &Dcy;&Ocy;&Bcy;&Acy;&Vcy;&Icy;&Tcy;&SOFTcy; &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;
+          |        
+          #removeroute.row.addsmth
+            .col-xs-1(style='background-color:#c35;text-align:center;')
+              h2(style='line height:5vh;color:white')
+                span.glyphicon.glyphicon-minus
+            |          
+            .col-xs-11
+              h2  &Rcy;&IEcy;&Dcy;&Acy;&Kcy;&Tcy;&Icy;&Rcy;&Ocy;&Vcy;&Acy;&Tcy;&SOFTcy; &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
+      |      
+      #blogblock.row.section
+        .col-xs-6
+          .row.title
+            .col-xs-12
+              h4 &Bcy;&Lcy;&Ocy;&Gcy;
+          |        
+          #addpost.row.addsmth
+            .col-xs-1(style='background-color:#00ab6f;text-align:center;')
+              h2(style='line height:5vh;color:white;margin:0px;')
+                span.glyphicon.glyphicon-plus
+            |          
+            .col-xs-11
+              h2  &Dcy;&Ocy;&Bcy;&Acy;&Vcy;&Icy;&Tcy;&SOFTcy; &Pcy;&Ocy;&Scy;&Tcy; &Vcy; &Bcy;&Lcy;&Ocy;&Gcy;
+          |  
+          |        
+          #removepost.row.addsmth
+            .col-xs-1(style='background-color:#c35;text-align:center;')
+              h2(style='line height:5vh;color:white;margin:0px;')
+                span.glyphicon.glyphicon-minus
+            |          
+            .col-xs-11
+              h2  &Rcy;&IEcy;&Dcy;&Acy;&Kcy;&Tcy;&Icy;&Rcy;&Ocy;&Vcy;&Acy;&Tcy;&SOFTcy; &Pcy;&Ocy;&Scy;&Tcy;&Ycy;
+        |       
+        .col-xs-6.stats
+          .row
+            .col-xs-12
+              .row
+                h2(style='color:#c35') &Scy;&Tcy;&Acy;&Tcy;&Icy;&Scy;&Tcy;&Icy;&Kcy;&Acy;
+                |            
+                h2  &Pcy;&Ocy;&Scy;&Tcy;&Ocy;&Vcy; : 10 
+                |            
+                h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Vcy;&Scy;&IEcy;&Gcy;&Ocy;: 12887 
+                |            
+                h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Pcy;&Ocy;&Scy;&Lcy;&IEcy;&Dcy;&Ncy;&IEcy;&Gcy;&Ocy; &Pcy;&Ocy;&Scy;&Tcy;&Acy;: 2000 
+      |      
+      #gallblock.row.section
+        .col-xs-6
+          .row.title
+            .col-xs-12
+              h4 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;
+          |        
+          #addphoto.row.addsmth
+            .col-xs-1(style='background-color:#00ab6f;text-align:center;')
+              h2(style='line height:5vh;color:white;margin:0px;')
+                span.glyphicon.glyphicon-plus
+            |          
+            .col-xs-11
+              h2  &Dcy;&Ocy;&Bcy;&Acy;&Vcy;&Icy;&Tcy;&SOFTcy; &Fcy;&Ocy;&Tcy;&Ocy;
+          |  
+          |        
+          #addvideo.row.addsmth
+            .col-xs-1(style='background-color:#00ab6f;text-align:center;')
+              h2(style='line height:5vh;color:white;margin:0px;')
+                span.glyphicon.glyphicon-plus
+            |          
+            .col-xs-11
+              h2  &Dcy;&Ocy;&Bcy;&Acy;&Vcy;&Icy;&Tcy;&SOFTcy; &Vcy;&Icy;&Dcy;&IEcy;&Ocy;
+        |       
+        .col-xs-6.stats
+          .row
+            .col-xs-12
+              .row
+                h2(style='color:#c35') &Scy;&Tcy;&Acy;&Tcy;&Icy;&Scy;&Tcy;&Icy;&Kcy;&Acy;
+                |            
+                h2  &Fcy;&Ocy;&Tcy;&Ocy;&Gcy;&Rcy;&Acy;&Fcy;&Icy;&Jcy; : 10 
+                |            
+                h2  &Vcy;&Icy;&Dcy;&IEcy;&Ocy; : 20 
+    |      
+    #contactsblock.row.section
+      .col-xs-12
+        .row.title
+          .col-xs-12
+            h4 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;
+    |      
+    #aboutblock.row.section
+      .col-xs-12
+        .row.title
+          .col-xs-12
+            h4 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
+    // jQuery (necessary for Bootstrap's JavaScript plugins)
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+    // Include all compiled plugins (below), or include individual files as needed
+    script(src='js/bootstrap.min.js')
