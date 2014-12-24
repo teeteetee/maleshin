@@ -34,6 +34,32 @@ app.get('/redact',function(req,res){
 	res.render('admin');
 });
 
+app.get('/countries',function(req,res){
+  res.render('countries');
+});
+
+app.get('/routes',function(req,res){
+  res.render('routes');
+});
+
+app.get('/about',function(req,res){
+  res.render('about');
+});
+
+app.get('/contacts',function(req,res){
+  res.render('contacts');
+});
+
+app.get('/gall',function(req,res){
+  res.render('gallery');
+});
+
+app.get('/books',function(req,res){
+  res.render('books');
+});
+
+
+
 app.post('/actions',function(req,res){
 	var q = req.body.actions;
 	switch (q){
