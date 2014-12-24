@@ -19,7 +19,7 @@ app.set('view engine', 'jade');
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-app.use(require('connect').bodyParser());
+//app.use(require('connect').bodyParser());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -78,7 +78,21 @@ app.post('/actions',function(req,res){
 	}
 });
 
-
+function upload(filepath,imageid,fieldid){
+     //req.files.images["+i+"].path
+     var oldPath = filepath;
+     console.log('UPLOAD 1 step, oldPath:'+ oldPath);
+     var newPath = __dirname +"/public/images/places/" +vplacename+"/"+ imageid;
+     console.log('UPLOAD 2 step, newPath:' + newPath );
+     fs.readFile(oldPath , function(err, data) {
+       fs.writeFile(newPath, data, function(err) {
+                      fs.unlink(oldPath, function(){
+                          if(err) throw err;
+                          res.send('UPLOAD '+imageid+"file uploaded to: " + newPath);
+                          fieldid = newPath;  });
+                  }); 
+                }); 
+              };
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
