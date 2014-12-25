@@ -27,7 +27,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/',function(req,res){
-	res.render('index');
+  var pquant = posts.find().toArray();
+  if(pquant.length === 0)
+	{res.render('index',{'insert':"yet empty",'headimage':'/bootstrap/images/dsea1.jpg'});}
+  else
+  {
+    posts.findOne({last:1},function(err,doc){
+      if (err)
+      {
+        //CALL THE COPS
+      }
+      else {
+        res.render('emptyindex',{'insert':doc.postbody,'headimage':doc.headimage});
+      }
+    });
+  }
 });
 
 app.get('/redact',function(req,res){
@@ -74,12 +88,38 @@ app.get('/books',function(req,res){
 
 
 
+
 app.post('/actions',function(req,res){
 	var q = req.body.actions;
 	switch (q){
       case('newpost'):
-        var vtitle = req.body.vtitle;
-        var imgnum = req.body.imgnum;
+        var vpostbody = req.body.postbody;
+        var vheadimage;
+        if(req.files.headimage)
+         {function upload(filepath,imageid){
+                            var oldPath = filepath;
+                            console.log('UPLOAD 1 step, oldPath:'+ oldPath);
+                            var newPath = __dirname +"/public/images/"+ imageid;
+                            headimage = "/public/images/"+ imageid;
+                            console.log('UPLOAD 2 step, newPath:' + newPath );
+                            fs.readFile(oldPath , function(err, data) {
+                              fs.writeFile(newPath, data, function(err) {
+                                  fs.unlink(oldPath, function(){
+                                      if(err) throw err;
+                                      res.send('UPLOAD '+imageid+"file uploaded to: " + newPath);
+                                        });
+                              }); 
+                            }); 
+                          };
+            
+                    upload(req.files.headimage.path,req.files.headimage.name); 
+                    console.log('headimage uploaded')
+                    posts.insert({last:1,postbody:vpostbody,headimage:vheadimage});
+                    res.redirect('/');
+                  }   
+          else {
+            res.send('wasnt able to find headimage')
+          }
       break;
       case('updatepost'):
         var pid = req.body.pid;

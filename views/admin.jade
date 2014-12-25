@@ -193,7 +193,22 @@ head
             |          
             .col-xs-11
               h2  &Rcy;&IEcy;&Dcy;&Acy;&Kcy;&Tcy;&Icy;&Rcy;&Ocy;&Vcy;&Acy;&Tcy;&SOFTcy; &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
-      |      
+      #booksblock.row.section
+        // 
+        .col-xs-12
+          .row.title
+            .col-xs-12
+              h4 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
+          |        
+          #addbook.row.addsmth
+            .col-xs-1(style='background-color:#00ab6f;text-align:center;')
+              h2(style='line height:5vh;color:white')
+                span.glyphicon.glyphicon-plus
+            |          
+            .col-xs-11
+              h2  Добавить книгу
+          #addbookinput.row
+
       #blogblock.row.section
         .col-xs-6
           .row.title
@@ -206,7 +221,65 @@ head
                 span.glyphicon.glyphicon-plus
             |          
             .col-xs-11
-              h2  &Dcy;&Ocy;&Bcy;&Acy;&Vcy;&Icy;&Tcy;&SOFTcy; &Pcy;&Ocy;&Scy;&Tcy; &Vcy; &Bcy;&Lcy;&Ocy;&Gcy;
+              h2  Добавить пост
+          #addpostblock.row(style='display:none') 
+             form(action='/actions',role='form',method='post', enctype='multipart/form-data')
+              .col-xs-12
+                .row(style='display:none')
+                  .col-xs-12
+                    .input(name='q',value='newpost')
+                .row 
+                  .col-xs-6
+                    h2 Headimage
+                  .col-xs-6
+                    input#xml.form-control(type='file', name='headimage') 
+                .row
+                  .col-xs-12
+                    input#gettitle(type='text')
+                    button#gettitlebutton(type='button') GET TITLE   
+                .row(style='display:none')
+                  .col-xs-12
+                    input#invisibleinput(name='postbody',type='text')
+                .row
+                  #grab.col-xs-12 
+                .row
+                  .col-xs-12
+                    input#getbody(type='text')
+                    button#gettbodybutton(type='button') GET BODY   
+                .row(style='border-top:1px solid black')
+                  .col-xs-12
+                    button(type='submit',style='border:1px solid red') Отправить        
+          script.
+            $('#getbody').click(function(){
+              var vbody = $('#getbody').text();
+              if(!$('#invisibleinput').text())
+               {
+               $('#invisibleinput').text("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
+               }
+               else
+               {
+               var previoustext = $('#invisibleinput').text();
+               var newtext = previoustext+"<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>";
+               $('#invisibleinput').text(newtext);
+               }
+               $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");
+            });
+            $('#gettitlebutton').click(function(){
+               var vtitle = $('#gettitle').text();
+               if(!$('#invisibleinput').text())
+               {
+               $('#invisibleinput').text("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
+               }
+               else
+               {
+               var previoustext = $('#invisibleinput').text();
+               var newtext = previoustext+"<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>";
+               $('#invisibleinput').text(newtext);
+               }
+               $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
+            });
+
+
           |  
           |        
           #removepost.row.addsmth
