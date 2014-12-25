@@ -221,8 +221,28 @@ head
                 span.glyphicon.glyphicon-plus
             |          
             .col-xs-11
-              h2  Добавить пост
-          #addpostblock.row(style='display:none') 
+              h2  Добавить пост      
+          #removepost.row.addsmth
+            .col-xs-1(style='background-color:#c35;text-align:center;')
+              h2(style='line height:5vh;color:white;margin:0px;')
+                span.glyphicon.glyphicon-minus
+            |          
+            .col-xs-11
+              h2  &Rcy;&IEcy;&Dcy;&Acy;&Kcy;&Tcy;&Icy;&Rcy;&Ocy;&Vcy;&Acy;&Tcy;&SOFTcy; &Pcy;&Ocy;&Scy;&Tcy;&Ycy;
+        |       
+        .col-xs-6.stats
+          .row
+            .col-xs-12
+              .row
+                h2(style='color:#c35') &Scy;&Tcy;&Acy;&Tcy;&Icy;&Scy;&Tcy;&Icy;&Kcy;&Acy;
+                |            
+                h2  &Pcy;&Ocy;&Scy;&Tcy;&Ocy;&Vcy; : 10 
+                |            
+                h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Vcy;&Scy;&IEcy;&Gcy;&Ocy;: 12887 
+                |            
+                h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Pcy;&Ocy;&Scy;&Lcy;&IEcy;&Dcy;&Ncy;&IEcy;&Gcy;&Ocy; &Pcy;&Ocy;&Scy;&Tcy;&Acy;: 2000 
+      | 
+       #addpostblock.row(style='display:none') 
              form(action='/actions',role='form',method='post', enctype='multipart/form-data')
               .col-xs-12
                 .row(style='display:none')
@@ -281,30 +301,7 @@ head
             }
             $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
             });
-
-
-          |  
-          |        
-          #removepost.row.addsmth
-            .col-xs-1(style='background-color:#c35;text-align:center;')
-              h2(style='line height:5vh;color:white;margin:0px;')
-                span.glyphicon.glyphicon-minus
-            |          
-            .col-xs-11
-              h2  &Rcy;&IEcy;&Dcy;&Acy;&Kcy;&Tcy;&Icy;&Rcy;&Ocy;&Vcy;&Acy;&Tcy;&SOFTcy; &Pcy;&Ocy;&Scy;&Tcy;&Ycy;
-        |       
-        .col-xs-6.stats
-          .row
-            .col-xs-12
-              .row
-                h2(style='color:#c35') &Scy;&Tcy;&Acy;&Tcy;&Icy;&Scy;&Tcy;&Icy;&Kcy;&Acy;
-                |            
-                h2  &Pcy;&Ocy;&Scy;&Tcy;&Ocy;&Vcy; : 10 
-                |            
-                h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Vcy;&Scy;&IEcy;&Gcy;&Ocy;: 12887 
-                |            
-                h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Pcy;&Ocy;&Scy;&Lcy;&IEcy;&Dcy;&Ncy;&IEcy;&Gcy;&Ocy; &Pcy;&Ocy;&Scy;&Tcy;&Acy;: 2000 
-      |      
+     
       #gallblock.row.section
         .col-xs-6
           .row.title
