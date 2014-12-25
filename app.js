@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/',function(req,res){
-  posts.find({},funciton(err,done){
+  posts.find({},function(err,done){
     if (err)
     {
      // CALL THE COPS
