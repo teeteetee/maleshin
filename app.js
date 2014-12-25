@@ -27,9 +27,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/',function(req,res){
-  var pquant = posts.find().toArray();
-  if(pquant.length === 0)
-	{res.render('index',{'insert':"yet empty",'headimage':'/bootstrap/images/dsea1.jpg'});}
+  posts.find({},funciton(err,done){
+    if (err)
+    {
+     // CALL THE COPS
+    }
+    else {
+      var pquant = done;
+      if(pquant.length === 0)
+  {res.render('index',{'insert':"yet empty",'headimage':'/bootstrap/images/dsea1.jpg'});}
   else
   {
     posts.findOne({last:1},function(err,doc){
@@ -42,6 +48,8 @@ app.get('/',function(req,res){
       }
     });
   }
+    }
+  })
 });
 
 app.get('/redact',function(req,res){
