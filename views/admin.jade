@@ -273,29 +273,29 @@ head
           $('#addpostblock').slideToggle();
           });
           $('#getbody').click(function(){
-          var vbody = $('#getbody').text();
-          if(!$('#invisibleinput').text())
+          var vbody = $('#getbody').val();
+          if(!$('#invisibleinput').val())
           {
-          $('#invisibleinput').text("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");}
+          $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");}
           else
           {
-          var previoustext = $('#invisibleinput').text();
+          var previoustext = $('#invisibleinput').val();
           var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>";
-          $('#invisibleinput').text(newtext);
+          $('#invisibleinput').val(newtext);
           }
           $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");
           });
           $('#gettitlebutton').click(function(){
-          var vtitle = $('#gettitle').text();
-          if(!$('#invisibleinput').text())
+          var vtitle = $('#gettitle').val();
+          if(!$('#invisibleinput').val())
           {
-          $('#invisibleinput').text("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
+          $('#invisibleinput').val("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
           }
           else
           {
-          var previoustext = $('#invisibleinput').text();
+          var previoustext = $('#invisibleinput').val();
           var newtext = previoustext+"<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>";
-          $('#invisibleinput').text(newtext);
+          $('#invisibleinput').val(newtext);
           }
           $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
           });
