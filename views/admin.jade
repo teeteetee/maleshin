@@ -227,7 +227,7 @@ head
               .col-xs-12
                 .row(style='display:none')
                   .col-xs-12
-                    .input(name='q',value='newpost')
+                    .input(name='actions',value='newpost')
                 .row 
                   .col-xs-6
                     h2 Headimage
@@ -251,35 +251,35 @@ head
                     button(type='submit',style='border:1px solid red') Отправить        
           script.
             $('#addpost').click(function(){
-             $('#addpostblock').slideToggle();
+            $('#addpostblock').slideToggle();
             });
             $('#getbody').click(function(){
-              var vbody = $('#getbody').text();
-              if(!$('#invisibleinput').text())
-               {
-               $('#invisibleinput').text("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
-               }
-               else
-               {
-               var previoustext = $('#invisibleinput').text();
-               var newtext = previoustext+"<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>";
-               $('#invisibleinput').text(newtext);
-               }
-               $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");
+            var vbody = $('#getbody').text();
+            if(!$('#invisibleinput').text())
+            {
+            $('#invisibleinput').text("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");
+            }
+            else
+            {
+            var previoustext = $('#invisibleinput').text();
+            var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>";
+            $('#invisibleinput').text(newtext);
+            }
+            $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");
             });
             $('#gettitlebutton').click(function(){
-               var vtitle = $('#gettitle').text();
-               if(!$('#invisibleinput').text())
-               {
-               $('#invisibleinput').text("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
-               }
-               else
-               {
-               var previoustext = $('#invisibleinput').text();
-               var newtext = previoustext+"<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>";
-               $('#invisibleinput').text(newtext);
-               }
-               $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
+            var vtitle = $('#gettitle').text();
+            if(!$('#invisibleinput').text())
+            {
+            $('#invisibleinput').text("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
+            }
+            else
+            {
+            var previoustext = $('#invisibleinput').text();
+            var newtext = previoustext+"<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>";
+            $('#invisibleinput').text(newtext);
+            }
+            $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
             });
 
 

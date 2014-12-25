@@ -101,7 +101,9 @@ app.post('/actions',function(req,res){
 	var q = req.body.actions;
 	switch (q){
       case('newpost'):
+      console.log('post comming through');
         var vpostbody = req.body.postbody;
+        console.log('post body is:'+vpostbody);
         var vheadimage;
         if(req.files.headimage)
          {function upload(filepath,imageid){
