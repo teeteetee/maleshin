@@ -250,6 +250,9 @@ head
                   .col-xs-12
                     button(type='submit',style='border:1px solid red') Отправить        
           script.
+            $('#addpost').click(function(){
+             $('#addpostblock').slideToggle();
+            });
             $('#getbody').click(function(){
               var vbody = $('#getbody').text();
               if(!$('#invisibleinput').text())
