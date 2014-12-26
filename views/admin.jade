@@ -246,7 +246,7 @@ head
          .col-xs-12
            .row
              .col-xs-12
-               .input(name='actions',value='newpost',disabled)
+               .input(type='text',name='actions',value='newpost',disabled)
            .row 
              .col-xs-6
                h2 Headimage
@@ -256,9 +256,9 @@ head
              .col-xs-12
                input#gettitle(type='text')
                button#gettitlebutton(type='button') GET TITLE   
-           .row(style='display:none')
+           .row
              .col-xs-12
-               input#invisibleinput(name='postbody',type='text')
+               input#invisibleinput(name='postbody',type='text',disabled)
            .row
              #grab.col-xs-12 
            .row
