@@ -264,7 +264,7 @@ head
            .row
              .col-xs-12
                input#getbody(type='text')
-               button#gettbodybutton(type='button') GET BODY   
+               button#getbodybutton(type='button') GET BODY   
            .row(style='border-top:1px solid black')
              .col-xs-12
                button(type='submit',style='border:1px solid red') Отправить        
@@ -272,7 +272,7 @@ head
           $('#addpost').click(function(){
           $('#addpostblock').slideToggle();
           });
-          $('#getbody').click(function(){
+          $('#getbodybutton').click(function(){
           var vbody = $('#getbody').val();
           console.log('we are in get body and body is:'+vbody);
           if(!$('#invisibleinput').val())
