@@ -274,6 +274,7 @@ head
           });
           $('#getbody').click(function(){
           var vbody = $('#getbody').val();
+          console.log('we are in get body and body is:'+vbody);
           if(!$('#invisibleinput').val())
           {
           $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");}
@@ -282,6 +283,7 @@ head
           var previoustext = $('#invisibleinput').val();
           var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>";
           $('#invisibleinput').val(newtext);
+          console.log('NOT EMPTY , INSERTING: '+newtext);
           }
           $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");
           });
