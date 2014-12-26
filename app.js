@@ -100,6 +100,7 @@ app.get('/books',function(req,res){
 app.post('/actions',function(req,res){
   console.log('IN /ACTIONS');
 	var q = req.body.actions;
+  console.log('Q is:'+q);
 	switch (q){
       case('newpost'):
       console.log('post comming through');

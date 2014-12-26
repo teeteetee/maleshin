@@ -244,9 +244,9 @@ head
       #addpostblock.row(style='display:none;margin-right:1vw;margin-left:1vw;') 
         form(action='/actions',role='form',method='post', enctype='multipart/form-data')
          .col-xs-12
-           .row(style='display:none')
+           .row
              .col-xs-12
-               .input(name='actions',value='newpost')
+               .input(name='actions',value='newpost',disabled)
            .row 
              .col-xs-6
                h2 Headimage
