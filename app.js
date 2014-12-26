@@ -99,9 +99,9 @@ app.get('/books',function(req,res){
 
 app.post('/actions',function(req,res){
   console.log('IN /ACTIONS');
-	var q = req.body.actions;
-  console.log('Q is:'+q);
-	switch (q){
+	var qq = req.body.actions;
+  console.log('Q is:'+qq);
+	switch (qq){
       case('newpost'):
       console.log('post comming through');
         var vpostbody = req.body.postbody;
