@@ -246,11 +246,11 @@ head
          .col-xs-12
            .row
              .col-xs-12
-               .input(type='text',name='actions',value='newpost',disabled)
+               .input#hiddeninput(type='text',name='actions',value='newpost',disabled)
            .row 
-             .col-xs-6
+             .col-xs-3
                h2 Headimage
-             .col-xs-6
+             .col-xs-3
                input#xml.form-control(type='file', name='headimage') 
            .row
              .col-xs-12
@@ -273,6 +273,7 @@ head
           $('#addpostblock').slideToggle();
           });
           $('#getbodybutton').click(function(){
+          console.log($('#hiddeninput').val());
           var vbody = $('#getbody').val();
           console.log('we are in get body and body is:'+vbody);
           if(!$('#invisibleinput').val())
