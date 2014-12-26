@@ -98,6 +98,7 @@ app.get('/books',function(req,res){
 
 
 app.post('/actions',function(req,res){
+  console.log('IN /ACTIONS');
 	var q = req.body.actions;
 	switch (q){
       case('newpost'):
