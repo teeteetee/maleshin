@@ -276,7 +276,8 @@ head
           console.log("HIDDEN INPUT IS: "+$('#hiddeninput').val());
           var vbody = $('#getbody').val();
           console.log('we are in get body and body is:'+vbody);
-          if(!$('#invisibleinput').val())
+          if(vbody)
+          {if(!$('#invisibleinput').val())
           {
           $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");}
           else
@@ -286,11 +287,14 @@ head
           $('#invisibleinput').val(newtext);
           console.log('NOT EMPTY , INSERTING: '+newtext);
           }
-          $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");
+          $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");}
+          else
+          {}
           });
           $('#gettitlebutton').click(function(){
           var vtitle = $('#gettitle').val();
-          if(!$('#invisibleinput').val())
+          if (vtitle)
+          {if(!$('#invisibleinput').val())
           {
           $('#invisibleinput').val("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
           }
@@ -300,7 +304,9 @@ head
           var newtext = previoustext+"<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>";
           $('#invisibleinput').val(newtext);
           }
-          $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
+          $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");}
+          else
+          {}         
           });
      
       #gallblock.row.section
