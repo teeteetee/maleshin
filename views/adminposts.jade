@@ -78,20 +78,11 @@ head
             button(style='border:1px solid #c35;border-radius:4px;margin:1vh;',type='submit')
               h5(style='color:#c35;') Drop 
       #results.row
-        .col-xs-12
-          //
-            #legend.row(style='border-left:1px solid #ddd;border-right:1px solid #ddd;')
-              .col-xs-5.field
-                h5 TITLE
-              .col-xs-5.field
-                h5 IMAGE DIR
-              .col-xs-2.field
-                h5 DATES
-                         
+        .col-xs-12    
           each post, i in docs
             .row.order
               .col-xs-12.field
-                h5 #{post.day}/#{post.month}/#{post.year}
+                h5 #{post.day}-#{post.month}-#{post.year}
             .row.order
               .col-xs-2.field
                 h5 title
@@ -100,7 +91,7 @@ head
             .row.bb(style='text-align:center;')
               .col-xs-2
                 h5 image    
-              .col-xs-5.field
+              .col-xs-10.field
                 h5 #{post.headimage}
               
               
