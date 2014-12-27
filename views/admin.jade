@@ -145,6 +145,9 @@ head
       #removepost:hover{
       background-color:#ddd;
       }
+      p{ 
+      text-indent:1vw;
+      }
   body
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
@@ -323,15 +326,15 @@ head
           if(vbody)
           {if(!$('#invisibleinput').val())
           {
-          $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h5>"+vdate+"</h5><h3>"+vbody+"</h3></div></div>");}
+          $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h5>"+vdate+"</h5><p><h3>"+vbody+"</h3></p></div></div>");}
           else
           {
           var previoustext = $('#invisibleinput').val();
-          var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>";
+          var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>";
           $('#invisibleinput').val(newtext);
           console.log('NOT EMPTY , INSERTING: '+newtext);
           }
-          $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");}
+          $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>");}
           else
           {}
           });
