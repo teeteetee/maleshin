@@ -136,6 +136,9 @@ head
       margin:1vh;
       border:1px solid #ddd;
       }
+      button {
+      margin:1vh;
+      }
       #addpost:hover{
       background-color:#ddd;
       }
@@ -258,7 +261,7 @@ head
                 h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Vcy;&Scy;&IEcy;&Gcy;&Ocy;: 12887 
                 |            
                 h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Pcy;&Ocy;&Scy;&Lcy;&IEcy;&Dcy;&Ncy;&IEcy;&Gcy;&Ocy; &Pcy;&Ocy;&Scy;&Tcy;&Acy;: 2000  
-      #addpostblock.row(style='display:none;padding-right:1vw;margin-left:1vw;background-color:#eee;') 
+      #addpostblock.row(style='display:none;padding-right:1vw;padding-left:1vw;background-color:#eee;') 
         form(action='/actions',role='form',method='post', enctype='multipart/form-data')
          .col-xs-12
            .row
@@ -285,9 +288,9 @@ head
              .col-xs-12
                input#getbody(type='text')
                button#getbodybutton(type='button') GET BODY   
-           .row(style='border-top:1px solid green;border-radius:4px;')
+           .row
              .col-xs-12
-               button(type='submit',style='border:1px solid red') 
+               button(type='submit',style='border:1px solid green;border-radius:4px;') 
                  h5(style='color:green;') Отправить  
       #dropdb.row(style='display:none;background-color:#eee;')
         form(action='/drop/posts',method='post',role='form')  
