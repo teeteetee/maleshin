@@ -40,7 +40,7 @@ head
       font-size:1.5vw;
       }
       h5 {
-      font-size:0.5vw;
+      font-size:1vw;
       font-family:arial;
       letter-spacing:0.3vw;
       text-transform:uppercase;
@@ -50,6 +50,12 @@ head
       font-size:4vw;
       font-family:attentica;
       display:inline;
+      }
+      .white {
+      background-color:white;
+      }
+      .bb{
+      border-bottom:1px solid gray;
       }
   body
     .container
@@ -73,22 +79,30 @@ head
               h5(style='color:#c35;') Drop 
       #results.row
         .col-xs-12
-          #legend.row(style='border-left:1px solid #ddd;border-right:1px solid #ddd;')
-            .col-xs-5.field
-              h5 TITLE
-            .col-xs-5.field
-              h5 IMAGE DIR
-            .col-xs-2.field
-              h5 DATES
+          //
+            #legend.row(style='border-left:1px solid #ddd;border-right:1px solid #ddd;')
+              .col-xs-5.field
+                h5 TITLE
+              .col-xs-5.field
+                h5 IMAGE DIR
+              .col-xs-2.field
+                h5 DATES
                          
           each post, i in docs
             .row.order
-              .col-xs-5.field
+              .col-xs-12.field
+                h5 #{post.day}/#{post.month}/#{post.year}
+            .row.order
+              .col-xs-2.field
+                h5 title
+              .col-xs-10.field
                 h5 #{post.title}
+            .row.bb(style='text-align:center;')
+              .col-xs-2
+                h5 image    
               .col-xs-5.field
                 h5 #{post.headimage}
-              .col-xs-2.field
-                h5 #{post.day}/#{post.month}/#{post.year}
+              
               
 
 
