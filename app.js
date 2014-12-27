@@ -28,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/',function(req,res){
+  console.log('User-Agent: ' + req.headers['user-agent']);
+  console.log(req.ip);
   posts.find({},function(err,done){
     if (err)
     {
