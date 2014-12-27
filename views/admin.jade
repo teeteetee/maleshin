@@ -125,6 +125,17 @@ head
       display:inline;
       margin:0px;
       }  
+      h5 {
+      font-size:1vw;
+      font-family:arial;
+      letter-spacing:0.3vw;
+      text-transform:uppercase;
+      color:black;
+      }
+      input {
+      margin:1vh;
+      border:1px solid #ddd;
+      }
   body
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
@@ -228,7 +239,7 @@ head
                 span.glyphicon.glyphicon-minus
             |          
             .col-xs-11
-              h2  &Rcy;&IEcy;&Dcy;&Acy;&Kcy;&Tcy;&Icy;&Rcy;&Ocy;&Vcy;&Acy;&Tcy;&SOFTcy; &Pcy;&Ocy;&Scy;&Tcy;&Ycy;
+              h2  Удалить все посты
         |       
         .col-xs-6.stats
           .row
@@ -241,7 +252,7 @@ head
                 h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Vcy;&Scy;&IEcy;&Gcy;&Ocy;: 12887 
                 |            
                 h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Pcy;&Ocy;&Scy;&Lcy;&IEcy;&Dcy;&Ncy;&IEcy;&Gcy;&Ocy; &Pcy;&Ocy;&Scy;&Tcy;&Acy;: 2000  
-      #addpostblock.row(style='display:none;margin-right:1vw;margin-left:1vw;') 
+      #addpostblock.row(style='display:none;padding-right:1vw;margin-left:1vw;background-color:#eee;') 
         form(action='/actions',role='form',method='post', enctype='multipart/form-data')
          .col-xs-12
            .row
@@ -265,9 +276,18 @@ head
              .col-xs-12
                input#getbody(type='text')
                button#getbodybutton(type='button') GET BODY   
-           .row(style='border-top:1px solid black')
+           .row(style='border-top:1px solid green;border-radius:4px;')
              .col-xs-12
-               button(type='submit',style='border:1px solid red') Отправить        
+               button(type='submit',style='border:1px solid red') 
+                 h5(style='color:green;') Отправить  
+      #dropdb.row(style='display:none;background-color:#eee;')
+        form(action='/drop/posts',method='post',role='form')  
+          .col-xs-3
+            input(name='p',type='text')
+          .col-xs-3
+            button(style='border:1px solid #c35;border-radius:4px;',type='submit') 
+              h5(style='color:#c35;') Удалить
+
         script.
           $('#addpost').click(function(){
           $('#addpostblock').slideToggle();

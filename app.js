@@ -97,6 +97,18 @@ app.get('/books',function(req,res){
 
 
 
+app.post('/drop/:cc',function(req,res){
+  varr cc = req.params.cc;
+  switch(cc) {
+    case('posts'):
+      posts.remove();
+    break;
+    case('objects'):
+      posts.remove();
+    break;
+  }
+
+});
 
 app.post('/actions',function(req,res){
   console.log('IN /ACTIONS');
@@ -114,7 +126,7 @@ app.post('/actions',function(req,res){
                             var oldPath = filepath;
                             console.log('UPLOAD 1 step, oldPath:'+ oldPath);
                             var newPath = __dirname +"/public/images/"+ imageid;
-                            headimage = "/public/images/"+ imageid;
+                            vheadimage = "/public/images/"+ imageid;
                             console.log('UPLOAD 2 step, newPath:' + newPath );
                             fs.readFile(oldPath , function(err, data) {
                               fs.writeFile(newPath, data, function(err) {
