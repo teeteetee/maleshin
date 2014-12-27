@@ -264,7 +264,7 @@ head
       #addpostblock.row(style='display:none;padding-right:1vw;padding-left:1vw;background-color:#eee;') 
         form(action='/actions',role='form',method='post', enctype='multipart/form-data')
          .col-xs-12
-           .row
+           .row(style='display:none;')
              .col-xs-12
                input#hiddeninput(type='text',name='actions',value='newpost')
            .row 
@@ -276,10 +276,10 @@ head
              .col-xs-12
                input#gettitle(type='text')
                button#gettitlebutton(type='button') GET TITLE   
-           .row
+           .row(style='display:none;')
              .col-xs-12
                input#invisibleinput(name='postbody',type='text')
-           .row
+           .row(style='display:none;')
              .col-xs-12
                input#vtitle(name='vtitle',type='text')
            .row
