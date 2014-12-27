@@ -292,8 +292,13 @@ head
               h5(style='color:#c35;') Удалить
 
         script.
+          $('#removepost').click(function(){
+           $('#dropdb').slideTpggle();
+           window.location='#dropdb';
+          });
           $('#addpost').click(function(){
           $('#addpostblock').slideToggle();
+          window.location='#addpostblock';
           });
           $('#getbodybutton').click(function(){
           var x=$('#hiddeninput').val();
