@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jade = require('jade');
+var multer  = require('multer');
 
 var mongo = require('mongodb');
 var db = require('monk')('localhost/tav')
@@ -17,7 +18,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-
+app.use(multer({ dest: __dirname + '/uploads/'}));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -101,6 +102,7 @@ app.post('/actions',function(req,res){
   console.log('IN /ACTIONS');
 	var qq = req.body.actions;
   console.log('Q is:'+qq);
+  console.log(req.body);
 	switch (qq){
       case('newpost'):
       console.log('post comming through');
