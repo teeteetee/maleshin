@@ -314,10 +314,15 @@ head
           console.log("HIDDEN INPUT IS: "+x);
           var vbody = $('#getbody').val();
           console.log('we are in get body and body is:'+vbody);
+          var dd= new Date();
+          var vday = dd.getDate();
+          var vmonth= dd.getMonth()+1;
+          var vyear = dd.getUTCFullYear();
+          var vdate = vday+'.'+vmonth+'.'+vyear;
           if(vbody)
           {if(!$('#invisibleinput').val())
           {
-          $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h3>"+vbody+"</h3></div></div>");}
+          $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h5>"+vdate+"</h5><h3>"+vbody+"</h3></div></div>");}
           else
           {
           var previoustext = $('#invisibleinput').val();
