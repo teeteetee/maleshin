@@ -290,15 +290,15 @@ head
                button#getbodybutton(type='button') GET BODY   
            .row
              .col-xs-12
-               button(type='submit',style='border:1px solid green;border-radius:4px;') 
-                 h5(style='color:green;') Отправить  
+               button(type='submit',style='border:1px solid white;border-radius:4px;background-color:#00ab6f;') 
+                 h5(style='color:white;') Отправить  
       #dropdb.row(style='display:none;background-color:#eee;')
         form(action='/drop/posts',method='post',role='form')  
           .col-xs-3
             input(name='p',type='text')
           .col-xs-3
-            button(style='border:1px solid #c35;border-radius:4px;',type='submit') 
-              h5(style='color:#c35;') Удалить
+            button(style='border:1px solid white;border-radius:4px;background-color:#c35;',type='submit') 
+              h5(style='color:white;') Удалить
 
         script.
           $('#removepost').click(function(){
