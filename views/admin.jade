@@ -342,6 +342,7 @@ head
           {
           $('#invisibleinput').val("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
           $('#vtitle').val(vtitle);
+          $('#gettitlebutton').attr('disabled');
           }
           else
           {
@@ -349,8 +350,11 @@ head
           $('#vtitle').val(vtitle);
           var newtext = "<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>"+previoustext;
           $('#invisibleinput').val(newtext);
+          $('#grab').empty();
+          $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
+          $('#gettitlebutton').attr('disabled');
           }
-          $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");}
+          }
           else
           {}         
           });
