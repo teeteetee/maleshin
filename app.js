@@ -96,7 +96,22 @@ app.get('/gall',function(req,res){
 app.get('/books',function(req,res){
   res.render('books');
 });
-
+app.get('/ap',function(req,res){
+  posts.find({},function(err,docs){
+        if (err) {res.send('error');}
+        else {
+             if (docs != {})
+                           {
+                           console.log(docs);
+                           res.render('adminposts',{'docs' : docs});
+                            }
+      
+              else {
+                    res.send('empty db');
+                   }
+              }
+    });
+});
 
 
 app.post('/drop/:cc',function(req,res){
@@ -105,10 +120,12 @@ app.post('/drop/:cc',function(req,res){
   if(req.body.p === p)
   {switch(cc) {
       case('posts'):
+        console.log('POSTS DB DROPPED FROM '+req.ip);
         posts.remove();
         res.redirect('/redact');
       break;
       case('objects'):
+        console.log('OBJECTS DB DROPPED FROM '+req.ip);
         posts.remove();
         res.redirect('/redact');
       break;
@@ -142,7 +159,7 @@ app.post('/actions',function(req,res){
                               fs.writeFile(newPath, data, function(err) {
                                   fs.unlink(oldPath, function(){
                                       if(err) throw err;
-                                      res.send('UPLOAD '+imageid+"file uploaded to: " + newPath);
+                                      console.log('UPLOAD '+imageid+"file uploaded to: " + newPath);
                                         });
                               }); 
                             }); 
