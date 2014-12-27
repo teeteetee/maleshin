@@ -313,6 +313,7 @@ head
           var x=$('#hiddeninput').val();
           console.log("HIDDEN INPUT IS: "+x);
           var vbody = $('#getbody').val();
+          vbody = vbody.replace(/\r|\n|\r\n/g, '<br>')
           console.log('we are in get body and body is:'+vbody);
           var dd= new Date();
           var vday = dd.getDate();
