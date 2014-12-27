@@ -68,7 +68,7 @@ head
           h1(style='color:#eee;') Maleshin 
             span(style='color:#c35') Admin : 
             span(style='color:#e18282') posts 
-      #drop.row
+      #drop.row(style='border-bottom:1px solid #ddd;')
         form(method='post',action='/drop/orders',role='form' )
           .col-xs-4
             h5 Drop Users DB
@@ -84,12 +84,12 @@ head
               .col-xs-12.field
                 h5 #{post.day}-#{post.month}-#{post.year}
             .row.order
-              .col-xs-2.field
+              .col-xs-2.field.white
                 h5 title
               .col-xs-10.field
                 h5 #{post.title}
             .row.bb(style='text-align:center;')
-              .col-xs-2
+              .col-xs-2.field.white
                 h5 image    
               .col-xs-10.field
                 h5 #{post.headimage}
