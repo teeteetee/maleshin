@@ -106,9 +106,11 @@ app.post('/drop/:cc',function(req,res){
   {switch(cc) {
       case('posts'):
         posts.remove();
+        res.redirect('/redact');
       break;
       case('objects'):
         posts.remove();
+        res.redirect('/redact');
       break;
     }
   }
