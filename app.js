@@ -98,15 +98,20 @@ app.get('/books',function(req,res){
 
 
 app.post('/drop/:cc',function(req,res){
-  varr cc = req.params.cc;
-  switch(cc) {
-    case('posts'):
-      posts.remove();
-    break;
-    case('objects'):
-      posts.remove();
-    break;
+  var cc = req.params.cc;
+  var p = 'dropthatshit';
+  if(req.body.p === p)
+  {switch(cc) {
+      case('posts'):
+        posts.remove();
+      break;
+      case('objects'):
+        posts.remove();
+      break;
+    }
   }
+  else
+    {res.send('wrong p/l');}
 
 });
 
@@ -119,6 +124,7 @@ app.post('/actions',function(req,res){
       case('newpost'):
       console.log('post comming through');
         var vpostbody = req.body.postbody;
+        var vtitle = req.body.vtitle;
         console.log('post body is:'+vpostbody);
         var vheadimage;
         if(req.files.headimage)
@@ -140,7 +146,11 @@ app.post('/actions',function(req,res){
             
                     upload(req.files.headimage.path,req.files.headimage.name); 
                     console.log('headimage uploaded')
-                    posts.insert({last:1,postbody:vpostbody,headimage:vheadimage});
+                    var dd = new Date();
+                    var vday = dd.getDay()+1;
+                    var vmonth = dd.getMonth()+1;
+                    var vyear = dd.getUTCFullYear();
+                    posts.insert({last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,date:{day:vday,month:vmonth,year:vyear}});
                     res.redirect('/');
                   }   
           else {
