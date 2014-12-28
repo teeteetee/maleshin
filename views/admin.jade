@@ -282,7 +282,8 @@ head
            .row
              .col-xs-8
                textarea#gettitle.form-control
-               button#gettitlebutton(type='button') GET TITLE   
+               //
+                 button#gettitlebutton(type='button') GET TITLE   
            .row(style='display:none;')
              .col-xs-12
                input#invisibleinput(name='postbody',type='text')
@@ -295,10 +296,11 @@ head
            .row
              .col-xs-8
                textarea#getbody.form-control(rows='7')
-               button#getbodybutton(type='button') GET BODY   
+               //
+                 button#getbodybutton(type='button') GET BODY   
            .row
              .col-xs-12
-               button(type='submit',style='border:1px solid white;border-radius:4px;background-color:#00ab6f;') 
+               button(type='submit',onsubmit='getbody();gettitle();',style='border:1px solid white;border-radius:4px;background-color:#00ab6f;') 
                  h5(style='color:white;') Отправить  
            .row(style='background-color:#82d1e3;')
              #grab.col-xs-12      
@@ -319,7 +321,8 @@ head
           $('#addpostblock').slideToggle();
           window.location='#addpostblock';
           });
-          $('#getbodybutton').click(function(){
+          $('#getbodybutton').click(getbody());
+          function getbody() {
           var x=$('#hiddeninput').val();
           console.log("HIDDEN INPUT IS: "+x);
           var vbody = $('#getbody').val();
@@ -346,8 +349,10 @@ head
           }
           else
           {}
-          });
-          $('#gettitlebutton').click(function(){
+          }
+
+          $('#gettitlebutton').click(gettitle());
+          function gettitle(){
           var vtitle = $('#gettitle').val();
           if (vtitle)
           {
@@ -358,7 +363,7 @@ head
           }
           else
           {}         
-          });
+          }
      
       #gallblock.row.section
         .col-xs-6
