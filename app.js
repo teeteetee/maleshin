@@ -117,10 +117,13 @@ app.get('/ap',function(req,res){
 app.post('/dropp/:id',function(req,res){
   console.log('DELETING SINGLE POST');
   var vid = req.params.id;
+  var ms = {};
+  ms.trouble = 1;
   posts.findOne({id:vid},function(err,doc){
     if(err)
     {
       //CALL THE COPS
+      res.send(ms);
     }
     else 
     {  
@@ -129,7 +132,9 @@ app.post('/dropp/:id',function(req,res){
        if(err) throw err;
        console.log('IMAGE DELETED');
        posts.remove({id:vid});
-       console.log('POST DELETED'); 
+       console.log('POST DELETED');
+       ms.trouble=0;
+       res.send(ms);
          });
     }
   });
