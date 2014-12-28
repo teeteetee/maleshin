@@ -30,7 +30,7 @@ app.get('/test',function(req,res){
   posts.find({}, null, {sort: [['id', -1]]}, function(err, docs) {  
     if(err)
     {
-      //CALL THE COPS
+      res.send(err);//CALL THE COPS
     }
     else
     {res.send(docs);}
