@@ -124,6 +124,7 @@ app.post('/dropp/:id',function(req,res){
     {
       //CALL THE COPS
       res.send(ms);
+      console.log('DB ERROR');
     }
     else 
     { if(doc) 
