@@ -199,7 +199,7 @@ app.post('/actions',function(req,res){
         var vtitle = req.body.vtitle;
         console.log('post body is:'+vpostbody);
         var vheadimage;
-        if(req.files.headimage)
+        if(req.files.headimage&&vtitle&&vpostbody)
          {function upload(filepath,imageid){
                             var oldPath = filepath;
                             console.log('UPLOAD 1 step, oldPath:'+ oldPath);
