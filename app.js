@@ -120,6 +120,7 @@ app.post('/dropp/:id',function(req,res){
   var ms = {};
   ms.trouble = 1;
   posts.findOne({id:vid},function(err,doc){
+    console.log('query just happened');
     if(err)
     {
       //CALL THE COPS
