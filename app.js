@@ -47,9 +47,9 @@ app.get('/',function(req,res){
         //CALL THE COPS
       }
       else {
-        console.log('FOUND A POST, TITLE IS : '+done.title);
-        console.log('BODY IS : '+done.postbody);
-        res.render('index',{'title':done.title,'postbody':done.postbody,'headimage':done.headimage});
+        console.log('FOUND A POST, TITLE IS : '+doc.title);
+        console.log('BODY IS : '+doc.postbody);
+        res.render('index',{'title':doc.title,'postbody':doc.postbody,'headimage':doc.headimage});
       }
     });
   }
