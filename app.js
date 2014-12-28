@@ -115,8 +115,8 @@ app.get('/ap',function(req,res){
 });
 
 app.post('/dropp/:id',function(req,res){
-  console.log('DELETING SINGLE POST');
   var vid = req.params.id;
+  console.log('DELETING SINGLE POST6 ID: '+vid);
   var ms = {};
   ms.trouble = 1;
   posts.findOne({id:vid},function(err,doc){
@@ -126,16 +126,18 @@ app.post('/dropp/:id',function(req,res){
       res.send(ms);
     }
     else 
-    {  
-      var oldPath = __dirname + '/public'+doc.headimage;
-      fs.unlinkSync(oldPath, function(){
-       if(err) throw err;
-       console.log('IMAGE DELETED');
-       posts.remove({id:vid});
-       console.log('POST DELETED');
-       ms.trouble=0;
-       res.send(ms);
-         });
+    { if(doc) 
+      {var oldPath = __dirname + '/public'+doc.headimage;
+            fs.unlinkSync(oldPath, function(){
+             if(err) throw err;
+             console.log('IMAGE DELETED');
+             posts.remove({id:vid});
+             console.log('POST DELETED');
+             ms.trouble=0;
+             res.send(ms);
+               });}
+      else
+      {res.send(ms);}
     }
   });
 
