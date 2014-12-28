@@ -154,7 +154,7 @@ app.post('/drop/:cc',function(req,res){
             if (removeSelf)
             fs.rmdirSync(dirPath);
             };
-            break:
+            break;
              }
             }
             rmDir(__dirname + '/public/images',false);
