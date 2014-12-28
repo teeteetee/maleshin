@@ -103,6 +103,7 @@ head
                 h5 #{post.headimage}
       script.
         function remove(id) {
+        console.log('doing remove');
         request = new XMLHttpRequest();
         request.onreadystatechange = function () {
         var DONE = this.DONE || 4;
