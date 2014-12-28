@@ -153,7 +153,7 @@ app.post('/actions',function(req,res){
                             var oldPath = filepath;
                             console.log('UPLOAD 1 step, oldPath:'+ oldPath);
                             var newPath = __dirname +"/public/images/"+ imageid;
-                            vheadimage = "/public/images/"+ imageid;
+                            vheadimage = "/images/"+ imageid;
                             console.log('UPLOAD 2 step, newPath:' + newPath );
                             fs.readFile(oldPath , function(err, data) {
                               fs.writeFile(newPath, data, function(err) {
