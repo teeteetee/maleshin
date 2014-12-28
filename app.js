@@ -26,18 +26,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.get('/test',function(req,res){
-  posts.find({}, null, {sort: {id:-1}}, function(err, docs) {  
-    if(err)
-    {
-      res.send(err);//CALL THE COPS
-    }
-    else
-    {res.send(docs);}
-  });
-  
-});
-
 app.get('/',function(req,res){
   console.log('User-Agent: ' + req.headers['user-agent']);
   console.log(req.ip);
@@ -205,8 +193,27 @@ app.post('/actions',function(req,res){
                     var vday = dd.getDay()+1;
                     var vmonth = dd.getMonth()+1;
                     var vyear = dd.getUTCFullYear();
-                    posts.insert({id:1,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,date:{day:vday,month:vmonth,year:vyear}});
-                    res.redirect('/');
+                    posts.findOne({last:1},function(err,doc){
+                      if (err)
+                      {
+                        //CALL THE COPS
+                      }
+                      else {
+                         if(doc)
+                         {
+                          var newid  = doc.id+1;
+                          posts.insert({id:newid,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,date:{day:vday,month:vmonth,year:vyear}});
+                          res.redirect('/');
+
+                         }
+                         else
+                         {
+                          posts.insert({id:1,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,date:{day:vday,month:vmonth,year:vyear}});
+                          res.redirect('/');
+                         }
+                      }
+                    });
+                    
                   }   
           else {
             res.send('wasnt able to find headimage')

@@ -81,7 +81,9 @@ head
         .col-xs-12    
           each post, i in docs
             .row.order
-              .col-xs-12.field
+              .col-xs-1(style='text-align:center;background-color:#c35;')
+                h5(style='color:white') #{post.id}
+              .col-xs-11.field
                 h5 #{post.day}-#{post.month}-#{post.year}
             .row.order
               .col-xs-2.field.white
