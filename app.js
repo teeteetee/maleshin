@@ -115,7 +115,7 @@ app.get('/ap',function(req,res){
 });
 
 app.post('/dropp/:id',function(req,res){
-  var vid = req.params.id;
+  var vid = parseInt(req.params.id);
   console.log('DELETING SINGLE POST6 ID: '+vid);
   var ms = {};
   ms.trouble = 1;
