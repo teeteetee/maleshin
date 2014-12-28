@@ -61,6 +61,11 @@ app.get('/redact',function(req,res){
 	res.render('login');
 });
 
+app.get('test',function(req,res){
+  var pd = posts.find().sort({id:-1}).limit(1).pretty()
+  res.send(pd);
+});
+
 app.post('/redact',function(req,res){
   var pass= 'testtest';
   var log= 'testtest';
@@ -131,8 +136,29 @@ app.post('/drop/:cc',function(req,res){
         posts.remove();
         res.redirect('/redact');
       break;
-    }
-  }
+      case('images'):
+          console.log('Dropping images');
+          rmDir = function(dirPath, removeSelf) {
+            if (removeSelf === undefined)
+            removeSelf = true;
+            try { var files = fs.readdirSync(dirPath); }
+            catch(e) { return; }
+            if (files.length > 0)
+              for (var i = 0; i < files.length; i++) {
+               var filePath = dirPath + '/' + files[i];
+               if (fs.statSync(filePath).isFile())
+               fs.unlinkSync(filePath);
+               else
+               rmDir(filePath);
+               }
+            if (removeSelf)
+            fs.rmdirSync(dirPath);
+            };
+            break:
+             }
+            }
+            rmDir(__dirname + '/public/images',false);
+
   else
     {res.send('wrong p/l');}
 
@@ -173,7 +199,7 @@ app.post('/actions',function(req,res){
                     var vday = dd.getDay()+1;
                     var vmonth = dd.getMonth()+1;
                     var vyear = dd.getUTCFullYear();
-                    posts.insert({last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,date:{day:vday,month:vmonth,year:vyear}});
+                    posts.insert({id:1,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,date:{day:vday,month:vmonth,year:vyear}});
                     res.redirect('/');
                   }   
           else {
