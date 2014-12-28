@@ -26,6 +26,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+app.get('test',function(req,res){
+  var pd = posts.find().sort({id:-1}).limit(1).pretty();
+  res.send(pd);
+});
 
 app.get('/',function(req,res){
   console.log('User-Agent: ' + req.headers['user-agent']);
@@ -59,11 +63,6 @@ app.get('/',function(req,res){
 
 app.get('/redact',function(req,res){
 	res.render('login');
-});
-
-app.get('test',function(req,res){
-  var pd = posts.find().sort({id:-1}).limit(1).pretty()
-  res.send(pd);
 });
 
 app.post('/redact',function(req,res){
