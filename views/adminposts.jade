@@ -61,7 +61,7 @@ head
     .container
       script.
         function away() {
-         window.location='http://topandviews.ru/admin';
+         window.location='http://maleshin.com/';
         }
       #header.row(style='background-color:#333;',onclick='away()')
         .col-xs-12
@@ -69,9 +69,9 @@ head
             span(style='color:#c35') Admin : 
             span(style='color:#e18282') posts 
       #drop.row(style='border-bottom:1px solid #ddd;')
-        form(method='post',action='/drop/orders',role='form' )
+        form(method='post',action='/drop/posts',role='form' )
           .col-xs-4
-            h5 Drop Users DB
+            h5 Drop POSTS DB
           .col-xs-4
             input(type='text',style='margin:1vh;',name='p')
           .col-xs-4
@@ -84,7 +84,7 @@ head
               .col-xs-1(style='text-align:center;background-color:#c35;')
                 h5(style='color:white') #{post.id}
               .col-xs-11.field
-                h5 #{post.day}-#{post.month}-#{post.year}
+                h5 #{post.date.day}-#{post.date.month}-#{post.date.year}
             .row.order
               .col-xs-2.field.white
                 h5 title
