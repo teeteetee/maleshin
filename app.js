@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/test',function(req,res){
-  posts.find({}, null, {sort: [['id', -1]]}, function(err, docs) {  
+  posts.find({}, null, {sort: {id:-1}}, function(err, docs) {  
     if(err)
     {
       res.send(err);//CALL THE COPS
