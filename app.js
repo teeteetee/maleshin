@@ -155,10 +155,9 @@ app.post('/drop/:cc',function(req,res){
             fs.rmdirSync(dirPath);
             };
             break;
+            rmDir(__dirname + '/public/images',false);
              }
             }
-            rmDir(__dirname + '/public/images',false);
-
   else
     {res.send('wrong p/l');}
 
