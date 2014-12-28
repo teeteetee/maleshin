@@ -157,7 +157,7 @@ app.post('/actions',function(req,res){
                             console.log('UPLOAD 2 step, newPath:' + newPath );
                             fs.readFile(oldPath , function(err, data) {
                               fs.writeFile(newPath, data, function(err) {
-                                  fs.unlink(oldPath, function(){
+                                  fs.unlinkSync(oldPath, function(){
                                       if(err) throw err;
                                       console.log('UPLOAD '+imageid+"file uploaded to: " + newPath);
                                         });
