@@ -350,20 +350,9 @@ head
           $('#gettitlebutton').click(function(){
           var vtitle = $('#gettitle').val();
           if (vtitle)
-          {if(!$('#invisibleinput').val())
           {
-          $('#invisibleinput').val("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
           $('#vtitle').val(vtitle);
           $('#gettitlebutton').attr('disabled');
-          }
-          else
-          {
-          var previoustext = $('#invisibleinput').val();
-          $('#vtitle').val(vtitle);
-          var newtext = "<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>"+previoustext;
-          $('#invisibleinput').val(newtext);
-          $('#gettitlebutton').attr('disabled');
-          }
           $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
           window.location='#grab';
           }
