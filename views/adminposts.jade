@@ -81,7 +81,7 @@ head
         .col-xs-12    
           each post, i in docs
             .row.order
-              .col-xs-1(style='text-align:center;background-color:#c35;')
+              .col-xs-1(id='post#{post.id}',style='text-align:center;background-color:#c35;',onclick='remove(#{post.id})')
                 h5(style='color:white') #{post.id}
               .col-xs-11.field
                 h5 #{post.date.day}-#{post.date.month}-#{post.date.year}
@@ -95,6 +95,35 @@ head
                 h5 image    
               .col-xs-10.field
                 h5 #{post.headimage}
+      script.
+        function remove(id) {
+        request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+        var DONE = this.DONE || 4;
+        if (this.readyState === DONE){
+        parsed = JSON.parse(request.responseText);
+        console.log(parsed);
+        if(parsed.trouble === 1)
+        {
+        eval("$('#post"+id+"').empty();");
+        eval("$('#post"+id+"').css('background-color','white');");
+        eval("$('#post"+id+"').append('<h5>ОШИБКА</h5>');");
+        }
+        else {
+        eval("$('#post"+id+"').empty();");
+        eval("$('#post"+id+"').css('background-color','white');");
+        eval("$('#post"+id+"').append('<h5>УДАЛЕН</h5>');");
+        }
+        }
+        };
+        request.open('POST', '/dropp/id', true);
+        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made for ajax purposes.
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //Most libraries like jQuery/Prototype/Dojo do this
+        //request.send("phr="+vphr+"&lgn="+vlgn);
+        request.send();
+        }        
+              
               
               
 

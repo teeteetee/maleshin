@@ -114,6 +114,28 @@ app.get('/ap',function(req,res){
     });
 });
 
+app.post('/dropp/:id',function(req,res){
+  console.log('DELETING SINGLE POST');
+  var vid = req.params.id;
+  posts.findOne({id:vid},function(err,doc){
+    if(err)
+    {
+      //CALL THE COPS
+    }
+    else 
+    {  
+      var oldPath = __dirname + '/public'+doc.headimage;
+      fs.unlinkSync(oldPath, function(){
+       if(err) throw err;
+       console.log('IMAGE DELETED');
+       posts.remove({id:vid});
+       console.log('POST DELETED'); 
+         });
+    }
+  });
+
+});
+
 
 app.post('/drop/:cc',function(req,res){
   var cc = req.params.cc;
@@ -190,7 +212,7 @@ app.post('/actions',function(req,res){
                     upload(req.files.headimage.path,req.files.headimage.name); 
                     console.log('headimage uploaded')
                     var dd = new Date();
-                    var vday = dd.getDay()+1;
+                    var vday = dd.getDate();
                     var vmonth = dd.getMonth()+1;
                     var vyear = dd.getUTCFullYear();
                     posts.findOne({last:1},function(err,doc){
