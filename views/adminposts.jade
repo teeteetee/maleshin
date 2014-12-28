@@ -57,6 +57,12 @@ head
       .bb{
       border-bottom:1px solid gray;
       }
+      .pointer{
+      cursor:pointer
+      }
+      .pointer:hover{
+      border:4px solid black;
+      }
   body
     .container
       script.
@@ -81,7 +87,7 @@ head
         .col-xs-12    
           each post, i in docs
             .row.order
-              .col-xs-1(id='post#{post.id}',style='text-align:center;background-color:#c35;',onclick='remove(#{post.id})')
+              .col-xs-1.pointer(id='post#{post.id}',style='text-align:center;background-color:#c35;',onclick='remove(#{post.id})')
                 h5(style='color:white') #{post.id}
               .col-xs-11.field
                 h5 #{post.date.day}-#{post.date.month}-#{post.date.year}
