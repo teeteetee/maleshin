@@ -247,7 +247,7 @@ app.post('/actions',function(req,res){
                     
                   }   
           else {
-            res.send('wasnt able to find headimage')
+            res.send('wasnt able to find headimage/title/body')
           }
       break;
       case('updatepost'):
