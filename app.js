@@ -27,8 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/test',function(req,res){
-  var pd = posts.find({},{id:1}).sort({id:-1}).limit(1).execAsync();
-  posts.find({}).sort('-id').exec(function(err, docs) { 
+  Room.find({}, null, {sort: [['id', -1]]}, function(err, docs) {  
     if(err)
     {
       //CALL THE COPS
