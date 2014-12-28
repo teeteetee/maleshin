@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/test',function(req,res){
-  Room.find({}, null, {sort: [['id', -1]]}, function(err, docs) {  
+  posts.find({}, null, {sort: [['id', -1]]}, function(err, docs) {  
     if(err)
     {
       //CALL THE COPS
