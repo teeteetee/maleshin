@@ -87,7 +87,7 @@ head
         .col-xs-12    
           each post, i in docs
             .row.order
-              .col-xs-1.pointer(id='post#{post.id}',style='text-align:center;background-color:#c35;',onclick='remove(#{post.id})')
+              .col-xs-1.pointer(id='post#{post.id}',style='text-align:center;background-color:#c35;',onclick='delfs(#{post.id})')
                 h5(style='color:white') #{post.id}
               .col-xs-11.field
                 h5 #{post.date.day}-#{post.date.month}-#{post.date.year}
@@ -102,7 +102,7 @@ head
               .col-xs-10.field
                 h5 #{post.headimage}
       script.
-        function remove(id) {
+        function delfs(id) {
         console.log('doing remove');
         request = new XMLHttpRequest();
         request.onreadystatechange = function () {
