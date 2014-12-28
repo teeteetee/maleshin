@@ -21,6 +21,21 @@ head
       script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
     |     
     style.
+      #header {
+      height:100vh;
+      -webkit-transition:height 1.5s;
+      -webkit-transition-timing-function:ease-out;
+      }
+      @media only screen
+        and (min-device-width : 768px) 
+        and (max-device-width : 1024px) 
+        and (orientation : portrait) 
+      {
+      #header {
+      height:100%;
+      min-height:30vh;
+      }
+      } 
       html {
       background: url('#{headimage}') no-repeat center center fixed;
       background-size: cover;
@@ -114,11 +129,6 @@ head
       text-align:center;
       margin-top:5vh;
       margin-bottom:5vh;
-      }
-      #header {
-      height:100vh;
-      -webkit-transition:height 1.5s;
-      -webkit-transition-timing-function:ease-out;
       }
       #main {
       margin-left:0px;
