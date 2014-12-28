@@ -264,7 +264,7 @@ head
           |      
           #title.row
             .col-xs-12(style='padding:0px;')
-              h1#titletext Trip to south America 
+              h1#titletext #{title}
           |      
           script.
             console.log($('#titletext').text().length);
@@ -296,7 +296,7 @@ head
                 span.glyphicon.glyphicon-chevron-down(style='font-size:5vw;')
       .row
         .col-xs-12
-          #{insert}      
+          #{postbody}      
           script.
             $('#countries').click(function(){
               window.location='http://aa44.cc/countries';

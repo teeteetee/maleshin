@@ -38,7 +38,7 @@ app.get('/',function(req,res){
     else {
       var pquant = done;
       if(pquant.length === 0)
-  {res.render('index',{'insert':"yet empty",'headimage':'/bootstrap/images/dsea1.jpg'});}
+  {res.render('index',{'title':done.title,'postbody':done.postbody,'headimage':done.headimage});}
   else
   {
     posts.findOne({last:1},function(err,doc){
