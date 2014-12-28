@@ -101,14 +101,14 @@ app.get('/ap',function(req,res){
   posts.find({},function(err,docs){
         if (err) {res.send('error');}
         else {
-             if (docs != {})
+             if (docs.length>0)
                            {
                            console.log(docs);
                            res.render('adminposts',{'docs' : docs});
                             }
       
               else {
-                    res.send('empty db');
+                    res.render('emptyadminposts.jade');
                    }
               }
     });

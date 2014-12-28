@@ -1,0 +1,86 @@
+html
+html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title Admin: ORDERS
+    //
+       Bootstrap 
+    link(href='/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    
+    style
+     :css
+      @font-face {
+      font-family:attentica;
+      src:url('/bootstrap/fonts/Attentica.ttf');
+      }
+      .container{
+      background-color:#eee;
+      }
+      #header {
+      text-align:left;
+      background-color:#333;
+      cursor:pointer;
+      }
+      .order {
+      border-bottom:1px solid #ddd;
+      text-align:center;
+      }
+      .field {
+      border-right:1px solid #ddd;
+      }
+      #legend{
+      border-bottom:1px solid #ddd;
+      background-color:white;
+      }
+      input{
+      font-family:arial;
+      letter-spacing:1px;
+      font-size:1.5vw;
+      }
+      h5 {
+      font-size:1vw;
+      font-family:arial;
+      letter-spacing:0.3vw;
+      text-transform:uppercase;
+      color:black;
+      }
+      h1 {
+      font-size:4vw;
+      font-family:attentica;
+      display:inline;
+      }
+      .white {
+      background-color:white;
+      }
+      .bb{
+      border-bottom:1px solid gray;
+      }
+      .pointer{
+      cursor:pointer
+      }
+      .pointer:hover{
+      background-color:black;
+      }
+  body
+    .container
+      script.
+        function away() {
+         window.location='http://maleshin.com/';
+        }
+      #header.row(style='background-color:#333;',onclick='away()')
+        .col-xs-12
+          h1(style='color:#eee;') Maleshin 
+            span(style='color:#c35') Admin : 
+            span(style='color:#e18282') posts 
+      .row
+        .col-xs-12(style='text-align:center;padding-top:20vh;')
+          h5 Постов нет
+     
+              
+              
+              
+
+
+        
