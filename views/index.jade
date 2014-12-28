@@ -36,6 +36,15 @@ head
       min-height:30vh;
       }
       } 
+      @media only  screen
+      and (min-device-width : 768px) 
+      and (max-device-width : 1024px) 
+      and (orientation : landscape) 
+      {
+      #menu{
+       margin-bottom:20vh;
+      }
+      }
       html {
       background: url('#{headimage}') no-repeat center center fixed;
       background-size: cover;
@@ -291,7 +300,6 @@ head
             } //23
             else {
             $("h1").css({"line-height":"normal","font-size":"20vw"});
-            $("#menu").css("margin-bottom","20vh");
             }
           |        
           #chevron.row.chevron
