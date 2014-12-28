@@ -38,7 +38,7 @@ app.get('/',function(req,res){
     else {
       var pquant = done;
       if(pquant.length === 0)
-  {res.render('index',{'title':done.title,'postbody':done.postbody,'headimage':done.headimage});}
+  {res.render('index',{'title':"yet empty",'headimage':'/bootstrap/images/1.jpg'});}
   else
   {
     posts.findOne({last:1},function(err,doc){
@@ -47,7 +47,7 @@ app.get('/',function(req,res){
         //CALL THE COPS
       }
       else {
-        res.render('emptyindex',{'insert':doc.postbody,'headimage':doc.headimage});
+        res.render('index',{'title':done.title,'postbody':done.postbody,'headimage':done.headimage});
       }
     });
   }
