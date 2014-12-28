@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.get('test',function(req,res){
+app.get('/test',function(req,res){
   var pd = posts.find().sort({id:-1}).limit(1).pretty();
   res.send(pd);
 });
