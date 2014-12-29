@@ -157,6 +157,7 @@ app.post('/dropp/:id',function(req,res){
     { if(doc) 
       { console.log('DOC IS PRESENT');
         var oldPath = __dirname + '/public'+doc.headimage;
+            console.log('OLD PATH IS: '+oldPath);
             fs.unlinkSync(oldPath, function(){
              if(err) throw err;
              console.log('IMAGE DELETED');
