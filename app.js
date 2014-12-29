@@ -47,11 +47,11 @@ app.get('/',function(req,res){
       }
       else {
         if(doc.length>0)
-        {console.log('FOUND A POST, TITLE IS : '+doc.title);
-                console.log('BODY IS : '+doc.postbody);
+        {console.log('FOUND A POST, TITLE IS : '+doc[0].title);
+                console.log('BODY IS : '+doc[0].postbody);
                 console.log('-----------------------------');
                 console.log(doc);
-                res.render('index',{'title':doc.title,'postbody':doc.postbody,'headimage':doc.headimage});}
+                res.render('index',{'title':doc[0].title,'postbody':doc[0].postbody,'headimage':doc[0].headimage});}
          else
          {
           res.render('index',{'title':"yet empty",'headimage':'/bootstrap/images/1.jpg'});
