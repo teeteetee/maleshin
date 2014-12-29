@@ -260,12 +260,14 @@ app.post('/actions',function(req,res){
                             vvday='0'+vvmonth;
                           var vsd = vyear.toString()+vvmonth+vvday;
                           vsd = parseInt(vsd);
+                          posts.update({last:1},{$set:{last:0}});
                           posts.insert({id:newid,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vday,month:vmonth,year:vyear}});
                           res.redirect('/');
 
                          }
                          else
                          {
+                          posts.update({last:1},{$set:{last:0}});
                           posts.insert({id:1,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,date:{day:vday,month:vmonth,year:vyear}});
                           res.redirect('/');
                          }
