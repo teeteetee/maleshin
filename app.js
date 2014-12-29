@@ -160,10 +160,17 @@ app.post('/dropp/:id',function(req,res){
             fs.unlinkSync(oldPath, function(){
              if(err) throw err;
              console.log('IMAGE DELETED');
-             posts.remove({id:vid});
-             console.log('POST DELETED');
-             ms.trouble=0;
-             res.send(ms);
+             posts.remove({id:vid},function(err,done){
+               if (err) 
+               {
+                //CALL THE COPS
+               }
+               else {
+                console.log('POST DELETED');
+                ms.trouble=0;
+                res.send(ms);
+               }
+             });
                });}
       else
       {res.send(ms);}
