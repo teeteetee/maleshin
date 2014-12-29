@@ -40,7 +40,7 @@ app.get('/',function(req,res){
   {res.render('index',{'title':"yet empty",'headimage':'/bootstrap/images/1.jpg'});}
   else
   {
-    posts.findOne({last:1},function(err,doc){
+     posts.find({},{ limit:1,sort : { sd : -1 } },function (err,doc) { 
       if (err)
       {
         //CALL THE COPS
@@ -244,14 +244,8 @@ app.post('/actions',function(req,res){
                     var vday = dd.getDate();
                     var vmonth = dd.getMonth()+1;
                     var vyear = dd.getUTCFullYear();
-                    posts.findOne({last:1},function(err,doc){
-                      if (err)
-                      {
-                        //CALL THE COPS
-                      }
-                      else {
-                         if(doc)
-                         {
+                   
+                     
                           var newid  = doc.id+1;
                           var vvday = vday.toString();
                           if(vvday.length === 1)
@@ -261,19 +255,10 @@ app.post('/actions',function(req,res){
                             vvday='0'+vvmonth;
                           var vsd = vyear.toString()+vvmonth+vvday;
                           vsd = parseInt(vsd);
-                          posts.update({last:1},{$set:{last:0}});
-                          posts.insert({id:newid,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vday,month:vmonth,year:vyear}});
+                          posts.insert({id:newid,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vday,month:vmonth,year:vyear}});
                           res.redirect('/');
 
-                         }
-                         else
-                         {
-                          posts.update({last:1},{$set:{last:0}});
-                          posts.insert({id:1,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,date:{day:vday,month:vmonth,year:vyear}});
-                          res.redirect('/');
-                         }
-                      }
-                    });
+                       
                     
                   }   
           else {
