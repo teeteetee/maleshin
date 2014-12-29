@@ -138,6 +138,12 @@ head
       .col-xs-3 {
       padding-left:0px;
       }
+      .hiddeninputs {
+      display:none;
+      margin:0px;
+      padding:1vw;
+      background-color:#eee;
+      }
   body
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
@@ -171,16 +177,15 @@ head
             .col-xs-9
               h2  &Rcy;&IEcy;&Dcy;&Acy;&Kcy;&Tcy;&Icy;&Rcy;&Ocy;&Vcy;&Acy;&Tcy;&SOFTcy; &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
       #booksblock.row.section
-        // 
-        .col-xs-12
+        .col-xs-6
           .row.title
             .col-xs-12
               h4 Книги
           |        
           #addbook.row.addsmth
-            .col-xs-1(style='text-align:center;')
+            .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_cross.png')    
-            .col-xs-11
+            .col-xs-9
               h2  Добавить книгу
           #addbookinput.row
 
@@ -212,7 +217,7 @@ head
                 h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Vcy;&Scy;&IEcy;&Gcy;&Ocy;: 12887 
                 |            
                 h2  &Pcy;&Rcy;&Ocy;&Scy;&Mcy;&Ocy;&Scy;&Tcy;&Rcy;&Ocy;&Vcy; &Pcy;&Ocy;&Scy;&Lcy;&IEcy;&Dcy;&Ncy;&IEcy;&Gcy;&Ocy; &Pcy;&Ocy;&Scy;&Tcy;&Acy;: 2000  
-      #addpostblock.row(style='display:none;padding-right:1vw;padding-left:1vw;padding-top:3vh;background-color:#eee;') 
+      #addpostblock.row.hiddeninputs 
         form(action='/actions',id='mainform',role='form',method='post', enctype='multipart/form-data')
          .col-xs-12
            .row(style='display:none;')
