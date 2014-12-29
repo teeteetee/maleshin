@@ -252,10 +252,10 @@ app.post('/actions',function(req,res){
                          if(doc)
                          {
                           var newid  = doc.id+1;
-                          var vvday = num.toString(vday)
+                          var vvday = vday.toString();
                           if(vvday.length === 1)
                             vvday='0'+vvday;
-                          var vvmonth = num.toString(vday)
+                          var vvmonth = vmonth.toString();
                           if(vvmonth.length === 1)
                             vvday='0'+vvmonth;
                           var vsd = num.toString(vyear)+vvmonth+vvday;
