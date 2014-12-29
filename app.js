@@ -244,7 +244,7 @@ app.post('/actions',function(req,res){
                       }
                       else
 
-                    { if(doc)
+                    { if(doc.length>1)
                       {upload(req.files.headimage.path,req.files.headimage.name); 
                        console.log('headimage uploaded')
                        var dd = new Date();
