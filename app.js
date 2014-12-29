@@ -74,6 +74,24 @@ app.post('/redact',function(req,res){
   }
 });
 
+app.get('/posts',function(req,res){
+  posts.find({}).sort({ sd : -1ß}).exec(function(err, docs){ 
+        if (err) {res.send('error');}
+        else {
+             if (docs.length>0)
+                           {
+                           console.log(docs);
+                           res.render('posts',{'docs' : docs});
+                            }
+      
+              else {
+                    //NO EMPTY POSTS PAGE !!!!!
+                    res.send('no posts');
+                   }
+              }
+    });
+});
+
 app.get('/countries',function(req,res){
   res.render('countries');
 });
@@ -233,7 +251,15 @@ app.post('/actions',function(req,res){
                          if(doc)
                          {
                           var newid  = doc.id+1;
-                          posts.insert({id:newid,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,date:{day:vday,month:vmonth,year:vyear}});
+                          var vvday = num.toString(vday)
+                          if(vvday.length === 1)
+                            vvday='0'+vvday;
+                          var vvmonth = num.toString(vday)
+                          if(vvmonth.length === 1)
+                            vvday='0'+vvmonth;
+                          var vsd = num.toString(vyear)+vvmonth+vvday;
+                          vsd = parseInt(vsd);
+                          posts.insert({id:newid,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vday,month:vmonth,year:vyear}});
                           res.redirect('/');
 
                          }
