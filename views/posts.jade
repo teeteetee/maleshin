@@ -45,7 +45,7 @@ head
       }
       h1 {
       font-family:attentica;
-      font-size:12vw;
+      font-size:10vw;
       color:white;
       margin:0px;
       }
@@ -63,6 +63,7 @@ head
       font-size:2vw;
       }
       h4 {
+      color:white;
       font-weight:bold;
       font-family:br;
       font-size:4vw;
@@ -218,7 +219,7 @@ head
               window.location='http://maleshin.com/routes';
             });  
       each post, i in docs
-        .row(style="background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
+        .row(style="padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
           .col-xs-12
             h1 #{post.title}
             h4 #{post.date.day}.#{post.date.month}.#{post.date.year}
