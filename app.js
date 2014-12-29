@@ -49,6 +49,8 @@ app.get('/',function(req,res){
         if(doc.length>0)
         {console.log('FOUND A POST, TITLE IS : '+doc.title);
                 console.log('BODY IS : '+doc.postbody);
+                console.log('-----------------------------');
+                console.log(doc);
                 res.render('index',{'title':doc.title,'postbody':doc.postbody,'headimage':doc.headimage});}
          else
          {
