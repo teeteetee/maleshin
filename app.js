@@ -213,6 +213,7 @@ app.post('/drop/:cc',function(req,res){
               { 
                 console.log('POSTS DB DROPPED FROM '+req.ip);
                 rmDir(__dirname + '/public/images',false);
+                res.redirect('/ap');
               }
             });
       break;
