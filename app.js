@@ -187,9 +187,6 @@ app.post('/drop/:cc',function(req,res){
   if(req.body.p === p)
   {switch(cc) {
       case('posts'):
-        console.log('POSTS DB DROPPED FROM '+req.ip);
-        posts.remove();
-        res.redirect('/redact');
         console.log('Dropping images');
           rmDir = function(dirPath, removeSelf) {
             if (removeSelf === undefined)
@@ -207,12 +204,21 @@ app.post('/drop/:cc',function(req,res){
             if (removeSelf)
             fs.rmdirSync(dirPath);
             };
-            
-            rmDir(__dirname + '/public/images',false);
+            posts.remove({},function(err,done){
+              if(err)
+              {
+                //CALL THE COPS
+              }
+              else
+              { 
+                console.log('POSTS DB DROPPED FROM '+req.ip);
+                rmDir(__dirname + '/public/images',false);
+              }
+            });
       break;
       case('objects'):
         console.log('OBJECTS DB DROPPED FROM '+req.ip);
-        posts.remove();
+        objects.remove();
         res.redirect('/redact');
       break;
       
