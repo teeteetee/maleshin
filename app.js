@@ -75,7 +75,8 @@ app.post('/redact',function(req,res){
 });
 
 app.get('/posts',function(req,res){
-  posts.find({}).sort({ sd : -1}).exec(function(err, docs){ 
+  
+  posts.find({},{ sort : { sd : -1 } },function (err,docs) { 
         if (err) {res.send('error');}
         else {
              if (docs.length>0)
