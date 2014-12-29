@@ -48,7 +48,7 @@ head
       font-size:8vw;
       color:white;
       margin:0px;
-      
+
       }
       h2 {
       color:white;
@@ -220,9 +220,9 @@ head
               window.location='http://maleshin.com/routes';
             });  
       each post, i in docs
-        .row(style="padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
+        .row(style="padding-top:5vh;padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
           .col-xs-12
             h1 #{post.title}
-            h4 #{post.date.day}.#{post.date.month}.#{post.date.year}
+            h4(style='margin-bottom:3vh;') #{post.date.day}.#{post.date.month}.#{post.date.year}
 
    
