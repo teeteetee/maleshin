@@ -135,7 +135,7 @@ app.get('/ap',function(req,res){
 
 app.post('/dropp/:id',function(req,res){
   var vid = parseInt(req.params.id);
-  console.log('DELETING SINGLE POST6 ID: '+vid);
+  console.log('DELETING SINGLE POST ID: '+vid);
   var ms = {};
   ms.trouble = 1;
   posts.findOne({id:vid},function(err,doc){
@@ -148,7 +148,8 @@ app.post('/dropp/:id',function(req,res){
     }
     else 
     { if(doc) 
-      {var oldPath = __dirname + '/public'+doc.headimage;
+      { console.log('DOC IS PRESENT');
+        var oldPath = __dirname + '/public'+doc.headimage;
             fs.unlinkSync(oldPath, function(){
              if(err) throw err;
              console.log('IMAGE DELETED');
