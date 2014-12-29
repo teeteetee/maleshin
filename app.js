@@ -46,9 +46,14 @@ app.get('/',function(req,res){
         //CALL THE COPS
       }
       else {
-        console.log('FOUND A POST, TITLE IS : '+doc.title);
-        console.log('BODY IS : '+doc.postbody);
-        res.render('index',{'title':doc.title,'postbody':doc.postbody,'headimage':doc.headimage});
+        if(doc.length>0)
+        {console.log('FOUND A POST, TITLE IS : '+doc.title);
+                console.log('BODY IS : '+doc.postbody);
+                res.render('index',{'title':doc.title,'postbody':doc.postbody,'headimage':doc.headimage});}
+         else
+         {
+          res.render('index',{'title':"yet empty",'headimage':'/bootstrap/images/1.jpg'});
+         }       
       }
     });
   }
@@ -244,7 +249,7 @@ app.post('/actions',function(req,res){
                       }
                       else
 
-                    { if(doc.length>1)
+                    { if(doc.length>0)
                       {upload(req.files.headimage.path,req.files.headimage.name); 
                        console.log('headimage uploaded')
                        var dd = new Date();
@@ -263,6 +268,7 @@ app.post('/actions',function(req,res){
                        posts.insert({id:newid,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vday,month:vmonth,year:vyear}});
                        res.redirect('/');}
                         else{
+                          console.log('NO POSTS ID IS GOING TO BE ONE');
                           upload(req.files.headimage.path,req.files.headimage.name); 
                        console.log('headimage uploaded')
                        var dd = new Date();
