@@ -258,7 +258,7 @@ app.post('/actions',function(req,res){
                           var vvmonth = vmonth.toString();
                           if(vvmonth.length === 1)
                             vvday='0'+vvmonth;
-                          var vsd = num.toString(vyear)+vvmonth+vvday;
+                          var vsd = vyear.toString()+vvmonth+vvday;
                           vsd = parseInt(vsd);
                           posts.insert({id:newid,last:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vday,month:vmonth,year:vyear}});
                           res.redirect('/');
