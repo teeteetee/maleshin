@@ -263,7 +263,22 @@ app.post('/actions',function(req,res){
                        posts.insert({id:newid,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vday,month:vmonth,year:vyear}});
                        res.redirect('/');}
                         else{
-                          res.send('trouble srtting id');
+                          upload(req.files.headimage.path,req.files.headimage.name); 
+                       console.log('headimage uploaded')
+                       var dd = new Date();
+                       var vday = dd.getDate();
+                       var vmonth = dd.getMonth()+1;
+                       var vyear = dd.getUTCFullYear();
+                       var vvday = vday.toString();
+                       if(vvday.length === 1)
+                         {vvday='0'+vvday;}
+                       var vvmonth = vmonth.toString();
+                       if(vvmonth.length === 1)
+                         {vvday='0'+vvmonth;}
+                       var vsd = vyear.toString()+vvmonth+vvday;
+                       vsd = parseInt(vsd);
+                       posts.insert({id:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vday,month:vmonth,year:vyear}});
+                       res.redirect('/');
                         }                                      
                                       }
 
