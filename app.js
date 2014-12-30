@@ -9,7 +9,7 @@ var multer  = require('multer');
 
 var mongo = require('mongodb');
 var db = require('monk')('localhost/tav')
-  ,posts = db.get('posts'),objects = db.get('objects');
+  ,posts = db.get('posts'),objects = db.get('objects');misc = db.get('misc');
 // POSTS and OBJECTS BELONGS TO MALESHIN PROJECT DELETE WHEN PUSHING TOPANDVIEWS TO PRODUCTION
 var fs = require('fs-extra');
 
@@ -67,6 +67,26 @@ app.get('/redact',function(req,res){
 	res.render('login');
 });
 
+app.get('/posts/:id',function(req,res){
+  var pid = parseInt(req.params.id);
+  posts.findOne({id:pid},function(err,doc){
+    if (err)
+    {
+      //SCREAM
+    }
+    else
+    {
+      if(doc)
+      {
+        res.render('post');
+      }
+      else {
+        res.redirect('/');
+      }
+    }
+  });
+});
+
 app.post('/redact',function(req,res){
   var pass= 'testtest';
   var log= 'testtest';
@@ -109,11 +129,41 @@ app.get('/routes',function(req,res){
 });
 
 app.get('/about',function(req,res){
-  res.render('about');
+  misc.findOne({bit:about},function(err,done){
+     if(err)
+     {
+
+     }
+     else
+     {
+      if(done)
+      {
+        res.render('about',{'body':done.bbody})
+      }
+      else {
+
+      }
+     }
+  });
 });
 
 app.get('/contacts',function(req,res){
-  res.render('contacts');
+  misc.findOne({bit:contacts},function(err,done){
+     if(err)
+     {
+
+     }
+     else
+     {
+      if(done)
+      {
+        res.render('contacts',{'body':done.bbody})
+      }
+      else {
+
+      }
+     }
+  });
 });
 
 app.get('/gall',function(req,res){
@@ -343,9 +393,51 @@ app.post('/actions',function(req,res){
       break;
       case('removevideo'):
       break;
+      case('setcontacts'):
+       var cbody = req.body.cbody;
+       misc.insert({bit:contacts,bbody:cbody});
+      break;
+      case('setabout'):
+       var abody = req.body.abody;
+       misc.insert({bit:about,bbody:abody});
+      break;
       case('updatecontacts'):
+       var cbody = req.body.cbody;
+       misc.findOne({bit:contacts},function(err,done){
+        if(err){
+
+        }
+        else
+        {
+          if(done)
+          {
+            misc.update({bit:contacts},{$set:{bbody:cbody}});
+            res.redirect('/contacts');
+          }
+          else{
+            //GO AWAY
+          }
+        }
+       });
       break;
       case('updateabout'):
+        var cbody = req.body.abody;
+       misc.findOne({bit:about},function(err,done){
+        if(err){
+
+        }
+        else
+        {
+          if(done)
+          {
+            misc.update({bit:about},{$set:{bbody:abody}});
+            res.redirect('/about');
+          }
+          else{
+            //GO AWAY
+          }
+        }
+       });
       break;
 	}
 });
