@@ -334,7 +334,7 @@ head
               img(src='/bootstrap/images/circle_cross.png')
             .col-xs-9
               h2  Добавить фото     
-          #addalbum.row.addsmth
+          #albums.row.addsmth.addalbum
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_cross.png')
             .col-xs-9
@@ -352,7 +352,79 @@ head
                 h2(style='color:#c35') Статистика;           
                 h2  Фотографий: 10             
                 h2  Альбомов : 20 
-                h2  Видео : 20       
+                h2  Видео : 20   
+      script.
+        $('#addphoto').click(function(){
+        request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+        var DONE = this.DONE || 4;
+        if (this.readyState === DONE){
+        var index;
+        parsed = JSON.parse(request.responseText);
+        console.log(parsed);
+        if(parsed.trouble === 1)
+        {
+        console.log('TROUBLE === 1');
+        switch (parsed.mtext){
+        case('empty'):
+        $('#addphotoblockinsert').append("<div class='row addalbum addsmth'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-11'><h2>Добавить альбом</h2></div></div>");
+        break;
+        }}
+        else {
+        //trouble === 0
+        for (var i in parsed.results) {
+        $('#addphotoblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");
+        window.location=href('#contactsblock');
+        $('#addphotoblock').slideToggle();
+        }
+        }
+        }
+        };
+        request.open('POST', '/misc', true);
+        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //Most libraries like jQuery/Prototype/Dojo do this
+        request.send("cause=albums");          });
+        $('.addalbum').click(function(){
+        request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+        var DONE = this.DONE || 4;
+        if (this.readyState === DONE){
+        var index;
+        parsed = JSON.parse(request.responseText);
+        console.log(parsed);
+        if(parsed.trouble === 1)
+        {
+        console.log('TROUBLE === 1');
+        switch (parsed.mtext){
+        case('empty'):
+        $('#albumsblockinsert').append("<div class='row addalbum addsmth' id='secondaddalbum'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-11'><h2>Добавить альбом</h2></div></div>");
+        break;
+        }}
+        else {
+        //trouble === 0
+        for (var i in parsed.results) {
+        $('#albumsblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");
+        window.location=href('#contactsblock');
+        $('#albumsblock').slideToggle();
+        }
+        }
+        }
+        };
+        request.open('POST', '/misc', true);
+        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //Most libraries like jQuery/Prototype/Dojo do this
+        request.send("cause=albums");          });
+        $('#secondaddalbum').click(function(){
+        $('#addphotoblock').slideToggle();
+        });
+      #addphotoblock.row.hiddeninputs
+        #addphotoblockinsert.col-xs-12
+      #albumsblock.row.hiddeninputs
+        #albumsblockinsert.col-xs-12
+      #addvideoblock.row.hiddeninputs
+        #addvideoblockinsert.col-xs-12
       #contactsblock.row.section
         .col-xs-6
           .row.title

@@ -269,8 +269,16 @@ app.post('/drop/:cc',function(req,res){
       break;
       case('objects'):
         console.log('OBJECTS DB DROPPED FROM '+req.ip);
-        objects.remove();
+        objects.remove({},function(err,done){
+              if(err)
+              {
+                //CALL THE COPS
+              }
+              else
+              { 
         res.redirect('/redact');
+              }
+              );
       break;
       
 
@@ -369,29 +377,197 @@ app.post('/actions',function(req,res){
       break;
       case('delete post'):
         var pid = req.body.pid;
+        //THIS WAS IMPLEMENTED UNDER '/dropp/:post', PROBABLY NEEDS TO BE TRANSFERED HERE
       break;
       case('addroute'):
       break;
       case('removeroute'):
       break;
       case('addphoto'):
+        // ADD FS WIRTE
         var vtitle= req.body.vtitle;
-        var aid = req.body.aid;
-        var country = req.body.country; 
+        var aid = parseInt(req.body.aid);
+        var vcountry = req.body.country; 
+        var vfilename = req.files.photo.name;
+        images.find({},{ limit:1,sort : { fid : -1 } },function(err,done){
+          if(err)
+          {
+
+          }
+          else{
+            if(done.length>0){
+             var newid = done.fid+1;
+             images.insert({fid:newfid,country:vcountry,title:vtitle,albumid:aid,filename:vfilename});
+             misc.findOne({bit:album,id:aid},function(err,done){
+              if(err)
+              {
+                //CALL THE COPS
+              }
+              else {
+                var newimgqntt = done.imgqntt + 1;
+                misc.update({bit:album,id:aid},{$set:{imgqntt:newimgqntt}});
+              }
+             });
+            }
+            else{
+              images.insert({fid:1,country:vcountry,title:vtitle,albumid:aid,filename:vfilename});
+               misc.findOne({bit:album,id:aid},function(err,done){
+              if(err)
+              {
+                //CALL THE COPS
+              }
+              else {
+                var newimgqntt = done.imgqntt + 1;
+                misc.update({bit:album,id:aid},{$set:{imgqntt:newimgqntt}});
+              }
+             });
+            }
+          }
+        });
       break;
       case('updatephoto'):
       break;
       case('addalbum'):
+        misc.find({bit:album},{ limit:1,sort : { id : -1 } },{function(err,done)
+          { if(err)
+           {
+            //CALL THE COPS
+           }
+           else 
+            { var valbumname = req.body.albumname;
+              if(done.length>0)
+              {
+               var newid = done.id+1;
+               misc.insert({bit:album,id:newid,albumname:valbumname});
+               //SUCCESS CONFIRMATION NEEDS TO BE ADDED
+                                            }
+              else{
+                misc.insert({bit:album,id:newid,albumname:valbumname});
+                //SUCCESS CONFIRMATION NEDDS TO BE ADDED
+              }
+                              }
+                  }
+          );
       break;
       case('addvideo'):
+        images.find({video:1},{ limit:1,sort : { id : -1 } },{function(err,done){
+             if(err)
+             {
+              //CALL THE COPS
+             }
+             else {
+              var dd = new Date();
+              var vday = dd.getDate();
+              var vmonth = dd.getMonth()+1;
+              var vyear = dd.getUTCFullYear();
+              var vtitle = req.body.vtitle;
+              if(done.length>0)
+              {var newid = done.vid+1;
+               images.insert({video:1,id:newid,vbody:vidbody,filename:req.files.video.name,uploaddate:{day:vday,month:vmonth,year:vyear},title:vtitle});}
+               else {
+                images.insert({video:1,id:1,vbody:vidbody,filename:req.files.video.name,uploaddate:{day:vday,month:vmonth,year:vyear},title:vtitle});}
+               }             
+             }
+        });
       break;
       case('updatealbum'):
+        misc.update
       break;
       case('removealbum'):
+        var aid = parseInt(req.body.albumid);      
+        //FS REMOVE MUT BE ADDED TO ACTUALY DELETE THE IMAGES NOT JUST THEIR RECORDS
+        images.find({albumid:aid},function(err,twodone){
+           if(err)
+           {
+            //CALL THE COPS
+           }
+           else
+           {
+            if(twodone.length>0)
+            {
+              for (var image in twodone) {
+                           var filename = image.filename; 
+                           var oldPath = __dirname + '/public/images/'+ filename;
+                           fs.unlink(oldPath, function(){
+                              if(err) throw err;
+                              console.log('REMOVING AN ALBUM ('+AID+') - IMAGE DELETED');
+                           });
+  
+                   }
+               images.remove({albumid:aid},function(err,done){
+                    if(err)
+                    {
+                      //SCREAM
+                    }
+                    else
+                    {
+                      misc.remove({bit:album,id:aid},function(err,doneremove){
+                        if(err)
+                        {
+                          //CALL THE COPS
+                        }
+                        else {
+                         //INDICATE A SUCCESS
+                         res.redirect('/redact');
+                        }
+                      });
+                    }
+                  });    
+            }
+            else{
+              console.log('SEARCH ON ALBUM '+aid+' RESULTED IN WHAT APPEARS TO BE AN EMPTYNESS')
+            }
+           }
+        });
       break;
       case('removephoto'):
+        var vpid = parseInt(req.body.pid);
+
+        //FS REMOVE MUST BE ADDED
+        images.findOne({pid:vpid},function(err,donethree){
+          var aid = donethree.albumid;
+          var filename = donethree.filename; 
+          var oldPath = __dirname + '/public/images/'+ filename;
+          fs.unlink(oldPath, function(){
+             if(err) throw err;
+             console.log('IMAGE DELETED');
+              images.remove({pid:vpid},function(err,done){
+                 if(err)
+                 {
+                   //CALL THE SOPS
+                 }
+                 else
+                 {
+                   misc.findOne({bit:album,id:aid},function(err,donetwo){
+                    if(err)
+                    {
+                      //CALL THE COPS
+                    }
+                    else {
+                      var newimgqntt = donetwo.imgqntt - 1;
+                      misc.update({bit:album,id:aid},{$set:{imgqntt:newimgqntt}});
+                      res.redirect('/redact');
+                    }
+                   });
+                 }
+              }); 
+          });
+        });
+        
       break;
       case('removevideo'):
+        var vvid =parseInt(req.body.vid);
+        //FS REMOVE MUST BE ADDED
+        images.remove({vid:vvid},function(err,done){
+          if(err)
+          {
+            //SCREAM
+          }
+          else
+          {
+           res.redirect('/redact');
+          }
+        });
       break;
       case('setcontacts'):
        var cbody = req.body.cbody;
