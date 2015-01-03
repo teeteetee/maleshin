@@ -428,7 +428,7 @@ app.post('/actions',function(req,res){
       case('updatephoto'):
       break;
       case('addalbum'):
-        misc.find({bit:album},{ limit:1,sort : { id : -1 } },{function(err,done)
+        misc.find({bit:album},{ limit:1,sort : { id : -1 } },function(err,done)
           { if(err)
            {
             //CALL THE COPS
@@ -446,8 +446,7 @@ app.post('/actions',function(req,res){
                 //SUCCESS CONFIRMATION NEDDS TO BE ADDED
               }
                               }
-                  }
-          );
+                  });
       break;
       case('addvideo'):
         images.find({video:1},{ limit:1,sort : { id : -1 } },{function(err,done){
