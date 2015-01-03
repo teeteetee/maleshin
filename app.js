@@ -623,7 +623,7 @@ app.post('/misc',function(req,res){
     {case('albums'):
          var ms = {};
          ms.trouble = 1;
-         misc.find({bit:album},function(err,done){
+         misc.find({bit:'album'},function(err,done){
           if(err)
           {
             //CALL THE COPS
