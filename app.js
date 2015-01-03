@@ -617,6 +617,7 @@ app.post('/actions',function(req,res){
 });
 
 app.post('/misc',function(req,res){
+  console.log('INTO MISC');
   var cause = req.body.cause;
   switch (cause)
     {case('albums'):
