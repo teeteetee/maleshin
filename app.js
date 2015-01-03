@@ -643,8 +643,7 @@ app.post('/misc',function(req,res){
           }
          });
         break;
-        case():
-        break;}
+        }
 
 });
 
