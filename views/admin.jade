@@ -407,6 +407,8 @@ head
         switch (parsed.mtext){
         case('empty'):
         $('#albumsblockinsert').append("<div class='row addalbum addsmth' id='secondaddalbum'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-11'><h2>Добавить альбом</h2></div></div>");
+        window.location=href('#contactsblock');
+        $('#albumsblock').slideToggle();
         break;
         }}
         else {
@@ -424,6 +426,42 @@ head
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         //Most libraries like jQuery/Prototype/Dojo do this
         request.send("cause=albums");          });
+        $('#secondaddalbum').click(function(){
+        $('#addphotoblock').slideToggle();
+        });
+        $('.addalbumbutton').click(function(){
+        request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+        var DONE = this.DONE || 4;
+        if (this.readyState === DONE){
+        var index;
+        parsed = JSON.parse(request.responseText);
+        console.log(parsed);
+        if(parsed.trouble === 1)
+        {
+        console.log('TROUBLE === 1');
+        switch (parsed.mtext){
+        case('empty'):
+        $('#albumsblockinsert').append("<div class='row addalbum addsmth' id='secondaddalbum'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-11'><h2>Добавить альбом</h2></div></div>");
+        window.location=href('#contactsblock');
+        $('#albumsblock').slideToggle();
+        break;
+        }}
+        else {
+        //trouble === 0
+        for (var i in parsed.results) {
+        $('#albumsblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");
+        window.location=href('#contactsblock');
+        $('#albumsblock').slideToggle();
+        }
+        }
+        }
+        };
+        request.open('POST', '/misc', true);
+        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //Most libraries like jQuery/Prototype/Dojo do this
+        request.send("cause=albums&albumname="++);          });
         $('#secondaddalbum').click(function(){
         $('#addphotoblock').slideToggle();
         });
