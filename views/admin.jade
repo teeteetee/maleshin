@@ -373,7 +373,9 @@ head
         console.log('TROUBLE === 1');
         switch (parsed.mtext){
         case('empty'):
+        console.log('should append some text');
         $('#addphotoblockinsert').append("<div class='row addalbum addsmth'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-11'><h2>Добавить альбом</h2></div></div>");
+        $('#addphotoblock').slideToggle();
         break;
         }}
         else {
