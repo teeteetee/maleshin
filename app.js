@@ -619,32 +619,32 @@ app.post('/actions',function(req,res){
 app.post('/misc',function(req,res){
   var cause = req.body.cause;
   switch (cause)
-    case('albums'):
-     var ms = {};
-     ms.trouble = 1;
-     misc.find({bit:album},function(err,done){
-      if(err)
-      {
-        //CALL THE COPS
-      }
-      else
-      {
-        if(done.length>0)
-        { 
-          ms.trouble = 0;
-          ms.results = done;
-          res.send(ms);
-        }
-        else
-        {
-         ms.mtext='empty'; //send none, "EMPTY YET", SO ADDALBUM BUTTON CAN BE PUT IN PLACE 
-         res.send(ms);
-        }
-      }
-     });
-    break;
-    case():
-    break;
+    {case('albums'):
+         var ms = {};
+         ms.trouble = 1;
+         misc.find({bit:album},function(err,done){
+          if(err)
+          {
+            //CALL THE COPS
+          }
+          else
+          {
+            if(done.length>0)
+            { 
+              ms.trouble = 0;
+              ms.results = done;
+              res.send(ms);
+            }
+            else
+            {
+             ms.mtext='empty'; //send none, "EMPTY YET", SO ADDALBUM BUTTON CAN BE PUT IN PLACE 
+             res.send(ms);
+            }
+          }
+         });
+        break;
+        case():
+        break;}
 
 });
 
