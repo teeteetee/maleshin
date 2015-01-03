@@ -428,7 +428,7 @@ app.post('/actions',function(req,res){
       case('updatephoto'):
       break;
       case('addalbum'):
-        misc.find({bit:album},{ limit:1,sort : { id : -1 } },function(err,done)
+        misc.find({bit:album},{ limit:1,sort : { id : -1 } },function (err,done)
           { if(err)
            {
             //CALL THE COPS
@@ -449,7 +449,7 @@ app.post('/actions',function(req,res){
                   });
       break;
       case('addvideo'):
-        images.find({video:1},{ limit:1,sort : { id : -1 } },{function(err,done){
+        images.find({video:1},{ limit:1,sort : { id : -1 } },function (err,done){
              if(err)
              {
               //CALL THE COPS
@@ -466,8 +466,7 @@ app.post('/actions',function(req,res){
                else {
                 images.insert({video:1,id:1,vbody:vidbody,filename:req.files.video.name,uploaddate:{day:vday,month:vmonth,year:vyear},title:vtitle});}
                }             
-             }
-        });
+             });
       break;
       case('updatealbum'):
         misc.update
