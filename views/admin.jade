@@ -442,7 +442,7 @@ head
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         //Most libraries like jQuery/Prototype/Dojo do this
-        request.send("action=albums");          });
+        request.send("actions=albums");          });
         $('#secondaddalbum').click(function(){
 
         $('#addphotoblock').slideToggle();
@@ -489,7 +489,7 @@ head
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         //Most libraries like jQuery/Prototype/Dojo do this
-        request.send("action=addalbum&albumname="+valbumname);});
+        request.send("actions=addalbum&albumname="+valbumname);});
         $('#secondaddalbum').click(function(){
         $('#addphotoblock').slideToggle();
         });
