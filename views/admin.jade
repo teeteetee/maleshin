@@ -425,6 +425,11 @@ head
         }}
         else {
         //trouble === 0
+        if($('#addphotoblock').css('display')!='none'){
+        console.log($('#addphotoblock').css('display'));
+        $('#addphotoblock').slideToggle();
+        }
+        $('#addphotoblockinsert').empty();
         for (var i in parsed.results) {
         $('#addphotoblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");
         window.location='#contactsblock';
