@@ -385,7 +385,11 @@ app.post('/actions',function(req,res){
       break;
       case('addphoto'):
         // ADD FS WIRTE
-        var vtitle= req.body.vtitle;
+        var vcomment= req.body.vcomment;
+        if(!vcommment)
+        {
+          vcomment = 0;
+        }
         var aid = parseInt(req.body.aid);
         var vcountry = req.body.country; 
         var vfilename = req.files.photo.name;
@@ -397,7 +401,7 @@ app.post('/actions',function(req,res){
           else{
             if(done.length>0){
              var newid = done.fid+1;
-             images.insert({fid:newfid,country:vcountry,title:vtitle,albumid:aid,filename:vfilename});
+             images.insert({fid:newfid,country:vcountry,comment:vcomment,albumid:aid,filename:vfilename});
              misc.findOne({bit:album,id:aid},function(err,done){
               if(err)
               {
@@ -410,7 +414,7 @@ app.post('/actions',function(req,res){
              });
             }
             else{
-              images.insert({fid:1,country:vcountry,title:vtitle,albumid:aid,filename:vfilename});
+              images.insert({fid:1,country:vcountry,comment:vcomment,albumid:aid,filename:vfilename});
                misc.findOne({bit:album,id:aid},function(err,done){
               if(err)
               {
@@ -426,7 +430,10 @@ app.post('/actions',function(req,res){
         });
       break;
       case('updatephoto'):
-      break;
+        var vfid = parseInt(req.body.fid);
+        var vcomment = req.body.comment;
+        images.update({fid:vfid},{$set:{comment:vcomment}});
+        //SUCCESS CONFIRMATION NEEDS TO BE ADDED
       case('addalbum'):
         misc.find({bit:album},{ limit:1,sort : { id : -1 } },function (err,done)
           { if(err)
@@ -439,11 +446,51 @@ app.post('/actions',function(req,res){
               {
                var newid = done.id+1;
                misc.insert({bit:album,id:newid,albumname:valbumname});
-               //SUCCESS CONFIRMATION NEEDS TO BE ADDED
+               var ms ={};
+               ms.trouble=1;
+               ms.mtext='db';
+               misc.find({bit:album},{id:-1},function (err,done){
+                 if (err)
+                 {
+                   //CALL THE COPS
+                   res.send(ms);
+                             }
+                 else {
+                   if(done.length>0){
+                     ms.trouble=0;
+                     ms.mbody=done;
+                     res.send(ms);
+                   }
+                   else {
+                     ms.mtext='empty';
+                     res.send(ms);
+                   }
+                 }
+               });
                                             }
               else{
                 misc.insert({bit:album,id:newid,albumname:valbumname});
-                //SUCCESS CONFIRMATION NEDDS TO BE ADDED
+                var ms ={};
+                ms.trouble=1;
+                ms.mtext='db';
+                misc.find({bit:album},{id:-1},function (err,done){
+                  if (err)
+                  {
+                    //CALL THE COPS
+                    res.send(ms);
+                              }
+                  else {
+                    if(done.length>0){
+                      ms.trouble=0;
+                      ms.mbody=done;
+                      res.send(ms);
+                    }
+                    else {
+                      ms.mtext='empty';
+                      res.send(ms);
+                    }
+                  }
+                });
               }
                               }
                   });
@@ -470,6 +517,29 @@ app.post('/actions',function(req,res){
       break;
       case('updatealbum'):
         misc.update
+      break;
+      case('albums'):
+        var ms ={};
+        ms.trouble=1;
+        ms.mtext='db';
+        misc.find({bit:album},{id:-1},function (err,done){
+          if (err)
+          {
+            //CALL THE COPS
+            res.send(ms);
+                      }
+          else {
+            if(done.length>0){
+              ms.trouble=0;
+              ms.mbody=done;
+              res.send(ms);
+            }
+            else {
+              ms.mtext='empty';
+              res.send(ms);
+            }
+          }
+        });
       break;
       case('removealbum'):
         var aid = parseInt(req.body.albumid);      
