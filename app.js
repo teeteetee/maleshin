@@ -289,6 +289,13 @@ app.post('/drop/:cc',function(req,res){
 
 });
 
+// AN IMPORTANT NOTICE 
+//
+// IMAGES WHICH ARE UPLOADED TO BE USED IN POSTS GO TO ALBUM ID=0
+//
+//
+
+
 app.post('/actions',function(req,res){
   console.log('IN /ACTIONS');
 	var qq = req.body.actions;
