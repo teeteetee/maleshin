@@ -438,11 +438,11 @@ head
         }
         }
         };
-        request.open('POST', '/misc', true);
+        request.open('POST', '/actions', true);
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         //Most libraries like jQuery/Prototype/Dojo do this
-        request.send("cause=albums");          });
+        request.send("action=albums");          });
         $('#secondaddalbum').click(function(){
 
         $('#addphotoblock').slideToggle();
@@ -466,12 +466,12 @@ head
         switch (parsed.mtext){
         case('empty'):
         $('#albumsblockinsert').append("<div class='row addalbum addsmth' id='secondaddalbum'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-11'><h2>Добавить альбом</h2></div></div>");
-        window.location=href('#contactsblock');
+        window.location='#contactsblock';
         $('#albumsblock').slideToggle();
         break;
         case('db'):
         $('#albumsblockinsert').append("<div class='row' ><div class='col-xs-1'><img src='/bootstrap/images/circle_excl.png'></div><div class='col-xs-11'><h2>Проблемы с базой данных</h2></div></div>");
-        window.location=href('#contactsblock');
+        window.location='#contactsblock';
         $('#albumsblock').slideToggle();
         break;
         }}
@@ -479,17 +479,17 @@ head
         //trouble === 0
         for (var i in parsed.results) {
         $('#albumsblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");
-        window.location=href('#contactsblock');
+        window.location='#contactsblock';
         $('#albumsblock').slideToggle();
         }
         }
         }
         };
-        request.open('POST', '/misc', true);
+        request.open('POST', '/actions', true);
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         //Most libraries like jQuery/Prototype/Dojo do this
-        request.send("cause=addalbum&albumname="+valbumname);});
+        request.send("action=addalbum&albumname="+valbumname);});
         $('#secondaddalbum').click(function(){
         $('#addphotoblock').slideToggle();
         });
