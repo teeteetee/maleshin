@@ -99,9 +99,6 @@ head
       outline:none;
       text-decoration:none;
       }
-      .section {
-      border-bottom:1px solid #eee;
-      }
       .addsmth{
       padding-left:7vw;
       margin-bottom:1vh;
@@ -199,27 +196,16 @@ head
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_minus.png')      
             .col-xs-9
-              h2  Редактировать маршруты
-      script.
-        $('#routesblock').click(function(){
-          var x = $('#routesimg').attr('src');
-          if(x === '/bootstrap/images/circle_bird_up_white.png')
-          {
-           $('#routesimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
-          }
-          else {
-            $('#routesimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
-          }
-          $('#routesblockoptions').slideToggle();
-        });           
+              h2  Редактировать маршруты         
       #booksblock.row.section
         .col-xs-6
           .row.title
             .col-xs-1
-              img(src='/bootstrap/images/circle_bird_down_white.png')
+              img(id='booksimg',src='/bootstrap/images/circle_bird_down_white.png')
             .col-xs-11
               h4 Книги
-          |        
+      #booksblockoptions.row.hiddenoptions
+        .col-xs-12.nb          
           #addbook.row.addsmth
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_cross.png')    
@@ -231,10 +217,11 @@ head
         .col-xs-6
           .row.title
             .col-xs-1
-              img(src='/bootstrap/images/circle_bird_down_white.png')
+              img(id='blogimg',src='/bootstrap/images/circle_bird_down_white.png')
             .col-xs-11
               h4 &Bcy;&Lcy;&Ocy;&Gcy;
-          |        
+      #blogblockoptions.row.hiddenoptions
+        .col-xs-12.nb          
           #addpost.row.addsmth
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_cross.png')      
@@ -367,10 +354,11 @@ head
         .col-xs-6
           .row.title
             .col-xs-1
-              img(src='/bootstrap/images/circle_bird_down_white.png')
+              img(id='gallimg',src='/bootstrap/images/circle_bird_down_white.png')
             .col-xs-11
               h4 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;
-          |        
+      #gallblockoptions.row.hiddenoptions
+        .col-xs-12.nb          
           #addphoto.row.addsmth
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_cross.png')
@@ -539,9 +527,11 @@ head
         .col-xs-6
           .row.title
             .col-xs-1
-              img(src='/bootstrap/images/circle_bird_down_white.png')
+              img(id='contactsimg',src='/bootstrap/images/circle_bird_down_white.png')
             .col-xs-11
               h4 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;  
+      #contactsblockoptions.row.hiddenoptions
+        .col-xs-12.nb          
           #editcontacts.row.addsmth
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_text.png')         
@@ -551,13 +541,72 @@ head
         .col-xs-6
           .row.title
             .col-xs-1
-              img(src='/bootstrap/images/circle_bird_down_white.png')
+              img(id='aboutimg',src='/bootstrap/images/circle_bird_down_white.png')
             .col-xs-11
               h4 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
+      #aboutblockoptions.row.hiddenoptions
+        .col-xs-12.nb          
           #editabout.row.addsmth
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_text.png')         
             .col-xs-9
               h2  Редактировать "О проекте"     
+      script.
+        $('#routesblock').click(function(){
+          var x = $('#routesimg').attr('src');
+          if(x === '/bootstrap/images/circle_bird_up_white.png')
+          {
+           $('#routesimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+          }
+          else {
+            $('#routesimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+          }
+          $('#routesblockoptions').slideToggle();
+        }); 
+        $('#aboutblock').click(function(){
+          var x = $('#aboutimg').attr('src');
+          if(x === '/bootstrap/images/circle_bird_up_white.png')
+          {
+           $('#aboutimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+          }
+          else {
+            $('#aboutimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+          }
+          $('#aboutblockoptions').slideToggle();
+        });  
+        $('#aboutblock').click(function(){
+          var x = $('#aboutimg').attr('src');
+          if(x === '/bootstrap/images/circle_bird_up_white.png')
+          {
+           $('#aboutimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+          }
+          else {
+            $('#aboutimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+          }
+          $('#aboutblockoptions').slideToggle();
+        }); 
+        $('#gallblock').click(function(){
+          var x = $('#gallimg').attr('src');
+          if(x === '/bootstrap/images/circle_bird_up_white.png')
+          {
+           $('#gallimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+          }
+          else {
+            $('#gallimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+          }
+          $('#gallblockoptions').slideToggle();
+        }); 
+        $('#booksblock').click(function(){
+          var x = $('#booksimg').attr('src');
+          if(x === '/bootstrap/images/circle_bird_up_white.png')
+          {
+           $('#booksimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+          }
+          else {
+            $('#booksimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+          }
+          $('#booksblockoptions').slideToggle();
+        }); 
+
       
         
