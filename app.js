@@ -402,27 +402,27 @@ app.post('/actions',function(req,res){
             if(done.length>0){
              var newid = done.fid+1;
              images.insert({fid:newfid,country:vcountry,comment:vcomment,albumid:aid,filename:vfilename});
-             misc.findOne({bit:album,id:aid},function(err,done){
+             misc.findOne({bit:'album',id:aid},function(err,done){
               if(err)
               {
                 //CALL THE COPS
               }
               else {
                 var newimgqntt = done.imgqntt + 1;
-                misc.update({bit:album,id:aid},{$set:{imgqntt:newimgqntt}});
+                misc.update({bit:'album',id:aid},{$set:{imgqntt:newimgqntt}});
               }
              });
             }
             else{
               images.insert({fid:1,country:vcountry,comment:vcomment,albumid:aid,filename:vfilename});
-               misc.findOne({bit:album,id:aid},function(err,done){
+               misc.findOne({bit:'album',id:aid},function(err,done){
               if(err)
               {
                 //CALL THE COPS
               }
               else {
                 var newimgqntt = done.imgqntt + 1;
-                misc.update({bit:album,id:aid},{$set:{imgqntt:newimgqntt}});
+                misc.update({bit:'album',id:aid},{$set:{imgqntt:newimgqntt}});
               }
              });
             }
@@ -435,7 +435,7 @@ app.post('/actions',function(req,res){
         images.update({fid:vfid},{$set:{comment:vcomment}});
         //SUCCESS CONFIRMATION NEEDS TO BE ADDED
       case('addalbum'):
-        misc.find({bit:album},{ limit:1,sort : { id : -1 } },function (err,done)
+        misc.find({bit:'album'},{ limit:1,sort : { id : -1 } },function (err,done)
           { if(err)
            {
             //CALL THE COPS
@@ -445,11 +445,11 @@ app.post('/actions',function(req,res){
               if(done.length>0)
               {
                var newid = done.id+1;
-               misc.insert({bit:album,id:newid,albumname:valbumname});
+               misc.insert({bit:'album',id:newid,albumname:valbumname});
                var ms ={};
                ms.trouble=1;
                ms.mtext='db';
-               misc.find({bit:album},{id:-1},function (err,done){
+               misc.find({bit:'album'},{id:-1},function (err,done){
                  if (err)
                  {
                    //CALL THE COPS
@@ -469,11 +469,11 @@ app.post('/actions',function(req,res){
                });
                                             }
               else{
-                misc.insert({bit:album,id:newid,albumname:valbumname});
+                misc.insert({bit:'album',id:newid,albumname:valbumname});
                 var ms ={};
                 ms.trouble=1;
                 ms.mtext='db';
-                misc.find({bit:album},{id:-1},function (err,done){
+                misc.find({bit:'album'},{id:-1},function (err,done){
                   if (err)
                   {
                     //CALL THE COPS
@@ -522,7 +522,7 @@ app.post('/actions',function(req,res){
         var ms ={};
         ms.trouble=1;
         ms.mtext='db';
-        misc.find({bit:album},{id:-1},function (err,done){
+        misc.find({bit:'album'},{id:-1},function (err,done){
           if (err)
           {
             //CALL THE COPS
@@ -569,7 +569,7 @@ app.post('/actions',function(req,res){
                     }
                     else
                     {
-                      misc.remove({bit:album,id:aid},function(err,doneremove){
+                      misc.remove({bit:'album',id:aid},function(err,doneremove){
                         if(err)
                         {
                           //CALL THE COPS
@@ -606,14 +606,14 @@ app.post('/actions',function(req,res){
                  }
                  else
                  {
-                   misc.findOne({bit:album,id:aid},function(err,donetwo){
+                   misc.findOne({bit:'album',id:aid},function(err,donetwo){
                     if(err)
                     {
                       //CALL THE COPS
                     }
                     else {
                       var newimgqntt = donetwo.imgqntt - 1;
-                      misc.update({bit:album,id:aid},{$set:{imgqntt:newimgqntt}});
+                      misc.update({bit:'album',id:aid},{$set:{imgqntt:newimgqntt}});
                       res.redirect('/redact');
                     }
                    });
