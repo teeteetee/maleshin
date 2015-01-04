@@ -90,6 +90,10 @@ head
       padding-left:6vw;
       background-color:#0b4556;
       margin-bottom:2vh;
+      cursor:pointer;
+      }
+      .title:hover{
+      background-color:#216d83;
       }
       a:hover {
       outline:none;
@@ -176,19 +180,7 @@ head
             .col-xs-1
               img(src='/bootstrap/images/circle_bird_down_white.png')
             .col-xs-11
-              h4 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;
-      script.
-        $('#routesblock').click(function(){
-          var x = $('#routesimg').attr('src');
-          if(x === '/bootstrap/images/circle_bird_up_white.png')
-          {
-           $('#routesimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
-          }
-          else {
-            $('#routesimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
-          }
-          $('#routesblockoptions').slideToggle();
-        });      
+              h4 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;   
       #routesblock.row.section
         .col-xs-6
           .row.title
@@ -208,6 +200,18 @@ head
               img(src='/bootstrap/images/circle_minus.png')      
             .col-xs-9
               h2  Редактировать маршруты
+      script.
+        $('#routesblock').click(function(){
+          var x = $('#routesimg').attr('src');
+          if(x === '/bootstrap/images/circle_bird_up_white.png')
+          {
+           $('#routesimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+          }
+          else {
+            $('#routesimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+          }
+          $('#routesblockoptions').slideToggle();
+        });           
       #booksblock.row.section
         .col-xs-6
           .row.title
