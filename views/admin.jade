@@ -619,8 +619,6 @@ head
         console.log('should append some text');
         $('#addphotoblockinsert').append("<div class='row'><div  class='col-xs-1' style='text-align:right;'><img src='/bootstrap/images/circle_excl_white.png'></div><div class='col-xs-10'><h2 style='color:white;'>Чтобы начать добавлять фотографии, добавьте альбом</h2></div><div class='col-xs-1' id='closedialog'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><h2>Название альбома:</h2><input type='text'></input></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><button type='button' style='border:1px solid white;border-radius:4px;'><h5>Создать</h5></button></div></div><script>$('#closedialog').click(function(){console.log('closing something');$('#addphotoblockinsert').slideToggle();$('#addphotoblock').slideToggle();});");
         console.log('after insert main is: '+$('#addphotoblock').css('display')+', child is: '+$('#addphotoblockinsert').css('display'));
-        $('#addphotoblock').slideToggle();
-        $('#addphotoblockinsert').slideToggle();
         console.log('toggled both after inserts');
         break;
         }}
