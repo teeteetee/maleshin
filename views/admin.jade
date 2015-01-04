@@ -445,9 +445,11 @@ head
         function addalbumfunction(){
         console.log('CREATING FIRST ALBUM');
         var valbumname = $('#albumnameinput').val();
+        console.log('valbumname is: '+valbumname);
         if(!valbumname)
         {
          valbumname = $('#albumnamesecond').val();
+         console.log('valbumname second try: '+valbumname);
         }
         if(!valbumname)
         {
