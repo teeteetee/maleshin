@@ -53,7 +53,7 @@ head
       font-weight:bold;
       font-family:br;
       font-size:4vw;
-      margin:1vh;
+      margin-top:2vh;
       }
       .container {
       margin:0px;
@@ -154,6 +154,13 @@ head
       .addsmth:hover{
       background-color:#eee;
       }
+      .hiddenoptions{
+      display:none;
+      }
+      .nb{
+      margin:0px;
+      padding:0px;
+      }
   body
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
@@ -170,21 +177,33 @@ head
               img(src='/bootstrap/images/circle_bird_down_white.png')
             .col-xs-11
               h4 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;
-      |      
+      |
+      script.
+        $('#routesblock').click(function(){
+          var x = $('#routesimg').attr('src');
+          if(x === '/bootstrap/images/circle_bird_up_white.png')
+          {
+           $('#routesimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+          }
+          else {
+            $('#routesimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+          }
+          $('#routesblockoptions').slideToggle();
+        });      
       #routesblock.row.section
         .col-xs-6
           .row.title
             .col-xs-1
-              img(src='/bootstrap/images/circle_bird_down_white.png')
+              img(id='routesimg',src='/bootstrap/images/circle_bird_down_white.png')
             .col-xs-11
-              h4 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
-          |        
+              h4 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy; 
+      #routesblockoptions.row.hiddenoptions
+        .col-xs-12.nb         
           #addroute.row.addsmth
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_cross.png')
             .col-xs-9
-              h2 Добавить маршрут
-          |        
+              h2 Добавить маршрут        
           #removeroute.row.addsmth
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_minus.png')      
