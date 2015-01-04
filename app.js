@@ -476,7 +476,7 @@ app.post('/actions',function(req,res){
                });
                                             }
               else{
-                misc.insert({bit:'album',id:newid,albumname:valbumname});
+                misc.insert({bit:'album',id:1,albumname:valbumname});
                 var ms ={};
                 ms.trouble=1;
                 ms.mtext='db';
