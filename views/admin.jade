@@ -646,8 +646,9 @@ head
         }
         $('#addphotoblockinsert').empty();
         for (var i in parsed.results) {
-        var ii = JSON.stringify(i);
-        $('#addphotoblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+ii.albumname+"</div></div>");
+        console.log(i);
+        console.log(JSON.stringify(i));
+        $('#addphotoblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");
         window.location='#contactsblock';
         $('#addphotoblock').slideToggle();
         }
