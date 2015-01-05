@@ -94,13 +94,13 @@ app.post('/redact',function(req,res){
   var vl = req.body.l;
   if(pass === vp && log === vl)
   {  
-     images.count({},function(err,images){
+     images.count({},function(err,vimages){
       if (err)
       {
         res.send('Problems with IMAGES db');
       }
       else {
-        var imgnum = images;
+        var imgnum = vimages;
         misc.count({bit:'album'},function(err,albums){
           if (err)
           {
