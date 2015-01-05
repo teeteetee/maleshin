@@ -671,7 +671,7 @@ head
         //console.log(JSON.stringify(i));
         //$('#addphotoblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");}
         for (yy=0;yy<parsed.results.length;yy++) {
-          $('#addphotoblockinsert').append("<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white'>Выберите альбом или создайте новый</h2></div><div class='col-xs-1 closedialog'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross_white.png'></div><div class='col-xs-10'><h2>Создать альбом</h2></div></div><div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'><h2 style='color:white;'>"+parsed.results[yy].albumname+"</h2></div></div>");
+          $('#addphotoblockinsert').append("<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white'>Выберите альбом или создайте новый</h2></div><div class='col-xs-1 closedialog'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-1' style='text-align:right;'><img src='/bootstrap/images/circle_cross_white.png'></div><div class='col-xs-10'><h2>Создать альбом</h2></div></div><div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-11 col-xs-offset-1'><h2 style='color:white;'>"+parsed.results[yy].albumname+"</h2></div></div>");
         }
         window.location='#contactsblock';
         $('#addphotoblock').slideToggle();
