@@ -261,7 +261,7 @@ head
           .row
             .col-xs-12
               .row
-                h2(style='color:#c35') &Scy;&Tcy;&Acy;&Tcy;&Icy;&Scy;&Tcy;&Icy;&Kcy;&Acy;
+                h2(style='color:#c35') Статистика
                 |            
                 h2  &Pcy;&Ocy;&Scy;&Tcy;&Ocy;&Vcy; : 10 
                 |            
@@ -407,9 +407,9 @@ head
             .col-xs-12
               .row
                 h2(style='color:#c35') Статистика;           
-                h2  Фотографий: 10             
-                h2  Альбомов : 20 
-                h2  Видео : 20   
+                h2  Фотографий: #{imgn}             
+                h2  Альбомов : #{albumn} 
+                h2  Видео : #{videon}   
       script.
         $('.addalbum').click(function(){
         request = new XMLHttpRequest();
