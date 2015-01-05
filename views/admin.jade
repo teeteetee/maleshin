@@ -525,18 +525,7 @@ head
             .col-xs-10
               h2 Создать альбом 
       #albumsblock.row.hiddeninputs(style='background-color:#6faebf;')
-        #albumsblockinsert.col-xs-12
-          //
-            .row
-              .col-xs-3(style='padding:2vh;')
-                h2 Название:      
-            .row(style='display:none;')
-              .col-xs-3
-                input#albumnameinput(type='text')
-            .row
-              .col-xs-12
-                button(type='button',onclick='addalbumfunction();')
-                  h5 Создать    
+        #albumsblockinsert.col-xs-12 
           .row
             .col-xs-10.col-xs-offset-1
               h2(style='color:white;') Добавляем альбом
@@ -563,9 +552,9 @@ head
             .col-xs-1
               img(id='contactsimg',src='/bootstrap/images/circle_bird_down_white.png')
             .col-xs-11
-              h4 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;  
+              h4 Контакты  
       #contactsblockoptions.row.hiddenoptions
-        .col-xs-12.nb          
+        .col-xs-6.nb          
           #editcontacts.row.addsmth
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_text.png')         
@@ -577,9 +566,9 @@ head
             .col-xs-1
               img(id='aboutimg',src='/bootstrap/images/circle_bird_down_white.png')
             .col-xs-11
-              h4 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
+              h4 О проекте
       #aboutblockoptions.row.hiddenoptions
-        .col-xs-12.nb          
+        .col-xs-6.nb          
           #editabout.row.addsmth
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_text.png')         
