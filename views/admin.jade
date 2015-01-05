@@ -550,6 +550,10 @@ head
             .col-xs-11.col-xs-offset-1
               button(type='button',class='addalbumbutton',onclick='addalbumfunction();',style='border:1px solid white;border-radius:4px;')
                 h5 Создать
+          script.
+            $('#closeaddalbumblock').click(function(){
+              $('#albumsblock').slideToggle();
+            });      
                   
       #addvideoblock.row.hiddeninputs
         #addvideoblockinsert.col-xs-12
