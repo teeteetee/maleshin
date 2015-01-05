@@ -526,16 +526,29 @@ head
               h2 Создать альбом 
       #albumsblock.row.hiddeninputs(style='background-color:#6faebf;')
         #albumsblockinsert.col-xs-12
+          //
+            .row
+              .col-xs-3(style='padding:2vh;')
+                h2 Название:      
+            .row(style='display:none;')
+              .col-xs-3
+                input#albumnameinput(type='text')
+            .row
+              .col-xs-12
+                button(type='button',onclick='addalbumfunction();')
+                  h5 Создать    
           .row
-            .col-xs-3(style='padding:2vh;')
-              h2 Название:      
-          .row(style='display:none;')
-            .col-xs-3
-              input#albumnameinput(type='text')
+            #closeaddalbumblock.col-xs-1.closedialog
+              img(src='/bootstrap/images/cross_white.png')
           .row
-            .col-xs-12
-              button(type='button',onclick='addalbumfunction();')
-                h5 Создать    
+            .col-xs-11.col-xs-offset-1
+              h2 Название альбома:
+              input(id='albumnameinputsecond',type='text')
+          .row
+            .col-xs-11.col-xs-offset-1
+            button(type='button',class='addalbumbutton',onclick='addalbumfunction();',style='border:1px solid white;border-radius:4px;')
+              h5 Создать
+                  
       #addvideoblock.row.hiddeninputs
         #addvideoblockinsert.col-xs-12
       #contactsblock.row.section
