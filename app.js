@@ -101,7 +101,7 @@ app.post('/redact',function(req,res){
       }
       else {
         var imgnum = images;
-        misc.count({bit:album},function(err,albums){
+        misc.count({bit:'album'},function(err,albums){
           if (err)
           {
             res.send('Problems with MISC db');
