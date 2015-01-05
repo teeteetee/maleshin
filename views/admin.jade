@@ -538,16 +538,15 @@ head
                 button(type='button',onclick='addalbumfunction();')
                   h5 Создать    
           .row
-            #closeaddalbumblock.col-xs-1.closedialog
-              img(src='/bootstrap/images/cross_white.png')
-          .row
-            .col-xs-11.col-xs-offset-1
+            .col-xs-10.col-xs-offset-1
               h2 Название альбома:
               input(id='albumnameinputsecond',type='text')
+            #closeaddalbumblock.col-xs-1.closedialog
+              img(src='/bootstrap/images/cross_white.png')  
           .row
             .col-xs-11.col-xs-offset-1
-            button(type='button',class='addalbumbutton',onclick='addalbumfunction();',style='border:1px solid white;border-radius:4px;')
-              h5 Создать
+              button(type='button',class='addalbumbutton',onclick='addalbumfunction();',style='border:1px solid white;border-radius:4px;')
+                h5 Создать
                   
       #addvideoblock.row.hiddeninputs
         #addvideoblockinsert.col-xs-12
