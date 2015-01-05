@@ -9,7 +9,7 @@ var multer  = require('multer');
 
 var mongo = require('mongodb');
 var db = require('monk')('localhost/tav')
-  ,posts = db.get('posts'),objects = db.get('objects');misc = db.get('misc');
+  ,posts = db.get('posts'),images = db.get('images'),objects = db.get('objects');misc = db.get('misc');
 // POSTS and OBJECTS BELONGS TO MALESHIN PROJECT DELETE WHEN PUSHING TOPANDVIEWS TO PRODUCTION
 var fs = require('fs-extra');
 
