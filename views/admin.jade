@@ -578,9 +578,19 @@ head
         }); 
         $('#gallblock').click(function(){
           var x = $('#gallimg').attr('src');
+          var y = $('#addphotoblock').css('display');
+          var z = $('#addphotoblockinsert').css('display');
           if(x === '/bootstrap/images/circle_bird_up_white.png')
           {
            $('#gallimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+           if(z !== 'none')
+           {
+             $('#addphotoblockinsert').slideToggle();
+           }
+           if(y !== 'none')
+           {
+             $('#addphotoblock').slideToggle();
+           }
           }
           else {
             $('#gallimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
