@@ -397,7 +397,11 @@ head
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_cross.png')         
             .col-xs-9
-              h2  Добавить видео       
+              h2  Добавить видео  
+        script.
+          $('#albums').click(function(){
+            $('#albumsblock').slideToggle();
+          });           
         .col-xs-6.stats
           .row
             .col-xs-12
@@ -520,7 +524,7 @@ head
               img(src='/bootstrap/images/circle_cross_white.png')   
             .col-xs-10
               h2 Создать альбом 
-      #albumsblock.row.hiddeninputs
+      #albumsblock.row.hiddeninputs(style='background-color:#6faebf;')
         #albumsblockinsert.col-xs-12
           .row
             .col-xs-3(style='padding:2vh;')
