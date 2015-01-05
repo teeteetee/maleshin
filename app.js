@@ -93,8 +93,36 @@ app.post('/redact',function(req,res){
   var vp = req.body.p;
   var vl = req.body.l;
   if(pass === vp && log === vl)
-  {
-     res.render('admin')
+  {  
+     images.count({},function(err,images){
+      if (err)
+      {
+        res.send('Problems with IMAGES db');
+      }
+      else {
+        var imgnum = images;
+        misc.count({bit:album},function(err,albums){
+          if (err)
+          {
+            res.send('Problems with MISC db');
+          }
+          else {
+            var albumnum = albums;
+            images.count({video:1},function(err,videos){
+               if (err)
+               {
+                 res.send('Problems with IMAGES db');
+               }
+               else {
+                 console.log('STATS FOR ADMIN ARE: IMAGES - '+imgnum+', ALBUMS - '+albumnum+', VIDEOS - '+videonum);
+                 var videonum = videos;
+                 res.render('admin',{'imgn':imgnum,'albumn':albumnum,'videon':videonum});
+               }
+            });
+          }
+        });
+      }
+     });
   }
   else {
      res.send('wrong pass/user');
@@ -389,6 +417,10 @@ app.post('/actions',function(req,res){
       case('addroute'):
       break;
       case('removeroute'):
+      break;
+      case('addphotobulk'):
+        var aid = parseInt(req.body.aid);
+        var vcountry = req.body.country; 
       break;
       case('addphoto'):
         // ADD FS WIRTE
