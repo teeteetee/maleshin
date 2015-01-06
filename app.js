@@ -583,7 +583,7 @@ app.post('/actions',function(req,res){
               if(done.length>0)
               {
                var newid = done.id+1;
-               misc.insert({bit:'album',id:newid,albumname:valbumname},imgqntt:0);
+               misc.insert({bit:'album',id:newid,albumname:valbumname,imgqntt:0});
                var ms ={};
                ms.trouble=1;
                ms.mtext='db';
