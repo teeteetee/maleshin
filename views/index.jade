@@ -254,6 +254,9 @@ head
       #previous {
       padding:4vh;
       }
+      #previous:hover{
+       background-color:#ddd;
+      }
       .btmcrcl {
       height:4vw;
       width:4vw;
@@ -349,6 +352,10 @@ head
           img(style='height:3vw;margin:2vh;position:inherit;width:auto;',src='/bootstrap/images/circle_bird_left.png')
         .col-xs-11  
           h2(style='color:#333;line-height:8vh;font-weight:bold;') Остальные записи
+      script.
+        $('#previous').click(function(){
+          window.location='http://maleshin.com/posts';
+        });    
                 
         
     
