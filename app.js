@@ -125,7 +125,8 @@ app.post('/redact',function(req,res){
                  console.log('STATS FOR ADMIN ARE: IMAGES - '+imgnum+', ALBUMS - '+albumnum+', VIDEOS - '+videonum+',POSTS - '+postsnum);
                  res.render('admin',{'imgn':imgnum,'albumn':albumnum,'videon':videonum,'postsn':postsnum});
                   }
-               }
+               });
+               }     
             });
           }
         });
