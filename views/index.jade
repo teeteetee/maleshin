@@ -255,7 +255,8 @@ head
       padding:4vh;
       }
       #previous:hover{
-       background-color:#ddd;
+      cursor:pointer
+      background-color:#ddd;
       }
       .btmcrcl {
       height:4vw;
@@ -323,8 +324,10 @@ head
           |        
           #chevron.row.chevron
             .col-xs-2.col-xs-offset-5
-              h2
-                span.glyphicon.glyphicon-chevron-down(style='font-size:5vw;')
+              //
+                h2
+                  span.glyphicon.glyphicon-chevron-down(style='font-size:5vw;')
+              img(src='/bootstrap/images/bird_down_white.png',style='height:3vw;margin:2vh;position:inherit;width:auto;')    
       .row
         .col-xs-12          
           !{postbody}      
