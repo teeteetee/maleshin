@@ -307,11 +307,11 @@ head
                  h5(style='color:white;') Отправить  
            .row(style='background-color:#82d1e3;')
              #grab.col-xs-12      
-      #dropdb.row(style='display:none;background-color:#ca2c28;')
+      #dropdb.row(style='display:none;background-color:#ca2c28;padding-top:3vh;')
         form(action='/drop/posts',method='post',role='form')  
           .row
-            .col-xs-1
-              img(src='/bootstrap/images/cirle_excl_white.png')
+            .col-xs-1(style='text-align:right;')
+              img(src='/bootstrap/images/circle_excl_white.png')
             .col-xs-10
               h2(style='color:white;') Удалить все посты ?
             #closedropposts.col-xs-1.closedialog
