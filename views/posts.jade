@@ -117,6 +117,7 @@ head
       margin-bottom:5vh;
       }
       #header {
+      cursor:pointer;
       -webkit-transition:height 1.5s;
       -webkit-transition-timing-function:ease-out;
       }
@@ -208,24 +209,25 @@ head
         .col-xs-11(style='padding-left:0px;')
           h2(style='color:#333;line-height:8vh;font-weight:bold;margin-left:0px;') На главную              
           script.
-            $('#blog').click(function(){
-              window.location='http://maleshin.com/';
-            }); 
-            $('#countries').click(function(){
-              window.location='http://maleshin.com/countries';
-            }); 
-            $('#books').click(function(){
-              window.location='http://maleshin.com/books';
-            }); 
-            $('#gall').click(function(){
-              window.location='http://maleshin.com/gall';
-            }); 
-            $('#about').click(function(){
-              window.location='http://maleshin.com/about';
-            }); 
-            $('#routes').click(function(){
-              window.location='http://maleshin.com/routes';
-            });  
+            $('#header').click(function(){window.location='http://maleshin.com';});
+            //$('#blog').click(function(){
+            //  window.location='http://maleshin.com/';
+            //}); 
+            //$('#countries').click(function(){
+            //  window.location='http://maleshin.com/countries';
+            //}); 
+            //$('#books').click(function(){
+            //  window.location='http://maleshin.com/books';
+            //}); 
+            //$('#gall').click(function(){
+            //  window.location='http://maleshin.com/gall';
+            //}); 
+            //$('#about').click(function(){
+            //  window.location='http://maleshin.com/about';
+            //}); 
+            //$('#routes').click(function(){
+            //  window.location='http://maleshin.com/routes';
+            //});  
       each post, i in docs
         .row(style="padding-top:5vh;padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
           .col-xs-12
