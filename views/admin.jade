@@ -710,7 +710,7 @@ head
         console.log('entering the loop');
         for (yy=0;yy<parsed.results.length;yy++){
         console.log('loop is running');
-        $('#addphotoblockinsert').append("<div class='row'><div class='col-xs-11 col-xs-offset-1'><h2 style='color:white;'>"+parsed.results[yy].albumname+"</h2></div></div>");
+        $('#addphotoblockinsert').append("<div class='row'><div class='col-xs-3 col-xs-offset-1'><h2 style='color:white;'>"+parsed.results[yy].albumname+"</h2></div><div class='col-xs-4' style='text-align:center;'><h2>Добавить одну</h2></div><div class='col-xs-4' style='text-align:center;'>Добавить несколько</div></div>");
         }
         window.location='#contactsblock';
         $('#addphotoblock').slideToggle();
