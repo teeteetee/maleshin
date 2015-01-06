@@ -646,10 +646,11 @@ app.post('/actions',function(req,res){
               {
                var newid = done.id+1;
                misc.insert({bit:'album',id:newid,albumname:valbumname,imgqntt:0});
+               comsole.log('WRITTEN TO ALBUMS WITH CALCULATED ID');
                var ms ={};
                ms.trouble=1;
                ms.mtext='db';
-               misc.find({bit:'album'},{id:-1},function (err,done){
+               misc.find({bit:'album'},{id:-1},function (err,donetwo){
                  if (err)
                  {
                    //CALL THE COPS
@@ -658,7 +659,7 @@ app.post('/actions',function(req,res){
                  else {
                    if(done.length>0){
                      ms.trouble=0;
-                     ms.mbody=done;
+                     ms.mbody=donetwo;
                      res.send(ms);
                    }
                    else {
@@ -670,10 +671,11 @@ app.post('/actions',function(req,res){
                                             }
               else{
                 misc.insert({bit:'album',id:1,albumname:valbumname,imgqntt:0});
+                console.log('WRITTEN TO ALBUMS WITH ID 1');
                 var ms ={};
                 ms.trouble=1;
                 ms.mtext='db';
-                misc.find({bit:'album'},{id:-1},function (err,done){
+                misc.find({bit:'album'},{id:-1},function (err,donetwo){
                   if (err)
                   {
                     //CALL THE COPS
@@ -682,7 +684,7 @@ app.post('/actions',function(req,res){
                   else {
                     if(done.length>0){
                       ms.trouble=0;
-                      ms.mbody=done;
+                      ms.mbody=donetwo;
                       res.send(ms);
                     }
                     else {
