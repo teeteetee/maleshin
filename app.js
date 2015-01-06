@@ -481,7 +481,7 @@ app.post('/actions',function(req,res){
             if(done.length>0){
               for (yy=0;yy<req.files.photo.length;yy++) {
                    function dbfilereg(){
-                    var newid = done.fid+yy+1;
+                    var newfid = done.fid+yy+1;
                     var vfilename = req.files.photo[yy].name;
                     images.insert({fid:newfid,country:vcountry,comment:0,albumid:aid,filename:vfilename,video:0});}
                     upload(req.files.photo[yy],dbfilereg());
@@ -583,7 +583,7 @@ app.post('/actions',function(req,res){
               if(done.length>0)
               {
                var newid = done.id+1;
-               misc.insert({bit:'album',id:newid,albumname:valbumname});
+               misc.insert({bit:'album',id:newid,albumname:valbumname},imgqntt:0);
                var ms ={};
                ms.trouble=1;
                ms.mtext='db';
@@ -607,7 +607,7 @@ app.post('/actions',function(req,res){
                });
                                             }
               else{
-                misc.insert({bit:'album',id:1,albumname:valbumname});
+                misc.insert({bit:'album',id:1,albumname:valbumname,imgqntt:0});
                 var ms ={};
                 ms.trouble=1;
                 ms.mtext='db';
