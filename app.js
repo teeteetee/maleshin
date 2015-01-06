@@ -94,7 +94,7 @@ app.post('/redact',function(req,res){
   var vl = req.body.l;
   if(pass === vp && log === vl)
   {  
-     images.count({},function(err,vimages){
+     images.count({video:0},function(err,vimages){
       if (err)
       {
         res.send('Problems with IMAGES db');
@@ -114,9 +114,17 @@ app.post('/redact',function(req,res){
                  res.send('Problems with IMAGES db');
                }
                else {
-                 console.log('STATS FOR ADMIN ARE: IMAGES - '+imgnum+', ALBUMS - '+albumnum+', VIDEOS - '+videonum);
-                 var videonum = videos;
-                 res.render('admin',{'imgn':imgnum,'albumn':albumnum,'videon':videonum});
+                    var videonum = videos;
+                    posts.count({},function(err,postsnum){
+                       if (err)
+                       {
+                         res.send('Problems with POSTS db');
+                       }
+                       else {
+                  // WHY ASSIGN EACH A VARIABLE ? JUST PASS EM STRAIGHT
+                 console.log('STATS FOR ADMIN ARE: IMAGES - '+imgnum+', ALBUMS - '+albumnum+', VIDEOS - '+videonum+',POSTS - '+postsnum);
+                 res.render('admin',{'imgn':imgnum,'albumn':albumnum,'videon':videonum,'postsn':postsnum});
+                  }
                }
             });
           }
@@ -439,7 +447,7 @@ app.post('/actions',function(req,res){
           else{
             if(done.length>0){
              var newid = done.fid+1;
-             images.insert({fid:newfid,country:vcountry,comment:vcomment,albumid:aid,filename:vfilename});
+             images.insert({fid:newfid,country:vcountry,comment:vcomment,albumid:aid,filename:vfilename,video:0});
              misc.findOne({bit:'album',id:aid},function(err,done){
               if(err)
               {
@@ -452,7 +460,7 @@ app.post('/actions',function(req,res){
              });
             }
             else{
-              images.insert({fid:1,country:vcountry,comment:vcomment,albumid:aid,filename:vfilename});
+              images.insert({fid:1,country:vcountry,comment:vcomment,albumid:aid,filename:vfilename,video:0});
                misc.findOne({bit:'album',id:aid},function(err,done){
               if(err)
               {
