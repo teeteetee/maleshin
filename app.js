@@ -203,7 +203,20 @@ app.get('/contacts',function(req,res){
 });
 
 app.get('/gall',function(req,res){
-  res.render('gallery');
+  misc.find({bit:'album'},function(err,done){
+    if(err){
+     // CALL THE COPS 
+    }
+    else {
+        if(done.length>0)
+        {
+           res.render('gallery',{'albums':done});
+        }
+        else {
+           res.render('emptygallery');
+        }
+    }
+  });
 });
 
 app.get('/books',function(req,res){
@@ -467,11 +480,29 @@ app.post('/actions',function(req,res){
                       else {
                         var newimgqntt = donetwo.imgqntt + req.files.photo.length;
                         misc.update({bit:'album',id:aid},{$set:{imgqntt:newimgqntt}});
+                        res.redirect('http://maleshin.com/gall');
                       }
                   });
               }
             else {
-              
+              for (yy=0;yy<req.files.photo.length;yy++) {
+                   function dbfilereg(){
+                    var newid =yy+1;
+                    var vfilename = req.files.photo[yy].name;
+                    images.insert({fid:newfid,country:vcountry,comment:0,albumid:aid,filename:vfilename,video:0});}
+                    upload(req.files.photo[yy],dbfilereg());
+                  }
+                    misc.findOne({bit:'album',id:aid},function(err,donetwo){
+                      if(err)
+                      {
+                        //CALL THE COPS
+                      }
+                      else {
+                        var newimgqntt = donetwo.imgqntt + req.files.photo.length;
+                        misc.update({bit:'album',id:aid},{$set:{imgqntt:newimgqntt}});
+                        res.redirect('http://maleshin.com/gall');
+                      }
+                  });
             }
           }
         });
