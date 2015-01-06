@@ -489,7 +489,7 @@ app.post('/actions',function(req,res){
       case('removeroute'):
       break;
       case('addphotobulk'):
-        function upload(photofile,dbhandle){
+        function uploadbulk(photofile,dbhandle){
                  var oldPath = photofile.path;
                  var imageid = photofile.name;
                  console.log('UPLOAD 1 step, oldPath:'+ oldPath);
@@ -519,7 +519,7 @@ app.post('/actions',function(req,res){
                     var newfid = done.fid+yy+1;
                     var vfilename = req.files.photo[yy].name;
                     images.insert({fid:newfid,country:vcountry,comment:0,albumid:aid,filename:vfilename,video:0});}
-                    upload(req.files.photo[yy],dbfilereg());
+                    uploadbulk(req.files.photo[yy],dbfilereg());
                   }
                     misc.findOne({bit:'album',id:aid},function(err,donetwo){
                       if(err)
@@ -539,7 +539,7 @@ app.post('/actions',function(req,res){
                     var newfid =yy+1;
                     var vfilename = req.files.photo[yy].name;
                     images.insert({fid:newfid,country:vcountry,comment:0,albumid:aid,filename:vfilename,video:0});}
-                    upload(req.files.photo[yy],dbfilereg());
+                    uploadbulk(req.files.photo[yy],dbfilereg());
                   }
                     misc.findOne({bit:'album',id:aid},function(err,donetwo){
                       if(err)
