@@ -403,7 +403,7 @@ app.post('/actions',function(req,res){
         var vtitle = req.body.vtitle;
         console.log('post body is:'+vpostbody);
         var vheadimage;
-        console.log(req.files.headimage);
+        console.log(req.files.headimage.path+' - path, and name :'+req.files.headimage.name);
         if(req.files.headimage&&vtitle&&vpostbody)
          {function upload(filepath,imageid){
                             var oldPath = filepath;
