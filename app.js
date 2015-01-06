@@ -165,7 +165,7 @@ app.get('/routes',function(req,res){
 });
 
 app.get('/about',function(req,res){
-  misc.findOne({bit:about},function(err,done){
+  misc.findOne({bit:'about'},function(err,done){
      if(err)
      {
 
@@ -184,7 +184,7 @@ app.get('/about',function(req,res){
 });
 
 app.get('/contacts',function(req,res){
-  misc.findOne({bit:contacts},function(err,done){
+  misc.findOne({bit:'contacts'},function(err,done){
      if(err)
      {
 
