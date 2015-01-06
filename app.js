@@ -141,8 +141,7 @@ app.get('/posts',function(req,res){
                             }
       
               else {
-                    //NO EMPTY POSTS PAGE !!!!!
-                    res.send('no posts');
+                    res.render('emptyposts');
                    }
               }
     });
