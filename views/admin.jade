@@ -265,7 +265,7 @@ head
                 |            
                 h2  ПОСТОВ : #{postsn}
                 |            
-                h2  Необходимо сделать статистику просмотров 
+                h2(style='color:gray;')  Необходимо сделать статистику просмотров 
                  
       #addpostblock.row.hiddeninputs(style='background-color:#6faebf;') 
         form(action='/actions',id='mainform',role='form',method='post', enctype='multipart/form-data')
@@ -307,13 +307,33 @@ head
                  h5(style='color:white;') Отправить  
            .row(style='background-color:#82d1e3;')
              #grab.col-xs-12      
-      #dropdb.row(style='display:none;background-color:#eee;')
+      #dropdb.row(style='display:none;background-color:#ca2c28;')
         form(action='/drop/posts',method='post',role='form')  
-          .col-xs-3
-            input(name='p',type='text')
-          .col-xs-3
-            button(style='border:1px solid white;border-radius:4px;background-color:#c35;',type='submit') 
-              h5(style='color:white;') Удалить
+          .row
+            .col-xs-1
+              img(src='/bootstrap/images/cirle_excl_white.png')
+            .col-xs-10
+              h2(style='color:white;') Удалить все посты ?
+            #closedropposts.col-xs-1.closedialog
+              img(src='/bootstrap/images/cross_white.png') 
+          .row
+            .col-xs-10.col-xs-offset-1
+              h2 Пароль:
+              input(name='p',type='text') 
+          .row
+            .col-xs-11.col-xs-offset-1
+              button(type='submit',style='border:1px solid white;border-radius:4px;')
+                h5 Удалить
+          script.
+            $('#closedropposts').click(function(){
+              $('#dropdb').slideToggle();
+            });  
+          //
+            .col-xs-3
+              input(name='p',type='text')
+            .col-xs-3
+              button(style='border:1px solid white;border-radius:4px;background-color:#c35;',type='submit') 
+                h5(style='color:white;') Удалить
 
         script.
           $('#sendbutton').click(function(){
