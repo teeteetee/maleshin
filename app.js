@@ -406,6 +406,7 @@ app.post('/actions',function(req,res){
         console.log(req.files.headimage.path+' - path, and name :'+req.files.headimage.name);
         if(req.files.headimage&&vtitle&&vpostbody)
          {function upload(filepath,imageid){
+                            console.log(filepath);
                             var oldPath = filepath;
                             console.log('UPLOAD 1 step, oldPath:'+ oldPath);
                             var newPath = __dirname +"/public/postimages/"+ imageid;
