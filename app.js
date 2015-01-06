@@ -487,7 +487,7 @@ app.post('/actions',function(req,res){
             else {
               for (yy=0;yy<req.files.photo.length;yy++) {
                    function dbfilereg(){
-                    var newid =yy+1;
+                    var newfid =yy+1;
                     var vfilename = req.files.photo[yy].name;
                     images.insert({fid:newfid,country:vcountry,comment:0,albumid:aid,filename:vfilename,video:0});}
                     upload(req.files.photo[yy],dbfilereg());
