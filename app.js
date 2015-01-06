@@ -325,7 +325,7 @@ app.post('/drop/:cc',function(req,res){
               else
               { 
                 console.log('POSTS DB DROPPED FROM '+req.ip);
-                rmDir(__dirname + '/public/images',false);
+                rmDir(__dirname + '/public/postimages',false);
                 res.redirect('/ap');
               }
             });
@@ -357,7 +357,39 @@ app.post('/drop/:cc',function(req,res){
 // IMAGES WHICH ARE UPLOADED TO BE USED IN POSTS GO TO ALBUM ID=0
 //
 //
-
+app.get('/gallery/albums/:album',function(req,res){
+  var valbum = parseInt(req.params.album);
+  misc.findOne({bit:'album',id:valbum},function(err,done){
+    if(err)
+    {
+      // CALL THE COPS
+    }
+    else
+    {
+      if(done.length>0)
+      {
+        images.find({albumid:valbum},function(err,donetwo){
+          if(err)
+          {
+            //CALL THE COPS
+          }
+          else {
+            if(donetwo.length>0){
+              res.render('album',{'images':donetwo});
+            }
+            else {
+              res.redirect('http://maleshin.com/')
+            }
+          }
+        });
+      }
+      else
+      {
+        res.redirect('http://maleshin.com');
+      }
+    }
+  });
+});
 
 app.post('/actions',function(req,res){
   console.log('IN /ACTIONS');
@@ -371,12 +403,13 @@ app.post('/actions',function(req,res){
         var vtitle = req.body.vtitle;
         console.log('post body is:'+vpostbody);
         var vheadimage;
+        console.log(req.files.headimage);
         if(req.files.headimage&&vtitle&&vpostbody)
          {function upload(filepath,imageid){
                             var oldPath = filepath;
                             console.log('UPLOAD 1 step, oldPath:'+ oldPath);
-                            var newPath = __dirname +"/public/images/"+ imageid;
-                            vheadimage = "/images/"+ imageid;
+                            var newPath = __dirname +"/public/postimages/"+ imageid;
+                            vheadimage = "/postimages/"+ imageid;
                             console.log('UPLOAD 2 step, newPath:' + newPath );
                             fs.readFile(oldPath , function(err, data) {
                               fs.writeFile(newPath, data, function(err) {
@@ -561,6 +594,15 @@ app.post('/actions',function(req,res){
               else {
                 var newimgqntt = done.imgqntt + 1;
                 misc.update({bit:'album',id:aid},{$set:{imgqntt:newimgqntt}});
+                if(done.pimgpath)
+                {
+                  //REDIRECT TO ALBUM PAGE (WHICH DOESNT EXIST YET) NEEDED
+                  res.redirect('http://maleshin.com/gallery');
+                }
+                else{
+                  var vpimgpath = '/images/'+vfilename;
+                  misc.update({bit:'album',id:aid},{pimgpath:vpimgpath});
+                }
               }
              });
             }

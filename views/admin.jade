@@ -592,7 +592,18 @@ head
             .col-xs-3(style='text-align:center;')
               img(src='/bootstrap/images/circle_text.png')         
             .col-xs-9
-              h2  Редактировать "О проекте"     
+              h2  Редактировать "О проекте"  
+      #aboutblockset.row.hiddeninput(style='background-color:#6faebf;')
+        .col-xs-12
+          form(role='form',method='post',action='/ations')
+          .row
+            .col-xs-11.col-xs-offset-1
+              textarea.form-control(rows='7',name='abody')
+              input(style='display:none;',name='actions',value='setabout')
+          .row  
+            .col-xs-12
+              button(style)
+
       script.
         $('#routesblock').click(function(){
           var x = $('#routesimg').attr('src');
