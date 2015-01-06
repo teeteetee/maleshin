@@ -529,7 +529,16 @@ app.post('/actions',function(req,res){
                       else {
                         var newimgqntt = donetwo.imgqntt + req.files.photo.length;
                         misc.update({bit:'album',id:aid},{$set:{imgqntt:newimgqntt}});
-                        res.redirect('http://maleshin.com/gall');
+                        if(done.pimgpath)
+                            {
+                              //REDIRECT TO ALBUM PAGE (WHICH DOESNT EXIST YET) NEEDED
+                              res.redirect('http://maleshin.com/gall');
+                            }
+                            else{
+                              var vpimgpath = '/images/'+req.files.photo[0];
+                              misc.update({bit:'album',id:aid},{pimgpath:vpimgpath});
+                              res.redirect('http://maleshin.com/gall')
+                            }
                       }
                   });
               }
@@ -549,7 +558,16 @@ app.post('/actions',function(req,res){
                       else {
                         var newimgqntt = donetwo.imgqntt + req.files.photo.length;
                         misc.update({bit:'album',id:aid},{$set:{imgqntt:newimgqntt}});
-                        res.redirect('http://maleshin.com/gall');
+                        if(donetwo.pimgpath)
+                        {
+                          //REDIRECT TO ALBUM PAGE (WHICH DOESNT EXIST YET) NEEDED
+                          res.redirect('http://maleshin.com/gall');
+                        }
+                        else{
+                          var vpimgpath = '/images/'+req.files.photo[0];
+                          misc.update({bit:'album',id:aid},{pimgpath:vpimgpath});
+                          res.redirect('http://maleshin.com/gall');
+                        }
                       }
                   });
             }
@@ -599,7 +617,7 @@ app.post('/actions',function(req,res){
                 if(done.pimgpath)
                 {
                   //REDIRECT TO ALBUM PAGE (WHICH DOESNT EXIST YET) NEEDED
-                  res.redirect('http://maleshin.com/gallery');
+                  res.redirect('http://maleshin.com/gall');
                 }
                 else{
                   var vpimgpath = '/images/'+vfilename;
