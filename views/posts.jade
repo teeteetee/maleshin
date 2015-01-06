@@ -117,9 +117,11 @@ head
       margin-bottom:5vh;
       }
       #header {
-      background-color:#333;
       -webkit-transition:height 1.5s;
       -webkit-transition-timing-function:ease-out;
+      }
+      #header:hover{
+      background-color:#eee;
       }
       #main {
       margin-left:0px;
@@ -182,24 +184,29 @@ head
   body
     .container
       #header.row
-        .col-xs-12
-          #menu.row
-            .col-xs-12(style='padding:0px;')
-              .btn-group
-                button#countries.btn.btn-default(type='button', style='border-top-left-radius:0.5vw;border-bottom-left-radius:0.5vw;')
-                  h2 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;
-                button#routes.btn.btn-default(type='button')
-                  h2 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
-                button#gall.btn.btn-default(type='button')
-                  h2 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;
-                button#blog.btn.btn-default.active(type='button')
-                  h2 &Bcy;&Lcy;&Ocy;&Gcy;
-                button#books.btn.btn-default(type='button')
-                  h2 &Kcy;&Ncy;&Icy;&Gcy;&Icy;
-                button#about.btn.btn-default(type='button')
-                  h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
-                button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
-                  h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;   
+        //
+          .col-xs-12
+            #menu.row
+              .col-xs-12(style='padding:0px;')
+                .btn-group
+                  button#countries.btn.btn-default(type='button', style='border-top-left-radius:0.5vw;border-bottom-left-radius:0.5vw;')
+                    h2 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;
+                  button#routes.btn.btn-default(type='button')
+                    h2 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
+                  button#gall.btn.btn-default(type='button')
+                    h2 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;
+                  button#blog.btn.btn-default.active(type='button')
+                    h2 &Bcy;&Lcy;&Ocy;&Gcy;
+                  button#books.btn.btn-default(type='button')
+                    h2 &Kcy;&Ncy;&Icy;&Gcy;&Icy;
+                  button#about.btn.btn-default(type='button')
+                    h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
+                  button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
+                    h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy; 
+        .col-xs-1
+          img(style='height:3vw;margin:2vh;position:inherit;width:auto;',src='/bootstrap/images/circle_bird_left.png')
+        .col-xs-11(style='padding-left:0px;')
+          h2(style='color:#333;line-height:8vh;font-weight:bold;margin-left:0px;') На главную              
           script.
             $('#blog').click(function(){
               window.location='http://maleshin.com/';
