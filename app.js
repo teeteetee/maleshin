@@ -279,7 +279,21 @@ app.post('/dropp/:id',function(req,res){
 
 });
 
-
+app.get('/dangerous/:key',function(req,res){
+  var vkey = 'people';
+  if(req.params.key===vkey)
+  {misc.remove({bit:'album'},function(err,done){
+      if(err){
+        res.send('error while dropping misc db');
+      }
+      else {
+        res.send('albums dropped');
+      }
+    });}
+  else {
+    res.send(' auth error');
+  }
+});
 app.post('/drop/:cc',function(req,res){
   var cc = req.params.cc;
   var p = 'dropthatshit';
