@@ -496,7 +496,11 @@ app.post('/actions',function(req,res){
                  var newPath = __dirname +"/public/images/"+ imageid;
                  console.log('UPLOAD 2 step, newPath:' + newPath );
                  fs.readFile(oldPath , function(err, data) {
+                  if(err) throw err;
+                   console.log('we read');
                    fs.writeFile(newPath, data, function(err) {
+                      if(err) throw err;
+                      console.log('we write');
                        fs.unlinkSync(oldPath, function(){
                            if(err) throw err;
                            console.log('UPLOAD '+imageid+"file uploaded to: " + newPath);
