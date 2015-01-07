@@ -601,14 +601,17 @@ head
 
           script.
             $('#routesblock').click(function(){
-              $('.hiddeninputs').css('display','block');
+              $('.hiddenoptions').css('display','none');
+              $('.hidedeninputs').css('display','none');
               $('#routesblockoptions').slideToggle();
             }); 
             $('#contactsblock').click(function(){
+              $('.hiddenoptions').css('display','none');
               $('.hiddeninputs').css('display','none');
               $('#contactsblockoptions').slideToggle();
             });  
             $('#aboutblock').click(function(){
+              $('.hiddenoptions').css('display','none');
               $('.hiddeninputs').css('display','none');
               $('#aboutblockoptions').slideToggle();
             }); 
@@ -627,14 +630,17 @@ head
                  $('#addphotoblock').slideToggle();
                }
               }
+              $('.hiddenoptions').css('display','none');
               $('.hiddeninputs').css('display','none');
               $('#gallblockoptions').slideToggle();
             }); 
             $('#booksblock').click(function(){
+              $('.hiddenoptions').css('display','none');
               $('.hiddeninputs').css('display','none');
               $('#booksblockoptions').slideToggle();
             }); 
             $('#blogblock').click(function(){
+              $('.hiddenoptions').css('display','none');
               $('.hiddeninputs').css('display','none');
               $('#blogblockoptions').slideToggle();
             }); 
