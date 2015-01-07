@@ -34,7 +34,7 @@ head
       }
       h1 {
       font-family:attentica;
-      font-size:15vw;
+      font-size:5vw;
       color:#333;
       }
       h2 {
@@ -195,8 +195,6 @@ head
     // Include all compiled plugins (below), or include individual files as needed
     script(src='/bootstrap/js/bootstrap.min.js')
     .container
-      #header.row
-        h1 Редактор
       //
         #countriesblock.row.section
           .col-xs-6
@@ -207,6 +205,9 @@ head
                 h4 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;  
       .row
         .col-xs-3
+          .row(style='background-color:#333;')
+            .col-xs-12
+              h1(style='color:#eee;') Редактор
           #routesblock.row.section
             .col-xs-12
               .row.title
