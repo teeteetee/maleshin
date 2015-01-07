@@ -516,7 +516,8 @@ app.post('/actions',function(req,res){
             if(done.length>0){
               for (yy=0;yy<req.files.photo.length;yy++) {
                    function dbfilereg(){
-                    var newfid = done.fid+yy+1;
+                    var newfid = done[0].fid+yy+1;
+                    console.log(newfid);
                     var vfilename = req.files.photo[yy].name;
                     images.insert({fid:newfid,country:vcountry,comment:0,albumid:aid,filename:vfilename,video:0});}
                     uploadbulk(req.files.photo[yy],dbfilereg());
