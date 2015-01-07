@@ -271,7 +271,7 @@ head
                   h2  Добавить книгу
               #addbookinput.row
 
-          #blogblockoptions.row.hiddenoptions
+          #blogblockoptions.row.hiddenoptions(style='display:block;')
             .col-xs-6.nb          
               #addpost.row.addsmth
                 .col-xs-3(style='text-align:center;')
@@ -620,6 +620,7 @@ head
               else {
                 $('#routesimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
               }
+              $('.hiddeninputs').css('display','none');
               $('#routesblockoptions').slideToggle();
             }); 
             $('#contactsblock').click(function(){
@@ -631,6 +632,7 @@ head
               else {
                 $('#contactsimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
               }
+              $('.hiddeninputs').css('display','none');
               $('#contactsblockoptions').slideToggle();
             });  
             $('#aboutblock').click(function(){
@@ -642,6 +644,7 @@ head
               else {
                 $('#aboutimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
               }
+              $('.hiddeninputs').css('display','none');
               $('#aboutblockoptions').slideToggle();
             }); 
             $('#gallblock').click(function(){
@@ -663,6 +666,7 @@ head
               else {
                 $('#gallimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
               }
+              $('.hiddeninputs').css('display','none');
               $('#gallblockoptions').slideToggle();
             }); 
             $('#booksblock').click(function(){
@@ -674,6 +678,7 @@ head
               else {
                 $('#booksimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
               }
+              $('.hiddeninputs').css('display','none');
               $('#booksblockoptions').slideToggle();
             }); 
             $('#blogblock').click(function(){
@@ -685,6 +690,7 @@ head
               else {
                 $('#blogimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
               }
+              $('.hiddeninputs').css('display','none');
               $('#blogblockoptions').slideToggle();
             }); 
             $('#addphoto').click(function(){
