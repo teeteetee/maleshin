@@ -540,7 +540,7 @@ app.post('/actions',function(req,res){
                       else {
                         var newimgqntt = donetwo.imgqntt + req.files.photo.length;
                         misc.update({bit:'album',id:aid},{$set:{imgqntt:newimgqntt}});
-                        if(done.pimgpath)
+                        if(donetwo.pimgpath)
                             {
                               //REDIRECT TO ALBUM PAGE (WHICH DOESNT EXIST YET) NEEDED
                               res.redirect('http://maleshin.com/gall');
@@ -548,7 +548,15 @@ app.post('/actions',function(req,res){
                             else{
                               var vpimgpath = '/images/'+req.files.photo[0];
                               misc.update({bit:'album',id:aid},{pimgpath:vpimgpath});
-                              res.redirect('http://maleshin.com/gall')
+                              misc.findOne({bit:'album',id:aid},function(err,donethree){
+                               if(err){
+                                res.send('db error');
+                               }
+                               else{
+                                console.log('see it prints something: '+donethree);
+                                res.redirect('http://maleshin.com/gall')
+                               }
+                              });
                             }
                       }
                   });
