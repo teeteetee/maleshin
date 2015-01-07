@@ -548,7 +548,7 @@ app.post('/actions',function(req,res){
                             }
                             else{
                               var vpimgpath = '/images/'+req.files.photo[0];
-                              misc.update({bit:'album',id:aid},{pimgpath:vpimgpath});
+                              misc.update({bit:'album',id:aid},{$set:{pimgpath:vpimgpath}});
                               misc.findOne({bit:'album',id:aid},function(err,donethree){
                                if(err){
                                 res.send('db error');
