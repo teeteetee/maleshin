@@ -658,7 +658,7 @@ app.post('/actions',function(req,res){
                    res.send(ms);
                              }
                  else {
-                   if(done.length>0){
+                   if(donetwo.length>0){
                      ms.trouble=0;
                      ms.mbody=donetwo;
                      res.send(ms);
