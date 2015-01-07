@@ -647,8 +647,8 @@ app.post('/actions',function(req,res){
             { var valbumname = req.body.albumname;
               if(done.length>0)
               {
-              console.log('-----PREVIOUS ID IS: '+done.id+'---------')
-               var newid = done.id+1;
+              console.log('-----PREVIOUS ID IS: '+done[0].id+'---------')
+               var newid = done[0].id+1;
                misc.insert({bit:'album',id:newid,albumname:valbumname,imgqntt:0});
                console.log('WRITTEN TO ALBUMS WITH CALCULATED ID');
                misc.find({bit:'album'},{id:-1},function (err,donetwo){
