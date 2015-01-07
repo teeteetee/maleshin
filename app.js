@@ -533,7 +533,7 @@ app.post('/actions',function(req,res){
                     uploadbulk(req.files.photo[yy],dbfilereg());
                   }
                     misc.findOne({bit:'album',id:aid},function(err,donetwo){
-                      console.log('see if it has found something: '+donetwo);
+                      console.log('see if it has found something: '+JSON.stringify(donetwo));
                       if(err)
                       {
                         //CALL THE COPS
