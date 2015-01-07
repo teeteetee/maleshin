@@ -500,7 +500,7 @@ app.post('/actions',function(req,res){
                        fs.unlinkSync(oldPath, function(){
                            if(err) throw err;
                            console.log('UPLOAD '+imageid+"file uploaded to: " + newPath);
-                           dbhandle;
+                           dbhandle();
                              });
                    }); 
                  }); 
