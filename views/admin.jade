@@ -202,538 +202,542 @@ head
               .col-xs-1
                 img(src='/bootstrap/images/circle_bird_down_white.png')
               .col-xs-11
-                h4 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;   
-      #routesblock.row.section
-        .col-xs-6
-          .row.title
-            .col-xs-1
-              img(id='routesimg',src='/bootstrap/images/circle_bird_down_white.png')
-            .col-xs-11
-              h4 Маршруты
-      #routesblockoptions.row.hiddenoptions
-        .col-xs-6.nb         
-          #addroute.row.addsmth
-            .col-xs-3(style='text-align:center;')
-              img(src='/bootstrap/images/circle_cross.png')
-            .col-xs-9
-              h2 Добавить маршрут        
-          #removeroute.row.addsmth
-            .col-xs-3(style='text-align:center;')
-              img(src='/bootstrap/images/circle_minus.png')      
-            .col-xs-9
-              h2  Редактировать маршруты         
-      #booksblock.row.section
-        .col-xs-6
-          .row.title
-            .col-xs-1
-              img(id='booksimg',src='/bootstrap/images/circle_bird_down_white.png')
-            .col-xs-11
-              h4 Книги
-      #booksblockoptions.row.hiddenoptions
-        .col-xs-6.nb          
-          #addbook.row.addsmth
-            .col-xs-3(style='text-align:center;')
-              img(src='/bootstrap/images/circle_cross.png')    
-            .col-xs-9
-              h2  Добавить книгу
-          #addbookinput.row
+                h4 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;  
+      .row
+        .col-xs-3
+          #routesblock.row.section
+            .col-xs-6
+              .row.title
+                .col-xs-1
+                  img(id='routesimg',src='/bootstrap/images/circle_bird_down_white.png')
+                .col-xs-11
+                  h4 Маршруты
+          #booksblock.row.section
+             .col-xs-6
+               .row.title
+                 .col-xs-1
+                   img(id='booksimg',src='/bootstrap/images/circle_bird_down_white.png')
+                 .col-xs-11
+                   h4 Книги 
+          #blogblock.row.section
+            .col-xs-6
+              .row.title
+                .col-xs-1
+                  img(id='blogimg',src='/bootstrap/images/circle_bird_down_white.png')
+                .col-xs-11
+                  h4 &Bcy;&Lcy;&Ocy;&Gcy;   
+          #gallblock.row.section
+            .col-xs-6
+              .row.title
+                .col-xs-1
+                  img(id='gallimg',src='/bootstrap/images/circle_bird_down_white.png')
+                .col-xs-11
+                  h4 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;    
+          #contactsblock.row.section
+            .col-xs-6
+              .row.title
+                .col-xs-1
+                  img(id='contactsimg',src='/bootstrap/images/circle_bird_down_white.png')
+                .col-xs-11
+                  h4 Контакты   
+          #aboutblock.row.section
+            .col-xs-6
+              .row.title
+                .col-xs-1
+                  img(id='aboutimg',src='/bootstrap/images/circle_bird_down_white.png')
+                .col-xs-11
+                  h4 О проекте                               
+        .col-xs-9           
+          #routesblockoptions.row.hiddenoptions
+            .col-xs-6.nb         
+              #addroute.row.addsmth
+                .col-xs-3(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_cross.png')
+                .col-xs-9
+                  h2 Добавить маршрут        
+              #removeroute.row.addsmth
+                .col-xs-3(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_minus.png')      
+                .col-xs-9
+                  h2  Редактировать маршруты         
+          #booksblockoptions.row.hiddenoptions
+            .col-xs-6.nb          
+              #addbook.row.addsmth
+                .col-xs-3(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_cross.png')    
+                .col-xs-9
+                  h2  Добавить книгу
+              #addbookinput.row
 
-      #blogblock.row.section
-        .col-xs-6
-          .row.title
-            .col-xs-1
-              img(id='blogimg',src='/bootstrap/images/circle_bird_down_white.png')
-            .col-xs-11
-              h4 &Bcy;&Lcy;&Ocy;&Gcy;
-      #blogblockoptions.row.hiddenoptions
-        .col-xs-6.nb          
-          #addpost.row.addsmth
-            .col-xs-3(style='text-align:center;')
-              img(src='/bootstrap/images/circle_cross.png')      
-            .col-xs-9
-              h2  Добавить пост      
-          #removepost.row.addsmth
-            .col-xs-3(style='text-align:center;')
-              img(src='/bootstrap/images/circle_minus.png')     
-            .col-xs-9
-              h2  Удалить все посты      
-        .col-xs-6.stats
-          .row
-            .col-xs-12
+          #blogblockoptions.row.hiddenoptions
+            .col-xs-6.nb          
+              #addpost.row.addsmth
+                .col-xs-3(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_cross.png')      
+                .col-xs-9
+                  h2  Добавить пост      
+              #removepost.row.addsmth
+                .col-xs-3(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_minus.png')     
+                .col-xs-9
+                  h2  Удалить все посты      
+            .col-xs-6.stats
               .row
-                h2(style='color:#c35') Статистика
-                |            
-                h2  ПОСТОВ : #{postsn}
-                |            
-                h2(style='color:gray;')  Необходимо сделать статистику просмотров 
-                 
-      #addpostblock.row.hiddeninputs(style='background-color:#6faebf;') 
-        form(action='/actions',id='mainform',role='form',method='post', enctype='multipart/form-data')
-         .col-xs-12
-           .row(style='display:none;')
+                .col-xs-12
+                  .row
+                    h2(style='color:#c35') Статистика
+                    |            
+                    h2  ПОСТОВ : #{postsn}
+                    |            
+                    h2(style='color:gray;')  Необходимо сделать статистику просмотров 
+                     
+          #addpostblock.row.hiddeninputs(style='background-color:#6faebf;') 
+            form(action='/actions',id='mainform',role='form',method='post', enctype='multipart/form-data')
              .col-xs-12
-               input#hiddeninput(type='text',name='actions',value='newpost')
-           .row 
-             .col-xs-6(style='padding:2vh;')
-               h2 Заглавное изображение:
-           .row    
-             .col-xs-3
-               input#xml.form-control(type='file', name='headimage') 
-           .row
-             .col-xs-3(style='padding:2vh;')
-               h2 Заголовок:    
-           .row
-             .col-xs-8
-               textarea#gettitle.form-control
-               //
-                 button#gettitlebutton(type='button') GET TITLE   
-           .row(style='display:none;')
-             .col-xs-12
-               input#invisibleinput(name='postbody',type='text')
-           .row(style='display:none;')
-             .col-xs-12
-               input#vtitle(name='vtitle',type='text')
-           .row
-             .col-xs-6(style='padding:2vh;')
-               h2 Основной текст:
-           .row
-             .col-xs-8
-               textarea#getbody.form-control(rows='7')
-               //
-                 button#getbodybutton(type='button') GET BODY   
-           .row
-             .col-xs-12(style='padding:2vh;')
-               button(type='button',id='sendbutton',style='border:1px solid white;border-radius:4px;') 
-                 h5(style='color:white;') Отправить  
-           .row(style='background-color:#82d1e3;')
-             #grab.col-xs-12      
-      #dropdb.row(style='display:none;background-color:#ca2c28;padding-top:3vh;')
-        form(action='/drop/posts',method='post',role='form')  
-          .row
-            .col-xs-1(style='text-align:right;')
-              img(src='/bootstrap/images/circle_excl_white.png')
-            .col-xs-10
-              h2(style='color:white;') Удалить все посты ?
-            #closedropposts.col-xs-1.closedialog
-              img(src='/bootstrap/images/cross_white.png') 
-          .row
-            .col-xs-10.col-xs-offset-1
-              h2 Пароль:
-              input(name='p',type='text') 
-          .row
-            .col-xs-11.col-xs-offset-1
-              button(type='submit',style='border:1px solid white;border-radius:4px;')
-                h5 Удалить
-          script.
-            $('#closedropposts').click(function(){
+               .row(style='display:none;')
+                 .col-xs-12
+                   input#hiddeninput(type='text',name='actions',value='newpost')
+               .row 
+                 .col-xs-6(style='padding:2vh;')
+                   h2 Заглавное изображение:
+               .row    
+                 .col-xs-3
+                   input#xml.form-control(type='file', name='headimage') 
+               .row
+                 .col-xs-3(style='padding:2vh;')
+                   h2 Заголовок:    
+               .row
+                 .col-xs-8
+                   textarea#gettitle.form-control
+                   //
+                     button#gettitlebutton(type='button') GET TITLE   
+               .row(style='display:none;')
+                 .col-xs-12
+                   input#invisibleinput(name='postbody',type='text')
+               .row(style='display:none;')
+                 .col-xs-12
+                   input#vtitle(name='vtitle',type='text')
+               .row
+                 .col-xs-6(style='padding:2vh;')
+                   h2 Основной текст:
+               .row
+                 .col-xs-8
+                   textarea#getbody.form-control(rows='7')
+                   //
+                     button#getbodybutton(type='button') GET BODY   
+               .row
+                 .col-xs-12(style='padding:2vh;')
+                   button(type='button',id='sendbutton',style='border:1px solid white;border-radius:4px;') 
+                     h5(style='color:white;') Отправить  
+               .row(style='background-color:#82d1e3;')
+                 #grab.col-xs-12      
+          #dropdb.row(style='display:none;background-color:#ca2c28;padding-top:3vh;')
+            form(action='/drop/posts',method='post',role='form')  
+              .row
+                .col-xs-1(style='text-align:right;')
+                  img(src='/bootstrap/images/circle_excl_white.png')
+                .col-xs-10
+                  h2(style='color:white;') Удалить все посты ?
+                #closedropposts.col-xs-1.closedialog
+                  img(src='/bootstrap/images/cross_white.png') 
+              .row
+                .col-xs-10.col-xs-offset-1
+                  h2 Пароль:
+                  input(name='p',type='text') 
+              .row
+                .col-xs-11.col-xs-offset-1
+                  button(type='submit',style='border:1px solid white;border-radius:4px;')
+                    h5 Удалить
+              script.
+                $('#closedropposts').click(function(){
+                  $('#dropdb').slideToggle();
+                });  
+              //
+                .col-xs-3
+                  input(name='p',type='text')
+                .col-xs-3
+                  button(style='border:1px solid white;border-radius:4px;background-color:#c35;',type='submit') 
+                    h5(style='color:white;') Удалить
+
+            script.
+              $('#sendbutton').click(function(){
+              gettitle();
+              getbody();
+              $('#mainform').submit();
+              })
+              $('#removepost').click(function(){
               $('#dropdb').slideToggle();
-            });  
-          //
-            .col-xs-3
-              input(name='p',type='text')
-            .col-xs-3
-              button(style='border:1px solid white;border-radius:4px;background-color:#c35;',type='submit') 
-                h5(style='color:white;') Удалить
-
-        script.
-          $('#sendbutton').click(function(){
-          gettitle();
-          getbody();
-          $('#mainform').submit();
-          })
-          $('#removepost').click(function(){
-          $('#dropdb').slideToggle();
-          window.location='#dropdb';
-          });
-          $('#addpost').click(function(){
-          $('#addpostblock').slideToggle();
-          window.location='#addpostblock';
-          });
-          $('#getbodybutton').click(getbody);
-          function getbody (){
-          alert('GETTING THAT BODY');
-          var x=$('#hiddeninput').val();
-          console.log("HIDDEN INPUT IS: "+x);
-          var vbody = $('#getbody').val();
-          vbody = vbody.replace(/\r|\n|\r\n/g, '<br>')
-          console.log('we are in get body and body is:'+vbody);
-          var dd= new Date();
-          var vday = dd.getDate();
-          var vmonth= dd.getMonth()+1;
-          var vyear = dd.getUTCFullYear();
-          var vdate = vday+'.'+vmonth+'.'+vyear;
-          if(vbody)
-          {if(!$('#invisibleinput').val())
-          {
-          $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h5>"+vdate+"</h5><p><h3>"+vbody+"</h3></p></div></div>");}
-          else
-          {
-          var previoustext = $('#invisibleinput').val();
-          var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>";
-          $('#invisibleinput').val(newtext);
-          console.log('NOT EMPTY , INSERTING: '+newtext);
-          }
-          $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>");
-          window.location='#grab';
-          }
-          else
-          {}
-          }
-          $('#gettitlebutton').click(gettitle);
-          function gettitle (){
-          var vtitle = $('#gettitle').val();
-          if (vtitle)
-          {
-          $('#vtitle').val(vtitle);
-          $('#gettitlebutton').attr('disabled');
-          $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
-          window.location='#grab';
-          }
-          else
-          {}         
-          }
+              window.location='#dropdb';
+              });
+              $('#addpost').click(function(){
+              $('#addpostblock').slideToggle();
+              window.location='#addpostblock';
+              });
+              $('#getbodybutton').click(getbody);
+              function getbody (){
+              alert('GETTING THAT BODY');
+              var x=$('#hiddeninput').val();
+              console.log("HIDDEN INPUT IS: "+x);
+              var vbody = $('#getbody').val();
+              vbody = vbody.replace(/\r|\n|\r\n/g, '<br>')
+              console.log('we are in get body and body is:'+vbody);
+              var dd= new Date();
+              var vday = dd.getDate();
+              var vmonth= dd.getMonth()+1;
+              var vyear = dd.getUTCFullYear();
+              var vdate = vday+'.'+vmonth+'.'+vyear;
+              if(vbody)
+              {if(!$('#invisibleinput').val())
+              {
+              $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h5>"+vdate+"</h5><p><h3>"+vbody+"</h3></p></div></div>");}
+              else
+              {
+              var previoustext = $('#invisibleinput').val();
+              var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>";
+              $('#invisibleinput').val(newtext);
+              console.log('NOT EMPTY , INSERTING: '+newtext);
+              }
+              $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>");
+              window.location='#grab';
+              }
+              else
+              {}
+              }
+              $('#gettitlebutton').click(gettitle);
+              function gettitle (){
+              var vtitle = $('#gettitle').val();
+              if (vtitle)
+              {
+              $('#vtitle').val(vtitle);
+              $('#gettitlebutton').attr('disabled');
+              $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
+              window.location='#grab';
+              }
+              else
+              {}         
+              }
      
-      #gallblock.row.section
-        .col-xs-6
-          .row.title
-            .col-xs-1
-              img(id='gallimg',src='/bootstrap/images/circle_bird_down_white.png')
-            .col-xs-11
-              h4 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;
-      #gallblockoptions.row.hiddenoptions
-        .col-xs-6.nb          
-          #addphoto.row.addsmth
-            .col-xs-3(style='text-align:center;')
-              img(src='/bootstrap/images/circle_cross.png')
-            .col-xs-9
-              h2  Добавить фото     
-          #albums.row.addsmth.addalbum
-            .col-xs-3(style='text-align:center;')
-              img(src='/bootstrap/images/circle_cross.png')
-            .col-xs-9
-              h2  Добавить альбом          
-          #addvideo.row.addsmth
-            .col-xs-3(style='text-align:center;')
-              img(src='/bootstrap/images/circle_cross.png')         
-            .col-xs-9
-              h2  Добавить видео  
-        script.
-          $('#albums').click(function(){
-            $('#albumsblock').slideToggle();
-          });           
-        .col-xs-6.stats
-          .row
-            .col-xs-12
+      
+          #gallblockoptions.row.hiddenoptions
+            .col-xs-6.nb          
+              #addphoto.row.addsmth
+                .col-xs-3(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_cross.png')
+                .col-xs-9
+                  h2  Добавить фото     
+              #albums.row.addsmth.addalbum
+                .col-xs-3(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_cross.png')
+                .col-xs-9
+                  h2  Добавить альбом          
+              #addvideo.row.addsmth
+                .col-xs-3(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_cross.png')         
+                .col-xs-9
+                  h2  Добавить видео  
+            script.
+              $('#albums').click(function(){
+                $('#albumsblock').slideToggle();
+              });           
+            .col-xs-6.stats
               .row
-                h2(style='color:#c35') Статистика          
-                h2  Фотографий: #{imgn}             
-                h2  Альбомов : #{albumn} 
-                h2  Видео : #{videon}   
-      script.
-        $('.addalbum').click(function(){
-        request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-        var DONE = this.DONE || 4;
-        if (this.readyState === DONE){
-        var index;
-        parsed = JSON.parse(request.responseText);
-        console.log(parsed);
-        if(parsed.trouble === 1)
-        {
-        console.log('TROUBLE === 1');
-        switch (parsed.mtext){
-        case('empty'):
-        $('#albumsblockinsert').append("<div class='row addalbum addsmth' id='secondaddalbum'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-11'><h2>Добавить альбом</h2></div></div>");
-        window.location='#contactsblock';
-        $('#albumsblock').slideToggle();
-        console.log('was supposed to slidetoggle ALBUMSBLOCK');
-        break;
-        case('db'):
-        $('#albumsblockinsert').append("<div class='row' ><div class='col-xs-1'><img src='/bootstrap/images/circle_excl.png'></div><div class='col-xs-11'><h2>Проблемы с базой данных</h2></div></div>");
-        window.location='#contactsblock';
-        $('#albumsblock').slideToggle();
-        console.log('was supposed to slidetoggle ALBUMSBLOCK');
-        break;
-        }}
-        else {
-        //trouble === 0
-        for (var i in parsed.results) {
-        $('#albumsblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");
-        window.location='#contactsblock';
-        $('#albumsblock').slideToggle();
-        console.log('was supposed to slidetoggle ALBUMSBLOCK');
-        }
-        }
-        }
-        };
-        request.open('POST', '/actions', true);
-        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //Most libraries like jQuery/Prototype/Dojo do this
-        request.send("actions=albums");          });
-        $('#secondaddalbum').click(function(){
-
-        $('#addphotoblock').slideToggle();
-        });
-        function addalbumfunction(){
-        console.log('CREATING FIRST ALBUM');
-        var valbumname = $('#albumnameinput').val();
-        console.log('valbumname is: '+valbumname);
-        if(!valbumname)
-        {
-         valbumname = $('#albumnameinputsecond').val();
-         console.log('valbumname second try: '+valbumname);
-        }
-        if(!valbumname)
-        {
-         return
-        }
-        request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-        var DONE = this.DONE || 4;
-        if (this.readyState === DONE){
-        var index;
-        parsed = JSON.parse(request.responseText);
-        console.log(parsed);
-        if(parsed.trouble === 1)
-        {
-        console.log('TROUBLE === 1');
-        switch (parsed.mtext){
-        case('empty'):
-        $('#albumsblockinsert').append("<div class='row addalbum addsmth' id='secondaddalbum'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-11'><h2>Добавить альбом</h2></div></div>");
-        window.location='#contactsblock';
-        $('#albumsblock').slideToggle();
-        console.log('was supposed to slidetoggle ALBUMSBLOCK');
-        break;
-        case('db'):
-        $('#albumsblockinsert').append("<div class='row' ><div class='col-xs-1'><img src='/bootstrap/images/circle_excl.png'></div><div class='col-xs-11'><h2>Проблемы с базой данных</h2></div></div>");
-        window.location='#contactsblock';
-        $('#albumsblock').slideToggle();
-        console.log('was supposed to slidetoggle ALBUMSBLOCK');
-        break;
-        }}
-        else {
-        //trouble === 0
-        for (var i in parsed.results) {
-        $('#albumsblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");
-        window.location='#contactsblock';
-        $('#albumsblock').slideToggle();
-        console.log('was supposed to slidetoggle ALBUMSBLOCK');
-        }
-        }
-        }
-        };
-        request.open('POST', '/actions', true);
-        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //Most libraries like jQuery/Prototype/Dojo do this
-        request.send("actions=addalbum&albumname="+valbumname);}
-        $('#secondaddalbum').click(function(){
-        $('#addphotoblock').slideToggle();
-        });
-      #addphotoblock.row.hiddeninputs(style='background-color:#6faebf;')
-        #addphotoblockinsert.col-xs-12.simplyhidden
-          .row
-            .col-xs-10.col-xs-offset-1
-              h2(style='color:white;') Выберите альбом или создайте новый
-            .col-xs-1
-              img(src='/bootstrap/images/cross_white.png')
-          .row
-            .col-xs-1
-              img(src='/bootstrap/images/circle_cross_white.png')   
-            .col-xs-10
-              h2 Создать альбом 
-      #albumsblock.row.hiddeninputs(style='background-color:#6faebf;')
-        #albumsblockinsert.col-xs-12 
-          .row
-            .col-xs-10.col-xs-offset-1
-              h2(style='color:white;') Добавляем альбом
-            #closeaddalbumblock.col-xs-1.closedialog
-              img(src='/bootstrap/images/cross_white.png') 
-          .row
-            .col-xs-10.col-xs-offset-1
-              h2 Название альбома:
-              input(id='albumnameinputsecond',type='text') 
-          .row
-            .col-xs-11.col-xs-offset-1
-              button(type='button',class='addalbumbutton',onclick='addalbumfunction();',style='border:1px solid white;border-radius:4px;')
-                h5 Создать
+                .col-xs-12
+                  .row
+                    h2(style='color:#c35') Статистика          
+                    h2  Фотографий: #{imgn}             
+                    h2  Альбомов : #{albumn} 
+                    h2  Видео : #{videon}   
           script.
-            $('#closeaddalbumblock').click(function(){
-              $('#albumsblock').slideToggle();
-            });      
-                  
-      #addvideoblock.row.hiddeninputs
-        #addvideoblockinsert.col-xs-12
-      #contactsblock.row.section
-        .col-xs-6
-          .row.title
-            .col-xs-1
-              img(id='contactsimg',src='/bootstrap/images/circle_bird_down_white.png')
-            .col-xs-11
-              h4 Контакты  
-      #contactsblockoptions.row.hiddenoptions
-        .col-xs-6.nb          
-          #editcontacts.row.addsmth
-            .col-xs-3(style='text-align:center;')
-              img(src='/bootstrap/images/circle_text.png')         
-            .col-xs-9
-              h2  Редактировать контакты    
-      #aboutblock.row.section
-        .col-xs-6
-          .row.title
-            .col-xs-1
-              img(id='aboutimg',src='/bootstrap/images/circle_bird_down_white.png')
-            .col-xs-11
-              h4 О проекте
-      #aboutblockoptions.row.hiddenoptions
-        .col-xs-6.nb          
-          #editabout.row.addsmth
-            .col-xs-3(style='text-align:center;')
-              img(src='/bootstrap/images/circle_text.png')         
-            .col-xs-9
-              h2  Редактировать "О проекте"  
-      #aboutblockset.row.hiddeninputs(style='background-color:#6faebf;')
-        .col-xs-12
-          form(role='form',method='post',action='/ations')
-          .row
-            .col-xs-11.col-xs-offset-1
-              textarea.form-control(rows='7',name='abody')
-              input(style='display:none;',name='actions',value='setabout')
-          .row  
-            .col-xs-12
-              button(style)
+            $('.addalbum').click(function(){
+            request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+            var DONE = this.DONE || 4;
+            if (this.readyState === DONE){
+            var index;
+            parsed = JSON.parse(request.responseText);
+            console.log(parsed);
+            if(parsed.trouble === 1)
+            {
+            console.log('TROUBLE === 1');
+            switch (parsed.mtext){
+            case('empty'):
+            $('#albumsblockinsert').append("<div class='row addalbum addsmth' id='secondaddalbum'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-11'><h2>Добавить альбом</h2></div></div>");
+            window.location='#contactsblock';
+            $('#albumsblock').slideToggle();
+            console.log('was supposed to slidetoggle ALBUMSBLOCK');
+            break;
+            case('db'):
+            $('#albumsblockinsert').append("<div class='row' ><div class='col-xs-1'><img src='/bootstrap/images/circle_excl.png'></div><div class='col-xs-11'><h2>Проблемы с базой данных</h2></div></div>");
+            window.location='#contactsblock';
+            $('#albumsblock').slideToggle();
+            console.log('was supposed to slidetoggle ALBUMSBLOCK');
+            break;
+            }}
+            else {
+            //trouble === 0
+            for (var i in parsed.results) {
+            $('#albumsblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");
+            window.location='#contactsblock';
+            $('#albumsblock').slideToggle();
+            console.log('was supposed to slidetoggle ALBUMSBLOCK');
+            }
+            }
+            }
+            };
+            request.open('POST', '/actions', true);
+            request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //Most libraries like jQuery/Prototype/Dojo do this
+            request.send("actions=albums");          });
+            $('#secondaddalbum').click(function(){
 
-      script.
-        $('#routesblock').click(function(){
-          var x = $('#routesimg').attr('src');
-          if(x === '/bootstrap/images/circle_bird_up_white.png')
-          {
-           $('#routesimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
-          }
-          else {
-            $('#routesimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
-          }
-          $('#routesblockoptions').slideToggle();
-        }); 
-        $('#contactsblock').click(function(){
-          var x = $('#contactsimg').attr('src');
-          if(x === '/bootstrap/images/circle_bird_up_white.png')
-          {
-           $('#contactsimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
-          }
-          else {
-            $('#contactsimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
-          }
-          $('#contactsblockoptions').slideToggle();
-        });  
-        $('#aboutblock').click(function(){
-          var x = $('#aboutimg').attr('src');
-          if(x === '/bootstrap/images/circle_bird_up_white.png')
-          {
-           $('#aboutimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
-          }
-          else {
-            $('#aboutimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
-          }
-          $('#aboutblockoptions').slideToggle();
-        }); 
-        $('#gallblock').click(function(){
-          var x = $('#gallimg').attr('src');
-          var y = $('#addphotoblock').css('display');
-          var z = $('#addphotoblockinsert').css('display');
-          if(x === '/bootstrap/images/circle_bird_up_white.png')
-          {
-           $('#gallimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
-           if(z !== 'none')
-           {
-             $('#addphotoblockinsert').slideToggle();
-           }
-           if(y !== 'none')
-           {
-             $('#addphotoblock').slideToggle();
-           }
-          }
-          else {
-            $('#gallimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
-          }
-          $('#gallblockoptions').slideToggle();
-        }); 
-        $('#booksblock').click(function(){
-          var x = $('#booksimg').attr('src');
-          if(x === '/bootstrap/images/circle_bird_up_white.png')
-          {
-           $('#booksimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
-          }
-          else {
-            $('#booksimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
-          }
-          $('#booksblockoptions').slideToggle();
-        }); 
-        $('#blogblock').click(function(){
-          var x = $('#blogimg').attr('src');
-          if(x === '/bootstrap/images/circle_bird_up_white.png')
-          {
-           $('#blogimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
-          }
-          else {
-            $('#blogimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
-          }
-          $('#blogblockoptions').slideToggle();
-        }); 
-        $('#addphoto').click(function(){
-        request = new XMLHttpRequest();
-        request.onreadystatechange = function () {
-        var DONE = this.DONE || 4;
-        if (this.readyState === DONE){
-        var index;
-        parsed = JSON.parse(request.responseText);
-        console.log(parsed);
-        if(parsed.trouble === 1)
-        {
-        console.log('TROUBLE === 1');
-        if($('#addphotoblock').css('display')!='none'){
-        console.log($('#addphotoblock').css('display'));
-        $('#addphotoblock').slideToggle();
-        }
-        $('#addphotoblockinsert').empty();
-        switch (parsed.mtext){
-        case('empty'):
-        console.log('should append some text');
-        $('#addphotoblockinsert').append("<div class='row'><div  class='col-xs-1' style='text-align:right;'><img src='/bootstrap/images/circle_excl_white.png'></div><div class='col-xs-10'><h2 style='color:white;'>Чтобы начать добавлять фотографии, добавьте альбом</h2></div><div class='col-xs-1 closedialog' id='closedialog'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><h2>Название альбома:</h2><input id='albumnameinputsecond' type='text'></input></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><button type='button' class='addalbumbutton' onclick='addalbumfunction();' style='border:1px solid white;border-radius:4px;'><h5>Создать</h5></button></div></div>");
-        var x ="<script>$('#closedialog').click(function(){console.log('closing something');$('#addphotoblockinsert').slideToggle();$('#addphotoblock').slideToggle();});<\/script>";
-        $('#addphotoblockinsert').append(x);
-        console.log(x);
-        console.log('after insert main is: '+$('#addphotoblock').css('display')+', child is: '+$('#addphotoblockinsert').css('display'));
-        $('#addphotoblock').slideToggle();
-        $('#addphotoblockinsert').slideToggle();
-        console.log('toggled both after inserts');
-        break;
-        }}
-        else {
-        //trouble === 0
-        if($('#addphotoblock').css('display')!='none'){
-        console.log($('#addphotoblock').css('display'));
-        $('#addphotoblock').slideToggle();
-        }
-        $('#addphotoblockinsert').empty();
-        $('#addphotoblockinsert').append("<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white'>Выберите альбом или создайте новый</h2></div><div class='col-xs-1 closedialog' id='closephotoinserts'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row' id='addextraalbum'><div class='col-xs-1' style='text-align:right;'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-10'><h2>Создать альбом</h2></div></div><div class='row' id='addextraalbumblock' style='margin-top:2vh;margin-bottom:2vh;display:none;'><div class='col-xs-10 col-xs-offset-1'><div class='row' style='padding-top:2vh;padding-bottom:2vh;background-color:#ddd;border-radius:4px;'><div class='col-xs-12'><div class='row'></div><div class='col-xs-11'><h2>Название альбома:</h2><input id='albumnameinputsecond' type='text'></div><div class='col-xs-1 closedialog' id='closeaddextraalbumblock'><img src='/bootstrap/images/cross.png'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><button type='button' class='addalbumbutton' onclick='addalbumfunction();' style='border:1px solid white;border-radius:4px;'><h5>Создать</h5></button></div></div></div></div></div></div><script>$('#closephotoinserts').click(function(){$('#addphotoblockinsert').slideToggle();$('#addphotoblock').slideToggle();});$('#addextraalbum').click(function(){$('#addextraalbumblock').slideToggle();});$('#closeaddextraalbumblock').click(function(){$('#addextraalbumblock').slideToggle();});<\/script>");
-        console.log('entering the loop');
-        for (yy=0;yy<parsed.results.length;yy++){
-        console.log('loop is running');
-        $('#addphotoblockinsert').append("<div class='row'><div class='col-xs-3 col-xs-offset-1'><h2 style='color:white;'>"+parsed.results[yy].albumname+"</h2></div><div class='col-xs-4' style='text-align:center;'><h2>Добавить одно</h2></div><div class='col-xs-4' id='bulkalbum"+parsed.results[yy].id+"' style='text-align:center;'><h2>Добавить несколько</h2></div></div><div class='row' id='album"+parsed.results[yy].id+"' style='background-color:#6faebf;display:none;'><div class='col-xs-12'><form method='post' action='/actions' role='form' enctype='multipart/form-data'><div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white;'>Загрузка нескольких изображений</h2></div><div class='col-xs-1 closedialog' id='closealbum"+parsed.results[yy].id+"'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><h2>Страна:</h2><input name='country' type='text'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><h2>Файлы</h2><input type='file' multiple name='photo'></div></div><div class='row' style='display:none;'><div class='col-xs-11 col-xs-offset-1'><input type='text' name='aid' value='"+parsed.results[yy].id+"'><input type='text' name='actions' value='addphotobulk'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><button type='submit' style='border-radius:4px;'><h5>Загрузить</h5></button></div></div></form></div></div><script>$('#closealbum"+parsed.results[yy].id+"').click(function(){$('#album"+parsed.results[yy].id+"').slideToggle();});$('#bulkalbum"+parsed.results[yy].id+"').click(function(){$('#album"+parsed.results[yy].id+"').slideToggle();});<\/script>");
-        }
-        window.location='#contactsblock';
-        $('#addphotoblock').slideToggle();
-        $('#addphotoblockinsert').slideToggle();
-        }
-        }
-        };
-        request.open('POST', '/misc', true);
-        request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
-        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //Most libraries like jQuery/Prototype/Dojo do this
-        request.send("cause=albums");          });
+            $('#addphotoblock').slideToggle();
+            });
+            function addalbumfunction(){
+            console.log('CREATING FIRST ALBUM');
+            var valbumname = $('#albumnameinput').val();
+            console.log('valbumname is: '+valbumname);
+            if(!valbumname)
+            {
+             valbumname = $('#albumnameinputsecond').val();
+             console.log('valbumname second try: '+valbumname);
+            }
+            if(!valbumname)
+            {
+             return
+            }
+            request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+            var DONE = this.DONE || 4;
+            if (this.readyState === DONE){
+            var index;
+            parsed = JSON.parse(request.responseText);
+            console.log(parsed);
+            if(parsed.trouble === 1)
+            {
+            console.log('TROUBLE === 1');
+            switch (parsed.mtext){
+            case('empty'):
+            $('#albumsblockinsert').append("<div class='row addalbum addsmth' id='secondaddalbum'><div class='col-xs-1'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-11'><h2>Добавить альбом</h2></div></div>");
+            window.location='#contactsblock';
+            $('#albumsblock').slideToggle();
+            console.log('was supposed to slidetoggle ALBUMSBLOCK');
+            break;
+            case('db'):
+            $('#albumsblockinsert').append("<div class='row' ><div class='col-xs-1'><img src='/bootstrap/images/circle_excl.png'></div><div class='col-xs-11'><h2>Проблемы с базой данных</h2></div></div>");
+            window.location='#contactsblock';
+            $('#albumsblock').slideToggle();
+            console.log('was supposed to slidetoggle ALBUMSBLOCK');
+            break;
+            }}
+            else {
+            //trouble === 0
+            for (var i in parsed.results) {
+            $('#albumsblockinsert').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-12'>"+i+"</div></div>");
+            window.location='#contactsblock';
+            $('#albumsblock').slideToggle();
+            console.log('was supposed to slidetoggle ALBUMSBLOCK');
+            }
+            }
+            }
+            };
+            request.open('POST', '/actions', true);
+            request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //Most libraries like jQuery/Prototype/Dojo do this
+            request.send("actions=addalbum&albumname="+valbumname);}
+            $('#secondaddalbum').click(function(){
+            $('#addphotoblock').slideToggle();
+            });
+          #addphotoblock.row.hiddeninputs(style='background-color:#6faebf;')
+            #addphotoblockinsert.col-xs-12.simplyhidden
+              .row
+                .col-xs-10.col-xs-offset-1
+                  h2(style='color:white;') Выберите альбом или создайте новый
+                .col-xs-1
+                  img(src='/bootstrap/images/cross_white.png')
+              .row
+                .col-xs-1
+                  img(src='/bootstrap/images/circle_cross_white.png')   
+                .col-xs-10
+                  h2 Создать альбом 
+          #albumsblock.row.hiddeninputs(style='background-color:#6faebf;')
+            #albumsblockinsert.col-xs-12 
+              .row
+                .col-xs-10.col-xs-offset-1
+                  h2(style='color:white;') Добавляем альбом
+                #closeaddalbumblock.col-xs-1.closedialog
+                  img(src='/bootstrap/images/cross_white.png') 
+              .row
+                .col-xs-10.col-xs-offset-1
+                  h2 Название альбома:
+                  input(id='albumnameinputsecond',type='text') 
+              .row
+                .col-xs-11.col-xs-offset-1
+                  button(type='button',class='addalbumbutton',onclick='addalbumfunction();',style='border:1px solid white;border-radius:4px;')
+                    h5 Создать
+              script.
+                $('#closeaddalbumblock').click(function(){
+                  $('#albumsblock').slideToggle();
+                });      
+                  
+          #addvideoblock.row.hiddeninputs
+            #addvideoblockinsert.col-xs-12
+          #contactsblockoptions.row.hiddenoptions
+            .col-xs-6.nb          
+              #editcontacts.row.addsmth
+                .col-xs-3(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_text.png')         
+                .col-xs-9
+                  h2  Редактировать контакты    
+          #aboutblockoptions.row.hiddenoptions
+            .col-xs-6.nb          
+              #editabout.row.addsmth
+                .col-xs-3(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_text.png')         
+                .col-xs-9
+                  h2  Редактировать "О проекте"  
+          #aboutblockset.row.hiddeninputs(style='background-color:#6faebf;')
+            .col-xs-12
+              form(role='form',method='post',action='/ations')
+              .row
+                .col-xs-11.col-xs-offset-1
+                  textarea.form-control(rows='7',name='abody')
+                  input(style='display:none;',name='actions',value='setabout')
+              .row  
+                .col-xs-12
+                  button(style)
+
+          script.
+            $('#routesblock').click(function(){
+              var x = $('#routesimg').attr('src');
+              if(x === '/bootstrap/images/circle_bird_up_white.png')
+              {
+               $('#routesimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+              }
+              else {
+                $('#routesimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+              }
+              $('#routesblockoptions').slideToggle();
+            }); 
+            $('#contactsblock').click(function(){
+              var x = $('#contactsimg').attr('src');
+              if(x === '/bootstrap/images/circle_bird_up_white.png')
+              {
+               $('#contactsimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+              }
+              else {
+                $('#contactsimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+              }
+              $('#contactsblockoptions').slideToggle();
+            });  
+            $('#aboutblock').click(function(){
+              var x = $('#aboutimg').attr('src');
+              if(x === '/bootstrap/images/circle_bird_up_white.png')
+              {
+               $('#aboutimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+              }
+              else {
+                $('#aboutimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+              }
+              $('#aboutblockoptions').slideToggle();
+            }); 
+            $('#gallblock').click(function(){
+              var x = $('#gallimg').attr('src');
+              var y = $('#addphotoblock').css('display');
+              var z = $('#addphotoblockinsert').css('display');
+              if(x === '/bootstrap/images/circle_bird_up_white.png')
+              {
+               $('#gallimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+               if(z !== 'none')
+               {
+                 $('#addphotoblockinsert').slideToggle();
+               }
+               if(y !== 'none')
+               {
+                 $('#addphotoblock').slideToggle();
+               }
+              }
+              else {
+                $('#gallimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+              }
+              $('#gallblockoptions').slideToggle();
+            }); 
+            $('#booksblock').click(function(){
+              var x = $('#booksimg').attr('src');
+              if(x === '/bootstrap/images/circle_bird_up_white.png')
+              {
+               $('#booksimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+              }
+              else {
+                $('#booksimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+              }
+              $('#booksblockoptions').slideToggle();
+            }); 
+            $('#blogblock').click(function(){
+              var x = $('#blogimg').attr('src');
+              if(x === '/bootstrap/images/circle_bird_up_white.png')
+              {
+               $('#blogimg').attr('src','/bootstrap/images/circle_bird_down_white.png');
+              }
+              else {
+                $('#blogimg').attr('src','/bootstrap/images/circle_bird_up_white.png');
+              }
+              $('#blogblockoptions').slideToggle();
+            }); 
+            $('#addphoto').click(function(){
+            request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+            var DONE = this.DONE || 4;
+            if (this.readyState === DONE){
+            var index;
+            parsed = JSON.parse(request.responseText);
+            console.log(parsed);
+            if(parsed.trouble === 1)
+            {
+            console.log('TROUBLE === 1');
+            if($('#addphotoblock').css('display')!='none'){
+            console.log($('#addphotoblock').css('display'));
+            $('#addphotoblock').slideToggle();
+            }
+            $('#addphotoblockinsert').empty();
+            switch (parsed.mtext){
+            case('empty'):
+            console.log('should append some text');
+            $('#addphotoblockinsert').append("<div class='row'><div  class='col-xs-1' style='text-align:right;'><img src='/bootstrap/images/circle_excl_white.png'></div><div class='col-xs-10'><h2 style='color:white;'>Чтобы начать добавлять фотографии, добавьте альбом</h2></div><div class='col-xs-1 closedialog' id='closedialog'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><h2>Название альбома:</h2><input id='albumnameinputsecond' type='text'></input></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><button type='button' class='addalbumbutton' onclick='addalbumfunction();' style='border:1px solid white;border-radius:4px;'><h5>Создать</h5></button></div></div>");
+            var x ="<script>$('#closedialog').click(function(){console.log('closing something');$('#addphotoblockinsert').slideToggle();$('#addphotoblock').slideToggle();});<\/script>";
+            $('#addphotoblockinsert').append(x);
+            console.log(x);
+            console.log('after insert main is: '+$('#addphotoblock').css('display')+', child is: '+$('#addphotoblockinsert').css('display'));
+            $('#addphotoblock').slideToggle();
+            $('#addphotoblockinsert').slideToggle();
+            console.log('toggled both after inserts');
+            break;
+            }}
+            else {
+            //trouble === 0
+            if($('#addphotoblock').css('display')!='none'){
+            console.log($('#addphotoblock').css('display'));
+            $('#addphotoblock').slideToggle();
+            }
+            $('#addphotoblockinsert').empty();
+            $('#addphotoblockinsert').append("<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white'>Выберите альбом или создайте новый</h2></div><div class='col-xs-1 closedialog' id='closephotoinserts'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row' id='addextraalbum'><div class='col-xs-1' style='text-align:right;'><img src='/bootstrap/images/circle_cross.png'></div><div class='col-xs-10'><h2>Создать альбом</h2></div></div><div class='row' id='addextraalbumblock' style='margin-top:2vh;margin-bottom:2vh;display:none;'><div class='col-xs-10 col-xs-offset-1'><div class='row' style='padding-top:2vh;padding-bottom:2vh;background-color:#ddd;border-radius:4px;'><div class='col-xs-12'><div class='row'></div><div class='col-xs-11'><h2>Название альбома:</h2><input id='albumnameinputsecond' type='text'></div><div class='col-xs-1 closedialog' id='closeaddextraalbumblock'><img src='/bootstrap/images/cross.png'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><button type='button' class='addalbumbutton' onclick='addalbumfunction();' style='border:1px solid white;border-radius:4px;'><h5>Создать</h5></button></div></div></div></div></div></div><script>$('#closephotoinserts').click(function(){$('#addphotoblockinsert').slideToggle();$('#addphotoblock').slideToggle();});$('#addextraalbum').click(function(){$('#addextraalbumblock').slideToggle();});$('#closeaddextraalbumblock').click(function(){$('#addextraalbumblock').slideToggle();});<\/script>");
+            console.log('entering the loop');
+            for (yy=0;yy<parsed.results.length;yy++){
+            console.log('loop is running');
+            $('#addphotoblockinsert').append("<div class='row'><div class='col-xs-3 col-xs-offset-1'><h2 style='color:white;'>"+parsed.results[yy].albumname+"</h2></div><div class='col-xs-4' style='text-align:center;'><h2>Добавить одно</h2></div><div class='col-xs-4' id='bulkalbum"+parsed.results[yy].id+"' style='text-align:center;'><h2>Добавить несколько</h2></div></div><div class='row' id='album"+parsed.results[yy].id+"' style='background-color:#6faebf;display:none;'><div class='col-xs-12'><form method='post' action='/actions' role='form' enctype='multipart/form-data'><div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white;'>Загрузка нескольких изображений</h2></div><div class='col-xs-1 closedialog' id='closealbum"+parsed.results[yy].id+"'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><h2>Страна:</h2><input name='country' type='text'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><h2>Файлы</h2><input type='file' multiple name='photo'></div></div><div class='row' style='display:none;'><div class='col-xs-11 col-xs-offset-1'><input type='text' name='aid' value='"+parsed.results[yy].id+"'><input type='text' name='actions' value='addphotobulk'></div></div><div class='row'><div class='col-xs-11 col-xs-offset-1'><button type='submit' style='border-radius:4px;'><h5>Загрузить</h5></button></div></div></form></div></div><script>$('#closealbum"+parsed.results[yy].id+"').click(function(){$('#album"+parsed.results[yy].id+"').slideToggle();});$('#bulkalbum"+parsed.results[yy].id+"').click(function(){$('#album"+parsed.results[yy].id+"').slideToggle();});<\/script>");
+            }
+            window.location='#contactsblock';
+            $('#addphotoblock').slideToggle();
+            $('#addphotoblockinsert').slideToggle();
+            }
+            }
+            };
+            request.open('POST', '/misc', true);
+            request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //Most libraries like jQuery/Prototype/Dojo do this
+            request.send("cause=albums");          });
 
       
         
