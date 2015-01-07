@@ -504,7 +504,7 @@ app.post('/actions',function(req,res){
                        fs.unlink(oldPath, function(err){
                            if(err) throw err;
                            console.log('UPLOAD '+imageid+"file uploaded to: " + newPath);
-                           dbhandle();
+                           dbhandle;
                              });
                    }); 
                  }); 
