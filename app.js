@@ -511,6 +511,11 @@ app.post('/actions',function(req,res){
                };
         var aid = parseInt(req.body.aid);
         var vcountry = req.body.country; 
+        if(!aid||!vcountry||req.files.photo)
+        {
+          res.send('problems with input')
+          break;
+        }
         images.find({},{ limit:1,sort : { fid : -1 } },function(err,done){
           if(err)
           {
