@@ -646,7 +646,7 @@ app.post('/actions',function(req,res){
               {
                var newid = done.id+1;
                misc.insert({bit:'album',id:newid,albumname:valbumname,imgqntt:0});
-               comsole.log('WRITTEN TO ALBUMS WITH CALCULATED ID');
+               console.log('WRITTEN TO ALBUMS WITH CALCULATED ID');
                var ms ={};
                ms.trouble=1;
                ms.mtext='db';
