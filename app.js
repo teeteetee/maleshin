@@ -501,7 +501,7 @@ app.post('/actions',function(req,res){
                    fs.writeFile(newPath, data, function(err) {
                       if(err) throw err;
                       console.log('we write');
-                       fs.unlinkSync(oldPath, function(){
+                       fs.unlink(oldPath, function(err){
                            if(err) throw err;
                            console.log('UPLOAD '+imageid+"file uploaded to: " + newPath);
                            dbhandle();
