@@ -511,6 +511,7 @@ app.post('/actions',function(req,res){
                };
         var aid = parseInt(req.body.aid);
         var vcountry = req.body.country; 
+        console.log(req.body.photo);
         if(!aid||!vcountry||req.files.photo)
         {
           res.send('problems with input')
