@@ -546,7 +546,7 @@ app.post('/actions',function(req,res){
                               res.redirect('http://maleshin.com/gall');
                             }
                             else{
-                              var vpimgpath = '/images/'+req.files.photo[0];
+                              var vpimgpath = '/images/'+req.files.photo[0].name;
                               misc.update({bit:'album',id:aid},{$set:{pimgpath:vpimgpath}});
                               misc.findOne({bit:'album',id:aid},function(err,donethree){
                                if(err){
@@ -583,7 +583,7 @@ app.post('/actions',function(req,res){
                           res.redirect('http://maleshin.com/gall');
                         }
                         else{
-                          var vpimgpath = '/images/'+req.files.photo[0];
+                          var vpimgpath = '/images/'+req.files.photo[0].name;
                           misc.update({bit:'album',id:aid},{$set:{pimgpath:vpimgpath}});
                           res.redirect('http://maleshin.com/gall');
                         }
