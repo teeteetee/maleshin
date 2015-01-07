@@ -636,20 +636,21 @@ app.post('/actions',function(req,res){
         //SUCCESS CONFIRMATION NEEDS TO BE ADDED
       case('addalbum'):
         misc.find({bit:'album'},{ limit:1,sort : { id : -1 } },function (err,done)
-          { if(err)
+          {  var ms ={};
+               ms.trouble=1;
+               ms.mtext='db';
+            if(err)
            {
-            //CALL THE COPS
+            res.send(ms);
            }
            else 
             { var valbumname = req.body.albumname;
               if(done.length>0)
               {
+              console.log('-----PREVIOUS ID IS: '+done.id+'---------')
                var newid = done.id+1;
                misc.insert({bit:'album',id:newid,albumname:valbumname,imgqntt:0});
                console.log('WRITTEN TO ALBUMS WITH CALCULATED ID');
-               var ms ={};
-               ms.trouble=1;
-               ms.mtext='db';
                misc.find({bit:'album'},{id:-1},function (err,donetwo){
                  if (err)
                  {
