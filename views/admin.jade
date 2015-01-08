@@ -380,139 +380,6 @@ head
                     h2  Фотографий: #{imgn}             
                     h2  Альбомов : #{albumn} 
                     h2  Видео : #{videon}       
-            script.
-              $('#sendbutton').click(function(){
-              gettitle();
-              getbody();
-              $('#mainform').submit();
-              })
-              $('#removepost').click(function(){
-              $('#dropdb').slideToggle();
-              window.location='#dropdb';
-              });
-              $('#addpost').click(function(){
-              $('#addpostblock').slideToggle();
-              window.location='#addpostblock';
-              });
-              $('#getbodybutton').click(getbody);
-              function getbody (){
-              alert('GETTING THAT BODY');
-              var x=$('#hiddeninput').val();
-              console.log("HIDDEN INPUT IS: "+x);
-              var vbody = $('#getbody').val();
-              vbody = vbody.replace(/\r|\n|\r\n/g, '<br>')
-              console.log('we are in get body and body is:'+vbody);
-              var dd= new Date();
-              var vday = dd.getDate();
-              var vmonth= dd.getMonth()+1;
-              var vyear = dd.getUTCFullYear();
-              var vdate = vday+'.'+vmonth+'.'+vyear;
-              if(vbody)
-              {if(!$('#invisibleinput').val())
-              {
-              $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h5>"+vdate+"</h5><p><h3>"+vbody+"</h3></p></div></div>");}
-              else
-              {
-              var previoustext = $('#invisibleinput').val();
-              var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>";
-              $('#invisibleinput').val(newtext);
-              console.log('NOT EMPTY , INSERTING: '+newtext);
-              }
-              $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>");
-              window.location='#grab';
-              }
-              else
-              {}
-              }
-              $('#gettitlebutton').click(gettitle);
-              function gettitle (){
-              var vtitle = $('#gettitle').val();
-              if (vtitle)
-              {
-              $('#vtitle').val(vtitle);
-              $('#gettitlebutton').attr('disabled');
-              $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
-              window.location='#grab';
-              }
-              else
-              {}         
-              }
-              function getalbums(){
-              request = new XMLHttpRequest();
-              request.onreadystatechange = function () {
-              var DONE = this.DONE || 4;
-              if (this.readyState === DONE){
-              var index;
-              parsed = JSON.parse(request.responseText);
-              console.log(parsed);
-              if(parsed.trouble === 1)
-              {
-              console.log('TROUBLE === 1');
-              switch (parsed.mtext){
-              case('empty'):
-              $('#albumsremoveblockinsert').append("<div class='row' ><div class='col-xs-1'><img src='/bootstrap/images/circle_excl.png'></div><div class='col-xs-11'><h2>Нет альбомов</h2></div></div>");
-              break;
-              case('db'):
-              $('#albumsremoveblockinsert').append("<div class='row' ><div class='col-xs-1'><img src='/bootstrap/images/circle_excl.png'></div><div class='col-xs-11'><h2>Проблемы с базой данных</h2></div></div>");
-              break;
-              }}
-              else {
-              //trouble === 0
-              for (yy=0;yy<parsed.results.length;yy++){
-              $('#albumsremoveblockinsert').append("<div class='row' id='remconf"+parsed.results[yy].id+"'><div class='col-xs-9'><h2>"+parsed.results[yy].id+"</h2></div><div class='col-xs-3 closedialog'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row' id='confblock"+parsed.results[yy].id+"' style='display:none;'><div class='col-xs-6' id='rem"+parsed.results[yy].id+"' style='background-color:#c35;'><h2 style='color:white;'>Удалить</h2></div><div class='col-xs-6' id='dsms"+parsed.results[yy].id+"'><h2>Отмена</h2></div></div><script>$('#remconf"+parsed.results[yy].id+"').click(function(){$('#confblock"+parsed.results[yy].id+"').slideToggle();});$('#rem"+parsed.results[yy].id+"').click(function(){removealbum("+parsed.results[yy].id+");});$('#dsms"+parsed.results[yy].id+"').click(function(){$('#confblock"+parsed.results[yy].id+"').slideToggle();});<\/script>");
-              }
-              }
-              }
-              };
-              request.open('POST', '/misc', true);
-              request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
-              request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-              //Most libraries like jQuery/Prototype/Dojo do this
-              request.send("cause=albums");          }
-              function removealbum(id){
-              request = new XMLHttpRequest();
-              request.onreadystatechange = function () {
-              var DONE = this.DONE || 4;
-              if (this.readyState === DONE){
-              var index;
-              parsed = JSON.parse(request.responseText);
-              console.log(parsed);
-              if(parsed.trouble === 1)
-              {
-              console.log('TROUBLE === 1');
-              switch (parsed.mtext){
-              case('empty'):
-              alert('Заданый альбом не найден в базе');
-              break;
-              case('db'):
-              alert('проблемы с базой данных');
-              $('#remconf'+id).slideToggle();
-              if($('#confblock'+id).css('display')!=='none'){
-              $('#confblock'+id).slideToggle();
-              }
-              break;
-              }}
-              else {
-              //trouble === 0
-              $('#remconf'+id).slideToggle();
-              if($('#confblock'+id).css('display')!=='none'){
-              $('#confblock'+id).slideToggle();
-              alert('Альбом удален')
-              }
-              }
-              };
-              request.open('POST', '/actions', true);
-              request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
-              request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-              //Most libraries like jQuery/Prototype/Dojo do this
-              request.send("actions=removealbum&albumid="+id);}
-              $('#albums').click(function(){
-              $('#albumsblock').slideToggle();
-              });  
-              $('#albumsremove').click(function(){
-              getalbums();
-              $('#albumsremoveblock').slideToggle();
-              });           
           script.
             $('.addalbum').click(function(){
             request = new XMLHttpRequest();
@@ -779,6 +646,138 @@ head
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             //Most libraries like jQuery/Prototype/Dojo do this
             request.send("cause=albums");});
+            $('#sendbutton').click(function(){
+            gettitle();
+            getbody();
+            $('#mainform').submit();
+            })
+            $('#removepost').click(function(){
+            $('#dropdb').slideToggle();
+            window.location='#dropdb';
+            });
+            $('#addpost').click(function(){
+            $('#addpostblock').slideToggle();
+            window.location='#addpostblock';
+            });
+            $('#getbodybutton').click(getbody);
+            function getbody (){
+            alert('GETTING THAT BODY');
+            var x=$('#hiddeninput').val();
+            console.log("HIDDEN INPUT IS: "+x);
+            var vbody = $('#getbody').val();
+            vbody = vbody.replace(/\r|\n|\r\n/g, '<br>')
+            console.log('we are in get body and body is:'+vbody);
+            var dd= new Date();
+            var vday = dd.getDate();
+            var vmonth= dd.getMonth()+1;
+            var vyear = dd.getUTCFullYear();
+            var vdate = vday+'.'+vmonth+'.'+vyear;
+            if(vbody)
+            {if(!$('#invisibleinput').val())
+            {
+            $('#invisibleinput').val("<div class='row text'><div class='col-xs-12' style='padding:0px;'><h5>"+vdate+"</h5><p><h3>"+vbody+"</h3></p></div></div>");}
+            else
+            {
+            var previoustext = $('#invisibleinput').val();
+            var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>";
+            $('#invisibleinput').val(newtext);
+            console.log('NOT EMPTY , INSERTING: '+newtext);
+            }
+            $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>");
+            window.location='#grab';
+            }
+            else
+            {}
+            }
+            $('#gettitlebutton').click(gettitle);
+            function gettitle (){
+            var vtitle = $('#gettitle').val();
+            if (vtitle)
+            {
+            $('#vtitle').val(vtitle);
+            $('#gettitlebutton').attr('disabled');
+            $('#grab').append("<div class='row' id='title'><div class='col-xs-12' style='padding:0px;'><h1>"+vtitle+"</h1></div></div>");
+            window.location='#grab';
+            }
+            else
+            {}         
+            }
+            function getalbums(){
+            request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+            var DONE = this.DONE || 4;
+            if (this.readyState === DONE){
+            var index;
+            parsed = JSON.parse(request.responseText);
+            console.log(parsed);
+            if(parsed.trouble === 1)
+            {
+            console.log('TROUBLE === 1');
+            switch (parsed.mtext){
+            case('empty'):
+            $('#albumsremoveblockinsert').append("<div class='row' ><div class='col-xs-1'><img src='/bootstrap/images/circle_excl.png'></div><div class='col-xs-11'><h2>Нет альбомов</h2></div></div>");
+            break;
+            case('db'):
+            $('#albumsremoveblockinsert').append("<div class='row' ><div class='col-xs-1'><img src='/bootstrap/images/circle_excl.png'></div><div class='col-xs-11'><h2>Проблемы с базой данных</h2></div></div>");
+            break;
+            }}
+            else {
+            //trouble === 0
+            for (yy=0;yy<parsed.results.length;yy++){
+            $('#albumsremoveblockinsert').append("<div class='row' id='remconf"+parsed.results[yy].id+"'><div class='col-xs-9'><h2>"+parsed.results[yy].id+"</h2></div><div class='col-xs-3 closedialog'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row' id='confblock"+parsed.results[yy].id+"' style='display:none;'><div class='col-xs-6' id='rem"+parsed.results[yy].id+"' style='background-color:#c35;'><h2 style='color:white;'>Удалить</h2></div><div class='col-xs-6' id='dsms"+parsed.results[yy].id+"'><h2>Отмена</h2></div></div><script>$('#remconf"+parsed.results[yy].id+"').click(function(){$('#confblock"+parsed.results[yy].id+"').slideToggle();});$('#rem"+parsed.results[yy].id+"').click(function(){removealbum("+parsed.results[yy].id+");});$('#dsms"+parsed.results[yy].id+"').click(function(){$('#confblock"+parsed.results[yy].id+"').slideToggle();});<\/script>");
+            }
+            }
+            }
+            };
+            request.open('POST', '/misc', true);
+            request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //Most libraries like jQuery/Prototype/Dojo do this
+            request.send("cause=albums");          }
+            function removealbum(id){
+            request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+            var DONE = this.DONE || 4;
+            if (this.readyState === DONE){
+            var index;
+            parsed = JSON.parse(request.responseText);
+            console.log(parsed);
+            if(parsed.trouble === 1)
+            {
+            console.log('TROUBLE === 1');
+            switch (parsed.mtext){
+            case('empty'):
+            alert('Заданый альбом не найден в базе');
+            break;
+            case('db'):
+            alert('проблемы с базой данных');
+            $('#remconf'+id).slideToggle();
+            if($('#confblock'+id).css('display')!=='none'){
+            $('#confblock'+id).slideToggle();
+            }
+            break;
+            }}
+            else {
+            //trouble === 0
+            $('#remconf'+id).slideToggle();
+            if($('#confblock'+id).css('display')!=='none'){
+            $('#confblock'+id).slideToggle();
+            alert('Альбом удален')
+            }
+            }
+            };
+            request.open('POST', '/actions', true);
+            request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            //Most libraries like jQuery/Prototype/Dojo do this
+            request.send("actions=removealbum&albumid="+id);}
+            $('#albums').click(function(){
+            $('#albumsblock').slideToggle();
+            });  
+            $('#albumsremove').click(function(){
+            getalbums();
+            $('#albumsremoveblock').slideToggle();
+            });           
 
       
         
