@@ -347,7 +347,31 @@ head
                 .col-xs-3
                   button(style='border:1px solid white;border-radius:4px;background-color:#c35;',type='submit') 
                     h5(style='color:white;') Удалить
-
+          #gallblockoptions.row.hiddenoptions
+            .col-xs-6.nb          
+              #addphoto.row.addsmth
+                .col-xs-2(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_cross.png')
+                .col-xs-10(style='padding-right:0px;')
+                  h2  Добавить фото     
+              #albums.row.addsmth
+                .col-xs-2(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_cross.png')
+                .col-xs-10(style='padding-right:0px;')
+                  h2  Добавить альбом 
+              #albumsremove.row.addsmth
+                .col-xs-2(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_minus.png')
+                .col-xs-10(style='padding-right:0px;')
+                  h2  Удалить альбом             
+              #addvideo.row.addsmth
+                .col-xs-2(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_cross.png')         
+                .col-xs-10(style='padding-right:0px;')
+                  h2  Добавить видео
+              #experiment.row
+                .col-xs-12
+                  h2 HOO HOO  
             script.
               $('#sendbutton').click(function(){
               gettitle();
@@ -474,32 +498,6 @@ head
               request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               //Most libraries like jQuery/Prototype/Dojo do this
               request.send("actions=removealbum&albumid="+id);}
-          #gallblockoptions.row.hiddenoptions
-            .col-xs-6.nb          
-              #addphoto.row.addsmth
-                .col-xs-2(style='text-align:center;')
-                  img(src='/bootstrap/images/circle_cross.png')
-                .col-xs-10(style='padding-right:0px;')
-                  h2  Добавить фото     
-              #albums.row.addsmth
-                .col-xs-2(style='text-align:center;')
-                  img(src='/bootstrap/images/circle_cross.png')
-                .col-xs-10(style='padding-right:0px;')
-                  h2  Добавить альбом 
-              #albumsremove.row.addsmth
-                .col-xs-2(style='text-align:center;')
-                  img(src='/bootstrap/images/circle_minus.png')
-                .col-xs-10(style='padding-right:0px;')
-                  h2  Удалить альбом             
-              #addvideo.row.addsmth
-                .col-xs-2(style='text-align:center;')
-                  img(src='/bootstrap/images/circle_cross.png')         
-                .col-xs-10(style='padding-right:0px;')
-                  h2  Добавить видео
-              #experiment.row
-                .col-xs-12
-                  h2 HOO HOO      
-            script.
               $('#albums').click(function(){
               $('#albumsblock').slideToggle();
               });  
