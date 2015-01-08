@@ -54,7 +54,7 @@ app.get('/',function(req,res){
                 res.render('index',{'title':doc[0].title,'postbody':doc[0].postbody,'headimage':doc[0].headimage});}
          else
          {
-          res.render('index',{'title':"yet empty",'headimage':'/bootstrap/images/1.jpg'});
+          res.render('emptyindex');
          }       
       }
     });
