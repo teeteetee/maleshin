@@ -212,7 +212,7 @@ app.get('/gall',function(req,res){
         console.log(done);
         if(done.length>0)
         {
-           res.render('gallery',{'albums':done});
+           res.render('gallery',{'albums':JSON.stringify(done)});
         }
         else {
            res.render('emptygallery');
