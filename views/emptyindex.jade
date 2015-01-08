@@ -213,32 +213,8 @@ head
                 
           #title.row
             .col-xs-12(style='padding:0px;')
-              h1#titletext Ваш новый блог
+              h1#titletext(style='color:black;') Ваш новый блог
               h2(style='color:gray;') Зайдите в админку и сделайте первую запись       
-          script.
-            console.log($('#titletext').text().length);
-            if($('#titletext').text().length >= 22) {
-            if($('#titletext').text().length >= 46) {
-            if($('#titletext').text().length < 66) {
-            $("h1").css({"line-height":"35vh","font-size":"10vw"});
-            } // 66
-            else {
-            $("h1").css({"line-height":"23vh","font-size":"10vw"});
-            }
-            } //46
-            else {
-            if ($('#titletext').text().length = 22){
-            $("h1").css({"line-height":"70vh","font-size":"15vw"});
-            }
-            else {
-            $("h1").css({"line-height":"35vh","font-size":"15vw"});
-            }
-            }
-            } //23
-            else {
-            $("h1").css({"line-height":"70vh","font-size":"20vw"});
-            }
-            
           script.
             $('#countries').click(function(){
               window.location='http://aa44.cc/countries';
