@@ -527,7 +527,18 @@ head
                 .col-xs-2(style='text-align:center;')
                   img(src='/bootstrap/images/circle_text.png')         
                 .col-xs-10(style='padding-right:0px;')
-                  h2  Редактировать контакты    
+                  h2  Редактировать контакты 
+          #contactsblockset.row.hiddeninputs(style='background-color:#6faebf;')
+            .col-xs-12
+              form(role='form',method='post',action='/ations')
+              .row
+                .col-xs-11.col-xs-offset-1
+                  textarea.form-control(rows='7',name='abody')
+                  input(style='display:none;',name='actions',value='setcontacts')
+              .row  
+                .col-xs-12
+                  button(type='submit',style='border:1px solid white;border-radius:4px;')
+                    h5 Сохранить           
           #aboutblockoptions.row.hiddenoptions
             .col-xs-6.nb          
               #editabout.row.addsmth
@@ -544,9 +555,16 @@ head
                   input(style='display:none;',name='actions',value='setabout')
               .row  
                 .col-xs-12
-                  button(style)
+                  button(type='submit',style='border:1px solid white;border-radius:4px;')
+                    h5 Сохранить
 
           script.
+            $('#editabout').click(function(){
+              $('#aboutblockset').slideToggle();
+            });
+            $('#editcontacts').click(function(){
+              $('#contactsblockset').slideToggle();
+            });
             $('#routesblock').click(function(){
               $('.hiddenoptions').css('display','none');
               $('.hidedeninputs').css('display','none');
