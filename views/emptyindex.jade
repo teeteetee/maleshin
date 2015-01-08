@@ -43,34 +43,12 @@ head
       margin:0px;
       }
       h2 {
-      color:white;
       font-family:roboto-thin;
       font-size:2vw;
       margin-top:1vh;
       margin-bottom:1vh;
       margin-right:1vw;
       margin-left:1vw;
-      }
-      h3 {
-      font-family:arial;
-      font-size:2vw;
-      }
-      h4 {
-      font-weight:bold;
-      font-family:br;
-      font-size:4vw;
-      }
-      h5 {
-      font-family:roboto-thin;
-      color:#c35;
-      font-size:2vw;
-      font-weight:bold;
-      }
-      h6 {
-      font-family:roboto-thin;
-      font-size:8vw;
-      color:#03406a;
-      opacity:0.5;
       }
       .container {
       margin:0px;
@@ -106,42 +84,13 @@ head
       text-align:center;
       margin-top:5vh;
       }
-      #header {
-      height:100vh;
-      -webkit-transition:height 1.5s;
-      -webkit-transition-timing-function:ease-out;
-      }
-      #main {
-      margin-left:0px;
-      margin-right:0px;
-      }
       #title {
-      height:70vh;
       text-align:center;
       padding-left:9vw;
       padding-right:9vw;
       }
       .white {
       background-color:white;
-      }
-      .chevron  {
-      height:10vh;
-      text-align:center;
-      opacity:0.5;
-      margin-bottom:3vh;
-      }
-      .active h2 {
-      color:black;
-      }
-      .fff {
-      background-color:#fff;
-      }
-      .text {
-      padding-top:3vh;
-      padding-bottom:5vh;
-      padding-left:10vw;
-      padding-right:10vw;
-      background-color:#fff;
       }
       #countriesblock{
       display:none;
@@ -169,26 +118,6 @@ head
       #olderposts {
       text-align:center;
       }
-      .separator {
-      margin-left:7vw;
-      margin-right:7vw;
-      height:5vh;
-      background-color:#ddd;
-      }
-      .smth {
-      }
-      #previous {
-      padding:4vh;
-      opacity:0.6;
-      }
-      .btmcrcl {
-      height:4vw;
-      width:4vw;
-      border-radius:50%;
-      border:3px solid #03406a;
-      text-align:center;
-      background-color:white;
-      }  
   body
     .container
       #header.row
@@ -214,7 +143,7 @@ head
           #title.row
             .col-xs-12(style='padding:0px;')
               h1#titletext(style='color:black;') Ваш новый блог
-              h2(style='color:gray;') Зайдите в админку и сделайте первую запись       
+              h2 Зайдите в админку и сделайте первую запись       
           script.
             $('#countries').click(function(){
               window.location='http://aa44.cc/countries';
