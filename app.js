@@ -35,12 +35,9 @@ app.get('/',function(req,res){
      // CALL THE COPS
     }
     else {
-      var pquant = done;
-      if(pquant.length === 0)
-  {res.render('index',{'title':"yet empty",'headimage':'/bootstrap/images/1.jpg'});}
-  else
-  {
-     posts.find({},{ limit:1,sort : { sd : -1 } },function (err,doc) { 
+      if(done.length >0)
+      {
+       posts.find({},{ limit:1,sort : { sd : -1 } },function (err,doc) { 
       if (err)
       {
         //CALL THE COPS
@@ -58,7 +55,11 @@ app.get('/',function(req,res){
          }       
       }
     });
-  }
+      }
+      else
+       {
+        res.render('emptyindex');
+       }
     }
   })
 });
