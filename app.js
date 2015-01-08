@@ -291,8 +291,6 @@ app.get('/dangerous/:key',function(req,res){
         res.send('albums dropped');
       }
     });}
-  else {
-    res.send(' auth error');
   break;
   case('animals'):
   images.remove({},function(err,done){
