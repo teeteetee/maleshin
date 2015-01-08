@@ -283,14 +283,14 @@ app.get('/dangerous/:key',function(req,res){
   var vkey = 'people';
   switch(req.params.key){
     case('people'):
-  {misc.remove({bit:'album'},function(err,done){
+  misc.remove({bit:'album'},function(err,done){
       if(err){
         res.send('error while dropping misc db');
       }
       else {
         res.send('albums dropped');
       }
-    });}
+    });
   break;
   case('animals'):
   images.remove({},function(err,done){
@@ -302,7 +302,6 @@ app.get('/dangerous/:key',function(req,res){
       }
   });
   break;
-  }
   }
 });
 app.post('/drop/:cc',function(req,res){
