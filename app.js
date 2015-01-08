@@ -281,7 +281,8 @@ app.post('/dropp/:id',function(req,res){
 
 app.get('/dangerous/:key',function(req,res){
   var vkey = 'people';
-  if(req.params.key===vkey)
+  switch(req.params.key){
+    case('people'):
   {misc.remove({bit:'album'},function(err,done){
       if(err){
         res.send('error while dropping misc db');
@@ -292,6 +293,18 @@ app.get('/dangerous/:key',function(req,res){
     });}
   else {
     res.send(' auth error');
+  break;
+  case('animals'):
+  images.remove({},function(err,done){
+    if(err){
+        res.send('error while dropping images db');
+      }
+      else {
+        res.send('images dropped');
+      }
+  });
+  break;
+  }
   }
 });
 app.post('/drop/:cc',function(req,res){
@@ -783,6 +796,10 @@ app.post('/actions',function(req,res){
             {
               for (var image in twodone) {
                            var filename = image.filename; 
+                           if(!filename){
+                            res.send(ms);
+                            break;
+                           }
                            var oldPath = __dirname + '/public/images/'+ filename;
                            fs.unlink(oldPath, function(err){
                               if(err) throw err;
@@ -874,7 +891,7 @@ app.post('/actions',function(req,res){
       break;
       case('setcontacts'):
        var cbody = req.body.cbody;
-       misc.insert({bit:contacts,bbody:cbody});
+       misc.insert({bit:'contacts',bbody:cbody});
       break;
       case('setabout'):
        var abody = req.body.abody;
@@ -882,7 +899,7 @@ app.post('/actions',function(req,res){
       break;
       case('updatecontacts'):
        var cbody = req.body.cbody;
-       misc.findOne({bit:contacts},function(err,done){
+       misc.findOne({bit:'contacts'},function(err,done){
         if(err){
 
         }
@@ -890,7 +907,7 @@ app.post('/actions',function(req,res){
         {
           if(done)
           {
-            misc.update({bit:contacts},{$set:{bbody:cbody}});
+            misc.update({bit:'contacts'},{$set:{bbody:cbody}});
             res.redirect('/contacts');
           }
           else{
@@ -901,7 +918,7 @@ app.post('/actions',function(req,res){
       break;
       case('updateabout'):
         var cbody = req.body.abody;
-       misc.findOne({bit:about},function(err,done){
+       misc.findOne({bit:'about'},function(err,done){
         if(err){
 
         }
@@ -909,7 +926,7 @@ app.post('/actions',function(req,res){
         {
           if(done)
           {
-            misc.update({bit:about},{$set:{bbody:abody}});
+            misc.update({bit:'about'},{$set:{bbody:abody}});
             res.redirect('/about');
           }
           else{
