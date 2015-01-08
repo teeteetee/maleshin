@@ -372,6 +372,14 @@ head
               #experiment.row
                 .col-xs-12
                   h2 HOO HOO  
+            .col-xs-6.stats
+              .row
+                .col-xs-12
+                  .row
+                    h2(style='color:#c35') Статистика          
+                    h2  Фотографий: #{imgn}             
+                    h2  Альбомов : #{albumn} 
+                    h2  Видео : #{videon}       
             script.
               $('#sendbutton').click(function(){
               gettitle();
@@ -504,15 +512,7 @@ head
               $('#albumsremove').click(function(){
               getalbums();
               $('#albumsremoveblock').slideToggle();
-              });         
-            .col-xs-6.stats
-              .row
-                .col-xs-12
-                  .row
-                    h2(style='color:#c35') Статистика          
-                    h2  Фотографий: #{imgn}             
-                    h2  Альбомов : #{albumn} 
-                    h2  Видео : #{videon}   
+              });           
           script.
             $('.addalbum').click(function(){
             request = new XMLHttpRequest();
