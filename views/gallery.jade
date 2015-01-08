@@ -106,21 +106,15 @@ head
       #menu {
       text-align:center;
       margin-top:5vh;
+      margin-bottom:3vh;
       }
       #header {
-      height:100vh;
       -webkit-transition:height 1.5s;
       -webkit-transition-timing-function:ease-out;
       }
       #main {
       margin-left:0px;
       margin-right:0px;
-      }
-      #title {
-      height:70vh;
-      text-align:center;
-      padding-left:9vw;
-      padding-right:9vw;
       }
       .white {
       background-color:white;
@@ -134,39 +128,10 @@ head
       .active h2 {
       color:black;
       }
-      .fff {
-      background-color:#fff;
-      }
-      .text {
-      padding-top:3vh;
-      padding-bottom:5vh;
-      padding-left:10vw;
-      padding-right:10vw;
-      background-color:#fff;
-      }
-      .illustration {
-      height:40vh;
-      }
-      .separator {
-      margin-left:7vw;
-      margin-right:7vw;
-      height:5vh;
-      background-color:#ddd;
-      }
-      .smth {
-      }
-      #previous {
-      padding:4vh;
-      opacity:0.6;
-      }
-      .btmcrcl {
-      height:4vw;
-      width:4vw;
-      border-radius:50%;
-      border:3px solid #03406a;
-      text-align:center;
+      .pic{
+      margin:0.5vw;
       background-color:white;
-      }  
+      }
   body
     .container
       #header.row
@@ -188,36 +153,78 @@ head
                   h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
                 button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
                   h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;
-          |      
-          #title.row
-            .col-xs-12(style='padding:0px;')
-              h3#titletext Trip to south America 
-          each album, i in albums
-            .row(style='border-bottom:#ddd;background-color:#eee;')
-              .col-xs-3(id='album#{album.id}')
-                img(style='width:100%;',src='#{album.pimgpath}')
-              .col-xs-8
-                h2 #{album.albumname} 
-              .col-xs-1
-                h2 #{album.imgqntt}  
-             
-          script.
-            $('#blog').click(function(){
-              window.location='http://maleshin.com/';
-            }); 
-            $('#countries').click(function(){
-              window.location='http://maleshin.com/countries';
-            }); 
-            $('#books').click(function(){
-              window.location='http://maleshin.com/books';
-            }); 
-            $('#contacts').click(function(){
-              window.location='http://maleshin.com/contacts';
-            }); 
-            $('#about').click(function(){
-              window.location='http://maleshin.com/about';
-            }); 
-            $('#routes').click(function(){
-              window.location='http://maleshin.com/routes';
-            });      
+      .row(style='background-color:#ccc;')
+        #albums.col-xs-12            
+      script.
+        function populate(){
+        var source = #{albums};
+        var alngth = source.length;
+        var lnum = alngth%4;
+        var times = (alngth - jnum)/4;
+        for (yy=0;yy<times;yy++){   
+        var multiplier = 4*yy;
+        var first = 0+multiplier;
+        first = 'source['+first+'].pimgpath';
+        var second =1+multiplier;
+        second = 'source['+second+'].pimgpath';
+        var third =2+multiplier;
+        third = 'source['+third+'].pimgpath';
+        var fourth =3+multiplier;
+        fourth = 'source['+fourth+'].pimgpath';
+        $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+first+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+second+"'></div></div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+third+"'></div><div class='col-xs-3 pic'><img src='"+fourth+"'></div></div>");    
+        }
+        switch(lnum){
+        case(1):
+         var last = times*4+1 ;
+         last = 'source['+last+'].pimgpath';
+         $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last+"'></div></div>");
+        break;
+        case(2):
+         var last = times*4+1 ;
+         last = 'source['+last+'].pimgpath';
+         var last2 = times*4+2;
+         last2 = 'source{'+last2+'].pimgpath';
+         $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last2+"'></div></div>");
+        break;
+        case(3):
+         var last = times*4+1 ;
+         last = 'source['+last+'].pimgpath';
+         var last2 = times*4+2;
+         last2 = 'source['+last2+'].pimgpath';
+         var last3 = times*4+3;
+         last3 = 'source['+last3+'].pimgpath':
+         $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last2+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last3+"'></div></div>");
+        break;
+        case(4):
+        var last = times*4+1 ;
+         last = 'source['+last+'].pimgpath';
+         var last2 = times*4+2;
+         last2 = 'source['+last2+'].pimgpath';
+         var last3 = times*4+3;
+         last3 = 'source['+last3+'].pimgpath':
+         var last4 = times*4+4;
+         last4 = 'source['+last4+'].pimgpath';
+         $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last2+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last3+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last4+"'></div></div>");
+        break;
+        }
+        }      
+      script.
+        $('#blog').click(function(){
+          window.location='http://maleshin.com/';
+        }); 
+        $('#countries').click(function(){
+          window.location='http://maleshin.com/countries';
+        }); 
+        $('#books').click(function(){
+          window.location='http://maleshin.com/books';
+        }); 
+        $('#contacts').click(function(){
+          window.location='http://maleshin.com/contacts';
+        }); 
+        $('#about').click(function(){
+          window.location='http://maleshin.com/about';
+        }); 
+        $('#routes').click(function(){
+          window.location='http://maleshin.com/routes';
+        });      
    
