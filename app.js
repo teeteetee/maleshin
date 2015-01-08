@@ -766,10 +766,15 @@ app.post('/actions',function(req,res){
       case('removealbum'):
         var aid = parseInt(req.body.albumid);      
         //FS REMOVE MUT BE ADDED TO ACTUALY DELETE THE IMAGES NOT JUST THEIR RECORDS
+        var ms = {};
+        ms.trouble = 0;
+        ms.mtext = 'success';
         images.find({albumid:aid},function(err,twodone){
            if(err)
            {
-            //CALL THE COPS
+            ms.trouble=1;
+            ms.mtext='db';
+            res.send(ms);
            }
            else
            {
@@ -778,7 +783,7 @@ app.post('/actions',function(req,res){
               for (var image in twodone) {
                            var filename = image.filename; 
                            var oldPath = __dirname + '/public/images/'+ filename;
-                           fs.unlink(oldPath, function(){
+                           fs.unlink(oldPath, function(err){
                               if(err) throw err;
                               console.log('REMOVING AN ALBUM ('+AID+') - IMAGE DELETED');
                            });
@@ -787,18 +792,22 @@ app.post('/actions',function(req,res){
                images.remove({albumid:aid},function(err,done){
                     if(err)
                     {
-                      //SCREAM
+                      ms.trouble=1;
+                      ms.mtext='db';
+                      res.send(ms);
                     }
                     else
                     {
                       misc.remove({bit:'album',id:aid},function(err,doneremove){
                         if(err)
                         {
-                          //CALL THE COPS
+                          ms.trouble=1;
+                          ms.mtext='db';
+                          res.send(ms);
                         }
                         else {
                          //INDICATE A SUCCESS
-                         res.redirect('/redact');
+                         res.send(ms);
                         }
                       });
                     }
@@ -806,6 +815,9 @@ app.post('/actions',function(req,res){
             }
             else{
               console.log('SEARCH ON ALBUM '+aid+' RESULTED IN WHAT APPEARS TO BE AN EMPTYNESS')
+              ms.trouble =1;
+              ms.mtext = 'empty';
+              res.send(ms)
             }
            }
         });
@@ -915,10 +927,12 @@ app.post('/misc',function(req,res){
     {case('albums'):
          var ms = {};
          ms.trouble = 1;
+         ms.mtext = 'db'
          misc.find({bit:'album'},function(err,done){
           if(err)
           {
             //CALL THE COPS
+            res.send(ms);
           }
           else
           {
