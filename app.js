@@ -764,6 +764,7 @@ app.post('/actions',function(req,res){
         });
       break;
       case('removealbum'):
+        console.log('into albums remove');
         var aid = parseInt(req.body.albumid);      
         //FS REMOVE MUT BE ADDED TO ACTUALY DELETE THE IMAGES NOT JUST THEIR RECORDS
         var ms = {};

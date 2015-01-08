@@ -735,6 +735,7 @@ head
             //Most libraries like jQuery/Prototype/Dojo do this
             request.send("cause=albums");          }
             function removealbum(id){
+            console.log('going to remove an album');
             request = new XMLHttpRequest();
             request.onreadystatechange = function () {
             var DONE = this.DONE || 4;
