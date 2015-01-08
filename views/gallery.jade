@@ -161,6 +161,26 @@ head
         var alngth = source.length;
         var lnum = alngth%4;
         var times = (alngth - jnum)/4;
+        if(alngth<4){
+        switch(alngth){
+        case(1):
+        $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[0].pimgpath+"'></div></div>");
+        return
+        break;
+        case(2):
+        $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[1].pimgpath+"'></div></div>");
+        return
+        break;
+        case(3):
+        $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[1].pimgpath+"'></div>/div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[2].pimgpath+"'></div></div>");
+        return
+        break;
+        case(4):
+        $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[1].pimgpath+"'></div>/div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[2].pimgpath+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[3].pimgpath+"'></div></div>");
+        return
+        break;
+        }
+        }
         for (yy=0;yy<times;yy++){   
         var multiplier = 4*yy;
         var first = 0+multiplier;
