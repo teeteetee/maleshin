@@ -178,7 +178,7 @@ app.get('/about',function(req,res){
         res.render('about',{'body':done.bbody})
       }
       else {
-
+        res.render('emptyabout');
       }
      }
   });
@@ -197,7 +197,7 @@ app.get('/contacts',function(req,res){
         res.render('contacts',{'body':done.bbody})
       }
       else {
-
+        res.render('emptycontacts');
       }
      }
   });
