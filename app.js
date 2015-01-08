@@ -209,6 +209,7 @@ app.get('/gall',function(req,res){
      // CALL THE COPS 
     }
     else {
+        console.log(done);
         if(done.length>0)
         {
            res.render('gallery',{'albums':done});
