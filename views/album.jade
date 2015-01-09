@@ -184,6 +184,10 @@ head
       margin:3vh;
       cursor:pointer;
       }
+      #cross{
+      height:3vw;
+      margin:2vh;
+      }
   body
     .container
       #header.row
@@ -229,7 +233,7 @@ head
         populate();
         function showimg(imgpath) {
         $('.container').css('-webkit-filter','brightness(60%)');
-        $('body').append("<div class='container' id='previewcont' style='z-index:7000;margin:7vw'><div id='closepreview' class='row'><div class='col-xs-1 col-xs-offset-11><img style='height:3vw;margin:2vh;' src='/images/cross_white.png'></div></div><div class='row'><div class='col-xs-12><img style='max-width:100%;' src='/images/"+imgpath+"'></div></div></div>")
+        $('body').append("<div class='container' id='previewcont' style='z-index:7000;margin:7vw'><div id='closepreview' class='row'><div class='col-xs-1 col-xs-offset-11><img id='cross' src='/images/cross_white.png'></div></div><div class='row'><div class='col-xs-12><img style='max-width:100%;' src='/images/"+imgpath+"'></div></div></div>")
         }
         $('#closepreview').click(function(){
         $('#previewcont').remove();
