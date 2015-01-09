@@ -381,12 +381,12 @@ app.get('/gallery/albums/:album',function(req,res){
       if(done.length>0)
       {
         images.find({albumid:valbum},function(err,donetwo){
+          console.log('query for messages : '+donetwo);
           if(err)
           {
             //CALL THE COPS
           }
           else {
-            console.log('query for messages : '+donetwo);
             if(donetwo.length>0){
               res.render('album',{'images':donetwo});
             }
