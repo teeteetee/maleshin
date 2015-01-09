@@ -185,53 +185,12 @@ head
   body
     .container
       #header.row
-        //
-          .col-xs-12
-            #menu.row
-              .col-xs-12(style='padding:0px;')
-                .btn-group
-                  button#countries.btn.btn-default(type='button', style='border-top-left-radius:0.5vw;border-bottom-left-radius:0.5vw;')
-                    h2 &Scy;&Tcy;&Rcy;&Acy;&Ncy;&Ycy;
-                  button#routes.btn.btn-default(type='button')
-                    h2 &Mcy;&Acy;&Rcy;&SHcy;&Rcy;&Ucy;&Tcy;&Ycy;
-                  button#gall.btn.btn-default(type='button')
-                    h2 &Gcy;&Acy;&Lcy;&IEcy;&Rcy;&IEcy;&YAcy;
-                  button#blog.btn.btn-default.active(type='button')
-                    h2 &Bcy;&Lcy;&Ocy;&Gcy;
-                  button#books.btn.btn-default(type='button')
-                    h2 &Kcy;&Ncy;&Icy;&Gcy;&Icy;
-                  button#about.btn.btn-default(type='button')
-                    h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
-                  button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
-                    h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy; 
         .col-xs-1
           img(style='height:3vw;margin:2vh;position:inherit;width:auto;',src='/bootstrap/images/circle_bird_left.png')
         .col-xs-11(style='padding-left:0px;')
-          h2(style='color:#333;line-height:8vh;font-weight:bold;margin-left:0px;') На главную              
-          script.
-            $('#header').click(function(){window.location='http://maleshin.com';});
-            //$('#blog').click(function(){
-            //  window.location='http://maleshin.com/';
-            //}); 
-            //$('#countries').click(function(){
-            //  window.location='http://maleshin.com/countries';
-            //}); 
-            //$('#books').click(function(){
-            //  window.location='http://maleshin.com/books';
-            //}); 
-            //$('#gall').click(function(){
-            //  window.location='http://maleshin.com/gall';
-            //}); 
-            //$('#about').click(function(){
-            //  window.location='http://maleshin.com/about';
-            //}); 
-            //$('#routes').click(function(){
-            //  window.location='http://maleshin.com/routes';
-            //});  
-      each post, i in docs
-        .row(style="padding-top:5vh;padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
-          .col-xs-12
-            h1 #{post.title}
-            h4(style='margin-bottom:3vh;') #{post.date.day}.#{post.date.month}.#{post.date.year}
+          h2(style='color:#333;line-height:8vh;font-weight:bold;margin-left:0px;') Альбомы              
+      each image, i in images
+        .row(style="padding-top:5vh;padding-left:2vw;height:100vh;background: url('/images/#{image.filename}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
+          
 
    
