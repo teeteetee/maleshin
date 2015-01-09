@@ -194,9 +194,9 @@ head
       .row
         #images.col-xs-12      
       script.
-        $('#header').click(function() {window.location='http://maleshin.com/gall';});            
+        $('#header').click(function() {window.location='http://maleshin.com/gall';});     
+        var source = !{images};       
         function populate() {
-        var source = !{images};
         console.log(source);
         var alngth = source.length;
         var lnum = alngth%4;
