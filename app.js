@@ -381,7 +381,7 @@ app.get('/gallery/albums/:album',function(req,res){
       if(done)
       {
         images.find({albumid:valbum},function(err,donetwo){
-          console.log('query for messages : '+donetwo);
+          console.log('query for images : '+donetwo);
           if(err)
           {
             //CALL THE COPS
