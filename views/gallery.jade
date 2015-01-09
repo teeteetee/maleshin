@@ -135,6 +135,7 @@ head
       width:19vw;
       height:12vw;
       margin:3vh;
+      cursor:pointer;
       }
       .col-xs-3{
       padding-left:0px;
@@ -161,7 +162,7 @@ head
                   h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
                 button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
                   h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;
-      .row(style='padding-left:8vw;padding-right:8vw;text-align:center;border-top:1px solid #eee;')
+      .row(style='padding-left:8vw;padding-right:8vw;text-align:center;')
         #albums.col-xs-12(style='padding:0px;')            
       script.
         function populate(){
@@ -172,19 +173,19 @@ head
         if(alngth<4){
         switch(alngth){
         case(1):
-        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div></div>");
+        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});<\/script>");
         return
         break;
         case(2):
-        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div></div>");
+        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});<\/script>");
         return
         break;
         case(3):
-        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[2].pimgpath+"'></div></div>");
+        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div><div id='album"+source[2].id+"' class='col-xs-3 pic' ><img src='"+source[2].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});$('#album"+source[2].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[2].id+"'});<\/script>");
         return
         break;
         case(4):
-        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[2].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[3].pimgpath+"'></div></div>");
+        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div><div id='album"+source[2].id+"' class='col-xs-3 pic' ><img src='"+source[2].pimgpath+"'></div><div id='album"+source[3].id+"' class='col-xs-3 pic' ><img src='"+source[3].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});$('#album"+source[2].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[2].id+"'});$('#album"+source[3].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[3].id+"'});<\/script>");
         return
         break;
         }
