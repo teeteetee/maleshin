@@ -170,7 +170,7 @@ head
         var alngth = source.length;
         var lnum = alngth%4;
         var times = (alngth - lnum)/4;
-        if(alngth<4){
+        if(alngth<5){
         switch(alngth){
         case(1):
         $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});<\/script>");

@@ -86,13 +86,6 @@ head
       padding:0px;
       width:100%;
       }
-      img {
-      position:fixed;
-      height:100vh;
-      width:100vw;
-      z-index:0;
-      -webkit-filter:brightness(50%);
-      }
       .btn-default {
       background-color:transparent;
       }
@@ -182,19 +175,56 @@ head
       .btn-default {
       border-color:white;
       }
+      img{
+      width:15vw;
+      height:10vw;
+      margin:3vh;
+      cursor:pointer;
+      }
   body
     .container
       #header.row
         .col-xs-1
           img(style='height:3vw;margin:2vh;position:inherit;width:auto;',src='/bootstrap/images/circle_bird_left.png')
         .col-xs-11(style='padding-left:0px;')
-          h2(style='color:#333;line-height:8vh;font-weight:bold;margin-left:0px;') Альбомы      
+          h2(style='color:#333;line-height:8vh;font-weight:bold;margin-left:0px;') Альбомы    
+      .row
+        #images.col-xs-12      
       script.
         ('#header').click(function(){
          window.location='http://maleshin.com/gall';
         });            
-      each image, i in images
-        .row(style="padding-top:5vh;padding-left:2vw;height:100vh;background: url('/images/#{image.filename}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
+        function populate() {
+        var source = !{images};
+        var alngth = source.length;
+        var lnum = alngth%4;
+        var times = (alngth - lnum)/4;
+        if(alngth<6){
+        switch(alngth){
+        case(1):
+        $('#images').append("<div class='row' ><div id='image"+source[0].fid+"' class='col-xs-2 col-xs-offset-1 pic' ><img src='"+source[0].pimgpath+"'></div></div><script>$('#image"+source[0].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].fid+"'});<\/script>");
+        return
+        break;
+        case(2):
+        $('#images').append("<div class='row' ><div fid='image"+source[0].fid+"' class='col-xs-2 col-xs-offset-1 pic' ><img src='"+source[0].pimgpath+"'></div><div fid='image"+source[1].fid+"' class='col-xs-2 pic' ><img src='"+source[1].pimgpath+"'></div></div><script>$('#image"+source[0].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].fid+"'});$('#image"+source[1].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].fid+"'});<\/script>");
+        return
+        break;
+        case(3):
+        $('#images').append("<div class='row' ><div fid='image"+source[0].fid+"' class='col-xs-2 col-xs-offset-1 pic' ><img src='"+source[0].pimgpath+"'></div><div fid='image"+source[1].fid+"' class='col-xs-2 pic' ><img src='"+source[1].pimgpath+"'></div><div fid='image"+source[2].fid+"' class='col-xs-2 pic' ><img src='"+source[2].pimgpath+"'></div></div><script>$('#image"+source[0].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].fid+"'});$('#image"+source[1].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].fid+"'});$('#image"+source[2].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[2].fid+"'});<\/script>");
+        return
+        break;
+        case(4):
+        $('#images').append("<div class='row' ><div fid='image"+source[0].fid+"' class='col-xs-2 col-xs-offset-1 pic' ><img src='"+source[0].pimgpath+"'></div><div fid='image"+source[1].fid+"' class='col-xs-2 pic' ><img src='"+source[1].pimgpath+"'></div><div fid='image"+source[2].fid+"' class='col-xs-2 pic' ><img src='"+source[2].pimgpath+"'></div><div fid='image"+source[3].fid+"' class='col-xs-2 pic' ><img src='"+source[3].pimgpath+"'></div></div><script>$('#image"+source[0].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].fid+"'});$('#image"+source[1].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].fid+"'});$('#image"+source[2].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[2].fid+"'});$('#image"+source[3].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[3].fid+"'});<\/script>");
+        return
+        break;
+        case(5):
+        $('#images').append("<div class='row' ><div fid='image"+source[0].fid+"' class='col-xs-2 col-xs-offset-1 pic' ><img src='"+source[0].pimgpath+"'></div><div fid='image"+source[1].fid+"' class='col-xs-2 pic' ><img src='"+source[1].pimgpath+"'></div><div fid='image"+source[2].fid+"' class='col-xs-2 pic' ><img src='"+source[2].pimgpath+"'></div><div fid='image"+source[3].fid+"' class='col-xs-2 pic' ><img src='"+source[3].pimgpath+"'></div></div><script>$('#image"+source[0].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].fid+"'});$('#image"+source[1].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].fid+"'});$('#image"+source[2].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[2].fid+"'});$('#image"+source[3].fid+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[3].fid+"'});<\/script>");
+        return
+        break;
+        }
+        }
+        }
+        populate();
 
           
 
