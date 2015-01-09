@@ -377,8 +377,8 @@ app.get('/gallery/albums/:album',function(req,res){
       // CALL THE COPS
     }
     else
-    { console.log('length is :'+done.length()+'in albums, album is :'+JSON.stringify(done));
-      if(done.length>0)
+    { console.log('in albums, album is :'+JSON.stringify(done));
+      if(done)
       {
         images.find({albumid:valbum},function(err,donetwo){
           console.log('query for messages : '+donetwo);
