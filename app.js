@@ -377,7 +377,7 @@ app.get('/gallery/albums/:album',function(req,res){
       // CALL THE COPS
     }
     else
-    {
+    { console.log('in albums, album is :'+done);
       if(done.length>0)
       {
         images.find({albumid:valbum},function(err,donetwo){
@@ -386,6 +386,7 @@ app.get('/gallery/albums/:album',function(req,res){
             //CALL THE COPS
           }
           else {
+            console.log('query for messages : '+donetwo);
             if(donetwo.length>0){
               res.render('album',{'images':donetwo});
             }
