@@ -172,19 +172,19 @@ head
         if(alngth<4){
         switch(alngth){
         case(1):
-        $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[0].pimgpath+"'></div></div>");
+        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div></div>");
         return
         break;
         case(2):
-        $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[1].pimgpath+"'></div></div>");
+        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div></div>");
         return
         break;
         case(3):
-        $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[1].pimgpath+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[2].pimgpath+"'></div></div>");
+        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[2].pimgpath+"'></div></div>");
         return
         break;
         case(4):
-        $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[1].pimgpath+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+source[2].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[3].pimgpath+"'></div></div>");
+        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[2].pimgpath+"'></div><div class='col-xs-3 pic' ><img src='"+source[3].pimgpath+"'></div></div>");
         return
         break;
         }
@@ -199,20 +199,20 @@ head
         third = 'source['+third+'].pimgpath';
         var fourth =3+multiplier;
         fourth = 'source['+fourth+'].pimgpath';
-        $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+first+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+second+"'></div></div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+third+"'></div><div class='col-xs-3 pic'><img src='"+fourth+"'></div></div>");    
+        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+first+"'></div><div class='col-xs-3 pic' ><img src='"+second+"'></div></div class='col-xs-3 pic' ><img src='"+third+"'></div><div class='col-xs-3 pic'><img src='"+fourth+"'></div></div>");    
         }
         switch(lnum){
         case(1):
          var last = times*4+1 ;
          last = 'source['+last+'].pimgpath';
-         $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last+"'></div></div>");
+         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+last+"'></div></div>");
         break;
         case(2):
          var last = times*4+1 ;
          last = 'source['+last+'].pimgpath';
          var last2 = times*4+2;
          last2 = 'source{'+last2+'].pimgpath';
-         $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last2+"'></div></div>");
+         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+last+"'></div><div class='col-xs-3 pic' ><img src='"+last2+"'></div></div>");
         break;
         case(3):
          var last = times*4+1 ;
@@ -221,7 +221,7 @@ head
          last2 = 'source['+last2+'].pimgpath';
          var last3 = times*4+3;
          last3 = 'source['+last3+'].pimgpath';
-         $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last2+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last3+"'></div></div>");
+         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+last+"'></div><div class='col-xs-3 pic' ><img src='"+last2+"'></div><div class='col-xs-3 pic' ><img src='"+last3+"'></div></div>");
         break;
         case(4):
         var last = times*4+1 ;
@@ -232,7 +232,7 @@ head
          last3 = 'source['+last3+'].pimgpath';
          var last4 = times*4+4;
          last4 = 'source['+last4+'].pimgpath';
-         $('#albums').append("<div class='row' style='border-bottom:1px solid #eee;'><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last2+"'></div><div class='col-xs-3 pic' style='border-right:1px solid #eee;'><img src='"+last3+"'></div><div class='col-xs-3 pic' ><img src='"+last4+"'></div></div>");
+         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+last+"'></div><div class='col-xs-3 pic' ><img src='"+last2+"'></div><div class='col-xs-3 pic' ><img src='"+last3+"'></div><div class='col-xs-3 pic' ><img src='"+last4+"'></div></div>");
         break;
         }
         } 
