@@ -388,7 +388,7 @@ app.get('/gallery/albums/:album',function(req,res){
           }
           else {
             if(donetwo.length>0){
-              res.render('album',{'images':donetwo});
+              res.render('album',{'images':JSON.stringify(donetwo)});
             }
             else {
               res.redirect('http://maleshin.com/')
