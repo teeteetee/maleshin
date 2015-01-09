@@ -188,9 +188,14 @@ head
         .col-xs-1
           img(style='height:3vw;margin:2vh;position:inherit;width:auto;',src='/bootstrap/images/circle_bird_left.png')
         .col-xs-11(style='padding-left:0px;')
-          h2(style='color:#333;line-height:8vh;font-weight:bold;margin-left:0px;') Альбомы              
+          h2(style='color:#333;line-height:8vh;font-weight:bold;margin-left:0px;') Альбомы      
+      script.
+        ('#header').click(function(){
+         window.location='http://maleshin.com/gall';
+        });            
       each image, i in images
         .row(style="padding-top:5vh;padding-left:2vw;height:100vh;background: url('/images/#{image.filename}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
+
           
 
    
