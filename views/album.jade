@@ -21,10 +21,6 @@ head
       script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
     |     
     style.
-      container{
-      z-index:1;
-      background-color:white;
-      }
       html {
       background-size: cover;
       -webkit-background-size: cover;
@@ -190,7 +186,7 @@ head
       margin:2vh;
       }
   body
-    .container
+    .container(style='z-index:1;background-color:white;')
       #header.row
         .col-xs-1
           img(style='height:3vw;margin:2vh;position:inherit;width:auto;',src='/bootstrap/images/circle_bird_left.png')
