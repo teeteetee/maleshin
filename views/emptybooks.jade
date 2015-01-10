@@ -68,11 +68,10 @@ head
       font-size:4vw;
       }
       h5 {
-      font-size:1vw;
-      font-family:arial;
-      letter-spacing:0.3vw;
-      text-transform:uppercase;
-      color:gray;
+      font-family:roboto-thin;
+      color:#c35;
+      font-size:2vw;
+      font-weight:bold;
       }
       h6 {
       font-family:roboto-thin;
@@ -123,9 +122,6 @@ head
       margin-left:0px;
       margin-right:0px;
       }
-      p {
-      text-indent:1vw;
-      }
   body
     .container
       #header.row
@@ -147,15 +143,9 @@ head
                   h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
                 button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
                   h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;
-      .row
+      .row(style='text-align:center;padding-top:20vh;')
         .col-xs-12
-          each book,i in books
-            .row(style='background-color:#ccc;border:1px solid white;')
-              .col-xs-12
-                h4 #{book.bookname}
-                h5 #{book.bookauthor}
-                p #{book.comment}
-
+          h2(style='font-size:3vw;') Добавьте книги в админке    
      
              
           script.

@@ -222,7 +222,21 @@ app.get('/gall',function(req,res){
 });
 
 app.get('/books',function(req,res){
-  res.render('books');
+  misc.find({bit:'book'},function(err,done){
+    if(err){
+     // CALL THE COPS 
+    }
+    else {
+        console.log(done);
+        if(done.length>0)
+        {
+           res.render('books',{'books':JSON.stringify(done)});
+        }
+        else {
+           res.render('emptybooks');
+        }
+    }
+  });
 });
 app.get('/ap',function(req,res){
   posts.find({},function(err,docs){
@@ -934,6 +948,52 @@ app.post('/actions',function(req,res){
           }
         }
        });
+      break;
+      case('addbook'):
+      var vbookname = req.body.bookname;
+      var vbookauthor = req.body.author;
+      var vcomment = req.body.comment;
+      var ms = {};
+      ms.trouble = 1;
+      ms.mtext = 'db';
+      misc.find({bit:'book'},{limit:1,sort:{id:-1}},function (err,done){
+        if(err)
+          {
+           //CALL THE COPS
+           res.send(ms);
+          }
+          else{
+            if(done.length>0){
+              var newid = done[0].id;
+              misc.insert({bit:'book',id:newid,bookname:vbookname,bookauthor:vbookauthor,comment:vcomment});
+              misc.findOne({id:newid},function(err,donetwo){
+                if(err) 
+                {
+                   res.send(ms);
+                }
+                else{
+                  ms.trouble = 0;
+                  ms.mbody = donetwo;
+                  res.send(ms);
+                }
+              });
+            }
+            else{
+              misc.insert({bit:'book',id:1,bookname:vbookname,bookauthor:vbookauthor,comment:vcomment});
+              misc.findOne({id:newid},function(err,donetwo){
+                if(err) 
+                {
+                   res.send(ms);
+                }
+                else{
+                  ms.trouble = 0;
+                  ms.mbody = donetwo;
+                  res.send(ms);
+                }
+              });
+            }
+          }
+      });
       break;
 	}
 });
