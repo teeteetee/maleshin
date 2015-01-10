@@ -402,7 +402,7 @@ app.get('/gallery/albums/:album',function(req,res){
           }
           else {
             if(donetwo.length>0){
-              res.render('album',{'images':JSON.stringify(donetwo)});
+              res.render('album',{'albumname':done.albumname,'images':JSON.stringify(donetwo)});
             }
             else {
               res.redirect('http://maleshin.com/')
