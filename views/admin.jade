@@ -256,8 +256,37 @@ head
                   img(src='/bootstrap/images/circle_cross.png')    
                 .col-xs-10(style='padding-left:0px;')
                   h2  Добавить книгу
-              #addbookinput.row
-
+              script.
+                $('#addbook').click(function(){
+                  $('#addbooksblock').slideToggle();
+                });
+          #addbooksblock.row.hiddeninputs(style='background-color:#6faebf;')
+            .col-xs-12 
+              .row
+                .col-xs-11
+                  h2(style='color:white;') Добавляем книгу
+                #closeaddbooksblock.col-xs-1.closedialog
+                  img(src='/bootstrap/images/cross_white.png') 
+              .row
+                .col-xs-11
+                  h2 Название книги:
+                  input(id='booksname',type='text',name='bookname') 
+              .row
+                .col-xs-11
+                  h2 Автор:
+                  input(id='booksauthor',type='text',name='author')
+              .row
+                .col-xs-11
+                  h2 Комментарий:
+                  textarea(id='booksauthor',name='comment')         
+              .row
+                .col-xs-11
+                  button(type='button',class='addalbumbutton',onclick='addalbumfunction();',style='border:1px solid white;border-radius:4px;')
+                    h5 Добавить
+              script.
+                $('#closeaddalbumblock').click(function(){
+                  $('#albumsblock').slideToggle();
+                });
           #blogblockoptions.row.hiddenoptions(style='display:block;')
             .col-xs-6.nb          
               #addpost.row.addsmth
