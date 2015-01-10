@@ -230,7 +230,7 @@ app.get('/books',function(req,res){
         console.log(done);
         if(done.length>0)
         {
-           res.render('books',{'books':JSON.stringify(done)});
+           res.render('books',{'books':done});
         }
         else {
            res.render('emptybooks');
