@@ -192,6 +192,9 @@ head
       font-size:2vw;
       font-weight:bold;
       }
+      .form-control{
+      font-size:2vw;
+      }
   body
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
@@ -266,7 +269,7 @@ head
                   $('#addbooksblock').slideToggle();
                 });
           #addbooksblock.row.hiddeninputs(style='background-color:#6faebf;')
-            .col-xs-12 
+            #addbooksblockinsert.col-xs-12 
               .row
                 .col-xs-11
                   h2(style='color:white;') Добавляем книгу
@@ -283,15 +286,53 @@ head
               .row
                 .col-xs-11
                   h2 Комментарий:
-                  textarea(class='form-control',id='booksauthor',name='comment')         
+                  textarea(class='form-control',id='bookscomment',name='comment')         
               .row
                 .col-xs-11
-                  button(type='button',class='addalbumbutton',onclick='addalbumfunction();',style='border:1px solid white;border-radius:4px;')
+                  button(type='button',class='addbook',onclick='addbook();',style='border:1px solid white;border-radius:4px;')
                     h5 Добавить
               script.
                 $('#closeaddalbumblock').click(function(){
                   $('#albumsblock').slideToggle();
                 });
+                $('.addbook').click(function(){
+                var vname = $('#booksname').val();
+                var vauthor = $('#booksauthor').val();
+                var vcomment = $('#bookscomment').val();
+                if(!vname||!vauthor||!vcomment) {
+                alert('Заполните все поля');
+                return;
+                }
+                request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                var DONE = this.DONE || 4;
+                if (this.readyState === DONE){
+                var index;
+                parsed = JSON.parse(request.responseText);
+                console.log(parsed);
+                if(parsed.trouble === 1)
+                {
+                console.log('TROUBLE === 1');
+                switch (parsed.mtext){
+                case('db'):
+                alert('Проблемы с базой данных');
+                break;
+                }}
+                else {
+                //trouble === 0
+                alert('Книжка добавлена');
+                $('#addbooksblock').slideToggle();
+                $('#booksname').val('');
+                $('#booksauthor').val('');
+                $('#bookscomment').val('');
+                }
+                }
+                };
+                request.open('POST', '/actions', true);
+                request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                //Most libraries like jQuery/Prototype/Dojo do this
+                request.send("actions=addbook&bookname="+vname+"&author="+vauthor+"&comment="+vcomment);});  
           #blogblockoptions.row.hiddenoptions(style='display:block;')
             .col-xs-6.nb          
               #addpost.row.addsmth
