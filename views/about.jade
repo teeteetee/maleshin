@@ -129,15 +129,6 @@ head
       padding-left:9vw;
       padding-right:9vw;
       }
-      .white {
-      background-color:white;
-      }
-      .chevron  {
-      height:10vh;
-      text-align:center;
-      opacity:0.5;
-      margin-bottom:3vh;
-      }
       .active h2 {
       color:black;
       }
@@ -151,29 +142,13 @@ head
       padding-right:10vw;
       background-color:#fff;
       }
-      .illustration {
-      height:40vh;
+      p{ 
+      font-family:arial;
+      font-size:2vw;
+      text-indent:1vw;
+      margin-bottom:5vh;
+      text-align:justify;
       }
-      .separator {
-      margin-left:7vw;
-      margin-right:7vw;
-      height:5vh;
-      background-color:#ddd;
-      }
-      .smth {
-      }
-      #previous {
-      padding:4vh;
-      opacity:0.6;
-      }
-      .btmcrcl {
-      height:4vw;
-      width:4vw;
-      border-radius:50%;
-      border:3px solid #03406a;
-      text-align:center;
-      background-color:white;
-      }  
   body
     .container
       #header.row
@@ -195,26 +170,26 @@ head
                   h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
                 button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
                   h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;
-      #{body}
-     
-             
-          script.
-            $('#blog').click(function(){
-              window.location='http://maleshin.com/';
-            }); 
-            $('#countries').click(function(){
-              window.location='http://maleshin.com/countries';
-            }); 
-            $('#books').click(function(){
-              window.location='http://maleshin.com/books';
-            }); 
-            $('#gall').click(function(){
-              window.location='http://maleshin.com/gall';
-            }); 
-            $('#contacts').click(function(){
-              window.location='http://maleshin.com/contacts';
-            }); 
-            $('#routes').click(function(){
-              window.location='http://maleshin.com/routes';
-            });      
+      .row.text
+        .col-xs-12
+          #{body}       
+      script.
+        $('#blog').click(function(){
+          window.location='http://maleshin.com/';
+        }); 
+        $('#countries').click(function(){
+          window.location='http://maleshin.com/countries';
+        }); 
+        $('#books').click(function(){
+          window.location='http://maleshin.com/books';
+        }); 
+        $('#gall').click(function(){
+          window.location='http://maleshin.com/gall';
+        }); 
+        $('#contacts').click(function(){
+          window.location='http://maleshin.com/contacts';
+        }); 
+        $('#routes').click(function(){
+          window.location='http://maleshin.com/routes';
+        });      
    
