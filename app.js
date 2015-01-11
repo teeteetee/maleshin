@@ -37,7 +37,7 @@ app.get('/',function(req,res){
     else {
       if(done.length >0)
       {
-       posts.find({},{ limit:1,sort : { sd : -1 } },function (err,doc) { 
+       posts.find({},{ limit:1,sort : { id : -1 } },function (err,doc) { 
       if (err)
       {
         //CALL THE COPS
@@ -466,7 +466,7 @@ app.post('/actions',function(req,res){
                        var vday = dd.getDate();
                        var vmonth = dd.getMonth()+1;
                        var vyear = dd.getUTCFullYear();
-                       var newid  = doc.id+1;
+                       var newid  = doc[0].id+1;
                        var vvday = vday.toString();
                        if(vvday.length === 1)
                          {vvday='0'+vvday;}
@@ -476,7 +476,7 @@ app.post('/actions',function(req,res){
                        console.log(vmonth+' - month,'+vvday+' - day');
                        var vsd = vyear.toString()+vvmonth+vvday;
                        vsd = parseInt(vsd);
-                       posts.insert({id:newid,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vday,month:vmonth,year:vyear}});
+                       posts.insert({id:newid,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vvday,month:vvmonth,year:vyear}});
                        res.redirect('/');}
                         else{
                           console.log('NO POSTS ID IS GOING TO BE ONE');
@@ -495,7 +495,7 @@ app.post('/actions',function(req,res){
                        console.log(vmonth+' - month,'+vvday+' - day');
                        var vsd = vyear.toString()+vvmonth+vvday;
                        vsd = parseInt(vsd);
-                       posts.insert({id:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vday,month:vmonth,year:vyear}});
+                       posts.insert({id:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vvday,month:vvmonth,year:vyear}});
                        res.redirect('/');
                         }                                      
                                       }
