@@ -180,7 +180,6 @@ head
       }
       .text {
       padding-top:3vh;
-      padding-bottom:5vh;
       padding-left:10vw;
       padding-right:10vw;
       background-color:#fff;
@@ -268,9 +267,19 @@ head
       }  
       p{ 
       text-indent:1vw;
+      margin-bottom:5vh;
       }
       h3 {
       text-indent:1vw;
+      }
+      .atention {
+       font-style:italic;
+       font-family:a;
+       font-size:4vw;
+       margin-left:8vw;
+       padding-left:4vw;
+       border-left:2vw solid #ccc;
+       text-indent:3vw;
       }
   body
     .container
@@ -320,14 +329,7 @@ head
             } //23
             else {
             $("h1").css({"line-height":"normal","font-size":"20vw"});
-            }
-          |        
-          #chevron.row.chevron
-            .col-xs-2.col-xs-offset-5
-              //
-                h2
-                  span.glyphicon.glyphicon-chevron-down(style='font-size:5vw;')
-              img(src='/bootstrap/images/bird_down_white.png',style='-webkit-filter:brightness(100%);height:3vw;margin:2vh;position:inherit;width:auto;')    
+            }   
       .row
         .col-xs-12          
           !{postbody}      

@@ -298,7 +298,7 @@ head
                   textarea(class='form-control',id='bookscomment',name='comment')         
               .row
                 .col-xs-11
-                  button(type='button',class='addbook',onclick='addbook();',style='border:1px solid white;border-radius:4px;')
+                  button(type='button',class='addbook',onclick='addbook();',style='border:1px solid white;border-radius:4px;margin-top:2vh;')
                     h5 Добавить
               script.
                 $('#closeaddalbumblock').click(function(){
@@ -390,6 +390,12 @@ head
                .row(style='display:none;')
                  .col-xs-12
                    input#vtitle(name='vtitle',type='text')
+               .row(style='background-color:#eee;margin-left:4vw;margin-right:4vw;border-radius:4px;padding:2vh;')
+                 .col-xs-1
+                   img(src='/bootstrap/images/circle_excl.png')  
+                 .col-xs-11
+                   p(style='font-size:1.7vw;') 
+                     Начинайте абзац с тега &ltp&gt и заканчвайте  тегом &lt/p&gt - это автоматически вставит красную строку и добавит место между абзацами.<br> Выделение ключевых фрагментов текста (фраза или предложение) помагает читателю ориентироваться и работает как превью у фотографий, чтобы вставить такой блок (в нем содержится повторение части оригинального текста) необходимо завершить абзац (один в другой положить нельзя , только по очереди) и начать абзац обозначив в нем класс attention таким образом : <pre>&ltp class='attention' &gt Ключевая фраза &ltp&gt</pre>
                .row
                  .col-xs-6(style='padding:2vh;')
                    h2 Основной текст:
@@ -612,17 +618,77 @@ head
                   img(src='/bootstrap/images/circle_text.png')         
                 .col-xs-10(style='padding-right:0px;')
                   h2  Редактировать контакты 
-          #contactsblockset.row.hiddeninputs(style='background-color:#6faebf;')
-            .col-xs-12
-              form(role='form',method='post',action='/ations')
+          #addbooksblock.row.hiddeninputs(style='background-color:#6faebf;')
+            #addbooksblockinsert.col-xs-12 
               .row
-                .col-xs-11.col-xs-offset-1
-                  textarea.form-control(rows='7',name='abody')
-                  input(style='display:none;',name='actions',value='setcontacts')
-              .row  
-                .col-xs-12
-                  button(type='submit',style='border:1px solid white;border-radius:4px;')
-                    h5 Сохранить           
+                .col-xs-11
+                  h2(style='color:white;') Добавляем книгу
+                #closeaddbooksblock.col-xs-1.closedialog
+                  img(src='/bootstrap/images/cross_white.png') 
+              .row(style='background-color:#eee;margin-left:4vw;margin-right:4vw;border-radius:4px;padding:2vh;')
+                 .col-xs-1
+                   img(src='/bootstrap/images/circle_excl.png')  
+                 .col-xs-11
+                   p(style='font-size:1.7vw;') 
+                     Чтобы вставить в текст ссылку пользуйтесь, html тегом &lta&gt. Пример: нужно дать ссылку на статью про кактусы в википедии - пишем<pre>&lta href='http://en.wikipedia.org/wiki/Cactus'&gt Кактусы &lt/a&gt</pre>После href= в кавычках идет ссылка , а между тегами &lta&gt и &lt/a&gt текст который будет визуально выделен как ссылка и перенаправит читателя на указанный ресурс при нажатии
+              .row
+                .col-xs-11
+                  h2 Название книги:
+                  input(id='booksname',type='text',name='bookname') 
+              .row
+                .col-xs-11
+                  h2 Автор:
+                  input(id='booksauthor',type='text',name='author')
+              .row
+                .col-xs-11
+                  h2 Комментарий:
+                  textarea(class='form-control',id='bookscomment',name='comment')         
+              .row
+                .col-xs-11
+                  button(type='button',class='addbook',onclick='addbook();',style='border:1px solid white;border-radius:4px;margin-top:2vh;')
+                    h5 Добавить
+              script.
+                $('#closeaddalbumblock').click(function(){
+                  $('#albumsblock').slideToggle();
+                });
+                $('.addbook').click(function(){
+                var vname = $('#booksname').val();
+                var vauthor = $('#booksauthor').val();
+                var vcomment = $('#bookscomment').val();
+                if(!vname||!vauthor||!vcomment) {
+                alert('Заполните все поля');
+                return;
+                }
+                request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                var DONE = this.DONE || 4;
+                if (this.readyState === DONE){
+                var index;
+                parsed = JSON.parse(request.responseText);
+                console.log(parsed);
+                if(parsed.trouble === 1)
+                {
+                console.log('TROUBLE === 1');
+                switch (parsed.mtext){
+                case('db'):
+                alert('Проблемы с базой данных');
+                break;
+                }}
+                else {
+                //trouble === 0
+                alert('Книжка добавлена');
+                $('#addbooksblock').slideToggle();
+                $('#booksname').val('');
+                $('#booksauthor').val('');
+                $('#bookscomment').val('');
+                }
+                }
+                };
+                request.open('POST', '/actions', true);
+                request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                //Most libraries like jQuery/Prototype/Dojo do this
+                request.send("actions=addbook&bookname="+vname+"&author="+vauthor+"&comment="+vcomment);});             
           #aboutblockoptions.row.hiddenoptions
             .col-xs-6.nb          
               #editabout.row.addsmth
