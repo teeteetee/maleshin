@@ -239,7 +239,7 @@ head
         function showimg(imgpath) {
         console.log('start');
         $('.container').css('-webkit-filter','brightness(50%)');
-        $('body').append("<div class='container' id='previewcont' style='z-index:7000;position:absolute;width:100%;height:100%;'><div id='closepreview' class='row'><div class='col-xs-1 col-xs-offset-11'><img id='cross' src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-12' style='text-align:center;'><img style='max-width:100%;width:90%;height:initial;' src='/images/"+imgpath+"'></div></div></div>");
+        $('body').append("<div class='container' id='previewcont' style='z-index:7000;position:absolute;width:100%;height:100%;'><div id='closepreview' class='row'><div class='col-xs-1 col-xs-offset-11'><img id='cross' src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-12' style='text-align:center;'><img style='max-height:100%;height:90%;height:initial;' src='/images/"+imgpath+"'></div></div></div>");
         console.log('finish');
         }
         $('#closepreview').click(function(){
