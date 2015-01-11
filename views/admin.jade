@@ -707,17 +707,37 @@ head
                    h2 Подсказка
                      p(style='font-size:1.7vw;') Разного рода информация о тегах аш3
               form(role='form',method='post',action='/ations')
+                .row
+                  .col-xs-12(style='padding:2vh')
+                    h2 Текст "Опроекте":
+                .row
+                  .col-xs-8
+                    textarea.form-control(rows='7',name='abody')
+                    input(style='display:none;',name='actions',value='setabout')
+                .row  
+                  .col-xs-12(style='padding:2vh;')
+                    button(type='submit',style='border:1px solid white;border-radius:4px;')
+                      h5 Сохранить
+          #contactsblockset.row.hiddeninputs(style='background-color:#6faebf;')
+            .col-xs-12
+              .row(style='background-color:#eee;margin-left:4vw;margin-right:4vw;border-radius:4px;padding:2vh;margin-top:3vh')
+                 .col-xs-1
+                   img(src='/bootstrap/images/circle_excl.png')  
+                 .col-xs-11
+                   h2 Подсказка
+                     p(style='font-size:1.7vw;') Разного рода информация о тегах аш3
+              form(role='form',method='post',action='/ations')
               .row
                 .col-xs-12(style='padding:2vh')
                   h2 Текст "Опроекте":
               .row
                 .col-xs-8
-                  textarea.form-control(rows='7',name='abody')
-                  input(style='display:none;',name='actions',value='setabout')
+                  textarea.form-control(rows='7',name='cbody')
+                  input(style='display:none;',name='actions',value='setcontacts')
               .row  
                 .col-xs-12(style='padding:2vh;')
                   button(type='submit',style='border:1px solid white;border-radius:4px;')
-                    h5 Сохранить
+                    h5 Сохранить          
 
           script.
             $('#editabout').click(function(){
