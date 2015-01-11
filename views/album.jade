@@ -145,7 +145,7 @@ head
         return
         break;
         case(2):
-        $('#images').append("<div class='row' ><div id='image"+source[0].fid+"' onclick='showimg('"+source[0].filename+"');' class='col-xs-2 col-xs-offset-1 pic' ><img src='/images/"+source[0].filename+"'></div><div id='image"+source[1].fid+"' onclick='showimg('"+JSON.stringify(source[1].filename)+"');' class='col-xs-2 pic' ><img src='/images/"+source[1].filename+"'></div></div>");
+        $('#images').append("<div class='row' ><div id='image"+source[0].fid+"' onclick='showimg('"+source[0].filename+"');' class='col-xs-2 col-xs-offset-1 pic' ><img src='/images/"+source[0].filename+"'></div><div id='image"+source[1].fid+"' onclick='showimg("+JSON.stringify(source[1].filename)+");' class='col-xs-2 pic' ><img src='/images/"+source[1].filename+"'></div></div>");
         return
         break;
         case(3):
