@@ -177,7 +177,8 @@ app.get('/about',function(req,res){
      else
      {
       if(done)
-      {
+      { 
+        console.log(done.bbody);
         res.render('about',{'body':done.bbody})
       }
       else {
