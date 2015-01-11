@@ -37,7 +37,7 @@ app.get('/',function(req,res){
     else {
       if(done.length >0)
       {
-       posts.find({},{ limit:1,sort : { id : -1 } },function (err,doc) { 
+       posts.find({},{ limit:1,sort : { sd : -1 } },function (err,doc) { 
       if (err)
       {
         //CALL THE COPS
@@ -468,10 +468,10 @@ app.post('/actions',function(req,res){
                        var vyear = dd.getUTCFullYear();
                        var newid  = doc.id+1;
                        var vvday = vday.toString();
-                       if(vvday.length === 1)
+                       if(vvday.length() === 1)
                          {vvday='0'+vvday;}
                        var vvmonth = vmonth.toString();
-                       if(vvmonth.length === 1)
+                       if(vvmonth.length() === 1)
                          {vvday='0'+vvmonth;}
                        var vsd = vyear.toString()+vvmonth+vvday;
                        vsd = parseInt(vsd);
@@ -486,10 +486,10 @@ app.post('/actions',function(req,res){
                        var vmonth = dd.getMonth()+1;
                        var vyear = dd.getUTCFullYear();
                        var vvday = vday.toString();
-                       if(vvday.length === 1)
+                       if(vvday.length() === 1)
                          {vvday='0'+vvday;}
                        var vvmonth = vmonth.toString();
-                       if(vvmonth.length === 1)
+                       if(vvmonth.length() === 1)
                          {vvday='0'+vvmonth;}
                        var vsd = vyear.toString()+vvmonth+vvday;
                        vsd = parseInt(vsd);
