@@ -367,6 +367,14 @@ head
           #addpostblock.row.hiddeninputs(style='background-color:#6faebf;') 
             form(action='/actions',id='mainform',role='form',method='post', enctype='multipart/form-data')
              .col-xs-12
+               .row(style='background-color:#eee;margin-left:4vw;margin-right:4vw;border-radius:4px;padding:2vh;margin-top:3vh')
+                 .col-xs-1
+                   img(src='/bootstrap/images/circle_excl.png')  
+                 .col-xs-11
+                   h2 Подсказка
+                   p(style='font-size:1.7vw;') 
+                     Начинайте абзац с тега &ltp&gt и заканчвайте  тегом &lt/p&gt - это автоматически вставит красную строку и добавит место между абзацами.
+                   p(style='font-size:1.7vw;') Выделение ключевых фрагментов текста (фраза или предложение) помагает читателю ориентироваться и работает как превью у фотографий, чтобы вставить такой блок (в нем содержится повторение части оригинального текста) необходимо завершить абзац (один в другой положить нельзя , только по очереди) и начать абзац обозначив в нем класс attention таким образом : <pre>&ltp class='attention' &gt Ключевая фраза &ltp&gt</pre>
                .row(style='display:none;')
                  .col-xs-12
                    input#hiddeninput(type='text',name='actions',value='newpost')
@@ -390,14 +398,6 @@ head
                .row(style='display:none;')
                  .col-xs-12
                    input#vtitle(name='vtitle',type='text')
-               .row(style='background-color:#eee;margin-left:4vw;margin-right:4vw;border-radius:4px;padding:2vh;')
-                 .col-xs-1
-                   img(src='/bootstrap/images/circle_excl.png')  
-                 .col-xs-11
-                   h2 Подсказка
-                   p(style='font-size:1.7vw;') 
-                     Начинайте абзац с тега &ltp&gt и заканчвайте  тегом &lt/p&gt - это автоматически вставит красную строку и добавит место между абзацами.
-                   p(style='font-size:1.7vw;') Выделение ключевых фрагментов текста (фраза или предложение) помагает читателю ориентироваться и работает как превью у фотографий, чтобы вставить такой блок (в нем содержится повторение части оригинального текста) необходимо завершить абзац (один в другой положить нельзя , только по очереди) и начать абзац обозначив в нем класс attention таким образом : <pre>&ltp class='attention' &gt Ключевая фраза &ltp&gt</pre>
                .row
                  .col-xs-6(style='padding:2vh;')
                    h2 Основной текст:
