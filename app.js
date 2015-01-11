@@ -932,8 +932,6 @@ app.post('/actions',function(req,res){
           }
         }
        });
-       misc.insert({bit:'about',bbody:abody});
-       res.redirect('http://maleshin.com/about');
       break;
       case('updatecontacts'):
        var cbody = req.body.cbody;
