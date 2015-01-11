@@ -912,7 +912,7 @@ app.post('/actions',function(req,res){
       break;
       case('setabout'):
        var abody = req.body.abody;
-       misc.insert({bit:about,bbody:abody});
+       misc.insert({bit:'about',bbody:abody});
       break;
       case('updatecontacts'):
        var cbody = req.body.cbody;
@@ -997,6 +997,10 @@ app.post('/actions',function(req,res){
             }
           }
       });
+      break;
+      case('removebook'):
+      break;
+      case('updatebook'):
       break;
 	}
 });
