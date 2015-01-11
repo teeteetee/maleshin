@@ -909,10 +909,12 @@ app.post('/actions',function(req,res){
       case('setcontacts'):
        var cbody = req.body.cbody;
        misc.insert({bit:'contacts',bbody:cbody});
+       res.redirect('http://maleshin.com/contacts');
       break;
       case('setabout'):
        var abody = req.body.abody;
        misc.insert({bit:'about',bbody:abody});
+       res.redirect('http://maleshin.com/about');
       break;
       case('updatecontacts'):
        var cbody = req.body.cbody;
