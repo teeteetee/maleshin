@@ -846,11 +846,11 @@ head
             else
             {
             var previoustext = $('#invisibleinput').val();
-            var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>";
+            var newtext = previoustext+"<div class='row text'><div class='col-xs-12' style='padding:0px;'>"+vbody+"</div></div>";
             $('#invisibleinput').val(newtext);
             console.log('NOT EMPTY , INSERTING: '+newtext);
             }
-            $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'><p><h3>"+vbody+"</h3></p></div></div>");
+            $('#grab').append("<div class='row text'><div class='col-xs-12' style='padding:0px;'>"+vbody+"</div></div>");
             window.location='#grab';
             }
             else
