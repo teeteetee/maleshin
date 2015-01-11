@@ -37,7 +37,7 @@ app.get('/',function(req,res){
     else {
       if(done.length >0)
       {
-       posts.find({},{ limit:1,sort : { sd : -1 } },function (err,doc) { 
+       posts.find({},{ limit:1,sort : { id : -1 } },function (err,doc) { 
       if (err)
       {
         //CALL THE COPS
@@ -137,6 +137,9 @@ app.post('/redact',function(req,res){
   else {
      res.send('wrong pass/user');
   }
+});
+app.get('/post/:id',function(req,res){
+
 });
 
 app.get('/posts',function(req,res){
