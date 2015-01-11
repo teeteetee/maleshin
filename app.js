@@ -914,6 +914,24 @@ app.post('/actions',function(req,res){
       break;
       case('setabout'):
        var abody = req.body.abody;
+       misc.findOne({bit:'about'},function(err,done){
+        if(err)
+        { 
+          //ADD PROPER ERR REPORT
+          res.send('DB Error')
+        }
+        else {
+          if(done)
+          {
+            misc.update({bit:'about'},{$set:{bbody:abody}});
+            res.redirect('http://maleshin.com/about');
+          }
+          else {
+            misc.insert({bit:'about',bbody:abody});
+            res.redirect('http://maleshin.com/about')
+          }
+        }
+       });
        misc.insert({bit:'about',bbody:abody});
        res.redirect('http://maleshin.com/about');
       break;
