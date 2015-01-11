@@ -348,12 +348,12 @@ head
                 .col-xs-2(style='text-align:center;')
                   img(src='/bootstrap/images/circle_cross.png')      
                 .col-xs-10(style='padding-left:0px;')
-                  h2  Добавить пост      
+                  h2  Добавить запись      
               #removepost.row.addsmth
                 .col-xs-2(style='text-align:center;')
                   img(src='/bootstrap/images/circle_minus.png')     
                 .col-xs-10(style='padding-left:0px;')
-                  h2  Удалить все посты      
+                  h2  Удалить все записи      
             .col-xs-6.stats
               .row
                 .col-xs-12
@@ -367,6 +367,15 @@ head
           #addpostblock.row.hiddeninputs(style='background-color:#6faebf;') 
             form(action='/actions',id='mainform',role='form',method='post', enctype='multipart/form-data')
              .col-xs-12
+               .row
+                 .col-xs-11
+                   h2(style='color:white;') Добавляем запись 
+                 #closeaddзщыеblock.col-xs-1.closedialog
+                   img(src='/bootstrap/images/cross_white.png')
+                 script.
+                   $('#closeaddpostblock').click(function(){
+                     $('#addpostblock').slideToggle();
+                   });  
                .row(style='background-color:#eee;margin-left:4vw;margin-right:4vw;border-radius:4px;padding:2vh;margin-top:3vh')
                  .col-xs-1
                    img(src='/bootstrap/images/circle_excl.png')  
@@ -632,6 +641,7 @@ head
                    img(src='/bootstrap/images/circle_excl.png')  
                  .col-xs-11
                    p(style='font-size:1.7vw;') 
+                     h2 Подсказка
                      Чтобы вставить в текст ссылку пользуйтесь, html тегом &lta&gt. Пример: нужно дать ссылку на статью про кактусы в википедии - пишем<pre>&lta href='http://en.wikipedia.org/wiki/Cactus'&gt Кактусы &lt/a&gt</pre>После href= в кавычках идет ссылка , а между тегами &lta&gt и &lt/a&gt текст который будет визуально выделен как ссылка и перенаправит читателя на указанный ресурс при нажатии
               .row
                 .col-xs-11
@@ -705,7 +715,7 @@ head
                    img(src='/bootstrap/images/circle_excl.png')  
                  .col-xs-11
                    h2 Подсказка
-                   p(style='font-size:1.7vw;') Используя скопировав приведенный ниже абзац тегом &ltp&gt, сперва укажите ключевую информацию в тегах &lth4&gt: <pre>&lth4&gtТелефон: вставьте номер &lt/h4&gt&lth4&gtEmail: вставьте почту &lt/h4&gt&ltp&gt вставьте текст &lt/p&gt</pre> Чтобы добавить абзац, заключите текст в теги &ltp&gt текст абзаца &lt/p&gt - это добавит красную строку и отступ между абзацами.
+                   p(style='font-size:1.7vw;text-indent:0px;') Используя скопировав приведенный ниже абзац тегом &ltp&gt, сперва укажите ключевую информацию в тегах &lth4&gt: <pre>&lth4&gtТелефон: вставьте номер &lt/h4&gt&lth4&gtEmail: вставьте почту &lt/h4&gt&ltp&gt вставьте текст &lt/p&gt</pre> Чтобы добавить абзац, заключите текст в теги &ltp&gt текст абзаца &lt/p&gt - это добавит красную строку и отступ между абзацами.
               form(role='form',method='post',action='/actions')
                 .row
                   .col-xs-12(style='padding:2vh')
