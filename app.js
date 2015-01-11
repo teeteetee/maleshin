@@ -473,7 +473,6 @@ app.post('/actions',function(req,res){
                        var vvmonth = vmonth.toString();
                        if(vvmonth.length === 1)
                          {vvday='0'+vvmonth;}
-                       console.log(vmonth+' - month,'+vvday+' - day');
                        var vsd = vyear.toString()+vvmonth+vvday;
                        vsd = parseInt(vsd);
                        posts.insert({id:newid,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vvday,month:vvmonth,year:vyear}});
@@ -492,7 +491,6 @@ app.post('/actions',function(req,res){
                        var vvmonth = vmonth.toString();
                        if(vvmonth.length === 1)
                          {vvday='0'+vvmonth;}
-                       console.log(vmonth+' - month,'+vvday+' - day');
                        var vsd = vyear.toString()+vvmonth+vvday;
                        vsd = parseInt(vsd);
                        posts.insert({id:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vvday,month:vvmonth,year:vyear}});
