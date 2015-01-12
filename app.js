@@ -502,7 +502,7 @@ app.post('/actions',function(req,res){
                         }
                         console.log("posts.update({id:newid},{$set:"+dbinsert+"});");
                         eval("posts.update({id:newid},{$set:"+dbinsert+"});");
-                        posts.finOne({id:1},function(err,somedone){
+                        posts.findOne({id:1},function(err,somedone){
                           if(err)
                           {
                             res.send('ERROR')
@@ -562,7 +562,7 @@ app.post('/actions',function(req,res){
                         }
                         console.log("posts.update({id:1},{$set:"+dbinsert+"});");
                         eval("posts.update({id:1},{$set:"+dbinsert+"});");
-                        posts.finOne({id:1},function(err,somedone){
+                        posts.findOne({id:1},function(err,somedone){
                           if(err)
                           {
                             res.send('ERROR')
