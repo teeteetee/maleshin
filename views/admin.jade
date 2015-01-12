@@ -378,7 +378,7 @@ head
                     |            
                     h2(style='color:gray;')  Необходимо сделать статистику просмотров 
           script.
-                $('#updatepost').click(function(){
+                function updatepostlist() {
                 request = new XMLHttpRequest();
                 request.onreadystatechange = function () {
                 var DONE = this.DONE || 4;
@@ -411,7 +411,7 @@ head
                 request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 //Most libraries like jQuery/Prototype/Dojo do this
-                request.send("actions=updatepostlist");});            
+                request.send("actions=updatepostlist");}           
           #updatepostblock.row.hiddeninputs(style='background-color:#6faebf;')
             #updatepostblockinserts.col-xs-12           
           #addpostblock.row.hiddeninputs(style='background-color:#6faebf;') 
