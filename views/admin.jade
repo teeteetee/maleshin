@@ -561,7 +561,7 @@ head
                .row
                   #additionalphotoinsert.col-xs-12                   
                script.
-               var photocount = 0;
+                 var photocount = 0;
                  $('#addpostphoto').click(function(){
                    photocount++
                    $('#additionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='col-xs-1 col-xs-offset-5><img src='/bootstrap/images/cross_white.png'></div><script>$('closeaditionalphoto"+photocount+"').click(function(){$('#additionalcount"+photocount+"').remove();photocount--});<\/script></div>")
