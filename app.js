@@ -432,6 +432,7 @@ app.post('/actions',function(req,res){
       console.log('post comming through');
         var vpostbody = req.body.postbody;
         var vtitle = req.body.vtitle;
+        var photonum = parseInt(req.body.photonum);
         console.log('post body is:'+vpostbody);
         var vheadimage;
         console.log(req.files.headimage.path+' - path, and name :'+req.files.headimage.name);
@@ -477,6 +478,28 @@ app.post('/actions',function(req,res){
                        var vsd = vyear.toString()+vvmonth+vvday;
                        vsd = parseInt(vsd);
                        posts.insert({id:newid,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vvday,month:vvmonth,year:vyear}});
+                       if(photonum>0){
+                        var dbinsert;
+                        for(var xx =0;xx<photonum;xx++){
+                          if(xx===0){
+                            var sup = xx+1;
+                            eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
+                            eval('var supname=req.files.additionalphoto'+sup);
+                            dbinsert="img1:'"+supname+"'";}
+                          else{
+                            var sup = xx+1;
+                            eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
+                            eval('var supname=req.files.additionalphoto'+sup);
+                            if(sup === photonum)
+                            {dbinsert="{"+dbinsert+",img"+photonum+":'"+supname+"'}";}
+                            else {
+                               dbinsert = dbinsert+",img"+photonum+":'"+supname+"'";
+                            }
+                          } 
+                        }
+                        eval("posts.update({id:newid},{$set:"+dbinsert+"});");
+                        res.redirect('/');
+                       }
                        res.redirect('/');}
                         else{
                           console.log('NO POSTS ID IS GOING TO BE ONE');
@@ -495,6 +518,28 @@ app.post('/actions',function(req,res){
                        var vsd = vyear.toString()+vvmonth+vvday;
                        vsd = parseInt(vsd);
                        posts.insert({id:1,title:vtitle,postbody:vpostbody,headimage:vheadimage,sd:vsd,date:{day:vvday,month:vvmonth,year:vyear}});
+                       if(photonum>0){
+                        var dbinsert;
+                        for(var xx =0;xx<photonum;xx++){
+                          if(xx===0){
+                            var sup = xx+1;
+                            eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
+                            eval('var supname=req.files.additionalphoto'+sup);
+                            dbinsert="img1:'"+supname+"'";}
+                          else{
+                            var sup = xx+1;
+                            eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
+                            eval('var supname=req.files.additionalphoto'+sup);
+                            if(sup === photonum)
+                            {dbinsert="{"+dbinsert+",img"+photonum+":'"+supname+"'}";}
+                            else {
+                               dbinsert = dbinsert+",img"+photonum+":'"+supname+"'";
+                            }
+                          } 
+                        }
+                        eval("posts.update({id:1},{$set:"+dbinsert+"});");
+                        res.redirect('/');
+                       }
                        res.redirect('/');
                         }                                      
                                       }

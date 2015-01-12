@@ -554,6 +554,9 @@ head
                .row
                  .col-xs-6(style='padding:2vh;')
                    h2(style='margin-left:0px;') Дополнительные фотографии :
+               .row(style='display:none;')
+                 .col-xs-12
+                   input#photonum(type='text',name='photonum',value='0')    
                .row 
                  .col-xs-4
                    button(type='button',id='addpostphoto',style='border:1px solid white;border-radius:4px;')
@@ -564,7 +567,8 @@ head
                  var photocount = 0;
                  $('#addpostphoto').click(function(){
                    photocount++
-                   $('#additionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:1.5vh;' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#additionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;console.log(photocount);})<\/script></div>");
+                   $('#additionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#additionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;$('#photonum').val(photocount);console.log(photocount);})<\/script></div>");
+                   $('#photonum').val(photocount);
                  });      
                .row
                  .col-xs-3(style='padding:2vh;')
