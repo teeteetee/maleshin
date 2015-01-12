@@ -48,7 +48,7 @@ app.get('/',function(req,res){
                 console.log('BODY IS : '+doc[0].postbody);
                 console.log('-----------------------------');
                 console.log(doc);
-                res.render('index',{'title':doc[0].title,'postbody':doc[0].postbody,'headimage':doc[0].headimage,'post':doc[0]});}
+                res.render('index',{'title':doc[0].title,'postbody':doc[0].postbody,'headimage':doc[0].headimage});}
          else
          {
           res.render('emptyindex');
@@ -502,7 +502,22 @@ app.post('/actions',function(req,res){
                         }
                         console.log("posts.update({id:newid},{$set:"+dbinsert+"});");
                         eval("posts.update({id:newid},{$set:"+dbinsert+"});");
-                        res.redirect('/');
+                        posts.finOne({id:1},function(err,somedone){
+                          if(err)
+                          {
+                            res.send('ERROR')
+                          }
+                          else {
+                            var wrngbody = somedone.postbody;
+                            var corrbody;
+                            for(var zz = 0;zz<photonum;zz++)
+                            {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}','req.files.additionalphoto"+cz+".name');");
+                            }
+                            console.log(corrbody);
+                            posts.update({id:newid},{$set:{postbody:corrbody}});
+                            res.redirect('http://maleshin.com');
+                          }
+                        });
                        }
                        else
                        {res.redirect('/');}}
@@ -547,7 +562,22 @@ app.post('/actions',function(req,res){
                         }
                         console.log("posts.update({id:1},{$set:"+dbinsert+"});");
                         eval("posts.update({id:1},{$set:"+dbinsert+"});");
-                        res.redirect('/');
+                        posts.finOne({id:1},function(err,somedone){
+                          if(err)
+                          {
+                            res.send('ERROR')
+                          }
+                          else {
+                            var wrngbody = somedone.postbody;
+                            var corrbody;
+                            for(var zz = 0;zz<photonum;zz++)
+                            {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}','req.files.additionalphoto"+cz+".name');");
+                            }
+                            console.log(corrbody);
+                            posts.update({id:1},{$set:{postbody:corrbody}});
+                            res.redirect('http://maleshin.com');
+                          }
+                        });
                        }
                        else
                        {res.redirect('/');}
