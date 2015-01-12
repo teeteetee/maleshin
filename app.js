@@ -508,8 +508,7 @@ app.post('/actions',function(req,res){
                             res.send('ERROR')
                           }
                           else {
-                            var wrngbody = somedone.postbody;
-                            var corrbody;
+                            var corrbody = somedone.postbody;
                             for(var zz = 0;zz<photonum;zz++)
                             {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}','req.files.additionalphoto"+cz+".name');");
                             }
@@ -568,8 +567,7 @@ app.post('/actions',function(req,res){
                             res.send('ERROR')
                           }
                           else {
-                            var wrngbody = somedone.postbody;
-                            var corrbody;
+                            var corrbody = somedone.postbody;
                             for(var zz = 0;zz<photonum;zz++)
                             {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}','req.files.additionalphoto"+cz+".name');");
                             }
