@@ -379,7 +379,9 @@ head
                 .col-xs-2(style='text-align:center;')
                   img(src='/bootstrap/images/circle_minus.png')     
                 .col-xs-10(style='padding-left:0px;')
-                  h2  Удалить запись      
+                  h2  Удалить запись    
+              script.
+                $('#removepost').click(function(){$('#removepostblock').slideToggle();});       
             .col-xs-6.stats
               .row
                 .col-xs-12
@@ -429,6 +431,15 @@ head
             #updatepostblockinserts.col-xs-12
           #removepostblock.row.hiddeninputs(style='background-color:#6faebf;')
             #removepostblockinserts.col-xs-12  
+              .row
+                .col-xs-10.col-xs-offset-1
+                  h2(style='color:white;') Выберите запись которую нужно удалить
+                #closeremovepost.col-xs-1.closedialog
+                  img(src='/bootstrap/images/circle_excl.png')
+              script.
+                $('#closeremovepost').click(function(){
+                  $('#removepostblock').slideToggle();
+                });    
               #removeposts.row
                 .col-xs-1
                   img(src='/bootstrap/images/circle_minus_white.png')   
