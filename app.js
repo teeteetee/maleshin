@@ -537,6 +537,7 @@ app.post('/actions',function(req,res){
                             }
                           } 
                         }
+                        console.log("posts.update({id:1},{$set:"+dbinsert+"});");
                         eval("posts.update({id:1},{$set:"+dbinsert+"});");
                         res.redirect('/');
                        }
