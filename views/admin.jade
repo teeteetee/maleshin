@@ -537,7 +537,7 @@ head
                    pre &lta href='http://en.wikipedia.org/wiki/Cactus'&gt Кактусы &lt/a&gt
                    p(style='font-size:1.7vw;')  После href= в кавычках идет ссылка , а между тегами &lta&gt и &lt/a&gt текст который будет визуально выделен как ссылка и перенаправит читателя на указанный ресурс при нажатии
                    p(style='font-size:1.7vw;') Добавить фотографию в текст можно следующим образом : между абзацми вставьте приведенный ниже код , увеличивая цифру на один начиная со второй. 
-                   pre &ltdiv class='row' style='background-color:#ccc;'&gt&ltdiv class='col-xs-10 col-xs-offset-1'&gt&ltimg style='width:initial;height:30vh' src='/postimages/&#35{post.img1}'&gt&lt/div&gt&lt/div&gt&ltdiv class='row' style='background-color:#ccc;'&gt&ltdiv class='col-xs-12 col-xs-offset-1'&gt&lth2 style='font-size:1vw;font-weight:bold;'&gt&lt/h2&gt&lt/div&gt&lt/div&gt
+                   pre &ltdiv class='row' style='background-color:#ccc;'&gt&ltdiv class='col-xs-10 col-xs-offset-1'&gt&ltimg style='width:initial;height:30vh' src='/postimages/&#35{post.img1}'&gt&lt/div&gt&lt/div&gt&ltdiv class='row' style='background-color:#ccc;'&gt&ltdiv class='col-xs-12 col-xs-offset-1'&gt&lth2 style='font-size:1vw;font-weight:bold;'&gt Текст комментария &lt/h2&gt&lt/div&gt&lt/div&gt
                .row(style='display:none;')
                  .col-xs-12
                    input#hiddeninput(type='text',name='actions',value='newpost')
@@ -551,6 +551,21 @@ head
                  $('#additionalimages').change(function(){
                   alert('Скопируйте и вставьте между абзацами ')
                  });    
+               .row
+                 .col-xs-6(style='padding:2vh;')
+                   h2(style='margin-left:0px;') Дополнительные фотографии :
+               .row 
+                 .col-xs-4
+                   button(type='button',id='addpostphoto',style='border:1px solid white;border-radius:4px;')
+                     h5 Добавить
+               .row
+                  #additionalphotoinsert.col-xs-12                   
+               script.
+               var photocount = 0;
+                 $('#addpostphoto').click(function(){
+                   photocount++
+                   $('#additionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='col-xs-1 col-xs-offset-5><img src='/bootstrap/images/cross_white.png'></div><script>$('closeaditionalphoto"+photocount+"').click(function(){$('#additionalcount"+photocount+"').remove();photocount--});<\/script></div>")
+                 });      
                .row
                  .col-xs-3(style='padding:2vh;')
                    h2(style='margin-left:0px') Заголовок:    
