@@ -506,6 +506,29 @@ app.post('/actions',function(req,res){
             res.send('wasnt able to find headimage/title/body')
           }
       break;
+      case('updatepostlist'):
+       console.log('updatepostlist');
+        var ms = {};
+        ms.trouble=1;
+        ms.mtext='db';
+        posts.find({},function(err,done){
+          if(err)
+          {
+            res.send(ms);
+          }
+          else {
+            if(done.length>0){
+              ms.trouble=0;
+              ms.mbody = done;
+              res.send(ms);
+            }
+            else {
+              ms.mtext='empty';
+              res.send(ms);
+            }
+          }
+        });
+      break;
       case('updatepost'):
         var pid = req.body.pid;
         var vtitle =req.body.vtitle;

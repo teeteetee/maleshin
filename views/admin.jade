@@ -379,6 +379,7 @@ head
                     h2(style='color:gray;')  Необходимо сделать статистику просмотров 
           script.
                 function updatepostlist() {
+                console.log('requesting posts');
                 request = new XMLHttpRequest();
                 request.onreadystatechange = function () {
                 var DONE = this.DONE || 4;
