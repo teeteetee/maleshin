@@ -68,10 +68,11 @@ head
       font-size:4vw;
       }
       h5 {
-      font-family:roboto-thin;
-      color:#c35;
-      font-size:2vw;
-      font-weight:bold;
+      font-size:1vw;
+      font-family:arial;
+      letter-spacing:0.3vw;
+      text-transform:uppercase;
+      color:white;
       }
       h6 {
       font-family:roboto-thin;
@@ -141,6 +142,13 @@ head
       padding-left:0px;
       padding-right:0px;
       }
+      .albumnameblock{
+      width:100%;
+      top:0px;
+      position:relative;
+      backgrounc-color:black;
+      opacity:0.7;
+      }
   body
     .container
       #header.row
@@ -177,7 +185,7 @@ head
         return
         break;
         case(2):
-        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});<\/script>");
+        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[0].albumname+"</h5></div><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});<\/script>");
         return
         break;
         case(3):
