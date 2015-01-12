@@ -393,6 +393,7 @@ head
                     h2(style='color:gray;')  Необходимо сделать статистику просмотров 
           script.
                 function updatepostlist() {
+                $('#updatepostblockinserts').empty();
                 console.log('requesting posts');
                 request = new XMLHttpRequest();
                 request.onreadystatechange = function () {
@@ -418,6 +419,7 @@ head
                 for (var yy =0;yy<parsed.mbody.length;yy++){
                 $('#updatepostblockinserts').append("<div class='row post' onclick='postupdate("+parsed.mbody[yy].id+");' id='post"+parsed.mbody[yy].id+"'><div class='col-xs-2' style='padding-right:0px;'><h2 style='color:white;'>"+parsed.mbody[yy].date.day+"."+parsed.mbody[yy].date.month+"."+parsed.mbody[yy].date.year+"</h2></div><div class='col-xs-10' style='padding-left:0px;'><h2>"+parsed.mbody[yy].title+"</h2></div></div>");
                 }
+                $('.hiddeninputs').css('display','none');
                 $('#updatepostblock').slideToggle();
                 }
                 }
@@ -438,6 +440,7 @@ head
                   img(src='/bootstrap/images/cross_white.png')
               script.
                 $('#closeremovepost').click(function(){
+                  $('.hiddeninputs').css('display','none');
                   $('#removepostblock').slideToggle();
                 });    
               #removeposts.row
