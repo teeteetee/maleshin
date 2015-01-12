@@ -381,7 +381,7 @@ head
                 .col-xs-10(style='padding-left:0px;')
                   h2  Удалить запись    
               script.
-                $('#removepost').click(function(){$('#removepostblock').slideToggle();});       
+                $('#removepost').click(function(){$('.hiddeninputs').css('display','none');$('#removepostblock').slideToggle();});       
             .col-xs-6.stats
               .row
                 .col-xs-12
@@ -428,7 +428,70 @@ head
                 request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 //Most libraries like jQuery/Prototype/Dojo do this
-                request.send("actions=updatepostlist");}           
+                request.send("actions=updatepostlist");} 
+                function removepostlist() {
+                console.log('requesting posts');
+                request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                var DONE = this.DONE || 4;
+                if (this.readyState === DONE){
+                var index;
+                parsed = JSON.parse(request.responseText);
+                console.log(parsed);
+                if(parsed.trouble === 1)
+                {
+                console.log('TROUBLE === 1');
+                switch (parsed.mtext){
+                case('db'):
+                alert('Проблемы с базой данных');
+                break;
+                case('empty'):
+                alert('В базе данных нет ни одной записи');
+                break;
+                }}
+                else {
+                //trouble === 0
+                for (var yy =0;yy<parsed.mbody.length;yy++){
+                $('#removepostblockinserts').append("<div class='row post' onclick='removepost("+parsed.mbody[yy].id+")' id='post"+parsed.mbody[yy].id+"'><div class='col-xs-2' style='padding-right:0px;'><h2 style='color:white;'>"+parsed.mbody[yy].date.day+"."+parsed.mbody[yy].date.month+"."+parsed.mbody[yy].date.year+"</h2></div><div class='col-xs-10' style='padding-left:0px;'><h2>"+parsed.mbody[yy].title+"</h2></div></div>");
+                }
+                }
+                }
+                };
+                request.open('POST', '/actions', true);
+                request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                //Most libraries like jQuery/Prototype/Dojo do this
+                request.send("actions=updatepostlist");} 
+                function removepost(id) {
+                if( confirm('Удалить запись?') )
+                {console.log('requesting posts');
+                request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                var DONE = this.DONE || 4;
+                if (this.readyState === DONE){
+                var index;
+                parsed = JSON.parse(request.responseText);
+                console.log(parsed);
+                if(parsed.trouble === 1)
+                {
+                console.log('TROUBLE === 1');
+                alert('Ошибка сервера');
+                }
+                else {
+                //trouble === 0
+                var atext = "<div class='col-xs-12 style='text-align:center'><h2 style='color:white'>ЗАПИСЬ УДАЛЕНА</h2></div>";
+                eval("$('#post"+id+"').append(atext);");
+                }
+                }
+                };
+                request.open('POST', '/actions', true);
+                request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                //Most libraries like jQuery/Prototype/Dojo do this
+                request.send("actions=removepost&pid="+id);}
+                else{
+                return;
+                }}            
           #updatepostblock.row.hiddeninputs(style='background-color:#6faebf;')
             #updatepostblockinserts.col-xs-12
           #removepostblock.row.hiddeninputs(style='background-color:#6faebf;')
@@ -440,7 +503,6 @@ head
                   img(src='/bootstrap/images/cross_white.png')
               script.
                 $('#closeremovepost').click(function(){
-                  $('.hiddeninputs').css('display','none');
                   $('#removepostblock').slideToggle();
                 });    
               #removeposts.row
