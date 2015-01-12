@@ -536,9 +536,43 @@ app.post('/actions',function(req,res){
         posts.update({id:pid},{$set:{title:vtitle,postbody:vpostbody}});
         res.redirect('http//:maleshin.com/post/'+pid);
       break;
-      case('delete post'):
-        var pid = req.body.pid;
-        //THIS WAS IMPLEMENTED UNDER '/dropp/:post', PROBABLY NEEDS TO BE TRANSFERED HERE
+      case('removepost'):
+        var vid = parseInt(req.body.pid);
+        console.log('DELETING SINGLE POST ID: '+vid);
+        var ms = {};
+        ms.trouble = 1;
+        posts.findOne({id:vid},function(err,doc){
+          console.log('query just happened');
+          if(err)
+          {
+            //CALL THE COPS
+            res.send(ms);
+            console.log('DB ERROR');
+          }
+          else 
+          { if(doc) 
+            { console.log('DOC IS PRESENT');
+              var oldPath = __dirname + '/public'+doc.headimage;
+                  console.log('OLD PATH IS: '+oldPath);
+                  fs.unlink(oldPath, function(){
+                   if(err) throw err;
+                   console.log('IMAGE DELETED');
+                   posts.remove({id:vid},function(err,done){
+                     if (err) 
+                     {
+                      //CALL THE COPS
+                     }
+                     else {
+                      console.log('POST DELETED');
+                      ms.trouble=0;
+                      res.send(ms);
+                     }
+                   });
+                     });}
+            else
+            {res.send(ms);}
+          }
+        });
       break;
       case('addroute'):
       break;
