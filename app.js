@@ -504,7 +504,8 @@ app.post('/actions',function(req,res){
                         eval("posts.update({id:newid},{$set:"+dbinsert+"});");
                         res.redirect('/');
                        }
-                       res.redirect('/');}
+                       else
+                       {res.redirect('/');}}
                         else{
                           console.log('NO POSTS ID IS GOING TO BE ONE');
                           upload(req.files.headimage.path,req.files.headimage.name); 
@@ -548,7 +549,8 @@ app.post('/actions',function(req,res){
                         eval("posts.update({id:1},{$set:"+dbinsert+"});");
                         res.redirect('/');
                        }
-                       res.redirect('/');
+                       else
+                       {res.redirect('/');}
                         }                                      
                                       }
 
