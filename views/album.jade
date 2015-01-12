@@ -165,7 +165,7 @@ head
         }
         }
         else {
-        console.log(times);
+        console.log('TIMES MULTIPLIER IS:'+times);
         for(var xx=0;xx<times;xx++) {
         var y = 5*xx;
         console.log('y is:'+y);
@@ -184,6 +184,7 @@ head
         var tmr2 = tmr+2;
         var tmr3 = tmr+3;
         var tmr4 = tmr+4;
+        console.log('LNUM IS: '+lnum);
         switch(lnum){
         case(1):
         $('#images').append("<div class='row' ><div id='image"+source[tmr1].fid+"' onclick='showimg("+JSON.stringify(source[tmr1].filename)+"); class='col-xs-2 col-xs-offset-1 pic' ><img src='/images/"+source[tmr1].filename+"'></div></div>");
