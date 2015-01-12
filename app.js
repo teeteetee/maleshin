@@ -497,6 +497,7 @@ app.post('/actions',function(req,res){
                             }
                           } 
                         }
+                        console.log("posts.update({id:newid},{$set:"+dbinsert+"});");
                         eval("posts.update({id:newid},{$set:"+dbinsert+"});");
                         res.redirect('/');
                        }
