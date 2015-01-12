@@ -564,7 +564,7 @@ head
                  var photocount = 0;
                  $('#addpostphoto').click(function(){
                    photocount++
-                   $('#additionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1 col-xs-offset-5'><img src='/bootstrap/images/cross_white.png'></div><script>$('closeadditionalphoto"+photocount+"').click(function(){console.log('start');$('#additionalphoto"+photocount+"').empty();photocount--;console.log(photocount);});<\/script></div>")
+                   $('#additionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1 col-xs-offset-5'><img src='/bootstrap/images/cross_white.png'></div><script>$('closeadditionalphoto"+photocount+"').click(function(){alert('jesus');});<\/script></div>")
                  });      
                .row
                  .col-xs-3(style='padding:2vh;')
