@@ -479,6 +479,7 @@ head
                 }
                 else {
                 //trouble === 0
+                eval("$('#post"+id+"').empty();");
                 var atext = "<div class='col-xs-12 style='text-align:center'><h2 style='color:white'>ЗАПИСЬ УДАЛЕНА</h2></div>";
                 eval("$('#post"+id+"').append(atext);");
                 }
