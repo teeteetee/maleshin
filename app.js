@@ -44,10 +44,11 @@ app.get('/',function(req,res){
       }
       else {
         if(doc.length>0)
-        {console.log('FOUND A POST, TITLE IS : '+doc[0].title);
-                console.log('BODY IS : '+doc[0].postbody);
-                console.log('-----------------------------');
-                console.log(doc);
+        {       //console.log('FOUND A POST, TITLE IS : '+doc[0].title);
+                //console.log('BODY IS : '+doc[0].postbody);
+                //console.log('-----------------------------');
+                //console.log(doc);
+                console.log('----------POSTBODY LENGTH IS:'+doc[0].postbody.length+'---------');
                 res.render('index',{'title':doc[0].title,'postbody':doc[0].postbody,'headimage':doc[0].headimage});}
          else
          {
@@ -426,14 +427,15 @@ app.post('/actions',function(req,res){
   console.log('IN /ACTIONS');
 	var qq = req.body.actions;
   console.log('Q is:'+qq);
-  console.log(req.body);
+  //console.log(req.body);
 	switch (qq){
       case('newpost'):
       console.log('post comming through');
         var vpostbody = req.body.postbody;
         var vtitle = req.body.vtitle;
         var photonum = parseInt(req.body.photonum);
-        console.log('post body is:'+vpostbody);
+        //console.log('post body is:'+vpostbody);
+        console.log('----------POST BODY IS '+vpostbody.length+'----------');
         var vheadimage;
         console.log(req.files.headimage.path+' - path, and name :'+req.files.headimage.name);
         if(req.files.headimage&&vtitle&&vpostbody)
@@ -512,7 +514,7 @@ app.post('/actions',function(req,res){
                             for(var zz = 0;zz<photonum;zz++)
                             {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}',req.files.additionalphoto"+cz+".name);");
                             }
-                            console.log(corrbody);
+                            console.log('-------CORRBODY LENGTH IS:'+corrbody.length+'--------');
                             posts.update({id:newid},{$set:{postbody:corrbody}});
                             res.redirect('http://maleshin.com');
                           }
@@ -571,7 +573,7 @@ app.post('/actions',function(req,res){
                             for(var zz = 0;zz<photonum;zz++)
                             {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}',req.files.additionalphoto"+cz+".name);");
                             }
-                            console.log(corrbody);
+                            console.log('-----------CORRBODY LENGTH:'+corrbody.length+'---------');
                             posts.update({id:1},{$set:{postbody:corrbody}});
                             res.redirect('http://maleshin.com');
                           }
