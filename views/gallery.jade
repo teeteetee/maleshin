@@ -188,19 +188,19 @@ head
         if(alngth<5){
         switch(alngth){
         case(1):
-        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});<\/script>");
+        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[0].albumname+"</h5></div><img src='"+source[0].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});<\/script>");
         return
         break;
         case(2):
-        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});<\/script>");
+        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[0].albumname+"</h5></div><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[1].albumname+"</h5></div><img src='"+source[1].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});<\/script>");
         return
         break;
         case(3):
-        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[0].albumname+"</h5></div><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div><div id='album"+source[2].id+"' class='col-xs-3 pic' ><img src='"+source[2].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});$('#album"+source[2].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[2].id+"'});<\/script>");
+        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[0].albumname+"</h5></div><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[1].albumname+"</h5></div><img src='"+source[1].pimgpath+"'></div><div id='album"+source[2].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[2].albumname+"</h5></div><img src='"+source[2].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});$('#album"+source[2].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[2].id+"'});<\/script>");
         return
         break;
         case(4):
-        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><img src='"+source[1].pimgpath+"'></div><div id='album"+source[2].id+"' class='col-xs-3 pic' ><img src='"+source[2].pimgpath+"'></div><div id='album"+source[3].id+"' class='col-xs-3 pic' ><img src='"+source[3].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});$('#album"+source[2].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[2].id+"'});$('#album"+source[3].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[3].id+"'});<\/script>");
+        $('#albums').append("<div class='row' ><div id='album"+source[0].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[0].albumname+"</h5></div><img src='"+source[0].pimgpath+"'></div><div id='album"+source[1].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[1].albumname+"</h5></div><img src='"+source[1].pimgpath+"'></div><div id='album"+source[2].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[2].albumname+"</h5></div><img src='"+source[2].pimgpath+"'></div><div id='album"+source[3].id+"' class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+source[3].albumname+"</h5></div><img src='"+source[3].pimgpath+"'></div></div><script>$('#album"+source[0].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[0].id+"'});$('#album"+source[1].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[1].id+"'});$('#album"+source[2].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[2].id+"'});$('#album"+source[3].id+"').click(function(){window.location='http://maleshin.com/gallery/albums/"+source[3].id+"'});<\/script>");
         return
         break;
         }
@@ -208,47 +208,61 @@ head
         for (yy=0;yy<times;yy++){   
         var multiplier = 4*yy;
         var first = 0+multiplier;
+        var firstimg = 'source['+first+'].albumname';
         first = 'source['+first+'].pimgpath';
         var second =1+multiplier;
+        var secondimg = 'source['+second+'].albumname';
         second = 'source['+second+'].pimgpath';
         var third =2+multiplier;
+        var thirdimg = 'source['+third+'].albumname';
         third = 'source['+third+'].pimgpath';
         var fourth =3+multiplier;
-        fourth = 'source['+fourth+'].pimgpath';
-        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+first+"'></div><div class='col-xs-3 pic' ><img src='"+second+"'></div></div class='col-xs-3 pic' ><img src='"+third+"'></div><div class='col-xs-3 pic'><img src='"+fourth+"'></div></div>");    
+        var fourthimg = 'source['+fourth+'].albumname';
+        fourth = 'source['+fourth+'].pimgpath'; 
+        $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+firstimg+"</h5></div><img src='"+first+"'></div><div class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+secondimg+"</h5></div><img src='"+second+"'></div></div class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+thirdimg+"</h5></div><img src='"+third+"'></div><div class='col-xs-3 pic'><div class='albumnameblock'><h5>"+fourthimg+"</h5></div><img src='"+fourth+"'></div></div>");    
         }
         switch(lnum){
         case(1):
          var last = times*4+1 ;
+         var lastimg= 'source['+last+'].albumname';
          last = 'source['+last+'].pimgpath';
-         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+last+"'></div></div>");
+         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+lastimg+"</h5></div><img src='"+last+"'></div></div>");
         break;
         case(2):
          var last = times*4+1 ;
+         var lastimg= 'source['+last+'].albumname';
          last = 'source['+last+'].pimgpath';
          var last2 = times*4+2;
+         var lastimg2= 'source['+last2+'].albumname';
          last2 = 'source{'+last2+'].pimgpath';
-         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+last+"'></div><div class='col-xs-3 pic' ><img src='"+last2+"'></div></div>");
+         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+lastimg+"</h5></div><img src='"+last+"'></div><div class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+lastimg2+"</h5></div><img src='"+last2+"'></div></div>");
         break;
         case(3):
          var last = times*4+1 ;
+         var lastimg= 'source['+last+'].albumname';
          last = 'source['+last+'].pimgpath';
          var last2 = times*4+2;
+         var lastimg= 'source['+last2+'].albumname';
          last2 = 'source['+last2+'].pimgpath';
          var last3 = times*4+3;
+         var lastimg= 'source['+last3+'].albumname';
          last3 = 'source['+last3+'].pimgpath';
-         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+last+"'></div><div class='col-xs-3 pic' ><img src='"+last2+"'></div><div class='col-xs-3 pic' ><img src='"+last3+"'></div></div>");
+         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><<div class='albumnameblock'><h5>"+lastimg+"</h5></div><img src='"+last+"'></div><div class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+lastimg2+"</h5></div><img src='"+last2+"'></div><div class='col-xs-3 pic' ><div class='albumnameblock'><h5>"+lastimg3+"</h5></div><img src='"+last3+"'></div></div>");
         break;
         case(4):
         var last = times*4+1 ;
+         var lastimg= 'source['+last+'].albumname';
          last = 'source['+last+'].pimgpath';
          var last2 = times*4+2;
+         var lastimg= 'source['+last2+'].albumname';
          last2 = 'source['+last2+'].pimgpath';
          var last3 = times*4+3;
+         var lastimg= 'source['+last3+'].albumname';
          last3 = 'source['+last3+'].pimgpath';
          var last4 = times*4+4;
+         var lastimg= 'source['+last4+'].albumname';
          last4 = 'source['+last4+'].pimgpath';
-         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><img src='"+last+"'></div><div class='col-xs-3 pic' ><img src='"+last2+"'></div><div class='col-xs-3 pic' ><img src='"+last3+"'></div><div class='col-xs-3 pic' ><img src='"+last4+"'></div></div>");
+         $('#albums').append("<div class='row' ><div class='col-xs-3 pic' ><<div class='albumnameblock'><h5>"+lastimg+"</h5></div><img src='"+last+"'></div><div class='col-xs-3 pic' ><<div class='albumnameblock'><h5>"+lastimg2+"</h5></div><img src='"+last2+"'></div><div class='col-xs-3 pic' ><<div class='albumnameblock'><h5>"+lastimg3+"</h5></div><img src='"+last3+"'></div><div class='col-xs-3 pic' ><<div class='albumnameblock'><h5>"+lastimg4+"</h5></div><img src='"+last4+"'></div></div>");
         break;
         }
         } 
