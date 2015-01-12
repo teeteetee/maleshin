@@ -484,12 +484,12 @@ app.post('/actions',function(req,res){
                           if(xx===0){
                             var sup = xx+1;
                             eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
-                            eval('var supname=req.files.additionalphoto'+sup);
+                            eval('var supname=JSON.stringify(req.files.additionalphoto'+sup+');');
                             dbinsert="img1:'"+supname+"'";}
                           else{
                             var sup = xx+1;
                             eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
-                            eval('var supname=req.files.additionalphoto'+sup);
+                            eval('var supname=JSON.stringify(req.files.additionalphoto'+sup+');');
                             if(sup === photonum)
                             {dbinsert="{"+dbinsert+",img"+photonum+":'"+supname+"'}";}
                             else {
@@ -525,12 +525,12 @@ app.post('/actions',function(req,res){
                           if(xx===0){
                             var sup = xx+1;
                             eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
-                            eval('var supname=req.files.additionalphoto'+sup);
+                            eval('var supname=JSON.stringify(req.files.additionalphoto'+sup+');');
                             dbinsert="img1:'"+supname+"'";}
                           else{
                             var sup = xx+1;
                             eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
-                            eval('var supname=req.files.additionalphoto'+sup);
+                            eval('var supname=JSON.stringify(req.files.additionalphoto'+sup+');');
                             if(sup === photonum)
                             {dbinsert="{"+dbinsert+",img"+photonum+":'"+supname+"'}";}
                             else {
