@@ -408,7 +408,7 @@ head
                 //trouble === 0
                 $('#updatepostblockinserts').append("<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white'>Выберите запись для редактирования</h2></div><div class='col-xs-1 closedialog' id='closeupdatepost'><img src='/bootstrap/images/cross_white.png'></div></div><script>$('#closeupdatepost').click(function(){$('#updatepostblock').slideToggle();});<\/script>");
                 for (var yy =0;yy<parsed.mbody.length;yy++){
-                $('#updatepostblockinserts').append("<div class='row post' id='post"+parsed.mbody[yy].id+"'><div class='col-xs-3'><h2 style='color:white;'>"+parsed.mbody[yy].date.day+"."+parsed.mbody[yy].date.month+"."+parsed.mbody[yy].date.year+"</h2></div><div class='col-xs-9'><h2>"+parsed.mbody[yy].title+"</h2></div></div>");
+                $('#updatepostblockinserts').append("<div class='row post' id='post"+parsed.mbody[yy].id+"'><div class='col-xs-2' style='padding-right:0px;'><h2 style='color:white;'>"+parsed.mbody[yy].date.day+"."+parsed.mbody[yy].date.month+"."+parsed.mbody[yy].date.year+"</h2></div><div class='col-xs-10' style='padding-left:0px;'><h2>"+parsed.mbody[yy].title+"</h2></div></div>");
                 }
                 $('#updatepostblock').slideToggle();
                 }
@@ -777,8 +777,7 @@ head
                    img(src='/bootstrap/images/circle_excl.png')  
                  .col-xs-11
                    h2 Подсказка
-                   p(style='font-size:1.7vw;text-indent:0px;') Можете пользоваться тегом &lth4&gt&lt/h4&gt , как в разделе "контакты" , абзацы как и везде создаются с помощью тега &ltp&gt&lt/p&gt. После вашего ознакомления с общей концепцией мы приведем детали и в том числе страничку "О проекте" к соответствию вашим будущим пожеланиям.
-                   p Для заголовков используйте теги &lth4&gt &lt/h4&gt                  
+                   p(style='font-size:1.7vw;text-indent:0px;') Для заголовков используйте теги &lth4&gt &lt/h4&gt , абзацы как и везде создаются с помощью тега &ltp&gt&lt/p&gt. После вашего ознакомления с общей концепцией мы приведем детали и в том числе страничку "О проекте" к соответствию вашим будущим пожеланиям.                  
               form(role='form',method='post',action='/actions')
                 .row
                   .col-xs-12(style='padding:2vh')
