@@ -532,7 +532,9 @@ app.post('/actions',function(req,res){
       case('updatepost'):
         var pid = req.body.pid;
         var vtitle =req.body.vtitle;
-        var imgnum = req.body.imgnum;
+        var vpostbody = req.body.postbody;
+        posts.update({id:pid},{$set:{title:vtitle,postbody:vpostbody}});
+        res.redirect('http//:maleshin.com/post/'+pid);
       break;
       case('delete post'):
         var pid = req.body.pid;
