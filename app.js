@@ -48,7 +48,7 @@ app.get('/',function(req,res){
                 console.log('BODY IS : '+doc[0].postbody);
                 console.log('-----------------------------');
                 console.log(doc);
-                res.render('index',{'title':doc[0].title,'postbody':doc[0].postbody,'headimage':doc[0].headimage});}
+                res.render('index',{'title':doc[0].title,'postbody':doc[0].postbody,'headimage':doc[0].headimage,'post':doc[0]});}
          else
          {
           res.render('emptyindex');

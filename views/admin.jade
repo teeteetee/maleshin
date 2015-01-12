@@ -411,6 +411,7 @@ head
                 break;
                 case('empty'):
                 alert('В базе данных нет ни одной записи');
+                return;
                 break;
                 }}
                 else {
@@ -535,6 +536,8 @@ head
                    p(style='font-size:1.7vw;')  Чтобы вставить в текст ссылку пользуйтесь, html тегом &lta&gt. Пример: нужно дать ссылку на статью про кактусы в википедии - пишем
                    pre &lta href='http://en.wikipedia.org/wiki/Cactus'&gt Кактусы &lt/a&gt
                    p(style='font-size:1.7vw;')  После href= в кавычках идет ссылка , а между тегами &lta&gt и &lt/a&gt текст который будет визуально выделен как ссылка и перенаправит читателя на указанный ресурс при нажатии
+                   p(style='font-size:1.7vw;') Добавить фотографию в текст можно следующим образом : между абзацми вставьте приведенный ниже код , увеличивая цифру на один начиная со второй. 
+                   pre &ltdiv class='row' style='background-color:#ccc;'&gt&ltdiv class='col-xs-10 col-xs-offset-1'&gt&ltimg style='width:initial;height:30vh' src='/postimages/#{post.img1}'&gt&lt/div&gt&lt/div&gt&ltdiv class='row' style='background-color:#ccc;'&gt&ltdiv class='col-xs-12 col-xs-offset-1'&gt&lth2 style='font-size:1vw;font-weight:bold;'&gt&lt/h2&gt&lt/div&gt&lt/div&gt
                .row(style='display:none;')
                  .col-xs-12
                    input#hiddeninput(type='text',name='actions',value='newpost')
@@ -544,6 +547,10 @@ head
                .row    
                  .col-xs-6
                    input.form-control(type='file', name='headimage') 
+               script.
+                 $('#additionalimages').change(function(){
+                  alert('Скопируйте и вставьте между абзацами ')
+                 });    
                .row
                  .col-xs-3(style='padding:2vh;')
                    h2(style='margin-left:0px') Заголовок:    
