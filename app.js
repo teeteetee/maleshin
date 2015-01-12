@@ -510,7 +510,7 @@ app.post('/actions',function(req,res){
                           else {
                             var corrbody = somedone.postbody;
                             for(var zz = 0;zz<photonum;zz++)
-                            {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}','req.files.additionalphoto"+cz+".name');");
+                            {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}',req.files.additionalphoto"+cz+".name);");
                             }
                             console.log(corrbody);
                             posts.update({id:newid},{$set:{postbody:corrbody}});
@@ -569,7 +569,7 @@ app.post('/actions',function(req,res){
                           else {
                             var corrbody = somedone.postbody;
                             for(var zz = 0;zz<photonum;zz++)
-                            {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}','req.files.additionalphoto"+cz+".name');");
+                            {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}',req.files.additionalphoto"+cz+".name);");
                             }
                             console.log(corrbody);
                             posts.update({id:1},{$set:{postbody:corrbody}});
