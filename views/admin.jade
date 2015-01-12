@@ -400,9 +400,9 @@ head
                 }}
                 else {
                 //trouble === 0
-                $('#updatepostblockinserts').append("<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white'>Выберите запись для редактирования</h2></div><div class='col-xs-1 closedialog' id='closeupdatepost'><img src='/bootstrap/images/cross_white.png'></div></div><\/script>$('#closeupdatepost').click(function(){$('#updatepostblock').slideToggle();});");
+                $('#updatepostblockinserts').append("<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white'>Выберите запись для редактирования</h2></div><div class='col-xs-1 closedialog' id='closeupdatepost'><img src='/bootstrap/images/cross_white.png'></div></div><script>$('#closeupdatepost').click(function(){$('#updatepostblock').slideToggle();});<\/script>");
                 for (var yy =0;yy<parsed.mbody.length;yy++){
-                $('#updatepostblockinserts').append("<div class='row' id='post"+parsed.mbody[yy].id+"'><div class='col-xs-3'><h5>"+parsed.mbody[yy].date.vvday+"."+parsed.mbody[yy].date.vvmonth+"."+parsed.mbody[yy].date.vyear+"</h5></div><div class='col-xs-8'>"+parsed.mbody[yy].title+"</div><div style='background-color:#0b4556;' class='col-xs-1 updatebutton'><img src='/images/circle_text_edit_white.png'></div></div>");
+                $('#updatepostblockinserts').append("<div class='row' id='post"+parsed.mbody[yy].id+"'><div class='col-xs-3'><h5>"+parsed.mbody[yy].date.vvday+"."+parsed.mbody[yy].date.vvmonth+"."+parsed.mbody[yy].date.vyear+"</h5></div><div class='col-xs-8'>"+parsed.mbody[yy].title+"</div><div style='background-color:#0b4556;' class='col-xs-1 updatebutton'><img src='/bootstrap/images/circle_text_edit_white.png'></div></div>");
                 }
                 $('#updatepostblock').slideToggle();
                 }
