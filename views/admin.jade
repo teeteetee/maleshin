@@ -198,6 +198,9 @@ head
       input{
       border-radius:4px;
       }
+      .updatebutton:hover{
+       background-color:#53a7bf;
+      }
   body
     // jQuery (necessary for Bootstrap's JavaScript plugins)
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
@@ -255,7 +258,7 @@ head
                   img(src='/bootstrap/images/circle_cross.png')
                 .col-xs-10(style='padding-left:0px;')
                   h2 Добавить маршрут        
-              #removeroute.row.addsmth
+              #updateroute.row.addsmth
                 .col-xs-2(style='text-align:center;')
                   img(src='/bootstrap/images/circle_text_edit.png')      
                 .col-xs-10(style='padding-left:0px;')
@@ -357,7 +360,9 @@ head
                 .col-xs-2(style='text-align:center;')
                   img(src='/bootstrap/images/circle_text_edit.png')      
                 .col-xs-10(style='padding-left:0px;')
-                  h2  Редактировать запись          
+                  h2  Редактировать запись 
+              script.
+                $('#updatepost').click(updatepostlist(););             
               #removepost.row.addsmth
                 .col-xs-2(style='text-align:center;')
                   img(src='/bootstrap/images/circle_minus.png')     
@@ -372,7 +377,43 @@ head
                     h2  ЗАПИСЕЙ : #{postsn}
                     |            
                     h2(style='color:gray;')  Необходимо сделать статистику просмотров 
-                     
+          script.
+                $('#updatepost').click(function(){
+                request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                var DONE = this.DONE || 4;
+                if (this.readyState === DONE){
+                var index;
+                parsed = JSON.parse(request.responseText);
+                console.log(parsed);
+                if(parsed.trouble === 1)
+                {
+                console.log('TROUBLE === 1');
+                switch (parsed.mtext){
+                case('db'):
+                alert('Проблемы с базой данных');
+                break;
+                case('empty'):
+                alert('В базе данных нет ни одной записи');
+                break;
+                }}
+                else {
+                //trouble === 0
+                $('#updatepostblockinserts').append("<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white'>Выберите запись для редактирования</h2></div><div class='col-xs-1 closedialog' id='closeupdatepost'><img src='/bootstrap/images/cross_white.png'></div></div><\/script>$('#closeupdatepost').click(function(){$('#updatepostblock').slideToggle();});");
+                for (var yy =0;yy<parsed.mbody.length;yy++){
+                $('#updatepostblockinserts').append("<div class='row' id='post"+parsed.mbody[yy].id+"'><div class='col-xs-3'><h5>"+parsed.mbody[yy].date.vvday+"."+parsed.mbody[yy].date.vvmonth+"."+parsed.mbody[yy].date.vyear+"</h5></div><div class='col-xs-8'>"+parsed.mbody[yy].title+"</div><div style='background-color:#0b4556;' class='col-xs-1 updatebutton'><img src='/images/circle_text_edit_white.png'></div></div>");
+                }
+                $('#updatepostblock').slideToggle();
+                }
+                }
+                };
+                request.open('POST', '/actions', true);
+                request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                //Most libraries like jQuery/Prototype/Dojo do this
+                request.send("actions=updatepostlist");});            
+          #updatepostblock.row.hiddeninputs(style='background-color:#6faebf;')
+            #updatepostblockinserts.col-xs-12           
           #addpostblock.row.hiddeninputs(style='background-color:#6faebf;') 
             form(action='/actions',id='mainform',role='form',method='post', enctype='multipart/form-data')
              .col-xs-12
