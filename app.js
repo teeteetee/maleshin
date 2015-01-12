@@ -486,6 +486,9 @@ app.post('/actions',function(req,res){
                             eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
                             eval('var supname=req.files.additionalphoto'+sup+'.name;');
                             dbinsert="img1:'"+supname+"'";}
+                            if(photonum ===1){
+                              dbinsert="{"+dbinsert+"}";
+                            }
                           else{
                             var sup = xx+1;
                             eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
@@ -527,6 +530,9 @@ app.post('/actions',function(req,res){
                             eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
                             eval('var supname=req.files.additionalphoto'+sup+'.name;');
                             dbinsert="img1:'"+supname+"'";}
+                            if(photonum ===1){
+                              dbinsert="{"+dbinsert+"}";
+                            }
                           else{
                             var sup = xx+1;
                             eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
