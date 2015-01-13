@@ -283,6 +283,7 @@ head
               script.
                 $('#addroute').click(function(){$('#addrouteblock').slideToggle();});   
                 $('#removeallroutes').click(function(){$('#droproutesdb').slideToggle();}); 
+                $('#updateroute').click(function(){updateroutelist();});
           #droproutesdb.row.hiddeninputs(style='display:none;background-color:#ca2c28;padding-top:3vh;')
             form(action='/drop/routes',method='post',role='form')  
               .row
@@ -303,7 +304,48 @@ head
               script.
                 $('#closedroproutes').click(function(){
                   $('#droproutesdb').slideToggle();
-                });       
+                }); 
+          #updaterouteblock.row.hiddeninputs(style='background-color:#6faebf;')
+            #updaterouteblockinserts.col-xs-12       
+          script.
+            function updateroutelist() {
+                $('#updaterouteblockinserts').empty();
+                console.log('requesting posts');
+                request = new XMLHttpRequest();
+                request.onreadystatechange = function () {
+                var DONE = this.DONE || 4;
+                if (this.readyState === DONE){
+                var index;
+                parsed = JSON.parse(request.responseText);
+                console.log(parsed);
+                if(parsed.trouble === 1)
+                {
+                console.log('TROUBLE === 1');
+                switch (parsed.mtext){
+                case('db'):
+                alert('Проблемы с базой данных');
+                break;
+                case('empty'):
+                alert('В базе данных нет ни одной записи');
+                return;
+                break;
+                }}
+                else {
+                //trouble === 0
+                $('#updaterouteblockinserts').append("<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2 style='color:white'>Выберите маршрут для редактирования</h2></div><div class='col-xs-1 closedialog' id='closeupdateroute'><img src='/bootstrap/images/cross_white.png'></div></div><script>$('#closeupdateroute').click(function(){$('#updaterouteblock').slideToggle();});<\/script>");
+                for (var yy =0;yy<parsed.mbody.length;yy++){
+                $('#updaterouteblockinserts').append("<div class='row route' onclick='routeupdate("+parsed.mbody[yy].id+");' id='route"+parsed.mbody[yy].id+"'><div class='col-xs-12' style='padding-left:0px;'><h2>"+parsed.mbody[yy].routename+"</h2></div></div>");
+                }
+                $('.hiddeninputs').css('display','none');
+                $('#updaterouteblock').slideToggle();
+                }
+                }
+                };
+                request.open('POST', '/actions', true);
+                request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+                request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                //Most libraries like jQuery/Prototype/Dojo do this
+                request.send("actions=updateroutelist");}           
           #addrouteblock.row.hiddeninputs(style='background-color:#6faebf;')
             #addrouteblockinsert.col-xs-12 
               .row
