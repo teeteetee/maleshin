@@ -423,7 +423,10 @@ head
                      h5 Добавить день
                .row
                   #routeadddayinsert.col-xs-12 
-
+               .row
+                 .col-xs-12(style='padding:2vh;')
+                   button(type='button',id='submitroutebutton',style='border:1px solid white;border-radius:4px;') 
+                     h5(style='color:white;') Отправить 
                script.
                  var daycount = 0;
                  $('#addrouteday').click(function(){
@@ -485,6 +488,9 @@ head
                  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                  //Most libraries like jQuery/Prototype/Dojo do this
                  request.send("actions=addroute&routebody="+mainbody+"&country="+vcountry+"&photonum="+vphotonum+"&routename="+vroutename+"&routedays="+daycount);}
+                 $('#submitroutebutton').click(function(){
+                   submitroute();
+                 });
           #booksblockoptions.row.hiddenoptions
             .col-xs-6.nb          
               #addbook.row.addsmth
