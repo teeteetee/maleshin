@@ -387,7 +387,7 @@ head
                  var photocount = 0;
                  $('#addroutephoto').click(function(){
                    photocount++
-                   $('#routeadditionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#closeadditionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;$('#photonumroutes').val(photocount);console.log(photocount);})<\/script></div>");
+                   $('#routeadditionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' id='additionalphoto"+photocount+"' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#closeadditionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;$('#photonumroutes').val(photocount);console.log(photocount);})<\/script></div>");
                    $('#photonumroutes').val(photocount);
                  });  
               .row
@@ -466,6 +466,19 @@ head
                  var vphotonum =$('#photonumroutes').val();
                  var vroutename =$('#routename').val();
                  mainbody = mainbody+midbody;
+                 var formData = new FormData();
+                 for(var zyz =0;zyz<photocount;zyz++)
+                 {var zyh=zyz+1;
+                 eval("var file = document.getElementById('additionalphoto"+zyh+"');");
+                 eval("formData.append('additionalphoto"+zyh+"', file.files[0]);")
+                 }
+                 formData.append('actions','addruote');
+                 formData.append('routebody',mainbody);
+                 formData.append('country',vcountry);
+                 formData.append('photonum',vphotonum);
+                 formData.append('routename',vroutename);
+                 formData.append('routedays',daycount);
+                 //
                  request = new XMLHttpRequest();
                  request.onreadystatechange = function () {
                  var DONE = this.DONE || 4;
@@ -487,7 +500,7 @@ head
                  request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
                  request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                  //Most libraries like jQuery/Prototype/Dojo do this
-                 request.send("actions=addroute&routebody="+mainbody+"&country="+vcountry+"&photonum="+vphotonum+"&routename="+vroutename+"&routedays="+daycount);}
+                 request.send(formData);}
                  $('#submitroutebutton').click(function(){
                    submitroute();
                  });
