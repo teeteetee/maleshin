@@ -374,6 +374,8 @@ head
                   h2(style='color:white;') Добавляем книгу
                 #closeaddbooksblock.col-xs-1.closedialog
                   img(src='/bootstrap/images/cross_white.png') 
+                script.
+                  $('#closeaddbooksblock').click(function(){$('#addbooksblock').slideToggle();});  
               .row(style='background-color:#eee;margin-left:4vw;margin-right:4vw;border-radius:4px;padding:2vh;')
                  .col-xs-1
                    img(src='/bootstrap/images/circle_excl.png')  
