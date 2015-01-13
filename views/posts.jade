@@ -232,7 +232,7 @@ head
             //  window.location='http://maleshin.com/routes';
             //});  
       each post, i in docs
-        .row.forward(style="padding-top:5vh;border-top:1px solid white;padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
+        .row.forward(onclick='window.location="http://maleshin.com/post/#{post.id}";'style="padding-top:5vh;border-top:1px solid white;padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
           .col-xs-12
             h1 #{post.title}
             h4(style='margin-bottom:3vh;') #{post.date.day}.#{post.date.month}.#{post.date.year}
