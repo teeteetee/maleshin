@@ -285,26 +285,7 @@ head
                 .col-xs-10(style='padding-left:0px;')
                   h2  Добавить книгу
               script.
-                $('#addbook').click(function(){$('#addbooksblock').slideToggle();});
-          #addrouteblock.row.hiddeninputs(style='background-color:#6faebf;')
-            #addrouteblockinsert.col-xs-12 
-              .row
-                .col-xs-11
-                  h2(style='color:white;') Добавляем маршрут
-                #closeaddrouteblock.col-xs-1.closedialog
-                  img(src='/bootstrap/images/cross_white.png') 
-                script.
-                  $('#closeaddrouteblock').click(function(){$('#addrouteblock').slideToggle();});
-              .row(style='background-color:#eee;margin-left:4vw;margin-right:4vw;border-radius:4px;padding:2vh;')
-                 .col-xs-1
-                   img(src='/bootstrap/images/circle_excl.png')  
-                 .col-xs-11
-                   h2 Подсказка
-                   p(style='font-size:1.7vw;')
-                     Чтобы вставить в текст ссылку пользуйтесь, html тегом &lta&gt. Пример: нужно дать ссылку на статью про кактусы в википедии - пишем
-                   pre  &lta href='http://en.wikipedia.org/wiki/Cactus'&gt Кактусы &lt/a&gt
-                   p(style='font-size:1.7vw;') 
-                     После href= в кавычках идет ссылка , а между тегами &lta&gt и &lt/a&gt текст который будет визуально выделен как ссылка и перенаправит читателя на указанный ресурс при нажатии      
+                $('#addbook').click(function(){$('#addbooksblock').slideToggle();});      
           #addbooksblock.row.hiddeninputs(style='background-color:#6faebf;')
             #addbooksblockinsert.col-xs-12 
               .row
