@@ -302,7 +302,7 @@ head
                    pre &ltdiv class='row'&gt&ltdiv style='height:70vh;padding:2vh;' class='col-xs-10 col-xs-offset-1'&gt&ltimg style='width:initial;height:70vh;position:absolute;' src='/postimages/&#35{post.img1}'&gt&lt/div&gt&lt/div&gt&ltdiv class='row'&gt&ltdiv style='padding-top:2vh;' class='col-xs-12 col-xs-offset-1'&gt&lth2 style='font-weight:bold;color:black;'&gt Текст комментария &lt/h2&gt&lt/div&gt&lt/div&gt
                    p(style='font-size:1.7vw;')
                      Начиная со второй фотографии увеличивайте циферку в &#35{post.img1} на один
-              .row
+               .row
                  .col-xs-6(style='padding:2vh;')
                    h2(style='margin-left:0px;') Дополнительные фотографии :
                .row(style='display:none;')
@@ -313,12 +313,30 @@ head
                    button(type='button',id='addroutephoto',style='border:1px solid white;border-radius:4px;')
                      h5 Добавить
                .row
-                  #routeadditionalphotoinsert.col-xs-12                   
+                  #routeadditionalphotoinsert.col-xs-12
+               .row
+                 .col-xs-6(style='padding:2vh;')
+                   h2(style='margin-left:0px;') Добавляем дни
+               .row(style='display:none;')
+                 .col-xs-12
+                   input#routedays(type='text',name='routedays',value='0')    
+               .row 
+                 .col-xs-4
+                   button(type='button',id='addrouteday',style='border:1px solid white;border-radius:4px;')
+                     h5 Добавить
+               .row
+                  #routeadddayinsert.col-xs-12    
                script.
+                 var daycount = 0;
+                 $('#addrouteday').click(function(){
+                   daycount++
+                   $('#routeadddayinsert').append("<div id='addday"+daycount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' name='addday"+daycount+"'></div><div id='closeaddday"+daycount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#closeaddday"+daycount+"').click(function(){$('#addday"+daycount+"').remove();daycount--;$('#routedays').val(daycount);console.log(daycount);})<\/script></div>");
+                   $('#photonumroutes').val(daycount);
+                 });  
                  var photocount = 0;
                  $('#addroutephoto').click(function(){
                    photocount++
-                   $('#routeadditionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#closeadditionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;$('#photonum').val(photocount);console.log(photocount);})<\/script></div>");
+                   $('#routeadditionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#closeadditionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;$('#photonumroutes').val(photocount);console.log(photocount);})<\/script></div>");
                    $('#photonumroutes').val(photocount);
                  });       
               .row
