@@ -212,9 +212,9 @@ head
             //  window.location='http://maleshin.com/routes';
             //});  
       each post, i in docs
-        .row
+        .row.forward(onclick='window.location="http://maleshin.com/post/#{post.id}";',style='border-top:1px solid white;')
            .col-xs-12
-             .row.forward(onclick='window.location="http://maleshin.com/post/#{post.id}";',style="-webkit-filter:brightness(60%);z-index:100;padding-top:5vh;border-top:1px solid white;padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
+             .row(style="-webkit-filter:brightness(60%);z-index:100;padding-top:5vh;padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
                .col-xs-12
                  h1(style='color:transparent;') #{post.title}
                  h4(style='margin-bottom:3vh;color:transparent;') #{post.date.day}.#{post.date.month}.#{post.date.year}
