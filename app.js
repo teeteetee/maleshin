@@ -358,6 +358,37 @@ app.post('/drop/:cc',function(req,res){
               }
             });
       break;
+      case('routes'):
+        console.log('Dropping images');
+          rmDir = function(dirPath, removeSelf) {
+            if (removeSelf === undefined)
+            removeSelf = true;
+            try { var files = fs.readdirSync(dirPath); }
+            catch(e) { return; }
+            if (files.length > 0)
+              for (var i = 0; i < files.length; i++) {
+               var filePath = dirPath + '/' + files[i];
+               if (fs.statSync(filePath).isFile())
+               fs.unlinkSync(filePath);
+               else
+               rmDir(filePath);
+               }
+            if (removeSelf)
+            fs.rmdirSync(dirPath);
+            };
+            objects.remove({bit:'route'},function(err,done){
+              if(err)
+              {
+                //CALL THE COPS
+              }
+              else
+              { 
+                console.log('POSTS DB DROPPED FROM '+req.ip);
+                rmDir(__dirname + '/public/routeimages',false);
+                res.redirect('/ap');
+              }
+            });
+      break;
       case('objects'):
         console.log('OBJECTS DB DROPPED FROM '+req.ip);
         objects.remove({},function(err,done){
@@ -657,6 +688,34 @@ app.post('/actions',function(req,res){
         });
       break;
       case('addroute'):
+        var photonum = parseInt(req.body.photonum);
+        var vroutename = req.body.routename;
+        var vcountry = req.body.country;
+        var routedays = req.body.routedays;
+        var photonum = req.body.photonum;
+      break;
+      case('updateroutelist'):
+      console.log('updateroutelist');
+        var ms = {};
+        ms.trouble=1;
+        ms.mtext='db';
+        objects.find({bit:'route'},function(err,done){
+          if(err)
+          {
+            res.send(ms);
+          }
+          else {
+            if(done.length>0){
+              ms.trouble=0;
+              ms.mbody = done;
+              res.send(ms);
+            }
+            else {
+              ms.mtext='empty';
+              res.send(ms);
+            }
+          }
+        });
       break;
       case('removeroute'):
       break;
@@ -1049,9 +1108,25 @@ app.post('/actions',function(req,res){
         });
       break;
       case('setcontacts'):
-       var cbody = req.body.cbody;
-       misc.insert({bit:'contacts',bbody:cbody});
-       res.redirect('http://maleshin.com/contacts');
+       var сbody = req.body.сbody;
+       misc.findOne({bit:'contacts'},function(err,done){
+        if(err)
+        { 
+          //ADD PROPER ERR REPORT
+          res.send('DB Error')
+        }
+        else {
+          if(done)
+          {
+            misc.update({bit:'contacts'},{$set:{bbody:cbody}});
+            res.redirect('http://maleshin.com/contacts');
+          }
+          else {
+            misc.insert({bit:'contacts',bbody:abody});
+            res.redirect('http://maleshin.com/contacts')
+          }
+        }
+       });
       break;
       case('setabout'):
        var abody = req.body.abody;
@@ -1075,23 +1150,7 @@ app.post('/actions',function(req,res){
        });
       break;
       case('updatecontacts'):
-       var cbody = req.body.cbody;
-       misc.findOne({bit:'contacts'},function(err,done){
-        if(err){
-
-        }
-        else
-        {
-          if(done)
-          {
-            misc.update({bit:'contacts'},{$set:{bbody:cbody}});
-            res.redirect('/contacts');
-          }
-          else{
-            //GO AWAY
-          }
-        }
-       });
+       //was a copy of updateabout , they both are not in use, setting and updating is done through the same hole
       break;
       case('updateabout'):
         var cbody = req.body.abody;
@@ -1113,6 +1172,7 @@ app.post('/actions',function(req,res){
        });
       break;
       case('addbook'):
+      //BOOKS MUST BE STORED IN OBJECTS DB NOT IN MISC - CORRECTION NEEDED
       var vbookname = req.body.bookname;
       var vbookauthor = req.body.author;
       var vcomment = req.body.comment;
