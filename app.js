@@ -163,7 +163,19 @@ app.get('/countries',function(req,res){
 });
 
 app.get('/routes',function(req,res){
-  res.render('routes');
+  misc.find({bit:'country'},function(err,done){
+    if(err) {
+      //TROUBLE
+    }
+    else{
+      if(done.length>0){
+        res.render('routes',{'countries':done});
+      }
+      else{
+        res.render('emptyroutes');
+      }
+    }
+  });
 });
 
 app.get('/about',function(req,res){
@@ -385,7 +397,14 @@ app.post('/drop/:cc',function(req,res){
               { 
                 console.log('POSTS DB DROPPED FROM '+req.ip);
                 rmDir(__dirname + '/public/routeimages',false);
-                res.redirect('/ap');
+                misc.remove({bit:'country'},function(err,twodone){
+                  if(err){
+                    res.send('everything deleted except countries in misc');
+                  }
+                  else {
+                      res.redirect('/ap');
+                  }
+                });
               }
             });
       break;
@@ -688,11 +707,124 @@ app.post('/actions',function(req,res){
         });
       break;
       case('addroute'):
-        var photonum = parseInt(req.body.photonum);
+        var ms={};
+        ms.trouble = 1; 
         var vroutename = req.body.routename;
         var vcountry = req.body.country;
-        var routedays = req.body.routedays;
-        var photonum = req.body.photonum;
+        var vroutedays = parseInt(req.body.routedays);
+        var photonum = parseInt(req.body.photonum);
+        var vroutebody = req.body.routebody;
+        function routeupload(filepath,imageid){
+                            console.log(filepath);
+                            console.log('hey im here !');
+                            var oldPath = filepath;
+                            console.log('UPLOAD 1 step, oldPath:'+ oldPath);
+                            var newPath = __dirname +"/public/routeimages/"+ imageid;
+                            console.log('UPLOAD 2 step, newPath:' + newPath );
+                            fs.readFile(oldPath , function(err, data) {
+                              fs.writeFile(newPath, data, function(err) {
+                                  fs.unlinkSync(oldPath, function(){
+                                      if(err) throw err;
+                                      console.log('UPLOAD '+imageid+"file uploaded to: " + newPath);
+                                        });
+                              }); 
+                            }); 
+                          };
+        //incrementing country's routenum
+        misc.findOne({routecountry:vcountry},function(err,cdoc){
+          if(err)
+          {
+            res.send(ms);
+          }
+          else {
+            if (cdoc.length>0){
+              var newrnum = cdoc.routesnum+1;
+              misc.update({routecountry:vcountry},{$set:{routesnum:newrnum}});
+            }
+            else {
+              misc.insert({bit:'country',routecountry:vcountry,routesnum:1});
+            }
+          }
+        });
+        //insert strats here
+        object.find({},{limit:1,sort:{id:-1}},function(err,doc){
+          if(err) {
+             res.send(ms);
+          }
+          else {
+            if(doc[0].length>0){
+              var newid = doc[0].id +1;
+              objects.insert({bit:'route',routecountry:vcountry,id:newid,routename:vroutename,routedays:vroutedays});     
+              var dbinsert;
+              for(var xx =0;xx<photonum;xx++){
+                if(xx===0){
+                  var sup = xx+1;
+                  eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
+                  eval('var supname=req.files.additionalphoto'+sup+'.name;');
+                  dbinsert="img1:'"+supname+"'";}
+                  if(photonum ===1){
+                    dbinsert="{"+dbinsert+"}";
+                  }
+                else{
+                  var sup = xx+1;
+                  eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
+                  eval('var supname=req.files.additionalphoto'+sup+'.name;');
+                  if(sup === photonum)
+                  {dbinsert="{"+dbinsert+",img"+photonum+":'"+supname+"'}";}
+                  else {
+                     dbinsert = dbinsert+",img"+photonum+":'"+supname+"'";
+                  }
+                } 
+              }
+              eval("objects.update({bit:'route',id:newid},{$set:"+dbinsert+"});");
+              
+                  var corrbody = vroutebody;
+                  for(var zz = 0;zz<photonum;zz++)
+                  {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}',req.files.additionalphoto"+cz+".name);");
+                  }
+                  console.log('-------CORRBODY LENGTH IS:'+corrbody.length+'--------');
+                  objects.update({bit:'route',id:newid},{$set:{routebody:corrbody}});
+                  ms.trouble=0;
+                  res.send(ms);
+                          
+                       
+            }
+            else{
+              objects.insert({bit:'route',routecountry:vcountry,id:1,routebody:vroutebody,routename:vroutename,routedays:vroutedays});
+              var dbinsert;
+              for(var xx =0;xx<photonum;xx++){
+                if(xx===0){
+                  var sup = xx+1;
+                  eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
+                  eval('var supname=req.files.additionalphoto'+sup+'.name;');
+                  dbinsert="img1:'"+supname+"'";}
+                  if(photonum ===1){
+                    dbinsert="{"+dbinsert+"}";
+                  }
+                else{
+                  var sup = xx+1;
+                  eval('upload(req.files.additionalphoto'+sup+'.path,req.files.additionalphoto'+sup+'.name);');
+                  eval('var supname=req.files.additionalphoto'+sup+'.name;');
+                  if(sup === photonum)
+                  {dbinsert="{"+dbinsert+",img"+photonum+":'"+supname+"'}";}
+                  else {
+                     dbinsert = dbinsert+",img"+photonum+":'"+supname+"'";
+                  }
+                } 
+              }
+              eval("objects.update({bit:'route',id:1},{$set:"+dbinsert+"});");
+              
+                  var corrbody = vroutebody;
+                  for(var zz = 0;zz<photonum;zz++)
+                  {var cz = zz+1;eval("corrbody = corrbody.replace('#{post.img"+cz+"}',req.files.additionalphoto"+cz+".name);");
+                  }
+                  console.log('-------CORRBODY LENGTH IS:'+corrbody.length+'--------');
+                  objects.update({bit:'route',id:1},{$set:{routebody:corrbody}});
+                  ms.trouble=0;
+                  res.send(ms);
+            }
+          }
+        });
       break;
       case('updateroutelist'):
       console.log('updateroutelist');
@@ -718,6 +850,7 @@ app.post('/actions',function(req,res){
         });
       break;
       case('removeroute'):
+      //dont forget to remove country from misc when it is its last route
       break;
       case('addphotobulk'):
         function uploadbulk(photofile,dbhandle){

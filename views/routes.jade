@@ -114,28 +114,8 @@ head
       margin-top:5vh;
       }
       #header {
-      height:100vh;
       -webkit-transition:height 1.5s;
       -webkit-transition-timing-function:ease-out;
-      }
-      #main {
-      margin-left:0px;
-      margin-right:0px;
-      }
-      #title {
-      height:70vh;
-      text-align:center;
-      padding-left:9vw;
-      padding-right:9vw;
-      }
-      .white {
-      background-color:white;
-      }
-      .chevron  {
-      height:10vh;
-      text-align:center;
-      opacity:0.5;
-      margin-bottom:3vh;
       }
       .active h2 {
       color:black;
@@ -149,29 +129,6 @@ head
       padding-left:10vw;
       padding-right:10vw;
       background-color:#fff;
-      }
-      .illustration {
-      height:40vh;
-      }
-      .separator {
-      margin-left:7vw;
-      margin-right:7vw;
-      height:5vh;
-      background-color:#ddd;
-      }
-      .smth {
-      }
-      #previous {
-      padding:4vh;
-      opacity:0.6;
-      }
-      .btmcrcl {
-      height:4vw;
-      width:4vw;
-      border-radius:50%;
-      border:3px solid #03406a;
-      text-align:center;
-      background-color:white;
       } 
   body
     .container
@@ -194,11 +151,14 @@ head
                   h2 &Ocy; &Pcy;&Rcy;&Ocy;&IEcy;&Kcy;&Tcy;&IEcy;
                 button#contacts.btn.btn-default(type='button', style='border-top-right-radius:0.5vw;border-bottom-right-radius:0.5vw;')
                   h2 &Kcy;&Ocy;&Ncy;&Tcy;&Acy;&Kcy;&Tcy;&Ycy;
-          |      
-          #title.row
-            .col-xs-12(style='padding:0px;')
-              h3#titletext Trip to south America 
-              #vmap(style='height:500px')
+      #main.row.text
+        .col-xs-12
+          each country,i in countries
+            .row(style='border-bottom:1px solid #f7f7f7;')
+              .col-xs-10
+                h2 #{country.routecountry}   
+              .col-xs-2
+                h2 #{country.routesnum}
      
              
           script.

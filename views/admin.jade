@@ -395,19 +395,22 @@ head
                    h2(style='margin-left:0px;') Страна:
               .row
                 .col-xs-8
-                  input.form-control(type='text',name='country',style='line-height:2vw') 
+                  input.form-control(id='routecountry',type='text',name='routecountry',style='line-height:2vw') 
               .row
                  .col-xs-6(style='padding:2vh;')
                    h2(style='margin-left:0px;') Название маршрута:
               .row
                 .col-xs-8
-                  input.form-control(type='text',name='routename',style='line-height:2vw')            
+                  input.form-control(id='routename',type='text',name='routename',style='line-height:2vw')            
               .row
                  .col-xs-6(style='padding:2vh;')
                    h2(style='margin-left:0px;') Текстовое описание маршрута:
               .row
                 .col-xs-8
-                  textarea#routebody.form-control(rows='7') 
+                  textarea#routebody.form-control(rows='7',name='routetextbody') 
+              .row(style='display:none;')
+                .col-xs-12
+                  input#daynumroutes(type='text',name='daynum',value='0')     
               .row
                  .col-xs-12(style='padding:2vh;')
                    h2(style='margin-left:0px;') Таблица маршрута (день - программа)
@@ -419,14 +422,69 @@ head
                    button(type='button',id='addrouteday',style='border:1px solid white;border-radius:4px;')
                      h5 Добавить день
                .row
-                  #routeadddayinsert.col-xs-12    
+                  #routeadddayinsert.col-xs-12 
+
                script.
                  var daycount = 0;
                  $('#addrouteday').click(function(){
                    daycount++
-                   $('#routeadddayinsert').append("<div id='addday"+daycount+"' class='row'><div class='col-xs-12'><div class='row'><div class='row'><div class='col-xs-12'><h2>"+daycount+" ДЕНЬ</h2></div></div><div class='col-xs-8'><input class='form-control' type='text' style='margin:2vh;line-height:2vw;' name='nameaddday"+daycount+"'></div><div id='closeaddday"+daycount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-8'><textarea name='bodyddday"+daycount+"' class='form-control' rows='7'></textarea></div></div></div></div><script>$('#closeaddday"+daycount+"').click(function(){$('#addday"+daycount+"').remove();daycount--;$('#routedays').val(daycount);console.log(daycount);})<\/script></div>");
-                   $('#photonumroutes').val(daycount);
-                 }); 
+                   $('#routeadddayinsert').append("<div id='addday"+daycount+"' class='row'><div class='col-xs-12'><div class='row'><div class='row'><div class='col-xs-12'><h2>"+daycount+" ДЕНЬ</h2></div></div><div class='col-xs-8'><input class='form-control' type='text' style='margin:2vh;line-height:2vw;' name='nameaddday"+daycount+"'></div><div id='closeaddday"+daycount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-8'><textarea name='bodyaddday"+daycount+"' class='form-control' rows='7'></textarea></div></div></div></div><script>$('#closeaddday"+daycount+"').click(function(){$('#addday"+daycount+"').remove();daycount--;$('#routedays').val(daycount);console.log(daycount);})<\/script></div>");
+                   $('#daynumroutes').val(daycount);
+                 });
+                 function submitroute(){ 
+                 var midbody;
+                 for(var rr=0;rr<daycount;rr++)
+                 { var rr2 = rr+1;
+                   eval("var edh=$('#nameaddday"+rr+"').val();");
+                   eval("var edb=$('#bodyaddday"+rr+"').val();");
+                   if(rr === 0)
+                   {
+                   var dh ="<div class='row' style='border-top:1px solid black;border-left:1px solid black;border-right:1px solid black;'><div class='col-xs-12'><h2>"+edh+"</h2></div></div>";
+                   var db ="<div class='row' style='border-top:1px solid black;border-left:1px solid black;border-right:1px solid black;text-align:justify;'><div class='col-xs-12'><p>"+edh+"</p></div></div>";
+                   midbody = dh+db;
+                   }
+                   else
+                   {
+                   if(rr2 === daycount)
+                   {
+                    var dh ="<div class='row' style='border-bottom:1px solid black;border-left:1px solid black;border-right:1px solid black;'><div class='col-xs-12'><h2>"+edh+"</h2></div></div>";
+                   var db ="<div class='row' style='border-bottom:1px solid black;border-left:1px solid black;border-right:1px solid black;text-align:justify;'><div class='col-xs-12'><p>"+edh+"</p></div></div>";
+                   midbody = midbody+dh+db;
+                   }
+                   else {
+                   var dh ="<div class='row' style='border-left:1px solid black;border-right:1px solid black;'><div class='col-xs-12'><h2>"+edh+"</h2></div></div>";
+                   var db ="<div class='row' style='border-left:1px solid black;border-right:1px solid black;text-align:justify;'><div class='col-xs-12'><p>"+edh+"</p></div></div>";
+                   midbody = midbody+dh+db;
+                   }
+                   }
+                 }
+                 var mainbody = $('#routebody').val();
+                 var vcountry = $('#routecountry').val();
+                 var vphotonum =$('#photonumroutes').val();
+                 var vroutename =$('#routename').val();
+                 mainbody = mainbody+midbody;
+                 request = new XMLHttpRequest();
+                 request.onreadystatechange = function () {
+                 var DONE = this.DONE || 4;
+                 if (this.readyState === DONE){
+                 var index;
+                 parsed = JSON.parse(request.responseText);
+                 console.log(parsed);
+                 if(parsed.trouble === 1)
+                 {
+                 alert('Не получилось загрузить маршрут');}
+                 else {
+                 //trouble === 0
+                 alert('Маршрут добавлен');
+                 window.location='http://maleshin.com/routes'
+                 }
+                 }
+                 };
+                 request.open('POST', '/actions', true);
+                 request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                 //Most libraries like jQuery/Prototype/Dojo do this
+                 request.send("actions=addroute&routebody="+mainbody+"&country="+vcountry+"&photonum="+vphotonum+"&routename="+vroutename+"&routedays="+daycount);}
           #booksblockoptions.row.hiddenoptions
             .col-xs-6.nb          
               #addbook.row.addsmth
