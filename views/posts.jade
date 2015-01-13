@@ -159,26 +159,6 @@ head
       .illustration {
       height:40vh;
       }
-      .separator {
-      margin-left:7vw;
-      margin-right:7vw;
-      height:5vh;
-      background-color:#ddd;
-      }
-      .smth {
-      }
-      #previous {
-      padding:4vh;
-      opacity:0.6;
-      }
-      .btmcrcl {
-      height:4vw;
-      width:4vw;
-      border-radius:50%;
-      border:3px solid #03406a;
-      text-align:center;
-      background-color:white;
-      }  
       .btn-default {
       border-color:white;
       }
@@ -232,9 +212,15 @@ head
             //  window.location='http://maleshin.com/routes';
             //});  
       each post, i in docs
-        .row.forward(onclick='window.location="http://maleshin.com/post/#{post.id}";',style="padding-top:5vh;border-top:1px solid white;padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
-          .col-xs-12
-            h1 #{post.title}
-            h4(style='margin-bottom:3vh;') #{post.date.day}.#{post.date.month}.#{post.date.year}
+        .row
+           .col-xs-12
+             .row.forward(onclick='window.location="http://maleshin.com/post/#{post.id}";',style="-webkit-filter:brightness(60%);z-index:100;padding-top:5vh;border-top:1px solid white;padding-left:2vw;background: url('#{post.headimage}') no-repeat center center fixed;background-size: cover;-webkit-background-size:cover;-moz-background-size: cover;-o-background-size: cover;")
+               .col-xs-12
+                 h1(style='color:transparent;') #{post.title}
+                 h4(style='margin-bottom:3vh;color:transparent;') #{post.date.day}.#{post.date.month}.#{post.date.year}
+             .row(style='position:absolute;z-index:238;')
+               .col-xs-12
+                 h1 #{post.title}
+                 h4(style='margin-bottom:3vh;color:transparent;') #{post.date.day}.#{post.date.month}.#{post.date.year}
 
    
