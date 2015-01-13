@@ -355,7 +355,7 @@ head
                  var daycount = 0;
                  $('#addrouteday').click(function(){
                    daycount++
-                   $('#routeadddayinsert').append("<div id='addday"+daycount+"' class='row'><div class='col-xs-12><div class='row'><div class='col-xs-8'><input class='form-control' type='text' style='margin:2vh;line-height:2vw;' name='nameaddday"+daycount+"'></div><div id='closeaddday"+daycount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-8><textarea name='bodyddday"+daycount+"' class='form-control' rows='7'></div></div></div></div><script>$('#closeaddday"+daycount+"').click(function(){$('#addday"+daycount+"').remove();daycount--;$('#routedays').val(daycount);console.log(daycount);})<\/script></div>");
+                   $('#routeadddayinsert').append("<div id='addday"+daycount+"' class='row'><div class='col-xs-12'><div class='row'><div class='col-xs-8'><input class='form-control' type='text' style='margin:2vh;line-height:2vw;' name='nameaddday"+daycount+"'></div><div id='closeaddday"+daycount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div></div><div class='row'><div class='col-xs-8'><textarea name='bodyddday"+daycount+"' class='form-control' rows='7'></div></div></div></div><script>$('#closeaddday"+daycount+"').click(function(){$('#addday"+daycount+"').remove();daycount--;$('#routedays').val(daycount);console.log(daycount);})<\/script></div>");
                    $('#photonumroutes').val(daycount);
                  }); 
           #booksblockoptions.row.hiddenoptions
