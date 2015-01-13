@@ -69,7 +69,7 @@ app.get('/redact',function(req,res){
 	res.render('login');
 });
 
-app.get('/posts/:id',function(req,res){
+app.get('/post/:id',function(req,res){
   var pid = parseInt(req.params.id);
   posts.findOne({id:pid},function(err,doc){
     if (err)
@@ -138,9 +138,6 @@ app.post('/redact',function(req,res){
   else {
      res.send('wrong pass/user');
   }
-});
-app.get('/post/:id',function(req,res){
-
 });
 
 app.get('/posts',function(req,res){
