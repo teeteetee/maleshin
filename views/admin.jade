@@ -469,7 +469,7 @@ head
                  var formData = new FormData();
                  for(var zyz =0;zyz<photocount;zyz++)
                  {var zyh=zyz+1;
-                 eval("var file = document.getElementById('additionalphoto"+zyh+"');");
+                 eval("var file = document.getElementById('additionalphoto"+zyh+"');console.log(file);");
                  eval("formData.append('additionalphoto"+zyh+"', file.files[0]);")
                  }
                  formData.append('actions','addruote');
