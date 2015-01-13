@@ -80,7 +80,7 @@ app.get('/posts/:id',function(req,res){
     {
       if(doc)
       {
-        res.render('post');
+        res.render('post',{'title':doc.title,'postbody':doc.postbody,'headimage':doc.headimage});}
       }
       else {
         res.redirect('/');
