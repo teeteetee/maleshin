@@ -274,9 +274,36 @@ head
                 .col-xs-2(style='text-align:center;')
                   img(src='/bootstrap/images/circle_text_edit.png')      
                 .col-xs-10(style='padding-left:0px;')
-                  h2  Редактировать маршрут  
+                  h2  Редактировать маршрут
+              #removeallroutes.row.addsmth
+                .col-xs-2(style='text-align:center;')
+                  img(src='/bootstrap/images/circle_minus.png')      
+                .col-xs-10(style='padding-left:0px;')
+                  h2  Удалить все маршруты      
               script.
-                $('#addroute').click(function(){$('#addrouteblock').slideToggle();});    
+                $('#addroute').click(function(){$('#addrouteblock').slideToggle();});   
+                $('#removeallroutes').click(function(){$('#droproutesdb').slideToggle();}); 
+          #droproutesdb.row.hiddeninputs(style='display:none;background-color:#ca2c28;padding-top:3vh;')
+            form(action='/drop/routes',method='post',role='form')  
+              .row
+                .col-xs-1(style='text-align:right;')
+                  img(src='/bootstrap/images/circle_excl_white.png')
+                .col-xs-10
+                  h2(style='color:white;') Удалить все маршруты ?
+                #closedroproutes.col-xs-1.closedialog
+                  img(src='/bootstrap/images/cross_white.png') 
+              .row
+                .col-xs-10.col-xs-offset-1
+                  h2 Пароль:
+                  input(name='p',type='text') 
+              .row
+                .col-xs-11.col-xs-offset-1
+                  button(type='submit',style='border:1px solid white;border-radius:4px;')
+                    h5 Удалить
+              script.
+                $('#closedroproutes').click(function(){
+                  $('#droproutesdb').slideToggle();
+                });       
           #addrouteblock.row.hiddeninputs(style='background-color:#6faebf;')
             #addrouteblockinsert.col-xs-12 
               .row
