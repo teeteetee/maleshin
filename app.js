@@ -366,6 +366,16 @@ app.get('/dangerous/:key',function(req,res){
       }
   });
   break;
+  case('birds'):
+  misc.remove({bit:'country'},function(err,done){
+    if(err){
+        res.send('error while dropping images db');
+      }
+      else {
+        res.send('countries dropped');
+      }
+  });
+  break;
   }
 });
 app.post('/drop/:cc',function(req,res){
