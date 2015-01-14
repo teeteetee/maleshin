@@ -761,7 +761,7 @@ app.post('/actions',function(req,res){
             res.send('db error');
           }
           else {
-            if (cdoc.length>0){
+            if (cdoc){
               var newrnum = cdoc.routesnum+1;
               misc.update({routecountry:vcountry},{$set:{routesnum:newrnum}});
             }
