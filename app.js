@@ -725,8 +725,6 @@ app.post('/actions',function(req,res){
         });
       break;
       case('addroute'):
-        var ms={};
-        ms.trouble = 1; 
         var vroutename = req.body.routename;
         var vcountry = req.body.country;
         var vroutedays = parseInt(req.body.routedays);
@@ -752,7 +750,7 @@ app.post('/actions',function(req,res){
         misc.findOne({routecountry:vcountry},function(err,cdoc){
           if(err)
           {
-            res.send(ms);
+            res.send('db error');
           }
           else {
             if (cdoc.length>0){
@@ -767,7 +765,7 @@ app.post('/actions',function(req,res){
         //insert strats here
         object.find({},{limit:1,sort:{id:-1}},function(err,doc){
           if(err) {
-             res.send(ms);
+             res.send('db error');
           }
           else {
             if(doc[0].length>0){
@@ -803,7 +801,7 @@ app.post('/actions',function(req,res){
                   console.log('-------CORRBODY LENGTH IS:'+corrbody.length+'--------');
                   objects.update({bit:'route',id:newid},{$set:{routebody:corrbody}});
                   ms.trouble=0;
-                  res.send(ms);
+                  res.redirect('http://maleshin.com/route/'+newid);
                           
                        
             }
@@ -839,7 +837,7 @@ app.post('/actions',function(req,res){
                   console.log('-------CORRBODY LENGTH IS:'+corrbody.length+'--------');
                   objects.update({bit:'route',id:1},{$set:{routebody:corrbody}});
                   ms.trouble=0;
-                  res.send(ms);
+                  res.redirect('http://maleshin.com/route/1');
             }
           }
         });

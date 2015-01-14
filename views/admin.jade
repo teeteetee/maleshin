@@ -382,7 +382,8 @@ head
                   button(type='button',id='addroutephoto',style='border:1px solid white;border-radius:4px;')
                     h5 Добавить
               .row
-                #routeadditionalphotoinsert.col-xs-12 
+                form(id='pictures',method='post',action='/actions')
+                  #routeadditionalphotoinsert.col-xs-12 
               script.  
                  var photocount = 0;
                  $('#addroutephoto').click(function(){
@@ -466,41 +467,20 @@ head
                  var vphotonum =$('#photonumroutes').val();
                  var vroutename =$('#routename').val();
                  mainbody = mainbody+midbody;
-                 var formData = new FormData();
-                 for(var zyz =0;zyz<photocount;zyz++)
-                 {var zyh=zyz+1;
-                 eval("var file = document.getElementById('additionalphoto"+zyh+"file');console.log(file);");
-                 eval("formData.append('additionalphoto"+zyh+"', file.files[0]);")
+                 //var formData = new FormData();
+                 //for(var zyz =0;zyz<photocount;zyz++)
+                 //{var zyh=zyz+1;
+                 //eval("var file = document.getElementById('additionalphoto"+zyh+"file');console.log(file);");
+                 //eval("formData.append('additionalphoto"+zyh+"', file.files[0]);")
+                 //}
+                 $('#pictures').append("<input name='actions' value='addruote'>");
+                 $('#pictures').append("<input name='routebody' value='mainbody'>");
+                 $('#pictures').append("<input name='country' value='vcountry'>");
+                 $('#pictures').append("<input name='photonum' value='vphotonum'>");
+                 $('#pictures').append("<input name='routename' value='vroutename'>");
+                 $('#pictures').append("<input name='routedays' value='daycount'>");
+                 $('#pictures').submit;
                  }
-                 formData.append('actions','addruote');
-                 formData.append('routebody',mainbody);
-                 formData.append('country',vcountry);
-                 formData.append('photonum',vphotonum);
-                 formData.append('routename',vroutename);
-                 formData.append('routedays',daycount);
-                 //
-                 request = new XMLHttpRequest();
-                 request.onreadystatechange = function () {
-                 var DONE = this.DONE || 4;
-                 if (this.readyState === DONE){
-                 var index;
-                 parsed = JSON.parse(request.responseText);
-                 console.log(parsed);
-                 if(parsed.trouble === 1)
-                 {
-                 alert('Не получилось загрузить маршрут');}
-                 else {
-                 //trouble === 0
-                 alert('Маршрут добавлен');
-                 window.location='http://maleshin.com/routes'
-                 }
-                 }
-                 };
-                 request.open('POST', '/actions', true);
-                 request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
-                 request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                 //Most libraries like jQuery/Prototype/Dojo do this
-                 request.send(formData);}
                  $('#submitroutebutton').click(function(){
                    submitroute();
                  });
