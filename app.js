@@ -808,7 +808,6 @@ app.post('/actions',function(req,res){
                   }
                   console.log('-------CORRBODY LENGTH IS:'+corrbody.length+'--------');
                   objects.update({bit:'route',id:newid},{$set:{routebody:corrbody}});
-                  ms.trouble=0;
                   res.redirect('http://maleshin.com/route/'+newid);
                           
                        
@@ -845,7 +844,6 @@ app.post('/actions',function(req,res){
                   }
                   console.log('-------CORRBODY LENGTH IS:'+corrbody.length+'--------');
                   objects.update({bit:'route',id:1},{$set:{routebody:corrbody}});
-                  ms.trouble=0;
                   res.redirect('http://maleshin.com/route/1');
             }
           }

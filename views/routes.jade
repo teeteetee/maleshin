@@ -84,13 +84,6 @@ head
       padding:0px;
       width:100%;
       }
-      img {
-      position:fixed;
-      height:100vh;
-      width:100vw;
-      z-index:0;
-      -webkit-filter:brightness(50%);
-      }
       .btn-default {
       background-color:transparent;
       }
@@ -130,6 +123,10 @@ head
       padding-right:10vw;
       background-color:#fff;
       } 
+      img{
+      height:3vw;
+      margin:2vh;
+      }
   body
     .container
       #header.row
@@ -159,7 +156,7 @@ head
                 h2 #{country.routecountry}   
               .col-xs-2
                 h2 #{country.routesnum}
-            .row(style='background-color:#eee;display:nonepadding:3vh;',id='#{country.routecountry}routes')  
+            .row(style='background-color:#eee;display:none;padding:3vh;',id='#{country.routecountry}routes')  
               .col-xs-12(id='#{country.routecountry}insert')
 
      
