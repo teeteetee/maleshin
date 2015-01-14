@@ -388,7 +388,8 @@ head
                  var photocount = 0;
                  $('#addroutephoto').click(function(){
                    photocount++
-                   $('#routeadditionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' id='additionalphoto"+photocount+"file' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#closeadditionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;$('#photonumroutes').val(photocount);console.log(photocount);})<\/script></div>");
+                   alert(photocount);
+                   $('#routeadditionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' id='additionalphoto"+photocount+"file' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#closeadditionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;$('#photonumroutes').val(photocount);alert(photocount);})<\/script></div>");
                    $('#photonumroutes').val(photocount);
                  });  
               .row
@@ -440,8 +441,8 @@ head
                  var midbody ='';
                  for(var rr=0;rr<daycount;rr++)
                  { var rr2 = rr+1;
-                   eval("var edh=$('#nameaddday"+rr+"').val();");
-                   eval("var edb=$('#bodyaddday"+rr+"').val();");
+                   eval("var edh=$('#nameaddday"+rr2+"').val();");
+                   eval("var edb=$('#bodyaddday"+rr2+"').val();");
                    if(rr === 0)
                    {
                    var dh ="<div class='row' style='border-top:1px solid black;border-left:1px solid black;border-right:1px solid black;'><div class='col-xs-12'><h2>"+edh+"</h2></div></div>";
