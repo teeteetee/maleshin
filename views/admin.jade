@@ -475,11 +475,16 @@ head
                  //eval("formData.append('additionalphoto"+zyh+"', file.files[0]);")
                  //}
                  $('#pictures').append("<input name='actions' value='addroute'>");
-                 $('#pictures').append("<input name='routebody' value='mainbody'>");
-                 $('#pictures').append("<input name='country' value='vcountry'>");
-                 $('#pictures').append("<input name='photonum' value='vphotonum'>");
-                 $('#pictures').append("<input name='routename' value='vroutename'>");
-                 $('#pictures').append("<input name='routedays' value='daycount'>");
+                 $('#pictures').append("<input name='routebody' id='droutebody'>");
+                 $('#droutebody').val(mainbody);
+                 $('#pictures').append("<input name='country' id='dcountry'>");
+                 $('#dcountry').val(vcountry);
+                 $('#pictures').append("<input name='photonum' id='dphotonum'>");
+                 $('#dphotonum').val(vphotonum);
+                 $('#pictures').append("<input name='routename' id='droutename'>");
+                 $('#droutename').val(vroutename);
+                 $('#pictures').append("<input name='routedays' id='droutedays'>");
+                 $('#droutedays').val(daycount);
                  $('#pictures').submit();
                  }
                  $('#submitroutebutton').click(function(){
