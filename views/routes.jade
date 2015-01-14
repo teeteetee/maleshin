@@ -210,7 +210,7 @@ head
               var redir = 'http://maleshin.com/route/';
               insert ="<div class='row route' onclick='"+redir+parsed.mbody[yy].id+"' id='route"+parsed.mbody[yy].id+"'><div class='col-xs-12' style='padding-left:0px;'><h2>"+parsed.mbody[yy].routename+"</h2></div></div>"
               console.log(insert);
-              eval("$('"+country+"insert').append(insert);");
+              console.log("$('"+country+"insert').append(insert);");
               }
               eval("$('#"+country+"routes').slideToggle();");
               }
