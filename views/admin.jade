@@ -436,6 +436,7 @@ head
                    $('#daynumroutes').val(daycount);
                  });
                  function submitroute(){ 
+                 //MAKE IT CLEAR ALL ITS VARS ONSTART SO WHEN USER DOUBLE CLICKS IT GOES OK
                  var midbody;
                  for(var rr=0;rr<daycount;rr++)
                  { var rr2 = rr+1;
@@ -473,7 +474,7 @@ head
                  //eval("var file = document.getElementById('additionalphoto"+zyh+"file');console.log(file);");
                  //eval("formData.append('additionalphoto"+zyh+"', file.files[0]);")
                  //}
-                 $('#pictures').append("<input name='actions' value='addruote'>");
+                 $('#pictures').append("<input name='actions' value='addroute'>");
                  $('#pictures').append("<input name='routebody' value='mainbody'>");
                  $('#pictures').append("<input name='country' value='vcountry'>");
                  $('#pictures').append("<input name='photonum' value='vphotonum'>");

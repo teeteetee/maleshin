@@ -725,6 +725,7 @@ app.post('/actions',function(req,res){
         });
       break;
       case('addroute'):
+        console.log('adding a route');
         var vroutename = req.body.routename;
         var vcountry = req.body.country;
         var vroutedays = parseInt(req.body.routedays);
