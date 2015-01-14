@@ -154,11 +154,14 @@ head
       #main.row.text
         .col-xs-12
           each country,i in countries
-            .row(style='border-bottom:1px solid #f7f7f7;')
+            .row(style='border-bottom:1px solid #f7f7f7;',id='#{country.routecountry}',onclick='getroutes("#{country.routecountry}");')
               .col-xs-10
                 h2 #{country.routecountry}   
               .col-xs-2
                 h2 #{country.routesnum}
+            .row(style='background-color:#eee;display:nonepadding:3vh;',id='#{country.routecountry}routes')  
+              .col-xs-12(id='#{country.routecountry}insert')
+
      
              
           script.
@@ -179,5 +182,46 @@ head
             }); 
             $('#about').click(function(){
               window.location='http://maleshin.com/about';
-            });      
+            }); 
+            function getroutes(country) {
+              $('#updaterouteblockinserts').empty();
+              console.log('requesting routes');
+              request = new XMLHttpRequest();
+              request.onreadystatechange = function () {
+              var DONE = this.DONE || 4;
+              if (this.readyState === DONE){
+              var index;
+              parsed = JSON.parse(request.responseText);
+              console.log(parsed);
+              if(parsed.trouble === 1)
+              {
+              console.log('TROUBLE === 1');
+              switch (parsed.mtext){
+              case('db'):
+              alert('Проблемы с базой данных');
+              break;
+              case('empty'):
+              alert('Нет маршрутов');
+              return;
+              break;
+              }}
+              else {
+              //trouble === 0
+              var insert ="<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2>Маршруты:</h2></div><div class='col-xs-1 closedialog' id='close"+country+"'><img src='/bootstrap/images/cross_white.png'></div></div><script>$('#close"+country+"').click(function(){$('#"+country+"routes').slideToggle();});<\/script>";
+              eval("$('#"+country+"insert').append(insert);");
+              for (var yy =0;yy<parsed.mbody.length;yy++){
+              var redir = 'http://maleshin.com/route';
+              insert ="<div class='row route' onclick='"+redir+parsed.mbody[yy].id+"' id='route"+parsed.mbody[yy].id+"'><div class='col-xs-12' style='padding-left:0px;'><h2>"+parsed.mbody[yy].routename+"</h2></div></div>"
+              eval("$('"+country+"insert').append(insert);")
+              }
+              eval("$('#"+country+"routes').slideToggle();");
+              }
+              }
+              };
+              request.open('POST', '/actions', true);
+              request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');  // Tells server that this call is made fpurposes.
+              request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              //Most libraries like jQuery/Prototype/Dojo do this
+              request.send("actions=countryroutes&country="+country);
+            }     
     

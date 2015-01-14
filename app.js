@@ -21,9 +21,8 @@ app.set('view engine', 'jade');
 app.use(multer({ dest: __dirname + '/uploads/'}));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
-app.use(express.json({limit: '50mb'}));
-app.use(express.urlencoded({limit: '50mb'}));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({limit: '50mb'}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -172,6 +171,23 @@ app.get('/routes',function(req,res){
     else{
       if(done.length>0){
         res.render('routes',{'countries':done});
+      }
+      else{
+        res.render('emptyroutes');
+      }
+    }
+  });
+});
+
+app.get('/route/:id',function(req,res){
+  var vid = req.params.id;
+  objects.findOne({bit:'route',id:vid},function(err,done){
+    if(err) {
+      res.redirect('http://maleshin.com')
+    }
+    else{
+      if(done.length>0){
+        res.render('route',{'routename':done.routename,'routebody':done.routebody});
       }
       else{
         res.render('emptyroutes');
@@ -851,6 +867,30 @@ app.post('/actions',function(req,res){
           }
         });
       break;
+      case('countryroutes'):
+      console.log('COUNTRYROUTES');
+      var vcountry = req.body.country;
+      var ms={};
+      ms.trouble = 1;
+      ms.mtext='db';
+      objects.find({routecountry:vcountry},function(err,done){
+        if(err)
+        {
+          res.send(ms);
+        }
+        else {
+           if(done.length>0){
+            ms.trouble=0;
+            ms.mbody=done;
+            res.send(ms);
+           }
+           else{
+            ms.mtext='empty';
+            res.send(ms);
+           }
+        }
+      });
+      break
       case('removeroute'):
       //dont forget to remove country from misc when it is its last route
       break;
