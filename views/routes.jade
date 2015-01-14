@@ -213,7 +213,7 @@ head
               var redir = 'http://maleshin.com/route/'+parsed.mbody[yy].id;
               insert ="<div class='row route' id='route"+parsed.mbody[yy].id+"'><div class='col-xs-10 col-xs-offset-1' style='padding-left:0px;'><h2>"+parsed.mbody[yy].routename+"</h2></div></div>";
               eval("$('#"+country+"insert').append(insert);");
-              eval("$('#"+country+"insert').attr('onclick',"+redir+");");
+              eval("$('#"+country+"insert').attr('onclick','"+redir+"'');");
               }
               eval("$('#"+country+"routes').slideToggle();");
               }
