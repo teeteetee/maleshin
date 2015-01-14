@@ -210,7 +210,7 @@ head
               var insert ="<div class='row'><div class='col-xs-10 col-xs-offset-1'><h2>Маршруты:</h2></div><div class='col-xs-1 closedialog' id='close"+country+"'><img src='/bootstrap/images/cross_white.png'></div></div><script>$('#close"+country+"').click(function(){$('#"+country+"routes').slideToggle();$('#"+country+"routes').empty();});<\/script>";
               eval("$('#"+country+"insert').append(insert);");
               for (var yy =0;yy<parsed.mbody.length;yy++){
-              var redir = 'http://maleshin.com/route/'+parsed.mbody[yy].id;
+              var redir = 'window.location="http://maleshin.com/route/'+parsed.mbody[yy].id+'"';
               insert ="<div class='row route' id='route"+parsed.mbody[yy].id+"'><div class='col-xs-10 col-xs-offset-1' style='padding-left:0px;'><h2>"+parsed.mbody[yy].routename+"</h2></div></div>";
               eval("$('#"+country+"insert').append(insert);");
               eval("$('#route"+parsed.mbody[yy].id+"').attr('onclick','"+redir+"');");
