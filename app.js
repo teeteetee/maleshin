@@ -730,6 +730,10 @@ app.post('/actions',function(req,res){
         var vroutedays = parseInt(req.body.routedays);
         var photonum = parseInt(req.body.photonum);
         var vroutebody = req.body.routebody;
+        if(!vroutename||!vcountry||!vroutebody||!photonum||!vroutedays){
+          res.send('inconsistent route details');
+          break;
+        }
         function routeupload(filepath,imageid){
                             console.log(filepath);
                             console.log('hey im here !');
@@ -747,6 +751,7 @@ app.post('/actions',function(req,res){
                             }); 
                           };
         //incrementing country's routenum
+        console.log('incrementing country');
         misc.findOne({routecountry:vcountry},function(err,cdoc){
           if(err)
           {
@@ -769,6 +774,7 @@ app.post('/actions',function(req,res){
           }
           else {
             if(doc[0].length>0){
+              console.log('custom id');
               var newid = doc[0].id +1;
               objects.insert({bit:'route',routecountry:vcountry,id:newid,routename:vroutename,routedays:vroutedays});     
               var dbinsert;
@@ -806,6 +812,7 @@ app.post('/actions',function(req,res){
                        
             }
             else{
+              console.log('ID IS GOING TO BE 1');
               objects.insert({bit:'route',routecountry:vcountry,id:1,routebody:vroutebody,routename:vroutename,routedays:vroutedays});
               var dbinsert;
               for(var xx =0;xx<photonum;xx++){
