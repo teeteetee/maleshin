@@ -771,7 +771,7 @@ app.post('/actions',function(req,res){
           }
         });
         //insert strats here
-        object.find({},{limit:1,sort:{id:-1}},function(err,doc){
+        objects.find({},{limit:1,sort:{id:-1}},function(err,doc){
           if(err) {
              res.send('db error');
           }
