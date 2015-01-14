@@ -65,6 +65,10 @@ head
       }
   body
     .container
+      // jQuery (necessary for Bootstrap's JavaScript plugins)
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
+      // Include all compiled plugins (below), or include individual files as needed
+      script(src='/bootstrap/js/bootstrap.min.js')
       script.
         function away() {
          window.location='http://maleshin.com/';
@@ -73,13 +77,40 @@ head
         .col-xs-12
           h1(style='color:#eee;') Maleshin 
             span(style='color:#c35') Admin : 
-            span(style='color:#e18282') objects 
-      .row
-        .col-xs-12(style='text-align:center;padding-top:20vh;padding-bottom:20vh;')
-          h5 Объектов нет
-     
-              
-              
+            span(style='color:#e18282') routes 
+      #drop.row(style='border-bottom:1px solid #ddd;')
+        form(method='post',action='/drop/objects',role='form' )
+          .col-xs-4
+            h5 Drop routes from objects DB
+          .col-xs-4
+            input(type='text',style='margin:1vh;',name='p')
+          .col-xs-4
+            button(style='border:1px solid #c35;border-radius:4px;margin:1vh;',type='submit')
+              h5(style='color:#c35;') Drop 
+      #results.row
+        .col-xs-12    
+          each object, i in docs
+            .row.order
+              .col-xs-1(id='object#{object.id}',style='text-align:center;background-color:#c35;')
+                h5(style='color:white') #{object.id}
+              .col-xs-11.field
+                h5 #{object.routename}
+            .row.order
+              .col-xs-2.field.white
+                h5 country
+              .col-xs-10.field
+                h5 #{object.routecountry}
+            .row.order
+              .col-xs-2.field.white
+                h5 Days
+              .col-xs-10.field
+                h5 #{object.routedays}    
+            .row.bb(style='text-align:center;')
+              .col-xs-2.field.white
+                h5 body    
+              .col-xs-10.field(style='text-align:justify;')
+                h5 #{object.routebody} 
+      
               
 
 

@@ -77,11 +77,11 @@ head
         .col-xs-12
           h1(style='color:#eee;') Maleshin 
             span(style='color:#c35') Admin : 
-            span(style='color:#e18282') posts 
+            span(style='color:#e18282') objects 
       #drop.row(style='border-bottom:1px solid #ddd;')
         form(method='post',action='/drop/objects',role='form' )
           .col-xs-4
-            h5 Drop POSTS DB
+            h5 Drop OBJECTS DB
           .col-xs-4
             input(type='text',style='margin:1vh;',name='p')
           .col-xs-4
@@ -91,7 +91,7 @@ head
         .col-xs-12    
           each object, i in docs
             .row.order
-              .col-xs-1.pointer(id='object#{object.id}',style='text-align:center;background-color:#c35;')
+              .col-xs-1(id='object#{object.id}',style='text-align:center;background-color:#c35;')
                 h5(style='color:white') #{object.id}
               .col-xs-11.field
                 h5 #{object.bit}

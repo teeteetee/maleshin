@@ -185,7 +185,8 @@ app.get('/route/:id',function(req,res){
       res.redirect('http://maleshin.com')
     }
     else{
-      if(done.length>0){
+      if(done){
+        console.log(done);
         res.render('route',{'routename':done.routename,'routebody':done.routebody});
       }
       else{
@@ -287,17 +288,17 @@ app.get('/ap',function(req,res){
 });
 
 app.get('/pp',function(req,res){
-  objects.find({},function(err,docs){
+  objects.find({bit:'route'},function(err,docs){
         if (err) {res.send('error');}
         else {
              if (docs.length>0)
                            {
                            console.log(docs);
-                           res.render('adminobjects',{'docs' : docs});
+                           res.render('adminroutes',{'docs' : docs});
                             }
       
               else {
-                    res.render('emptyadminobjects.jade');
+                    res.render('emptyadminroutes.jade');
                    }
               }
     });
@@ -451,7 +452,7 @@ app.post('/drop/:cc',function(req,res){
               }
               else
               { 
-        res.redirect('/redact');
+        res.redirect('/pp');
               }
               });
       break;
