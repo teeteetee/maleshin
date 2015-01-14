@@ -22,7 +22,6 @@ app.use(multer({ dest: __dirname + '/uploads/'}));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.urlencoded({limit: '50mb'}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
