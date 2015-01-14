@@ -382,13 +382,13 @@ head
                   button(type='button',id='addroutephoto',style='border:1px solid white;border-radius:4px;')
                     h5 Добавить
               .row
-                form(id='pictures',method='post',action='/actions')
+                form(id='pictures',method='post',action='/actions',enctype='multipart/form-data')
                   #routeadditionalphotoinsert.col-xs-12 
               script.  
                  var photocount = 0;
                  $('#addroutephoto').click(function(){
                    photocount++
-                   $('#routeadditionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' id='additionalphoto"+photocount+"file' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#closeadditionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;$('#photonumroutes').val(photocount);alert(photocount);})<\/script></div>");
+                   $('#routeadditionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' id='additionalphoto"+photocount+"file' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#closeadditionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;$('#photonumroutes').val(photocount);})<\/script></div>");
                    $('#photonumroutes').val(photocount);
                  });  
               .row
