@@ -443,12 +443,17 @@ head
                  { var rr2 = rr+1;
                    eval("var edh=$('#nameaddday"+rr2+"').val();");
                    eval("var edb=$('#bodyaddday"+rr2+"').val();");
-                   alert('rr2 is:'+rr2+',edh is: '+edh+', edb is: '+edb);
                    if(rr === 0)
                    {
+                    if(daycount===1)
+                   {var dh ="<div class='row' style='border-bottom:1px solid black;border-top:1px solid black;border-left:1px solid black;border-right:1px solid black;'><div class='col-xs-12'><h2>"+edh+"</h2></div></div>";
+                   var db ="<div class='row' style='border-bottom:1px solid black;border-top:1px solid black;border-left:1px solid black;border-right:1px solid black;text-align:justify;'><div class='col-xs-12'><p>"+edh+"</p></div></div>";
+                   midbody = dh+db;}
+                   else {
                    var dh ="<div class='row' style='border-top:1px solid black;border-left:1px solid black;border-right:1px solid black;'><div class='col-xs-12'><h2>"+edh+"</h2></div></div>";
                    var db ="<div class='row' style='border-top:1px solid black;border-left:1px solid black;border-right:1px solid black;text-align:justify;'><div class='col-xs-12'><p>"+edh+"</p></div></div>";
                    midbody = dh+db;
+                   }
                    }
                    else
                    {
@@ -478,21 +483,16 @@ head
                  //}
                  $('#pictures').append("<input style='display:none;' name='actions' value='addroute'>");
                  $('#pictures').append("<input style='display:none;' name='routebody' id='droutebody'>");
-                 alert(mainbody);
                  $('#droutebody').val(mainbody);
                  $('#pictures').append("<input style='display:none;' name='country' id='dcountry'>");
-                 alert(vcountry);
                  $('#dcountry').val(vcountry);
                  $('#pictures').append("<input style='display:none;' name='photonum' id='dphotonum'>");
-                 alert(vphotonum);
                  $('#dphotonum').val(vphotonum);
                  $('#pictures').append("<input style='display:none;' name='routename' id='droutename'>");
-                 alert(vroutename);
                  $('#droutename').val(vroutename);
                  $('#pictures').append("<input style='display:none;' name='routedays' id='droutedays'>");
-                 alert(daycount);
                  $('#droutedays').val(daycount);
-                 //$('#pictures').submit();
+                 $('#pictures').submit();
                  }
                  $('#submitroutebutton').click(function(){
                    submitroute();
