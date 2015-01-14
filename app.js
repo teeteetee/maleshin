@@ -885,6 +885,7 @@ app.post('/actions',function(req,res){
         }
         else {
            if(done.length>0){
+            console.log(done);
             ms.trouble=0;
             ms.mbody=done;
             res.send(ms);
