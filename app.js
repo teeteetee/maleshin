@@ -286,6 +286,23 @@ app.get('/ap',function(req,res){
     });
 });
 
+app.get('/pp',function(req,res){
+  objects.find({},function(err,docs){
+        if (err) {res.send('error');}
+        else {
+             if (docs.length>0)
+                           {
+                           console.log(docs);
+                           res.render('adminobjects',{'docs' : docs});
+                            }
+      
+              else {
+                    res.render('emptyadminobjects.jade');
+                   }
+              }
+    });
+});
+
 app.post('/dropp/:id',function(req,res){
   var vid = parseInt(req.params.id);
   console.log('DELETING SINGLE POST ID: '+vid);
