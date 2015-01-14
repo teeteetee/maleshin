@@ -388,7 +388,6 @@ head
                  var photocount = 0;
                  $('#addroutephoto').click(function(){
                    photocount++
-                   alert(photocount);
                    $('#routeadditionalphotoinsert').append("<div id='additionalphoto"+photocount+"' class='row'><div class='col-xs-6'><input class='form-control' type='file' style='margin:2vh;' id='additionalphoto"+photocount+"file' name='additionalphoto"+photocount+"'></div><div id='closeadditionalphoto"+photocount+"' class='closedialog col-xs-1'><img src='/bootstrap/images/cross_white.png'></div><script>$('#closeadditionalphoto"+photocount+"').click(function(){$('#additionalphoto"+photocount+"').remove();photocount--;$('#photonumroutes').val(photocount);alert(photocount);})<\/script></div>");
                    $('#photonumroutes').val(photocount);
                  });  

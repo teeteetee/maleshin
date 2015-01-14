@@ -776,7 +776,7 @@ app.post('/actions',function(req,res){
              res.send('db error');
           }
           else {
-            if(doc[0].length>0){
+            if(doc[0]){
               console.log('custom id');
               var newid = doc[0].id +1;
               objects.insert({bit:'route',routecountry:vcountry,id:newid,routename:vroutename,routedays:vroutedays});     
