@@ -293,7 +293,6 @@ app.get('/pp',function(req,res){
         else {
              if (docs.length>0)
                            {
-                           console.log(docs);
                            res.render('adminroutes',{'docs' : docs});
                             }
       
@@ -434,10 +433,11 @@ app.post('/drop/:cc',function(req,res){
                 rmDir(__dirname + '/public/routeimages',false);
                 misc.remove({bit:'country'},function(err,twodone){
                   if(err){
-                    res.send('everything deleted except countries in misc');
+                    res.send('failed to clean up countries');
+
                   }
                   else {
-                      res.redirect('/ap');
+                      res.redirect('/pp');
                   }
                 });
               }
