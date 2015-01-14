@@ -179,7 +179,7 @@ app.get('/routes',function(req,res){
 });
 
 app.get('/route/:id',function(req,res){
-  var vid = req.params.id;
+  var vid = parseInt(req.params.id);
   objects.findOne({bit:'route',id:vid},function(err,done){
     if(err) {
       res.redirect('http://maleshin.com')
@@ -190,8 +190,19 @@ app.get('/route/:id',function(req,res){
         res.render('route',{'routename':done.routename,'routebody':done.routebody});
       }
       else{
-        res.render('emptyroutes');
+        res.redirect('http://maleshin.com/routes');
       }
+    }
+  });
+});
+
+app.get('/emg',function(res,req){
+  objects.findOne({bit:'route',id:1},function(err,done){
+    if(err){
+      res.send('db err');
+    }
+    else {
+      res.send(done);
     }
   });
 });
