@@ -196,7 +196,7 @@ app.get('/route/:id',function(req,res){
   });
 });
 
-app.get('/emg',function(res,req){
+app.get('/emg',function(req,res){
   objects.findOne({bit:'route',id:1},function(err,done){
     if(err){
       res.send('db err');
