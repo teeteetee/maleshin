@@ -731,10 +731,12 @@ app.post('/actions',function(req,res){
         var vroutedays = parseInt(req.body.routedays);
         var photonum = parseInt(req.body.photonum);
         var vroutebody = req.body.routebody;
-        if(!vroutename||!vcountry||!vroutebody||!photonum||!vroutedays){
-          res.send('inconsistent route details');
-          break;
-        }
+        console.log('routename: '+vroutename);
+        console.log('country: '+vcountry);
+        console.log('routedays: '+vroutedays);
+        console.log('photonum: '+photonum);
+        console.log('routebody: '+vroutebody);
+        console.log('---------------------------------------------------');
         function routeupload(filepath,imageid){
                             console.log(filepath);
                             console.log('hey im here !');
