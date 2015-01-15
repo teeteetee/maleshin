@@ -202,11 +202,12 @@ app.get('/lastpost',function(req,res){
       //CRY
     }
     else{
-       sendposts=[];
-      for(var xx=0;xx<done.length;xx++){
-        eval("sendposts.push(done["+xx+"].postbody);");
-      }
-      res.send(sendposts);
+      // sendposts=[];
+      //for(var xx=0;xx<done.length;xx++){
+      //  eval("sendposts.push(done["+xx+"].postbody);");
+      //}
+      //res.send(sendposts);
+      res.send(done);
     }
   });
 });
