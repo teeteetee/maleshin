@@ -197,7 +197,7 @@ app.get('/route/:id',function(req,res){
 });
 
 app.get('/lastpost',function(req,res){
-  posts.find({},function(err,done){
+  objects.find({},function(err,done){
     if(err){
       //CRY
     }
