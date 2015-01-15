@@ -196,6 +196,17 @@ app.get('/route/:id',function(req,res){
   });
 });
 
+app.get('/lastpost',function(req,res){
+  posts.findOne({id:4},function(err,done){
+    if(err){
+      //CRY
+    }
+    else{
+      res.send(done.postbody);
+    }
+  });
+});
+
 app.get('/emg',function(req,res){
   objects.findOne({bit:'route',id:1},function(err,done){
     if(err){
