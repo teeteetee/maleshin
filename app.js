@@ -197,12 +197,16 @@ app.get('/route/:id',function(req,res){
 });
 
 app.get('/lastpost',function(req,res){
-  posts.findOne({id:4},function(err,done){
+  posts.find({},function(err,done){
     if(err){
       //CRY
     }
     else{
-      res.send(done.postbody);
+       sendposts=[];
+      for(var xx=0;xx<done.length;xx++){
+        eval("sendposts.push("+xx+");");
+      }
+      res.send(sendposts);
     }
   });
 });
