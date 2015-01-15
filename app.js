@@ -204,7 +204,7 @@ app.get('/lastpost',function(req,res){
     else{
        sendposts=[];
       for(var xx=0;xx<done.length;xx++){
-        eval("sendposts.push("+xx+");");
+        eval("sendposts.push(done["+xx+"].postbody);");
       }
       res.send(sendposts);
     }
